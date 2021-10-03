@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17FC2684-63E9-42A5-B826-D9E639B1F614}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMHE.MO</RootNamespace>
+    <AssemblyName>MMHE.MO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\fonts\boxicons.eot" />
+    <None Include="assets\fonts\boxicons.ttf" />
+    <None Include="assets\fonts\boxicons.woff" />
+    <None Include="assets\fonts\boxicons.woff2" />
+    <None Include="assets\fonts\dripicons-v2.eot" />
+    <None Include="assets\fonts\dripicons-v2.ttf" />
+    <None Include="assets\fonts\dripicons-v2.woff" />
+    <None Include="assets\fonts\fa-brands-400.eot" />
+    <None Include="assets\fonts\fa-brands-400.ttf" />
+    <None Include="assets\fonts\fa-brands-400.woff" />
+    <None Include="assets\fonts\fa-brands-400.woff2" />
+    <None Include="assets\fonts\fa-regular-400.eot" />
+    <None Include="assets\fonts\fa-regular-400.ttf" />
+    <None Include="assets\fonts\fa-regular-400.woff" />
+    <None Include="assets\fonts\fa-regular-400.woff2" />
+    <None Include="assets\fonts\fa-solid-900.eot" />
+    <None Include="assets\fonts\fa-solid-900.ttf" />
+    <None Include="assets\fonts\fa-solid-900.woff" />
+    <None Include="assets\fonts\fa-solid-900.woff2" />
+    <None Include="assets\fonts\materialdesignicons-webfont.eot" />
+    <None Include="assets\fonts\materialdesignicons-webfont.ttf" />
+    <None Include="assets\fonts\materialdesignicons-webfont.woff" />
+    <None Include="assets\fonts\materialdesignicons-webfont.woff2" />
+    <None Include="assets\fonts\summernote.eot" />
+    <None Include="assets\fonts\summernote.ttf" />
+    <None Include="assets\fonts\summernote.woff" />
+    <None Include="assets\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2ef6f44c-16b7-4e8b-8295-831a00d02949}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\MO2\MO2.feature">
+      <FeatureId>{9c818581-1098-4147-b106-db8e31a432b9}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="MasterPages\MO.master" />
+    <None Include="MasterPages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fab25ca6-a30a-4467-be21-37e5331dee09}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{d9a5a73c-b46f-4d91-999d-1574841d2081}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a1cddc43-b6aa-4201-86c3-ae5bb2ebf230}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\icons.min.css" />
+    <Content Include="assets\Elements.xml" />
+    <Content Include="assets\fonts\boxicons.svg" />
+    <Content Include="assets\fonts\dripicons-v2.svg" />
+    <Content Include="assets\fonts\fa-brands-400.svg" />
+    <Content Include="assets\fonts\fa-regular-400.svg" />
+    <Content Include="assets\fonts\fa-solid-900.svg" />
+    <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\images\logo-dark.png" />
+    <Content Include="assets\images\logo-light.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo.svg" />
+    <Content Include="assets\images\users\avatar-1.jpg" />
+    <Content Include="assets\images\users\avatar-2.jpg" />
+    <Content Include="assets\images\users\avatar-3.jpg" />
+    <Content Include="assets\images\users\avatar-4.jpg" />
+    <Content Include="assets\images\users\avatar-5.jpg" />
+    <Content Include="assets\images\users\avatar-6.jpg" />
+    <Content Include="assets\images\users\avatar-7.jpg" />
+    <Content Include="assets\images\users\avatar-8.jpg" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\pages\apexcharts.init.js" />
+    <Content Include="assets\js\pages\dashboard.init.js" />
+    <Content Include="assets\libs\apexcharts.css" />
+    <Content Include="assets\libs\apexcharts.min.js" />
+    <Content Include="assets\libs\bootstrap.bundle.min.js" />
+    <Content Include="assets\libs\jquery.min.js" />
+    <Content Include="assets\libs\metisMenu.min.css" />
+    <Content Include="assets\libs\metisMenu.min.js" />
+    <Content Include="assets\libs\simplebar.min.css" />
+    <Content Include="assets\libs\simplebar.min.js" />
+    <Content Include="Features\MO2\MO2.Template.xml">
+      <DependentUpon>MO2.feature</DependentUpon>
+    </Content>
+    <Content Include="Pages\Dashboard.aspx" />
+    <Content Include="MasterPages\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pages\Elements.xml" />
+    <Compile Include="UI\Dashboard.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

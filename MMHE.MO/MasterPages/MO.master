@@ -1,0 +1,1023 @@
+﻿<!DOCTYPE html>
+<%@ Master Language="C#" %>
+
+<%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>
+<%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="wssuc" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="MUISelector" Src="~/_controltemplates/15/MUISelector.ascx" %>
+<%@ Register TagPrefix="wssuc" TagName="DesignModeConsole" Src="~/_controltemplates/15/DesignModeConsole.ascx" %>
+
+<html lang="en" runat="server" class="mmhe">
+<head runat="server">
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0" />
+    <SharePoint:RobotsMetaTag runat="server" />
+    <title id="onetidTitle">
+        <asp:ContentPlaceHolder ID="PlaceHolderPageTitle" runat="server" />
+    </title>
+    <SharePoint:CssLink runat="server" Version="4"  />
+    <SharePoint:Theme runat="server" Visible="false"  />
+    <SharePoint:ULSClientConfig runat="server" />
+    <script type="text/javascript">
+        var _fV4UI = true;
+    </script>
+    <SharePoint:ScriptLink Language="javascript" Name="core.js" Localizable="false" OnDemand="true" runat="server" />
+    <SharePoint:CustomJSUrl runat="server" />
+    <SharePoint:SoapDiscoveryLink runat="server" />
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+    <SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true" />
+    <asp:ContentPlaceHolder ID="PlaceHolderBodyAreaClass" runat="server" />
+    <asp:ContentPlaceHolder ID="PlaceHolderTitleAreaClass" runat="server" />
+    <SharePoint:SPPageManager runat="server" />
+    <SharePoint:SPHelpPageComponent Visible="false" runat="server" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../../Style Library/assets/images/favicon.png" />
+    <!-- Bootstrap Css -->
+    <link href="../../Style Library/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Icons Css -->
+    <link href="../../Style Library/assets/css/icons.min.css" rel="stylesheet" />
+    <!-- App Css-->
+    <link href="../../Style Library/assets/css/app.css" rel="stylesheet" />
+    <style type="text/css">
+        #s4-titlerow {
+            display: none !important;
+        }
+
+        .s4-ca {
+            margin-left: 0 !important;
+        }
+
+        .mmhe body[data-layout="horizontal"] .navbar-brand-box {
+            margin-top: 15px;
+        }
+        a:link
+        {
+            color:#fff !important;
+        }
+    </style>
+</head>
+<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal">
+    <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
+        <WebPartPages:SPWebPartManager ID="m" runat="Server" />
+        <SharePoint:SPNoScript runat="server" />
+        <div id="TurnOnAccessibility" style="display: none" class="s4-notdlg noindex">
+            <a id="linkTurnOnAcc" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,master_turnonaccessibility%>" EncodeMethod="HtmlEncode" /></a>
+        </div>
+        <div id="TurnOffAccessibility" style="display: none" class="s4-notdlg noindex">
+            <a id="linkTurnOffAcc" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,master_turnoffaccessibility%>" EncodeMethod="HtmlEncode" /></a>
+        </div>
+        <div class="s4-notdlg s4-skipribbonshortcut noindex">
+            <a href="javascript:;" onclick="javascript:this.href='#startNavigation';" class="ms-SkiptoNavigation" accesskey="<%$Resources:wss,skipribbon_accesskey%>" runat="server">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,skipRibbonCommandsLink%>" EncodeMethod="HtmlEncode" /></a>
+        </div>
+        <div class="s4-notdlg noindex">
+            <a href="javascript:;" onclick="javascript:this.href='#mainContent';" class="ms-SkiptoMainContent" accesskey="<%$Resources:wss,maincontent_accesskey%>" runat="server">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,mainContentLink%>" EncodeMethod="HtmlEncode" /></a>
+        </div>
+        <a id="HiddenAnchor" href="javascript:;" style="display: none;"></a>
+        <SharePoint:DelegateControl runat="server" ControlId="GlobalNavigation" />
+        <div id="s4-ribbonrow" class="s4-pr s4-ribbonrowhidetitle" style="display: none">
+            <div id="s4-ribboncont">
+                <SharePoint:SPRibbon
+                    runat="server"
+                    PlaceholderElementId="RibbonContainer"
+                    CssFile="">
+                    <SharePoint:SPRibbonPeripheralContent
+                        runat="server"
+                        Location="TabRowLeft"
+                        CssClass="ms-siteactionscontainer s4-notdlg">
+                        <span class="ms-siteactionsmenu" id="siteactiontd">
+                            <SharePoint:SiteActions runat="server" AccessKey="<%$Resources:wss,tb_SiteActions_AK%>" ID="SiteActionsMenuMain"
+                                PrefixHtml=""
+                                SuffixHtml=""
+                                MenuNotVisibleHtml="&amp;nbsp;">
+                                <CustomTemplate>
+                                    <SharePoint:FeatureMenuTemplate runat="server"
+                                        FeatureScope="Site"
+                                        Location="Microsoft.SharePoint.StandardMenu"
+                                        GroupId="SiteActions"
+                                        UseShortId="true">
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_EditPage"
+                                            Text="<%$Resources:wss,siteactions_editpage%>"
+                                            Description="<%$Resources:wss,siteactions_editpagedescriptionv4%>"
+                                            ImageUrl="/_layouts/images/ActionsEditPage.png"
+                                            MenuGroupId="100"
+                                            Sequence="110"
+                                            ClientOnClickNavigateUrl="javascript:ChangeLayoutMode(false);" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_TakeOffline"
+                                            Text="<%$Resources:wss,siteactions_takeoffline%>"
+                                            Description="<%$Resources:wss,siteactions_takeofflinedescription%>"
+                                            ImageUrl="/_layouts/images/connecttospworkspace32.png"
+                                            MenuGroupId="100"
+                                            Sequence="120" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_CreatePage"
+                                            Text="<%$Resources:wss,siteactions_createpage%>"
+                                            Description="<%$Resources:wss,siteactions_createpagedesc%>"
+                                            ImageUrl="/_layouts/images/NewContentPageHH.png"
+                                            MenuGroupId="200"
+                                            Sequence="210"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="if (LaunchCreateHandler('Page')) { OpenCreateWebPageDialog('~site/_layouts/15/createwebpage.aspx') }"
+                                            PermissionsString="AddListItems, EditListItems"
+                                            PermissionMode="All" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_CreateDocLib"
+                                            Text="<%$Resources:wss,siteactions_createdoclib%>"
+                                            Description="<%$Resources:wss,siteactions_createdoclibdesc%>"
+                                            ImageUrl="/_layouts/images/NewDocLibHH.png"
+                                            MenuGroupId="200"
+                                            Sequence="220"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="if (LaunchCreateHandler('DocLib')) { GoToPage('~site/_layouts/15/new.aspx?FeatureId={00bfea71-e717-4e80-aa17-d0c71b360101}&amp;ListTemplate=101') }"
+                                            PermissionsString="ManageLists"
+                                            PermissionMode="Any"
+                                            VisibilityFeatureId="00BFEA71-E717-4E80-AA17-D0C71B360101" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_CreateSite"
+                                            Text="<%$Resources:wss,siteactions_createsite%>"
+                                            Description="<%$Resources:wss,siteactions_createsitedesc%>"
+                                            ImageUrl="/_layouts/images/newweb32.png"
+                                            MenuGroupId="200"
+                                            Sequence="230"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="if (LaunchCreateHandler('Site')) { STSNavigate('~site/_layouts/15/newsbweb.aspx') }"
+                                            PermissionsString="ManageSubwebs,ViewFormPages"
+                                            PermissionMode="All" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_Create"
+                                            Text="<%$Resources:wss,siteactions_create%>"
+                                            Description="<%$Resources:wss,siteactions_createdesc%>"
+                                            MenuGroupId="200"
+                                            Sequence="240"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="if (LaunchCreateHandler('All')) { STSNavigate('~site/_layouts/15/create.aspx') }"
+                                            PermissionsString="ManageLists, ManageSubwebs"
+                                            PermissionMode="Any" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_ViewAllSiteContents"
+                                            Text="<%$Resources:wss,quiklnch_allcontent%>"
+                                            Description="<%$Resources:wss,siteactions_allcontentdescription%>"
+                                            ImageUrl="/_layouts/images/allcontent32.png"
+                                            MenuGroupId="300"
+                                            Sequence="302"
+                                            UseShortId="true"
+                                            ClientOnClickNavigateUrl="~site/_layouts/15/viewlsts.aspx"
+                                            PermissionsString="ViewFormPages"
+                                            PermissionMode="Any" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_EditSite"
+                                            Text="<%$Resources:wss,siteactions_editsite%>"
+                                            Description="<%$Resources:wss,siteactions_editsitedescription%>"
+                                            ImageUrl="/_layouts/images/SharePointDesigner32.png"
+                                            MenuGroupId="300"
+                                            Sequence="304"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="EditInSPD('~site/',true);"
+                                            PermissionsString="AddAndCustomizePages"
+                                            PermissionMode="Any" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_SitePermissions"
+                                            Text="<%$Resources:wss,people_sitepermissions%>"
+                                            Description="<%$Resources:wss,siteactions_sitepermissiondescriptionv4%>"
+                                            ImageUrl="/_layouts/images/Permissions32.png"
+                                            MenuGroupId="300"
+                                            Sequence="310"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="GoToPage('~site/_layouts/user.aspx')"
+                                            PermissionsString="ViewPages"
+                                            PermissionMode="Any" />
+                                        <SharePoint:MenuItemTemplate runat="server" ID="MenuItem_Settings"
+                                            Text="<%$Resources:wss,settings_pagetitle%>"
+                                            Description="<%$Resources:wss,siteactions_sitesettingsdescriptionv4%>"
+                                            ImageUrl="/_layouts/images/settingsIcon.png"
+                                            MenuGroupId="300"
+                                            Sequence="320"
+                                            UseShortId="true"
+                                            ClientOnClickScriptContainingPrefixedUrl="GoToPage('~site/_layouts/settings.aspx')"
+                                            PermissionsString="EnumeratePermissions,ManageWeb,ManageSubwebs,AddAndCustomizePages,ApplyThemeAndBorder,ManageAlerts,ManageLists,ViewUsageData"
+                                            PermissionMode="Any" />
+                                    </SharePoint:FeatureMenuTemplate>
+                                </CustomTemplate>
+                            </SharePoint:SiteActions>
+                        </span>
+                        <asp:ContentPlaceHolder ID="PlaceHolderGlobalNavigation" runat="server">
+                            <SharePoint:PopoutMenu
+                                runat="server"
+                                ID="GlobalBreadCrumbNavPopout"
+                                IconUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                IconAlt="<%$Resources:wss,master_breadcrumbIconAlt%>"
+                                IconOffsetX="0"
+                                IconOffsetY="16"
+                                IconWidth="16"
+                                IconHeight="16"
+                                AnchorCss="s4-breadcrumb-anchor"
+                                AnchorOpenCss="s4-breadcrumb-anchor-open"
+                                MenuCss="s4-breadcrumb-menu">
+                                <div class="s4-breadcrumb-top">
+                                    <asp:Label runat="server" CssClass="s4-breadcrumb-header" Text="<%$Resources:wss,master_breadcrumbHeader%>" />
+                                </div>
+                                <asp:ContentPlaceHolder ID="PlaceHolderTitleBreadcrumb" runat="server">
+                                    <SharePoint:ListSiteMapPath
+                                        runat="server"
+                                        SiteMapProviders="SPSiteMapProvider,SPContentMapProvider"
+                                        RenderCurrentNodeAsLink="false"
+                                        PathSeparator=""
+                                        CssClass="s4-breadcrumb"
+                                        NodeStyle-CssClass="s4-breadcrumbNode"
+                                        CurrentNodeStyle-CssClass="s4-breadcrumbCurrentNode"
+                                        RootNodeStyle-CssClass="s4-breadcrumbRootNode"
+                                        NodeImageOffsetX="0"
+                                        NodeImageOffsetY="289"
+                                        NodeImageWidth="16"
+                                        NodeImageHeight="16"
+                                        NodeImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                        RTLNodeImageOffsetX="0"
+                                        RTLNodeImageOffsetY="312"
+                                        RTLNodeImageWidth="16"
+                                        RTLNodeImageHeight="16"
+                                        RTLNodeImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                        HideInteriorRootNodes="true"
+                                        SkipLinkText="" />
+                                </asp:ContentPlaceHolder>
+                            </SharePoint:PopoutMenu>
+                            <div class="s4-die">
+                                <asp:ContentPlaceHolder ID="PlaceHolderGlobalNavigationSiteMap" runat="server" Visible="false">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </asp:ContentPlaceHolder>
+                        <SharePoint:PageStateActionButton ID="PageStateActionButton" runat="server" Visible="false" />
+                    </SharePoint:SPRibbonPeripheralContent>
+                    <SharePoint:SPRibbonPeripheralContent
+                        runat="server"
+                        Location="TabRowRight"
+                        ID="RibbonTabRowRight"
+                        CssClass="s4-trc-container s4-notdlg">
+                        <SharePoint:DelegateControl runat="server" ID="GlobalDelegate0" ControlId="GlobalSiteLink0" />
+                        <a href="#" tabindex="-1" style="display: none"></a><a href="#" tabindex="-1" style="display: none"></a>
+                        <div class="s4-trc-container-menu">
+                            <div>
+                                <wssuc:Welcome id="IdWelcome" runat="server" EnableViewState="false">
+                                </wssuc:Welcome>
+                                <wssuc:MUISelector ID="IdMuiSelector" runat="server" />
+                            </div>
+                        </div>
+                        <SharePoint:DelegateControl ControlId="GlobalSiteLink2" ID="GlobalDelegate2" Scope="Farm" runat="server" />
+                        <span>
+                            <span class="s4-devdashboard">
+                                <SharePoint:DeveloperDashboardLauncher
+                                    ID="DeveloperDashboardLauncher"
+                                    ThemeKey="fgimg"
+                                    NavigateUrl="javascript:return false"
+                                    OnClick="ToggleDeveloperDashboard(window.g_ddHostBase);return false"
+                                    runat="server"
+                                    ImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                    Text="<%$Resources:wss,multipages_launchdevdashalt_text%>"
+                                    OffsetX="0"
+                                    OffsetY="126"
+                                    Height="16"
+                                    Width="16" />
+                            </span>
+                        </span>
+                    </SharePoint:SPRibbonPeripheralContent>
+                </SharePoint:SPRibbon>
+            </div>
+            <div id="notificationArea" class="s4-noti">
+            </div>
+            <asp:ContentPlaceHolder ID="SPNavigation" runat="server">
+                <SharePoint:DelegateControl runat="server" ControlId="PublishingConsole" ID="PublishingConsoleDelegate">
+                </SharePoint:DelegateControl>
+            </asp:ContentPlaceHolder>
+            <div id="WebPartAdderUpdatePanelContainer">
+                <asp:UpdatePanel
+                    ID="WebPartAdderUpdatePanel"
+                    UpdateMode="Conditional"
+                    ChildrenAsTriggers="false"
+                    runat="server">
+                    <ContentTemplate>
+                        <WebPartPages:WebPartAdder ID="WebPartAdder" runat="server" />
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:PostBackTrigger ControlID="WebPartAdder" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+        <div id="s4-workspace">
+            <div id="s4-bodyContainer">
+                <div id="s4-titlerow" class="s4-pr s4-notdlg s4-titlerowhidetitle" style="display: none">
+                    <div class="s4-title s4-lp">
+                        <div class="s4-title-inner">
+                            <table class="s4-titletable" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="s4-titlelogo">
+                                            <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/" ID="onetidProjectPropertyTitleGraphic">
+                                                <SharePoint:SiteLogoImage name="onetidHeadbnnr0" ID="onetidHeadbnnr2" LogoImageUrl="/_layouts/15/images/siteIcon.png?rev=40" runat="server" />
+                                            </SharePoint:SPLinkButton>
+                                        </td>
+                                        <td class="s4-titletext">
+                                            <h1 name="onetidProjectPropertyTitle">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderSiteName" runat="server">
+                                                    <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/" ID="onetidProjectPropertyTitle">
+                                                        <SharePoint:ProjectProperty Property="Title" runat="server" />
+                                                    </SharePoint:SPLinkButton>
+                                                </asp:ContentPlaceHolder>
+                                            </h1>
+                                            <span id="onetidPageTitleSeparator" class="s4-nothome s4-bcsep s4-titlesep">
+                                                <SharePoint:ClusteredDirectionalSeparatorArrow runat="server" />
+                                            </span>
+                                            <h2>
+                                                <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInTitleArea" runat="server" />
+                                            </h2>
+                                            <div class="s4-pagedescription" tabindex="0">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderPageDescription" runat="server" />
+                                            </div>
+                                        </td>
+                                        <td class="s4-socialdata-notif">
+                                            <SharePoint:DelegateControl ControlId="GlobalSiteLink3" Scope="Farm" runat="server" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="s4-topheader2" class="s4-pr s4-notdlg">
+                        <a name="startNavigation"></a>
+                        <div id="s4-searcharea" class="s4-search s4-rp">
+                            <asp:ContentPlaceHolder ID="PlaceHolderSearchArea" runat="server">
+                                <h2 class="ms-hidden">
+                                    <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,topnav_pagetitle%>" EncodeMethod="HtmlEncode" /></h2>
+                                <SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox" Version="4" />
+                            </asp:ContentPlaceHolder>
+                            <span class="s4-help">
+                                <span style="height: 17px; width: 17px; position: relative; display: inline-block; overflow: hidden;" class="s4-clust"><a href="#" style="height: 17px; width: 17px; display: inline-block;" onclick="TopHelpButtonClick('HelpHome');return false" accesskey="<%$Resources:wss,multipages_helplink_accesskey%>" id="TopHelpLink" title="<%$Resources:wss,multipages_helplinkalt_text%>" runat="server">
+                                    <img src="/_layouts/15/images/fgimg.png?rev=40" alt="<%$Resources:wss,multipages_helplinkalt_text%>" style="left: -0px !important; top: -245px !important; position: absolute;" align="absmiddle" border="0" runat="server" />
+                                </a></span>
+                            </span>
+                        </div>
+                        <div class="s4-rp s4-app">
+                        </div>
+                        <div class="s4-lp s4-toplinks">
+                            <asp:ContentPlaceHolder ID="PlaceHolderTopNavBar" runat="server">
+                                <asp:ContentPlaceHolder ID="PlaceHolderHorizontalNav" runat="server">
+                                    <SharePoint:AspMenu
+                                        ID="TopNavigationMenuV4"
+                                        runat="server"
+                                        EnableViewState="false"
+                                        DataSourceID="topSiteMap"
+                                        AccessKey="<%$Resources:wss,navigation_accesskey%>"
+                                        UseSimpleRendering="true"
+                                        UseSeparateCSS="false"
+                                        Orientation="Horizontal"
+                                        StaticDisplayLevels="2"
+                                        AdjustForShowStartingNode="true"
+                                        MaximumDynamicDisplayLevels="2"
+                                        SkipLinkText=""
+                                        CssClass="s4-tn" />
+                                    <SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" ID="topNavigationDelegate">
+                                        <Template_Controls>
+                                            <asp:SiteMapDataSource
+                                                ShowStartingNode="False"
+                                                SiteMapProvider="SPNavigationProvider"
+                                                ID="topSiteMap"
+                                                runat="server"
+                                                StartingNodeUrl="sid:1002" />
+                                        </Template_Controls>
+                                    </SharePoint:DelegateControl>
+                                </asp:ContentPlaceHolder>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <div id="s4-statusbarcontainer" style="display: none">
+                    <div id="pageStatusBar" class="s4-status-s1">
+                    </div>
+                </div>
+                <div id="s4-mainarea" class="s4-pr s4-widecontentarea">
+                    <div id="s4-leftpanel" class="s4-notdlg" style="display: none;">
+                        <div id="s4-leftpanel-content">
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarDataSource" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderCalendarNavigator" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftActions" runat="server"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarTop" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBar" runat="server">
+                                <div class="ms-quicklaunchouter">
+                                    <div class="ms-quickLaunch">
+                                        <h2 class="ms-hidden">
+                                            <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,quiklnch_pagetitle%>" EncodeMethod="HtmlEncode" /></h2>
+                                        <asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchTop" runat="server" />
+                                        <SharePoint:SPNavigationManager
+                                            ID="QuickLaunchNavigationManager"
+                                            runat="server"
+                                            QuickLaunchControlId="V4QuickLaunchMenu"
+                                            ContainedControl="QuickLaunch"
+                                            EnableViewState="false"
+                                            CssClass="ms-quicklaunch-navmgr">
+                                            <div>
+                                                <SharePoint:DelegateControl runat="server"
+                                                    ControlId="QuickLaunchDataSource">
+                                                    <Template_Controls>
+                                                        <asp:SiteMapDataSource
+                                                            SiteMapProvider="SPNavigationProvider"
+                                                            ShowStartingNode="False"
+                                                            ID="QuickLaunchSiteMap"
+                                                            StartingNodeUrl="sid:1025"
+                                                            runat="server" />
+                                                    </Template_Controls>
+                                                </SharePoint:DelegateControl>
+                                                <SharePoint:AspMenu
+                                                    ID="V4QuickLaunchMenu"
+                                                    runat="server"
+                                                    EnableViewState="false"
+                                                    DataSourceID="QuickLaunchSiteMap"
+                                                    UseSimpleRendering="true"
+                                                    UseSeparateCSS="false"
+                                                    Orientation="Vertical"
+                                                    StaticDisplayLevels="3"
+                                                    AdjustForShowStartingNode="true"
+                                                    MaximumDynamicDisplayLevels="0"
+                                                    SkipLinkText=""
+                                                    CssClass="s4-ql" />
+                                            </div>
+                                        </SharePoint:SPNavigationManager>
+                                        <SharePoint:SPNavigationManager
+                                            ID="TreeViewNavigationManagerV4"
+                                            runat="server"
+                                            ContainedControl="TreeView"
+                                            CssClass="s4-treeView">
+                                            <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/_layouts/15/viewlsts.aspx" ID="idNavLinkSiteHierarchyV4" Text="<%$Resources:wss,treeview_header%>" AccessKey="<%$Resources:wss,quiklnch_allcontent_AK%>"
+                                                CssClass="s4-qlheader" />
+                                            <div class="ms-treeviewouter">
+                                                <SharePoint:DelegateControl runat="server" ControlId="TreeViewAndDataSource">
+                                                    <Template_Controls>
+                                                        <SharePoint:SPHierarchyDataSourceControl
+                                                            runat="server"
+                                                            ID="TreeViewDataSourceV4"
+                                                            RootContextObject="Web"
+                                                            IncludeDiscussionFolders="true" />
+                                                        <SharePoint:SPRememberScroll runat="server" ID="TreeViewRememberScrollV4" onscroll="javascript:_spRecordScrollPositions(this);"
+                                                            Style="overflow: auto; height: 400px; width: 155px;">
+                                                            <SharePoint:SPTreeView
+                                                                ID="WebTreeViewV4"
+                                                                runat="server"
+                                                                ShowLines="false"
+                                                                DataSourceID="TreeViewDataSourceV4"
+                                                                ExpandDepth="0"
+                                                                SelectedNodeStyle-CssClass="ms-tvselected"
+                                                                NodeStyle-CssClass="ms-navitem"
+                                                                SkipLinkText=""
+                                                                NodeIndent="12"
+                                                                ExpandImageUrl="/_layouts/15/images/tvclosed.png?rev=40"
+                                                                ExpandImageUrlRtl="/_layouts/15/images/tvclosedrtl.png?rev=40"
+                                                                CollapseImageUrl="/_layouts/15/images/tvopen.png?rev=40"
+                                                                CollapseImageUrlRtl="/_layouts/15/images/tvopenrtl.png?rev=40"
+                                                                NoExpandImageUrl="/_layouts/15/images/tvblank.gif?rev=40">
+                                                            </SharePoint:SPTreeView>
+                                                        </SharePoint:SPRememberScroll>
+                                                    </Template_Controls>
+                                                </SharePoint:DelegateControl>
+                                            </div>
+                                        </SharePoint:SPNavigationManager>
+                                        <asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchBottom" runat="server">
+                                            <ul class="s4-specialNavLinkList">
+                                                <li>
+                                                    <SharePoint:ClusteredSPLinkButton
+                                                        runat="server"
+                                                        NavigateUrl="~site/_layouts/15/recyclebin.aspx"
+                                                        ImageClass="s4-specialNavIcon"
+                                                        ImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                                        ImageWidth="16"
+                                                        ImageHeight="16"
+                                                        OffsetX="0"
+                                                        OffsetY="364"
+                                                        ID="idNavLinkRecycleBin"
+                                                        Text="<%$Resources:wss,StsDefault_RecycleBin%>"
+                                                        CssClass="s4-rcycl"
+                                                        PermissionsString="DeleteListItems" />
+                                                </li>
+                                                <li>
+                                                    <SharePoint:ClusteredSPLinkButton
+                                                        ID="idNavLinkViewAllV4"
+                                                        runat="server"
+                                                        PermissionsString="ViewFormPages"
+                                                        NavigateUrl="~site/_layouts/15/viewlsts.aspx"
+                                                        ImageClass="s4-specialNavIcon"
+                                                        ImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                                        ImageWidth="16"
+                                                        ImageHeight="16"
+                                                        OffsetX="0"
+                                                        OffsetY="0"
+                                                        Text="<%$Resources:wss,quiklnch_allcontent_short%>"
+                                                        AccessKey="<%$Resources:wss,quiklnch_allcontent_AK%>" />
+                                                </li>
+                                            </ul>
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </div>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div class="s4-ca s4-ca-dlgNoRibbon" id="MSO_ContentTable">
+                        <div class="s4-die" style="display: none;">
+                            <asp:ContentPlaceHolder ID="PlaceHolderPageImage" runat="server" Visible="false" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderTitleLeftBorder" runat="server" Visible="false">
+                            </asp:ContentPlaceHolder>
+                            <div id="onetidPageTitleAreaFrame" class='ms-pagetitleareaframe s4-pagetitle'></div>
+                            <asp:ContentPlaceHolder ID="PlaceHolderMiniConsole" runat="server" Visible="false" />
+                            <span class="s4-die">
+                                <asp:ContentPlaceHolder ID="PlaceHolderTitleRightMargin" runat="server" Visible="false" />
+                            </span>
+                            <asp:ContentPlaceHolder ID="PlaceHolderTitleAreaSeparator" runat="server" Visible="false" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderNavSpacer" runat="server" Visible="false">
+                                <img src="/_layouts/15/images/blank.gif?rev=40" width='138' height='1' alt="" data-accessibility-nocheck="true" />
+                            </asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarBorder" runat="server" Visible="false"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderBodyLeftBorder" runat="server" Visible="false">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <SharePoint:VersionedPlaceHolder UIVersion="3" ID="DesignModeConsoleV3" runat="server">
+                            <asp:ContentPlaceHolder ID="WSSDesignConsole" runat="server">
+                                <wssuc:DesignModeConsole id="IdDesignModeConsole" runat="server" />
+                            </asp:ContentPlaceHolder>
+                        </SharePoint:VersionedPlaceHolder>
+                        <div class='s4-ba' style="margin: 0; padding: 0;">
+                            <div class='ms-bodyareacell'>
+                                <div id="MSO_ContentDiv" runat="server">
+                                    <a name="mainContent" style="display: none"></a>
+                                    <!-- Begin page -->
+                                    <div id="layout-wrapper">
+
+                                        <header id="page-topbar">
+                                            <div class="navbar-header">
+                                                <div class="d-flex">
+                                                    <!-- LOGO -->
+                                                    <div class="navbar-brand-box">
+                                                        <a href="/home.html" class="logo logo-dark">
+                                                            <span class="logo-sm">
+                                                                <img src="../Style Library/assets/images/logo.svg" alt="" height="22">
+                                                            </span>
+                                                            <span class="logo-lg">
+                                                                <img src="../Style Library/assets/images/logo-dark.png" alt="" height="40">
+                                                            </span>
+                                                        </a>
+
+                                                        <a href="" class="logo logo-light">
+                                                            <span class="logo-sm">
+                                                                <img src="../Style Library/assets/images/logo-light.svg" alt="" height="22">
+                                                            </span>
+                                                            <span class="logo-lg">
+                                                                <img src="../Style Library/assets/images/logo-light.png" alt="" height="19">
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                                                        <i class="fa fa-fw fa-bars"></i>
+                                                    </button>
+
+                                                    <!-- App Search-->
+                                                    <div class="app-search d-none d-lg-block">
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control" placeholder="Search...">
+                                                            <span class="bx bx-search-alt"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="d-flex">
+
+                                                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="mdi mdi-magnify"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                                            aria-labelledby="page-header-search-dropdown">
+
+                                                            <form class="p-3">
+                                                                <div class="form-group m-0">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                                            <i class="bx bx-fullscreen"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="dropdown d-inline-block">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="bx bx-bell bx-tada"></i>
+                                                            <span class="badge bg-danger rounded-pill">3</span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                                            aria-labelledby="page-header-notifications-dropdown">
+                                                            <div class="p-3">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col">
+                                                                        <h6 class="m-0" key="t-notifications">Notifications </h6>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <a href="#!" class="small" key="t-view-all">View All</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div data-simplebar style="max-height: 230px;">
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <div class="avatar-xs me-3">
+                                                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                                                <i class="bx bx-cart"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1" key="t-your-order">Your order is placed</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-min-ago">3 min ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <img src="../Style Library/assets/images/users/avatar-3.jpg"
+                                                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1">James Lemire</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-hours-ago">1 hours ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <div class="avatar-xs me-3">
+                                                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                                                <i class="bx bx-badge-check"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-min-ago">3 min ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <img src="../Style Library/assets/images/users/avatar-4.jpg"
+                                                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1">Salena Layfield</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-hours-ago">1 hours ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="p-2 border-top d-grid">
+                                                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                                                    <i class="mdi mdi-arrow-right-circle me-1"></i><span key="t-view-more">View More..</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown d-inline-block">
+                                                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <img class="rounded-circle header-profile-user" src="../Style Library/assets/images/users/avatar-1.jpg"
+                                                                alt="Header Avatar">
+                                                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i><span key="t-profile">Profile</span></a>
+                                                            <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i><span key="t-my-wallet">My Wallet</span></a>
+                                                            <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
+                                                            <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i><span key="t-lock-screen">Lock screen</span></a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span key="t-logout">Logout</span></a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown d-inline-block">
+                                                        <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                                                            <i class="bx bx-cog bx-spin"></i>
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </header>
+
+                                        <header id="page-topbar">
+                                            <div class="navbar-header">
+                                                <div class="d-flex">
+                                                    <!-- LOGO -->
+                                                    <div class="navbar-brand-box">
+                                                        <a href="" class="logo logo-dark">
+                                                            <span class="logo-sm">
+                                                                <img src="../Style Library/assets/images/logo.svg" alt="" height="22">
+                                                            </span>
+                                                            <span class="logo-lg">
+                                                                <img src="../Style Library/assets/images/logo-dark.png" alt="" height="40">
+                                                            </span>
+                                                        </a>
+
+                                                        <a href="" class="logo logo-light">
+                                                            <span class="logo-sm">
+                                                                <img src="../Style Library/assets/images/logo-light.svg" alt="" height="22">
+                                                            </span>
+                                                            <span class="logo-lg">
+                                                                <img src="../Style Library/assets/images/logo-light.png" alt="" height="19">
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                                                        <i class="fa fa-fw fa-bars"></i>
+                                                    </button>
+
+                                                    <!-- App Search-->
+                                                    <form class="app-search d-none d-lg-block">
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control" placeholder="Search...">
+                                                            <span class="bx bx-search-alt"></span>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+
+                                                <div class="d-flex">
+
+                                                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="mdi mdi-magnify"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                                            aria-labelledby="page-header-search-dropdown">
+
+                                                            <form class="p-3">
+                                                                <div class="form-group m-0">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Search input">
+
+                                                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                                            <i class="bx bx-fullscreen"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="dropdown d-inline-block">
+                                                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="bx bx-bell bx-tada"></i>
+                                                            <span class="badge bg-danger rounded-pill">3</span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                                            aria-labelledby="page-header-notifications-dropdown">
+                                                            <div class="p-3">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col">
+                                                                        <h6 class="m-0" key="t-notifications">Notifications </h6>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <a href="#!" class="small" key="t-view-all">View All</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div data-simplebar style="max-height: 230px;">
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <div class="avatar-xs me-3">
+                                                                            <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                                                <i class="bx bx-cart"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1" key="t-your-order">Your order is placed</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-min-ago">3 min ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <img src="../Style Library/assets/images/users/avatar-3.jpg"
+                                                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1">James Lemire</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-hours-ago">1 hours ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <div class="avatar-xs me-3">
+                                                                            <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                                                <i class="bx bx-badge-check"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-min-ago">3 min ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                                <a href="javascript: void(0);" class="text-reset notification-item">
+                                                                    <div class="d-flex">
+                                                                        <img src="../Style Library/assets/images/users/avatar-4.jpg"
+                                                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                                        <div class="flex-grow-1">
+                                                                            <h6 class="mb-1">Salena Layfield</h6>
+                                                                            <div class="font-size-12 text-muted">
+                                                                                <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>
+                                                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i><span key="t-hours-ago">1 hours ago</span></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="p-2 border-top d-grid">
+                                                                <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                                                    <i class="mdi mdi-arrow-right-circle me-1"></i><span key="t-view-more">View More..</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown d-inline-block">
+                                                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            <img class="rounded-circle header-profile-user" src="../Style Library/assets/images/users/avatar-1.jpg"
+                                                                alt="Header Avatar">
+                                                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <!-- item-->
+                                                            <a class="dropdown-item" href="#">Rafidah Binti Mohd Said</a>
+
+                                                            <div class="dropdown-divider"></div>
+
+                                                            <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span key="t-logout">Logout</span></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </header>
+
+                                        <div class="topnav">
+                                            <div class="container-fluid">
+                                                <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+
+                                                    <div class="collapse navbar-collapse" id="topnav-menu-content">
+                                                        <ul class="navbar-nav">
+                                                            <li class="nav-item dropdown">
+                                                                <a href="" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Summary</a>
+                                                            </li>
+                                                            <li class="nav-item dropdown">
+                                                                <a href="" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Scope Summary</a>
+                                                            </li>
+                                                            <li class="nav-item dropdown">
+                                                                <a href="" class="nav-link dropdown-toggle arrow-none" key="t-default">AWO/VO</a>
+                                                            </li>
+                                                            <li class="nav-item dropdown">
+                                                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button">
+                                                                    <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Daily Work Progress</span>
+                                                                    <div class="arrow-down"></div>
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="topnav-dashboard">
+                                                                    <a href="" class="dropdown-item" key="t-default">Daily Work Progress Update</a>
+                                                                    <a href="" class="dropdown-item" key="t-saas">Daily Work Progress Verification</a>
+                                                                    <a href="" class="dropdown-item" key="t-crypto">Work Done Verification</a>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="nav-item dropdown">
+                                                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                                                                    <i class="bx bx-tone me-2"></i>
+                                                                    <span key="t-ui-elements">Reports</span>
+                                                                    <div class="arrow-down"></div>
+                                                                </a>
+
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="topnav-uielement">
+
+                                                                    <a href="" class="dropdown-item" key="t-alerts">Daily Work Progress Log</a>
+                                                                    <a href="" class="dropdown-item" key="t-buttons">Work Completion Report - Client</a>
+                                                                    <a href="" class="dropdown-item" key="t-cards">Work Done Report - Subcon</a>
+                                                                    <a href="" class="dropdown-item" key="t-carousel">Work Completion Summary</a>
+                                                                    <a href="" class="dropdown-item" key="t-dropdowns">AWO/VO Summary</a>
+
+
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </nav>
+                                            </div>
+                                        </div>
+
+                                        <!-- ============================================================== -->
+                                        <!-- Start right Content here -->
+                                        <!-- ============================================================== -->
+
+                                        <div class="mo-main-content">
+                                            <div class="page-content">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                                <!-- container-fluid -->
+                                            </div>
+                                            <!-- End Page-content -->
+
+                                            <footer class="footer">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col text-center">
+                                                            <script>document.write(new Date().getFullYear())</script>
+                                                            © MMHE.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </footer>
+
+                                        </div>
+                                        <!-- end main content-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-die">
+                            <asp:ContentPlaceHolder ID="PlaceHolderBodyRightMargin" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <SharePoint:DeveloperDashboard runat="server" />
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="PlaceHolderFormDigest" runat="server">
+            <SharePoint:FormDigest runat="server" />
+        </asp:ContentPlaceHolder>
+        <input type="text" name="__spText1" title="text" style="display: none;" />
+        <input type="text" name="__spText2" title="text" style="display: none;" />
+    </form>
+    <asp:ContentPlaceHolder ID="PlaceHolderUtilityContent" runat="server" />
+    <SharePoint:WarnOnUnsupportedBrowsers runat="server" />
+
+    <!-- JAVASCRIPT -->
+    <script src="../Style Library/assets/libs/jquery.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/metisMenu.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/simplebar.min.js" type="text/javascript"></script>
+
+    <script src="../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
+
+    <script src="../Style Library/assets/js/pages/dashboard.init.js" type="text/javascript"></script>
+
+    <!-- App js -->
+    <script src="../Style Library/assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>

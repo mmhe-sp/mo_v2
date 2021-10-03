@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="_resources" Url="Style Library">
+    <File Path="assets\fonts\boxicons.eot" Url="assets/fonts/boxicons.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\boxicons.svg" Url="assets/fonts/boxicons.svg" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\boxicons.ttf" Url="assets/fonts/boxicons.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\boxicons.woff" Url="assets/fonts/boxicons.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\boxicons.woff2" Url="assets/fonts/boxicons.woff2" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\dripicons-v2.eot" Url="assets/fonts/dripicons-v2.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\dripicons-v2.svg" Url="assets/fonts/dripicons-v2.svg" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\dripicons-v2.ttf" Url="assets/fonts/dripicons-v2.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\dripicons-v2.woff" Url="assets/fonts/dripicons-v2.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-brands-400.eot" Url="assets/fonts/fa-brands-400.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-brands-400.svg" Url="assets/fonts/fa-brands-400.svg" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-brands-400.ttf" Url="assets/fonts/fa-brands-400.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-brands-400.woff" Url="assets/fonts/fa-brands-400.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-brands-400.woff2" Url="assets/fonts/fa-brands-400.woff2" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-regular-400.eot" Url="assets/fonts/fa-regular-400.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-regular-400.svg" Url="assets/fonts/fa-regular-400.svg" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-regular-400.ttf" Url="assets/fonts/fa-regular-400.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-regular-400.woff" Url="assets/fonts/fa-regular-400.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-regular-400.woff2" Url="assets/fonts/fa-regular-400.woff2" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-solid-900.eot" Url="assets/fonts/fa-solid-900.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-solid-900.svg" Url="assets/fonts/fa-solid-900.svg" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-solid-900.ttf" Url="assets/fonts/fa-solid-900.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-solid-900.woff" Url="assets/fonts/fa-solid-900.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\fa-solid-900.woff2" Url="assets/fonts/fa-solid-900.woff2" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\materialdesignicons-webfont.eot" Url="assets/fonts/materialdesignicons-webfont.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\materialdesignicons-webfont.ttf" Url="assets/fonts/materialdesignicons-webfont.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\materialdesignicons-webfont.woff" Url="assets/fonts/materialdesignicons-webfont.woff" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\materialdesignicons-webfont.woff2" Url="assets/fonts/materialdesignicons-webfont.woff2" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\summernote.eot" Url="assets/fonts/summernote.eot" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\summernote.ttf" Url="assets/fonts/summernote.ttf" Type="GhostableInLibrary" />
+    <File Path="assets\fonts\summernote.woff" Url="assets/fonts/summernote.woff" Type="GhostableInLibrary" />
+    <File Path="assets\images\favicon.png" Url="assets/images/favicon.png" Type="GhostableInLibrary" />
+    <File Path="assets\images\logo-dark.png" Url="assets/images/logo-dark.png" Type="GhostableInLibrary" />
+    <File Path="assets\images\logo-light.png" Url="assets/images/logo-light.png" Type="GhostableInLibrary" />
+    <File Path="assets\images\logo.png" Url="assets/images/logo.png" Type="GhostableInLibrary" />
+    <File Path="assets\images\logo.svg" Url="assets/images/logo.svg" Type="GhostableInLibrary" />
+    <File Path="assets\js\app.js" Url="assets/js/app.js" Type="GhostableInLibrary" />
+    <File Path="assets\js\pages\apexcharts.init.js" Url="assets/js/pages/apexcharts.init.js" Type="GhostableInLibrary" />
+    <File Path="assets\js\pages\dashboard.init.js" Url="assets/js/pages/dashboard.init.js" Type="GhostableInLibrary" />
+    <File Path="assets\css\app.css" Url="assets/css/app.css" Type="GhostableInLibrary" />
+    <File Path="assets\libs\apexcharts.css" Url="assets/libs/apexcharts.css"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\apexcharts.min.js" Url="assets/libs/apexcharts.min.js"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\bootstrap.bundle.min.js" Url="assets/libs/bootstrap.bundle.min.js"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\jquery.min.js" Url="assets/libs/jquery.min.js"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\metisMenu.min.css" Url="assets/libs/metisMenu.min.css"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\metisMenu.min.js" Url="assets/libs/metisMenu.min.js"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\simplebar.min.css" Url="assets/libs/simplebar.min.css"  Type="GhostableInLibrary" />
+    <File Path="assets\libs\simplebar.min.js" Url="assets/libs/simplebar.min.js"  Type="GhostableInLibrary" />
+    <File Path="assets\css\bootstrap.min.css" Url="assets/css/bootstrap.min.css"  Type="GhostableInLibrary" />
+    <File Path="assets\css\icons.min.css" Url="assets/css/icons.min.css"  Type="GhostableInLibrary" />
+    <File Path="assets\images\users\avatar-1.jpg" Url="assets/images/users/avatar-1.jpg" />
+    <File Path="assets\images\users\avatar-2.jpg" Url="assets/images/users/avatar-2.jpg" />
+    <File Path="assets\images\users\avatar-3.jpg" Url="assets/images/users/avatar-3.jpg" />
+    <File Path="assets\images\users\avatar-4.jpg" Url="assets/images/users/avatar-4.jpg" />
+    <File Path="assets\images\users\avatar-5.jpg" Url="assets/images/users/avatar-5.jpg" />
+    <File Path="assets\images\users\avatar-6.jpg" Url="assets/images/users/avatar-6.jpg" />
+    <File Path="assets\images\users\avatar-7.jpg" Url="assets/images/users/avatar-7.jpg" />
+    <File Path="assets\images\users\avatar-8.jpg" Url="assets/images/users/avatar-8.jpg" />
+  </Module>
+</Elements>

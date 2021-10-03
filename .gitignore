@@ -1,0 +1,16 @@
+node_modules
+.vscode
+obj
+bin
+*.suo
+.vs
+*.txt
+*.user
+packages
+MY-Implementation/Dev/Dashbaord/Dashboard/Views/BackOrders/Index.cshtml
+build
+log
+ConfigurationData
+publish
+pkg
+pkgobj

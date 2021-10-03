@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="_resources\" Type="ElementManifest" />
+    <ProjectItemFile Source="fonts\boxicons.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\boxicons.svg" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\boxicons.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\boxicons.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\boxicons.woff2" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\dripicons-v2.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\dripicons-v2.svg" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\dripicons-v2.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\dripicons-v2.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-brands-400.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-brands-400.svg" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-brands-400.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-brands-400.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-brands-400.woff2" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-regular-400.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-regular-400.svg" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-regular-400.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-regular-400.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-regular-400.woff2" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-solid-900.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-solid-900.svg" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-solid-900.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-solid-900.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fa-solid-900.woff2" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\materialdesignicons-webfont.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\materialdesignicons-webfont.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\materialdesignicons-webfont.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\materialdesignicons-webfont.woff2" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\summernote.eot" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\summernote.ttf" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\summernote.woff" Target="assets\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="images\favicon.png" Target="assets\images\" Type="ElementFile" />
+    <ProjectItemFile Source="images\logo-dark.png" Target="assets\images\" Type="ElementFile" />
+    <ProjectItemFile Source="images\logo-light.png" Target="assets\images\" Type="ElementFile" />
+    <ProjectItemFile Source="images\logo.png" Target="assets\images\" Type="ElementFile" />
+    <ProjectItemFile Source="images\logo.svg" Target="assets\images\" Type="ElementFile" />
+    <ProjectItemFile Source="js\app.js" Target="assets\js\" Type="ElementFile" />
+    <ProjectItemFile Source="js\pages\apexcharts.init.js" Target="assets\js\pages\" Type="ElementFile" />
+    <ProjectItemFile Source="js\pages\dashboard.init.js" Target="assets\js\pages\" Type="ElementFile" />
+    <ProjectItemFile Source="css\app.css" Target="assets\css\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\apexcharts.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\apexcharts.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\bootstrap.bundle.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\jquery.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\metisMenu.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\metisMenu.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\simplebar.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\simplebar.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="css\bootstrap.min.css" Target="assets\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\icons.min.css" Target="assets\css\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-1.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-2.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-3.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-4.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-5.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-6.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-7.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="images\users\avatar-8.jpg" Target="assets\images\users\" Type="ElementFile" />
+  </Files>
+</ProjectItem>
