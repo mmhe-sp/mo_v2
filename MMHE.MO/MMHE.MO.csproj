@@ -53,6 +53,13 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTemplates\MO\Menu.ascx.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MO\Menu.ascx.designer.cs">
+      <DependentUpon>Menu.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +91,9 @@
     <None Include="assets\fonts\summernote.woff" />
     <None Include="assets\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2ef6f44c-16b7-4e8b-8295-831a00d02949}</SharePointProjectItemId>
+    </None>
+    <None Include="ControlTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{240d23a6-78f4-4632-9ed3-c81b92c81c37}</SharePointProjectItemId>
     </None>
     <None Include="Features\MO2\MO2.feature">
       <FeatureId>{9c818581-1098-4147-b106-db8e31a432b9}</FeatureId>
@@ -137,6 +147,7 @@
     <Content Include="assets\libs\metisMenu.min.js" />
     <Content Include="assets\libs\simplebar.min.css" />
     <Content Include="assets\libs\simplebar.min.js" />
+    <Content Include="ControlTemplates\MO\Menu.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
     </Content>

@@ -3,4 +3,7 @@
   <features>
     <featureReference itemId="9c818581-1098-4147-b106-db8e31a432b9" />
   </features>
+  <projectItems>
+    <projectItemReference itemId="240d23a6-78f4-4632-9ed3-c81b92c81c37" />
+  </projectItems>
 </package>
