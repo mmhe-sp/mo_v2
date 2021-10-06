@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d9a5a73c-b46f-4d91-999d-1574841d2081" solutionId="d9a5a73c-b46f-4d91-999d-1574841d2081" resetWebServer="false" sharePointProductVersion="15.0" name="MMHE.MO" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="MMHE.MO.Business.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\MMHE.MO.Business\MMHE.MO.Business.csproj" />
+    <projectOutputAssembly location="MMHE.MO.Models.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\MMHE.MO.Models\MMHE.MO.Models.csproj" />
+  </assemblies>
   <features>
     <featureReference itemId="9c818581-1098-4147-b106-db8e31a432b9" />
   </features>
   <projectItems>
-    <projectItemReference itemId="240d23a6-78f4-4632-9ed3-c81b92c81c37" />
+    <projectItemReference itemId="f0ca8f47-6b02-4079-a2d0-0efee1138d23" />
   </projectItems>
 </package>

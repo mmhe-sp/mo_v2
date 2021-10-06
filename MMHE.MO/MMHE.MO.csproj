@@ -53,12 +53,26 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlTemplates\MO\Menu.ascx.cs">
-      <DependentUpon>Menu.ascx</DependentUpon>
+    <Compile Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx.cs">
+      <DependentUpon>Manage.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ControlTemplates\MO\Menu.ascx.designer.cs">
-      <DependentUpon>Menu.ascx.cs</DependentUpon>
+    <Compile Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx.designer.cs">
+      <DependentUpon>Manage.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\JCS\List.ascx.cs">
+      <DependentUpon>List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\JCS\List.ascx.designer.cs">
+      <DependentUpon>List.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.cs">
+      <DependentUpon>TopMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.designer.cs">
+      <DependentUpon>TopMenu.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,7 +107,7 @@
       <SharePointProjectItemId>{2ef6f44c-16b7-4e8b-8295-831a00d02949}</SharePointProjectItemId>
     </None>
     <None Include="ControlTemplates\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{240d23a6-78f4-4632-9ed3-c81b92c81c37}</SharePointProjectItemId>
+      <SharePointProjectItemId>{f0ca8f47-6b02-4079-a2d0-0efee1138d23}</SharePointProjectItemId>
     </None>
     <None Include="Features\MO2\MO2.feature">
       <FeatureId>{9c818581-1098-4147-b106-db8e31a432b9}</FeatureId>
@@ -142,12 +156,26 @@
     <Content Include="assets\libs\apexcharts.css" />
     <Content Include="assets\libs\apexcharts.min.js" />
     <Content Include="assets\libs\bootstrap.bundle.min.js" />
+    <Content Include="assets\libs\buttons.bootstrap4.min.css" />
+    <Content Include="assets\libs\buttons.bootstrap4.min.js" />
+    <Content Include="assets\libs\buttons.colVis.min.js" />
+    <Content Include="assets\libs\buttons.html5.min.js" />
+    <Content Include="assets\libs\buttons.print.min.js" />
+    <Content Include="assets\libs\dataTables.bootstrap4.min.css" />
+    <Content Include="assets\libs\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\libs\dataTables.buttons.min.js" />
+    <Content Include="assets\libs\dataTables.responsive.min.js" />
+    <Content Include="assets\libs\jquery.dataTables.min.js" />
     <Content Include="assets\libs\jquery.min.js" />
     <Content Include="assets\libs\metisMenu.min.css" />
     <Content Include="assets\libs\metisMenu.min.js" />
+    <Content Include="assets\libs\responsive.bootstrap4.min.css" />
+    <Content Include="assets\libs\responsive.bootstrap4.min.js" />
     <Content Include="assets\libs\simplebar.min.css" />
     <Content Include="assets\libs\simplebar.min.js" />
-    <Content Include="ControlTemplates\MO\Menu.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
     </Content>
@@ -159,8 +187,15 @@
     <Compile Include="UI\Dashboard.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Content Include="Pages\jcs\Edit.aspx" />
+    <Content Include="Pages\jcs\List.aspx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MMHE.MO.Business\MMHE.MO.Business.csproj">
+      <Project>{64c17d18-d78f-4486-b594-8152fea1fa8a}</Project>
+      <Name>MMHE.MO.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -59,5 +59,17 @@
     <File Path="assets\images\users\avatar-6.jpg" Url="assets/images/users/avatar-6.jpg" />
     <File Path="assets\images\users\avatar-7.jpg" Url="assets/images/users/avatar-7.jpg" />
     <File Path="assets\images\users\avatar-8.jpg" Url="assets/images/users/avatar-8.jpg" />
+    <File Path="assets\libs\buttons.bootstrap4.min.css" Url="assets/libs/buttons.bootstrap4.min.css" />
+    <File Path="assets\libs\buttons.bootstrap4.min.js" Url="assets/libs/buttons.bootstrap4.min.js" />
+    <File Path="assets\libs\buttons.colVis.min.js" Url="assets/libs/buttons.colVis.min.js" />
+    <File Path="assets\libs\buttons.html5.min.js" Url="assets/libs/buttons.html5.min.js" />
+    <File Path="assets\libs\buttons.print.min.js" Url="assets/libs/buttons.print.min.js" />
+    <File Path="assets\libs\dataTables.bootstrap4.min.css" Url="assets/libs/dataTables.bootstrap4.min.css" />
+    <File Path="assets\libs\dataTables.bootstrap4.min.js" Url="assets/libs/dataTables.bootstrap4.min.js" />
+    <File Path="assets\libs\dataTables.buttons.min.js" Url="assets/libs/dataTables.buttons.min.js" />
+    <File Path="assets\libs\dataTables.responsive.min.js" Url="assets/libs/dataTables.responsive.min.js" />
+    <File Path="assets\libs\jquery.dataTables.min.js" Url="assets/libs/jquery.dataTables.min.js" />
+    <File Path="assets\libs\responsive.bootstrap4.min.css" Url="assets/libs/responsive.bootstrap4.min.css" />
+    <File Path="assets\libs\responsive.bootstrap4.min.js" Url="assets/libs/responsive.bootstrap4.min.js" />
   </Module>
 </Elements>

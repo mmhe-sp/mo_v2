@@ -60,5 +60,17 @@
     <ProjectItemFile Source="images\users\avatar-6.jpg" Target="assets\images\users\" Type="ElementFile" />
     <ProjectItemFile Source="images\users\avatar-7.jpg" Target="assets\images\users\" Type="ElementFile" />
     <ProjectItemFile Source="images\users\avatar-8.jpg" Target="assets\images\users\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\buttons.bootstrap4.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\buttons.bootstrap4.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\buttons.colVis.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\buttons.html5.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\buttons.print.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\dataTables.bootstrap4.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\dataTables.bootstrap4.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\dataTables.buttons.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\dataTables.responsive.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\jquery.dataTables.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\responsive.bootstrap4.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\responsive.bootstrap4.min.js" Target="assets\libs\" Type="ElementFile" />
   </Files>
 </ProjectItem>

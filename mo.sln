@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMHE.MO", "MMHE.MO\MMHE.MO.csproj", "{17FC2684-63E9-42A5-B826-D9E639B1F614}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7FB059EB-30D2-4917-A182-99A0CB088586} = {7FB059EB-30D2-4917-A182-99A0CB088586}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMHE.MO.Business", "MMHE.MO.Business\MMHE.MO.Business.csproj", "{64C17D18-D78F-4486-B594-8152FEA1FA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMHE.MO.Models", "MMHE.MO.Models\MMHE.MO.Models.csproj", "{7FB059EB-30D2-4917-A182-99A0CB088586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +24,14 @@ Global
 		{17FC2684-63E9-42A5-B826-D9E639B1F614}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17FC2684-63E9-42A5-B826-D9E639B1F614}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17FC2684-63E9-42A5-B826-D9E639B1F614}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{64C17D18-D78F-4486-B594-8152FEA1FA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C17D18-D78F-4486-B594-8152FEA1FA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C17D18-D78F-4486-B594-8152FEA1FA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C17D18-D78F-4486-B594-8152FEA1FA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB059EB-30D2-4917-A182-99A0CB088586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB059EB-30D2-4917-A182-99A0CB088586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB059EB-30D2-4917-A182-99A0CB088586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB059EB-30D2-4917-A182-99A0CB088586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

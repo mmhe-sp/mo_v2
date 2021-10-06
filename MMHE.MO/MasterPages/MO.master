@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <%@ Master Language="C#" %>
 
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -10,19 +11,20 @@
 <%@ Register TagPrefix="wssuc" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="MUISelector" Src="~/_controltemplates/15/MUISelector.ascx" %>
 <%@ Register TagPrefix="wssuc" TagName="DesignModeConsole" Src="~/_controltemplates/15/DesignModeConsole.ascx" %>
-<%@ Register TagPrefix="mo" TagName="Menu" Src="" %>
+<%@ Register TagPrefix="mo" TagName="TopMenu" Src="~/_controltemplates/15/MMHE.MO/TopMenu.ascx" %>
+
 
 <html lang="en" runat="server" class="mmhe">
 <head runat="server">
     <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Expires" content="0" />
     <SharePoint:RobotsMetaTag runat="server" />
     <title id="onetidTitle">
         <asp:ContentPlaceHolder ID="PlaceHolderPageTitle" runat="server" />
     </title>
-    <SharePoint:CssLink runat="server" Version="4"  />
-    <SharePoint:Theme runat="server" Visible="false"  />
+    <SharePoint:CssLink runat="server" Version="4" />
+    <SharePoint:Theme runat="server" Visible="false" />
     <SharePoint:ULSClientConfig runat="server" />
     <script type="text/javascript">
         var _fV4UI = true;
@@ -54,14 +56,17 @@
             margin-left: 0 !important;
         }
 
-        .mmhe body[data-layout="horizontal"] .navbar-brand-box {
-            margin-top: 15px;
-        }
-        a:link
-        {
-            color:#fff !important;
+
+        a.btn-primary:link {
+            color: #fff !important;
         }
     </style>
+    <!-- DataTables -->
+	<link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+	<link href="../../Style Library/assets/libs/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- Responsive datatable examples -->
+	<link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal">
     <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
@@ -549,9 +554,14 @@
                                 <div id="MSO_ContentDiv" runat="server">
                                     <a name="mainContent" style="display: none"></a>
                                     <!-- Begin page -->
-                                    <mo:Menu></mo:Menu>
                                     <div id="layout-wrapper">
-                                        <asp:ModelErrorMessage:
+
+                                        <mo:TopMenu runat="server" id="TopMenu"></mo:TopMenu>
+
+                                        <!-- ============================================================== -->
+                                        <!-- Start right Content here -->
+                                        <!-- ============================================================== -->
+
                                         <div class="mo-main-content">
                                             <div class="page-content">
                                                 <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">
@@ -605,6 +615,25 @@
     <script src="../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
 
     <script src="../Style Library/assets/js/pages/dashboard.init.js" type="text/javascript"></script>
+
+    
+
+    <!-- Required datatable js -->
+    <script src="../Style Library/assets/libs/jquery.dataTables.min.js"></script>
+    <script src="../Style Library/assets/libs/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="../Style Library/assets/libs/dataTables.buttons.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.bootstrap4.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.html5.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.print.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
+    <script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="Script" runat="server">
+    </asp:ContentPlaceHolder>
 
     <!-- App js -->
     <script src="../Style Library/assets/js/app.js" type="text/javascript"></script>
