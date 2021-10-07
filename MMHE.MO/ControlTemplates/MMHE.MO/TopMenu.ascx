@@ -370,10 +370,10 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a href="jsl.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Summary List</a>
+                        <a href="jsl-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Summary List</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="jcs/list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Confirmation Scope</a>
+                        <a href="jcs-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Confirmation Scope</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="awo-vo.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">AWO/VO</a>

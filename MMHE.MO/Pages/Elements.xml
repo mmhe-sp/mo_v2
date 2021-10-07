@@ -2,7 +2,7 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <Module Name="Pages" Url="Pages">
     <File Path="Pages\Dashboard.aspx" Url="Dashboard.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-    <File Path="Pages\jcs\Edit.aspx" Url="jcs/Edit.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-    <File Path="Pages\jcs\List.aspx" Url="jcs/List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JCS-Edit.aspx" Url="JCS-Edit.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JCS-List.aspx" Url="JCS-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
   </Module>
 </Elements>

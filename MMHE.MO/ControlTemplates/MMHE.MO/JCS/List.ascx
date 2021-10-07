@@ -10,43 +10,56 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table id="mydata" class="stripe row-border order-column" cellspacing="0" width="100%">
+                <table id="jcsTable" class="table table-bordered nowrap w-100">
                     <thead>
                         <tr>
-                            <th align="left" style="column-width: 40px;">Type</th>
-                            <th align="left" style="column-width: 40px;">Disc</th>
+                            <th style="display: none;"></th>
+                            <th align="left" style="column-width: 100px;">Type
+                                <div class="text-muted"><small>Discipline</small></div>
+                            </th>
                             <th style="column-width: 40px;">Owner No</th>
-                            <th style="column-width: 40px;">AWO/VO No</th>
                             <th style="column-width: 40px;">WBS</th>
-                            <th style="column-width: 160px;">Work Title</th>
-                            <th style="column-width: 160px;">Remarks</th>
+                            <th>Details</th>
                             <th style="column-width: 40px;">Status</th>
                             <th style="column-width: 30px;">% (DWC)</th>
-                            <th>Action</th>
-                            <th>DWC Completion Date</th>
-                            <th>WDR Completion Date</th>
-                            <th>WCR Completion Date</th>
+                            <th style="width:70px;">Completion Date</th>
+                            <th style="width:20px"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="font-size-13">
                         <asp:Repeater ID="jcsRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td style="width: 40px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "lType") %></td>
-                                    <td style="width: 40px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></td>
+                                    <td style="display: none;"><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
+                                    <td style="width: 100px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "lType") %>
+                                        <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
+                                    </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
-                                    <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "AWO_VONO") %></td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "WBS") %></td>
-                                    <td style="width: 160px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "Work_Title") %></td>
-                                    <td style="width: 160px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "JSLRemarks") %></td>
+                                    <td style="white-space: inherit; word-wrap: break-word !important;">
+                                        <div class="text-dark">
+                                            <%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
+                                        </div>
+                                        <span class="text-muted">
+                                            <small><%# DataBinder.Eval(Container.DataItem, "JSLRemarks") %></small>
+                                        </span>
+                                    </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></td>
                                     <td style="width: 30px; text-align: center;"><%# DataBinder.Eval(Container.DataItem, "CompletionPer") %></td>
-                                    <td>
-                                        <a href="../jcs/edit.aspx">Edit</a>
+                                    <td style="text-align: center;width:70px">
+                                        <div>
+                                            <b>DWC:</b><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %>
+                                        </div>
+                                        <div>
+                                            <b>WDR:</b><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %>
+                                        </div>
+                                        <div>
+                                            <b>WCR:</b><%# DataBinder.Eval(Container.DataItem, "DtWCRAct",  "{0: dd/MM/yyyy}") %>
+                                        </div>
                                     </td>
-                                    <td style="text-align: center"><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></td>
-                                    <td style="text-align: center"><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></td>
-                                    <td style="text-align: center"><%# DataBinder.Eval(Container.DataItem, "DtWCRAct",  "{0: dd/MM/yyyy}") %></td>
+                                    <td style="width:20px">
+                                        <a href="../jcs/edit.aspx?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                    </td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

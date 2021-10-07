@@ -187,8 +187,8 @@
     <Compile Include="UI\Dashboard.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Content Include="Pages\jcs\Edit.aspx" />
-    <Content Include="Pages\jcs\List.aspx" />
+    <Content Include="Pages\JCS-Edit.aspx" />
+    <Content Include="Pages\JCS-List.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMHE.MO.Business\MMHE.MO.Business.csproj">
@@ -196,6 +196,7 @@
       <Name>MMHE.MO.Business</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

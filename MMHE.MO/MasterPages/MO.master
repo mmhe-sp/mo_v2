@@ -68,7 +68,7 @@
 	<!-- Responsive datatable examples -->
 	<link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal">
+<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal" data-layout-size="boxed">
     <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
         <asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
         <WebPartPages:SPWebPartManager ID="m" runat="Server" />
