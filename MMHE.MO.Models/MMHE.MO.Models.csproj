@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="JCSActivityDetails.cs" />
     <Compile Include="JCSDetails.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

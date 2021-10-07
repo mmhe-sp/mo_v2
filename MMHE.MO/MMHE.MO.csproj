@@ -195,6 +195,10 @@
       <Project>{64c17d18-d78f-4486-b594-8152fea1fa8a}</Project>
       <Name>MMHE.MO.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MMHE.MO.Models\MMHE.MO.Models.csproj">
+      <Project>{7fb059eb-30d2-4917-a182-99a0cb088586}</Project>
+      <Name>MMHE.MO.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

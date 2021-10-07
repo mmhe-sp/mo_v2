@@ -52,6 +52,12 @@
   <ItemGroup>
     <None Include="key.snk" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MMHE.MO.Models\MMHE.MO.Models.csproj">
+      <Project>{7fb059eb-30d2-4917-a182-99a0cb088586}</Project>
+      <Name>MMHE.MO.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

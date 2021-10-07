@@ -18,5 +18,6 @@ namespace MMHE.MO.Models
         public DateTime? EndDate { get; set; }
         public int Duration { get; set; }
         public List<JCSActivityDetails> Activities { get; set; }
-    }
+		public object Resources { get; set; }
+	}
 }
