@@ -14,6 +14,8 @@ namespace MMHE.MO.Controls.JCS
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Details = new JCSRepository().GetDetails(Request.QueryString["id"]);
+			jcsRepeater.DataSource = Details.Activities;
+			jcsRepeater.DataBind();
 		}
 	}
 }
