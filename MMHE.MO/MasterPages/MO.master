@@ -60,13 +60,25 @@
         a.btn-primary:link {
             color: #fff !important;
         }
+
+        .dataTables_wrapper .pull-left {
+            float: left;
+        }
+
+        .dataTables_wrapper .pull-right {
+            float: right;
+        }
+
+        .dataTables_wrapper .jcsTable_filter {
+            width: 500px;
+        }
     </style>
     <!-- DataTables -->
-	<link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-	<link href="../../Style Library/assets/libs/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Style Library/assets/libs/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
-	<!-- Responsive datatable examples -->
-	<link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal" data-layout-size="boxed">
     <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
@@ -616,7 +628,7 @@
 
     <script src="../Style Library/assets/js/pages/dashboard.init.js" type="text/javascript"></script>
 
-    
+
 
     <!-- Required datatable js -->
     <script src="../Style Library/assets/libs/jquery.dataTables.min.js"></script>
@@ -631,7 +643,31 @@
     <!-- Responsive examples -->
     <script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
     <script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
+    <script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript">
+        jQuery.fn.extend({
+            live: function (event, callback)
+            {
+                if (this.selector)
+                {
+                    jQuery(document).on(event, this.selector, callback);
+                }
+                return this;
+            }
+        });
+        function delaySearch(tableId, key)
+        {
+            var $searchBox = $(tableId + "_filter input[type='search']");
+            $searchBox.off();
 
+            $searchBox.on("keyup", $.debounce(250, function ()
+            {
+                var val = $searchBox.val();
+                sessionStorage.setItem(key, val);
+                $(tableId).DataTable().search(val).draw();
+            }));
+        }
+    </script>
     <asp:ContentPlaceHolder ID="Script" runat="server">
     </asp:ContentPlaceHolder>
 

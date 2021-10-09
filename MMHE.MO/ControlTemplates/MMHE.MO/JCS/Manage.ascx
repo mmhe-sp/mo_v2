@@ -19,17 +19,17 @@
 					</div>
 					<div class="col-sm-4">
 						<label for="example-text-input" class="form-label">Owner No.</label>
-						<input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.Type %>">
+						<input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.OwnerNo %>">
 					</div>
 					<div class="col-sm-4">
 						<label for="example-text-input" class="form-label">Discipline</label>
-						<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Type %>">
+						<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<div class="col-sm-12">
 						<label for="example-text-input" class="form-label">Work Title</label>
-						<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.Type %>">
+						<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -41,9 +41,9 @@
 					<div class="col-sm-6">
 						<label for="example-text-input" class="form-label">Start/End Date</label>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Start Date" aria-label="Start Date" readonly value="<%=Details.StartDate %>">
+							<input type="text" class="form-control" placeholder="Start Date" aria-label="Start Date" readonly value="<%=Details.StartDate.ToString("d") %>">
 							<span class="input-group-text">-</span>
-							<input type="text" class="form-control" placeholder="End Date" aria-label="End Date" readonly value="<%=Details.EndDate %>">
+							<input type="text" class="form-control" placeholder="End Date" aria-label="End Date" readonly value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("d"):string.Empty) %>">
 							<span class="input-group-text">Duration <%=Details.Duration %> Days</span>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+						<table id="datatable-buttons" class="table table-bordered dt-responsive w-100">
 							<thead>
 								<tr>
 									<th style="width: 40px">Item</th>

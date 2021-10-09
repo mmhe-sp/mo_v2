@@ -37,7 +37,7 @@ namespace MMHE.MO.Business.Repositories
 		{
 			JCSDetails jCSDetails = new JCSDetails();
 			SqlParameter[] parameters = new SqlParameter[1];
-			parameters[0] = new SqlParameter("@GetJCSDetails", jcsId);
+            parameters[0] = new SqlParameter("@JCSID", jcsId);
 			DataSet dataSet = new DataSet();
 			using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringMO"].ConnectionString))
 			{
@@ -61,7 +61,7 @@ namespace MMHE.MO.Business.Repositories
 						jCSDetails.WBS = row.Field<string>("WBS");
 						jCSDetails.StartDate = row.Field<DateTime>("StartDate");
 						jCSDetails.EndDate = row.Field<DateTime>("EndDate");
-						jCSDetails.Duration = row.Field<int>("DurationDays");
+						jCSDetails.Duration = row.Field<string>("DurationDays");
 					}
 
 					table = dataSet.Tables[1];

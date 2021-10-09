@@ -71,5 +71,6 @@
     <File Path="assets\libs\jquery.dataTables.min.js" Url="assets/libs/jquery.dataTables.min.js" />
     <File Path="assets\libs\responsive.bootstrap4.min.css" Url="assets/libs/responsive.bootstrap4.min.css" />
     <File Path="assets\libs\responsive.bootstrap4.min.js" Url="assets/libs/responsive.bootstrap4.min.js" />
+    <File Path="assets\libs\jquery.ba-throttle-debounce.min.js" Url="assets/libs/jquery.ba-throttle-debounce.min.js" />
   </Module>
 </Elements>

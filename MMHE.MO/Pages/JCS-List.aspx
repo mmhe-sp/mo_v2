@@ -45,46 +45,57 @@
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        $(document).ready(function () {
+        var __key = 'jcs';
+        $(document).ready(function ()
+        {
+
+            $('#jcsTable thead tr').clone(true).appendTo('#jcsTable thead');
+            $('#jcsTable thead tr:eq(1) th').each(function (i)
+            {
+                var title = $(this).text();
+                if (title != "")
+                {
+                    $(this).html('<input type="text" placeholder="Search" class="form-control form-control-sm" />');
+
+                    $('input', this).on('keyup change', function ()
+                    {
+                        if (table.column(i).search() !== this.value)
+                        {
+                            table
+                                .column(i)
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                }
+            });
+
             var groupColumn = 0;
-            var value = '';
+            var value = sessionStorage.getItem(__key);
             if (!value)
                 value = '';
-            //$("#jcsTable").DataTable({ lengthChange: !1, buttons: ["excel"], search: false }).buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)")
-            //$('#jcsTable thead tr').clone(true).appendTo('#jcsTable thead');
-            //$('#jcsTable thead tr:eq(1) th').each(function (i) {
-            //    var title = $(this).text();
-            //    if (title != "Action") {
-            //        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-
-            //        $('input', this).on('keyup change', function () {
-            //            if (table.column(i).search() !== this.value) {
-            //                table
-            //                    .column(i)
-            //                    .search(this.value)
-            //                    .draw();
-            //            }
-            //        });
-            //    }
-            //});
-
             var table = $('#jcsTable').DataTable({
                 search: { search: value },
+                ordering:  false,
+                "columnDefs": [
+                { "visible": false, "targets": groupColumn }
+                ],
                 order: [[groupColumn, 'asc']],
                 displayLength: 25,
-                fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                drawCallback: function (settings)
+                {
                     var api = this.api();
                     var rows = api.rows({ page: 'current' }).nodes();
                     var last = null;
                     var count = 0;
-                    api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
-                        count++;
-                        if (last !== group) {
+                    api.column(groupColumn, { page: 'current' }).data().each(function (group, i)
+                    {
+                        if (last !== group)
+                        {
                             $(rows).eq(i).before(
-                                '<tr class="group"><td class="d-none"></td><td colspan="9">' + group + '</td></tr>'
+                                '<tr class="group bg-light"><th colspan="6">' + group + '</th></tr>'
                             );
                             last = group;
-                            count = 0;
                         }
                     });
                 },
@@ -94,8 +105,22 @@
                 "dom": '<"pull-left"f><"pull-right"l>tip',
                 scrollY: "300px",
                 scrollX: true,
-                // "lengthChange": false
             });
+
+            // Order by the grouping
+            $('#jcsTable tbody').on('click', 'tr.group', function ()
+            {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc')
+                {
+                    table.order([groupColumn, 'desc']).draw();
+                }
+                else
+                {
+                    table.order([groupColumn, 'asc']).draw();
+                }
+            });
+            delaySearch("#jcsTable", __key);
         });
     </script>
 </asp:Content>

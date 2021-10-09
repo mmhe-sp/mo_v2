@@ -165,6 +165,7 @@
     <Content Include="assets\libs\dataTables.bootstrap4.min.js" />
     <Content Include="assets\libs\dataTables.buttons.min.js" />
     <Content Include="assets\libs\dataTables.responsive.min.js" />
+    <Content Include="assets\libs\jquery.ba-throttle-debounce.min.js" />
     <Content Include="assets\libs\jquery.dataTables.min.js" />
     <Content Include="assets\libs\jquery.min.js" />
     <Content Include="assets\libs\metisMenu.min.css" />

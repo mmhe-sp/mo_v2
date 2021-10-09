@@ -72,5 +72,6 @@
     <ProjectItemFile Source="libs\jquery.dataTables.min.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\responsive.bootstrap4.min.css" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\responsive.bootstrap4.min.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\jquery.ba-throttle-debounce.min.js" Target="assets\libs\" Type="ElementFile" />
   </Files>
 </ProjectItem>
