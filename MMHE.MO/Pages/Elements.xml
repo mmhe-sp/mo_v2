@@ -4,5 +4,6 @@
     <File Path="Pages\Dashboard.aspx" Url="Dashboard.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\JCS-Edit.aspx" Url="JCS-Edit.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\JCS-List.aspx" Url="JCS-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\jcs.asmx" Url="jcs.asmx" />
   </Module>
 </Elements>

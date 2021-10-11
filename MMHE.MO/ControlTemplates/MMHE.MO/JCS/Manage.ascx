@@ -69,7 +69,7 @@
 							<tbody>
 								<tr>
 									<td colspan="4">
-										<a href="javascript:void(0)" data-bs-toggle="collapse" data-arget="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
+										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
 										<div class="collapse" id="scope">
 											<div class="card card-body">
 												Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
@@ -84,7 +84,10 @@
 												<%# DataBinder.Eval(Container.DataItem, "Sequence") %>
 											</td>
 											<td>
-												<%# DataBinder.Eval(Container.DataItem, "Remarks") %>
+												<textarea class="form-control form-control-sm text-area auto-resize">
+													<%# DataBinder.Eval(Container.DataItem, "Remarks") %>
+												</textarea>
+
 											</td>
 											<td>
 												<%# DataBinder.Eval(Container.DataItem, "Resource") %>
