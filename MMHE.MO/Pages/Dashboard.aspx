@@ -46,10 +46,7 @@
                                         <h4>583</h4>
                                     </div>
                                 </div>
-
-
                                 <hr>
-
                                 <div class="text-end">
                                     <a href="javascript: void(0);" class="btn btn-primary waves-effect waves-light btn-sm">Add <i class="mdi mdi-plus-circle ms-1"></i></a>
 

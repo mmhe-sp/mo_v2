@@ -8,9 +8,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="List.ascx.cs" Inherits="MMHE.MO.Controls.JCS.List" %>
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New AWO</button>
-        <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
-        <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-download-circle me-1"></i>Export</button>
+        <button type="button" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New AWO</button>
+        <button type="button" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+        <button type="button" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-download-circle me-1"></i>Export</button>
     </div>
 </div>
 <div class="row mt-3">

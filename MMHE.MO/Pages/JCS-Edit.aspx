@@ -56,7 +56,7 @@
 				autoResize(this, "input");
 			});
 
-			$('.auto-resize').each(function (i, v) { autoResize(v, "each"); });
+			$.each($('.auto-resize'), function (i, v) { autoResize(v, "each"); });
 		});
 
 		function autoResize(ctrl, event)
@@ -71,7 +71,7 @@
 			if (event == "each")
 			{
 				var fields = tr.find('.auto-resize');
-				fields.each(function (i, v)
+				$.each(fields,function (i, v)
 				{
 					h2 = v.scrollHeight;
 					if (h < h2)
@@ -85,7 +85,7 @@
 
 				var field;
 				var fields = tr.find('.auto-resize');
-				fields.each(function (i, v)
+			    $.each(fields,function (i, v)
 				{
 					if (v.id.toString() != ctrl.id.toString())
 					{
@@ -94,6 +94,11 @@
 				});
 				field.setAttribute("style", "height:" + (h) + "px;");
 			}
+		}
+
+		function removeRow(index)
+		{
+		    $('.row-' + index).remove();
 		}
 	</script>
 </asp:Content>

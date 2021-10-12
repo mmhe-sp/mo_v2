@@ -190,7 +190,6 @@
     </Compile>
     <Content Include="Pages\JCS-Edit.aspx" />
     <Content Include="Pages\JCS-List.aspx" />
-    <Content Include="Pages\jcs.asmx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMHE.MO.Business\MMHE.MO.Business.csproj">

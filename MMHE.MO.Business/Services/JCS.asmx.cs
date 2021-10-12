@@ -1,5 +1,4 @@
-﻿using ClosedXML.Excel;
-
+﻿
 using MMHE.MO.Business.Repositories;
 
 using System;
@@ -29,7 +28,6 @@ namespace MMHE.MO.Business.Services
 			dgGrid.DataSource = dataTable;
 			dgGrid.DataBind();
 
-			var xLWorkbook = new XLWorkbook();
 		}
 	}
 }

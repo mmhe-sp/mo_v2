@@ -92,9 +92,7 @@
                     {
                         if (last !== group)
                         {
-                            $(rows).eq(i).before(
-                                '<tr class="group bg-light"><th colspan="6">' + group + '</th></tr>'
-                            );
+                            $(rows).eq(i).before('<tr class="group bg-light"><th colspan="6">' + group + '</th></tr>');
                             last = group;
                         }
                     });
