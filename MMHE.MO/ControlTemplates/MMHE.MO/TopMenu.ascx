@@ -38,7 +38,7 @@
             <!-- App Search-->
             <div class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Project #/Name">
                     <span class="bx bx-search-alt"></span>
                 </div>
             </div>

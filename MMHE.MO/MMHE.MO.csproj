@@ -67,6 +67,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\JCS\List.ascx.designer.cs">
       <DependentUpon>List.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\ProjectName.ascx.cs">
+      <DependentUpon>ProjectName.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\ProjectName.ascx.designer.cs">
+      <DependentUpon>ProjectName.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.cs">
       <DependentUpon>TopMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +183,7 @@
     <Content Include="assets\libs\simplebar.min.js" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
@@ -193,6 +201,7 @@
     </Compile>
     <Content Include="Pages\JCS-Edit.aspx" />
     <Content Include="Pages\JCS-List.aspx" />
+    <Content Include="Pages\JSL-List.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMHE.MO.Business\MMHE.MO.Business.csproj">

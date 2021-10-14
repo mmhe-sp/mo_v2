@@ -1,4 +1,5 @@
 ﻿using MMHE.MO.Business.Repositories;
+using MMHE.MO.UI;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,7 +11,9 @@ namespace MMHE.MO.Controls.JCS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            jcsRepeater.DataSource = new JCSRepository().GetAll("1.21M0025", "264636");
+            var user = (Page as BasePage).LoggedInUser;
+
+            jcsRepeater.DataSource = new JCSRepository().GetAll(user.ProjectId, user.Id.ToString());
             jcsRepeater.DataBind();
         }
     }

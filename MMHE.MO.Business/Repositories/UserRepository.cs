@@ -13,11 +13,12 @@ namespace MMHE.MO.Business.Repositories
 			DataTable dt = new DataTable();
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
-				using (SqlCommand command = new SqlCommand("EmployeeId", connection))
+                using (SqlCommand command = new SqlCommand("[MO].[GetUserDetails]", connection))
 				{
 
 					connection.Open();
-					command.Parameters.AddWithValue("@LoginName", userName);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@UserName", userName));
 					SqlDataAdapter da = new SqlDataAdapter(command);
 					da.Fill(dt);
 					connection.Close();

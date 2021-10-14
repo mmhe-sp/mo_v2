@@ -10,7 +10,8 @@ namespace MMHE.MO.Controls
 		public string Project { get; set; }
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Project = (Page as BasePage).LoggedInUser.ProjectName;
+            var user = (Page as BasePage).LoggedInUser;
+            Project = user.ProjectId + "-" + user.ProjectName;
 		}
 	}
 }

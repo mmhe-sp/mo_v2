@@ -84,6 +84,10 @@
 			resize: none;
 			overflow: hidden;
 		}
+        .app-search
+        {
+            width:500px;
+        }
 	</style>
 	<!-- DataTables -->
 	<link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
