@@ -11,7 +11,7 @@ namespace MMHE.MO.Controls
 {
 
 
-	public partial class TopMenu
+	public partial class ProjectName
 	{
 	}
 }

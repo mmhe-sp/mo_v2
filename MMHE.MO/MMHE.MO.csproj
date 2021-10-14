@@ -185,6 +185,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Pages\Elements.xml" />
+    <Compile Include="UI\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="UI\Dashboard.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

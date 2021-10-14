@@ -1,13 +1,9 @@
 ﻿using MMHE.MO.Models;
 
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MMHE.MO.Business.Repositories
 {
@@ -20,7 +16,7 @@ namespace MMHE.MO.Business.Repositories
 			parameters[1] = new SqlParameter("@pProNo", project);
 			parameters[2] = new SqlParameter("@pEmpID", loggedInUser);
 			DataTable table = new DataTable();
-			using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringMO"].ConnectionString))
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
 				using (SqlCommand command = new SqlCommand("SP_GetJCSADetails", connection))
 				{
@@ -37,9 +33,9 @@ namespace MMHE.MO.Business.Repositories
 		{
 			JCSDetails jCSDetails = new JCSDetails();
 			SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = new SqlParameter("@JCSID", jcsId);
+			parameters[0] = new SqlParameter("@JCSID", jcsId);
 			DataSet dataSet = new DataSet();
-			using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringMO"].ConnectionString))
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
 				using (SqlCommand command = new SqlCommand("GetJCSDetails", connection))
 				{

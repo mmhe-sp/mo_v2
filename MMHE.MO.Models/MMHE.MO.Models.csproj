@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdentityUser.cs" />
     <Compile Include="JCSActivityDetails.cs" />
     <Compile Include="JCSDetails.cs" />
     <Compile Include="Option.cs" />
