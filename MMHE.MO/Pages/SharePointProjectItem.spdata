@@ -6,5 +6,7 @@
     <ProjectItemFile Source="JCS-Edit.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="JCS-List.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="JSL-List.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="JCS.asmx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="Project.asmx" Target="Pages\" Type="ElementFile" />
   </Files>
 </ProjectItem>

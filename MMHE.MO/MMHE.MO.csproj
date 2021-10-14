@@ -47,6 +47,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -81,6 +82,7 @@
     <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.designer.cs">
       <DependentUpon>TopMenu.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +177,7 @@
     <Content Include="assets\libs\jquery.ba-throttle-debounce.min.js" />
     <Content Include="assets\libs\jquery.dataTables.min.js" />
     <Content Include="assets\libs\jquery.min.js" />
+    <Content Include="assets\libs\jquery.tokeninput.js" />
     <Content Include="assets\libs\metisMenu.min.css" />
     <Content Include="assets\libs\metisMenu.min.js" />
     <Content Include="assets\libs\responsive.bootstrap4.min.css" />
@@ -193,14 +196,25 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Pages\Elements.xml" />
+    <Compile Include="Services\BaseWebService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\JCS.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Project.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Dashboard.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Content Include="Pages\Project.asmx" />
     <Content Include="Pages\JCS-Edit.aspx" />
     <Content Include="Pages\JCS-List.aspx" />
+    <Content Include="Pages\JCS.asmx" />
     <Content Include="Pages\JSL-List.aspx" />
   </ItemGroup>
   <ItemGroup>

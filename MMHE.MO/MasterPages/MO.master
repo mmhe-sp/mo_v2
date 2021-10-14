@@ -84,10 +84,11 @@
 			resize: none;
 			overflow: hidden;
 		}
-        .app-search
-        {
-            width:500px;
-        }
+
+		.app-search
+		{
+			width: 500px;
+		}
 	</style>
 	<!-- DataTables -->
 	<link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -666,6 +667,8 @@
 	<script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
 	<script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
 	<script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
+	<script type="text/javascript" src="../Style Library/assets/libs/jquery.tokeninput.js"></script>
+
 	<script type="text/javascript">
 		jQuery.fn.extend({
 			live: function (event, callback)
@@ -689,6 +692,11 @@
 				$(tableId).DataTable().search(val).draw();
 			}));
 		}
+
+		$(document).ready(function ()
+		{
+			$('.app-search input').tokenInput('project.asmx')
+		});
 	</script>
 	<asp:ContentPlaceHolder ID="Script" runat="server">
 	</asp:ContentPlaceHolder>
