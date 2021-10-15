@@ -695,7 +695,7 @@
 
 		$(document).ready(function ()
 		{
-			$('.app-search input').tokenInput('project.asmx')
+			$('.app-search input').tokenInput('project.asmx/FindProjects')
 		});
 	</script>
 	<asp:ContentPlaceHolder ID="Script" runat="server">

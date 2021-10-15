@@ -27,7 +27,7 @@ namespace MMHE.MO.Business.Repositories
 			IdentityUser user = new IdentityUser();
 			if (dt.Rows.Count > 0)
 			{
-				user.Id = Convert.ToInt32(dt.Rows[0]["EmployeeId"].ToString());
+				user.Id = dt.Rows[0]["EmployeeId"].ToString();
 				user.Name = dt.Rows[0]["Name"].ToString();
 				user.Email = dt.Rows[0]["Email"].ToString();
 				user.WBS = dt.Rows[0]["WBS"].ToString();

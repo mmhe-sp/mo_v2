@@ -9,7 +9,7 @@ namespace MMHE.MO.Services
 	public class Project : BaseWebService
 	{
 		[WebMethod]
-		[ScriptMethod]
+		[ScriptMethod(UseHttpGet = true)]
 		public List<Option> FindProjects()
 		{
 			return new List<Option>() { new Option { Text = "A", Value = "B" } };
