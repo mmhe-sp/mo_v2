@@ -16,121 +16,113 @@
 
 <html lang="en" runat="server" class="mmhe">
 <head runat="server">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Expires" content="0" />
-	<sharepoint:robotsmetatag runat="server" />
-	<title id="onetidTitle">
-		<asp:ContentPlaceHolder ID="PlaceHolderPageTitle" runat="server" />
-	</title>
-	<sharepoint:csslink runat="server" version="4" />
-	<sharepoint:theme runat="server" visible="false" />
-	<sharepoint:ulsclientconfig runat="server" />
-	<script type="text/javascript">
-		var _fV4UI = true;
-	</script>
-	<sharepoint:scriptlink language="javascript" name="core.js" localizable="false" ondemand="true" runat="server" />
-	<sharepoint:customjsurl runat="server" />
-	<sharepoint:soapdiscoverylink runat="server" />
-	<asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
-	<sharepoint:delegatecontrol runat="server" controlid="AdditionalPageHead" allowmultiplecontrols="true" />
-	<asp:ContentPlaceHolder ID="PlaceHolderBodyAreaClass" runat="server" />
-	<asp:ContentPlaceHolder ID="PlaceHolderTitleAreaClass" runat="server" />
-	<sharepoint:sppagemanager runat="server" />
-	<sharepoint:sphelppagecomponent visible="false" runat="server" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0" />
+    <SharePoint:RobotsMetaTag runat="server" />
+    <title id="onetidTitle">
+        <asp:ContentPlaceHolder ID="PlaceHolderPageTitle" runat="server" />
+    </title>
+    <SharePoint:CssLink runat="server" Version="4" />
+    <SharePoint:Theme runat="server" Visible="false" />
+    <SharePoint:ULSClientConfig runat="server" />
+    <script type="text/javascript">
+        var _fV4UI = true;
+    </script>
+    <SharePoint:ScriptLink Language="javascript" Name="core.js" Localizable="false" OnDemand="true" runat="server" />
+    <SharePoint:CustomJSUrl runat="server" />
+    <SharePoint:SoapDiscoveryLink runat="server" />
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+    <SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true" />
+    <asp:ContentPlaceHolder ID="PlaceHolderBodyAreaClass" runat="server" />
+    <asp:ContentPlaceHolder ID="PlaceHolderTitleAreaClass" runat="server" />
+    <SharePoint:SPPageManager runat="server" />
+    <SharePoint:SPHelpPageComponent Visible="false" runat="server" />
 
-	<!-- App favicon -->
-	<link rel="shortcut icon" href="../../Style Library/assets/images/favicon.png" />
-	<!-- Bootstrap Css -->
-	<link href="../../Style Library/assets/css/bootstrap.min.css" rel="stylesheet" />
-	<!-- Icons Css -->
-	<link href="../../Style Library/assets/css/icons.min.css" rel="stylesheet" />
-	<!-- App Css-->
-	<link href="../../Style Library/assets/css/app.css" rel="stylesheet" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../../Style Library/assets/images/favicon.png" />
+    <!-- Bootstrap Css -->
+    <link href="../../Style Library/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Icons Css -->
+    <link href="../../Style Library/assets/css/icons.min.css" rel="stylesheet" />
+    <!-- App Css-->
+    <link href="../../Style Library/assets/css/app.css" rel="stylesheet" />
 
-	<style type="text/css">
-		#s4-titlerow
-		{
-			display: none !important;
-		}
+    <style type="text/css">
+        #s4-titlerow {
+            display: none !important;
+        }
 
-		.s4-ca
-		{
-			margin-left: 0 !important;
-		}
+        .s4-ca {
+            margin-left: 0 !important;
+        }
 
 
-		a.btn-primary:link
-		{
-			color: #fff !important;
-		}
+        a.btn-primary:link {
+            color: #fff !important;
+        }
 
-		.dataTables_wrapper .pull-left
-		{
-			float: left;
-		}
+        .dataTables_wrapper .pull-left {
+            float: left;
+        }
 
-		.dataTables_wrapper .pull-right
-		{
-			float: right;
-		}
+        .dataTables_wrapper .pull-right {
+            float: right;
+        }
 
-		.dataTables_wrapper .jcsTable_filter
-		{
-			width: 500px;
-		}
+        .dataTables_wrapper .jcsTable_filter {
+            width: 500px;
+        }
 
-		textarea.auto-resize
-		{
-			resize: none;
-			overflow: hidden;
-		}
+        textarea.auto-resize {
+            resize: none;
+            overflow: hidden;
+        }
 
-		.app-search
-		{
-			width: 500px;
-		}
-	</style>
-	<!-- DataTables -->
-	<link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-	<link href="../../Style Library/assets/libs/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        .app-search {
+            width: 500px;
+        }
+    </style>
+    <!-- DataTables -->
+    <link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Style Library/assets/libs/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
-	<!-- Responsive datatable examples -->
-	<link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal" data-layout-size="boxed">
-	<form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
-		<asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
-		<webpartpages:spwebpartmanager id="m" runat="Server" />
-		<sharepoint:spnoscript runat="server" />
-		<div id="TurnOnAccessibility" style="display: none" class="s4-notdlg noindex">
-			<a id="linkTurnOnAcc" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
-				<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_turnonaccessibility%>" encodemethod="HtmlEncode" />
-			</a>
-		</div>
-		<div id="TurnOffAccessibility" style="display: none" class="s4-notdlg noindex">
-			<a id="linkTurnOffAcc" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
-				<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,master_turnoffaccessibility%>" encodemethod="HtmlEncode" />
-			</a>
-		</div>
-		<div class="s4-notdlg s4-skipribbonshortcut noindex">
-			<a href="javascript:;" onclick="javascript:this.href='#startNavigation';" class="ms-SkiptoNavigation" accesskey="<%$Resources:wss,skipribbon_accesskey%>" runat="server">
-				<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,skipRibbonCommandsLink%>" encodemethod="HtmlEncode" />
-			</a>
-		</div>
-		<div class="s4-notdlg noindex">
-			<a href="javascript:;" onclick="javascript:this.href='#mainContent';" class="ms-SkiptoMainContent" accesskey="<%$Resources:wss,maincontent_accesskey%>" runat="server">
-				<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,mainContentLink%>" encodemethod="HtmlEncode" />
-			</a>
-		</div>
-		<a id="HiddenAnchor" href="javascript:;" style="display: none;"></a>
-		<sharepoint:delegatecontrol runat="server" controlid="GlobalNavigation" />
-		<div id="s4-ribbonrow" class="s4-pr s4-ribbonrowhidetitle" style="display: none">
-			<div id="s4-ribboncont">
-				<sharepoint:spribbon
-					runat="server"
-					placeholderelementid="RibbonContainer"
-					cssfile="">
+    <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
+        <asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
+        <WebPartPages:SPWebPartManager ID="m" runat="Server" />
+        <SharePoint:SPNoScript runat="server" />
+        <div id="TurnOnAccessibility" style="display: none" class="s4-notdlg noindex">
+            <a id="linkTurnOnAcc" href="#" class="ms-TurnOnAcc" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,master_turnonaccessibility%>" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div id="TurnOffAccessibility" style="display: none" class="s4-notdlg noindex">
+            <a id="linkTurnOffAcc" href="#" class="ms-TurnOffAcc" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,master_turnoffaccessibility%>" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div class="s4-notdlg s4-skipribbonshortcut noindex">
+            <a href="javascript:;" onclick="javascript:this.href='#startNavigation';" class="ms-SkiptoNavigation" accesskey="<%$Resources:wss,skipribbon_accesskey%>" runat="server">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,skipRibbonCommandsLink%>" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <div class="s4-notdlg noindex">
+            <a href="javascript:;" onclick="javascript:this.href='#mainContent';" class="ms-SkiptoMainContent" accesskey="<%$Resources:wss,maincontent_accesskey%>" runat="server">
+                <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,mainContentLink%>" EncodeMethod="HtmlEncode" />
+            </a>
+        </div>
+        <a id="HiddenAnchor" href="javascript:;" style="display: none;"></a>
+        <SharePoint:DelegateControl runat="server" ControlId="GlobalNavigation" />
+        <div id="s4-ribbonrow" class="s4-pr s4-ribbonrowhidetitle" style="display: none">
+            <div id="s4-ribboncont">
+                <SharePoint:SPRibbon
+                    runat="server"
+                    PlaceholderElementId="RibbonContainer"
+                    CssFile="">
                     <SharePoint:SPRibbonPeripheralContent
                         runat="server"
                         Location="TabRowLeft"
@@ -322,103 +314,103 @@
                             </span>
                         </span>
                     </SharePoint:SPRibbonPeripheralContent>
-                </sharepoint:spribbon>
-			</div>
-			<div id="notificationArea" class="s4-noti">
-			</div>
-			<asp:ContentPlaceHolder ID="SPNavigation" runat="server">
-				<sharepoint:delegatecontrol runat="server" controlid="PublishingConsole" id="PublishingConsoleDelegate">
-                </sharepoint:delegatecontrol>
-			</asp:ContentPlaceHolder>
-			<div id="WebPartAdderUpdatePanelContainer">
-				<asp:UpdatePanel
-					ID="WebPartAdderUpdatePanel"
-					UpdateMode="Conditional"
-					ChildrenAsTriggers="false"
-					runat="server">
-					<ContentTemplate>
-						<webpartpages:webpartadder id="WebPartAdder" runat="server" />
-					</ContentTemplate>
-					<Triggers>
-						<asp:PostBackTrigger ControlID="WebPartAdder" />
-					</Triggers>
-				</asp:UpdatePanel>
-			</div>
-		</div>
-		<div id="s4-workspace">
-			<div id="s4-bodyContainer">
-				<div id="s4-titlerow" class="s4-pr s4-notdlg s4-titlerowhidetitle" style="display: none">
-					<div class="s4-title s4-lp">
-						<div class="s4-title-inner">
-							<table class="s4-titletable" cellspacing="0">
-								<tbody>
-									<tr>
-										<td class="s4-titlelogo">
-											<sharepoint:splinkbutton runat="server" navigateurl="~site/" id="onetidProjectPropertyTitleGraphic">
+                </SharePoint:SPRibbon>
+            </div>
+            <div id="notificationArea" class="s4-noti">
+            </div>
+            <asp:ContentPlaceHolder ID="SPNavigation" runat="server">
+                <SharePoint:DelegateControl runat="server" ControlId="PublishingConsole" ID="PublishingConsoleDelegate">
+                </SharePoint:DelegateControl>
+            </asp:ContentPlaceHolder>
+            <div id="WebPartAdderUpdatePanelContainer">
+                <asp:UpdatePanel
+                    ID="WebPartAdderUpdatePanel"
+                    UpdateMode="Conditional"
+                    ChildrenAsTriggers="false"
+                    runat="server">
+                    <ContentTemplate>
+                        <WebPartPages:WebPartAdder ID="WebPartAdder" runat="server" />
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:PostBackTrigger ControlID="WebPartAdder" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+        <div id="s4-workspace">
+            <div id="s4-bodyContainer">
+                <div id="s4-titlerow" class="s4-pr s4-notdlg s4-titlerowhidetitle" style="display: none">
+                    <div class="s4-title s4-lp">
+                        <div class="s4-title-inner">
+                            <table class="s4-titletable" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="s4-titlelogo">
+                                            <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/" ID="onetidProjectPropertyTitleGraphic">
                                                 <SharePoint:SiteLogoImage name="onetidHeadbnnr0" ID="onetidHeadbnnr2" LogoImageUrl="/_layouts/15/images/siteIcon.png?rev=40" runat="server" />
-                                            </sharepoint:splinkbutton>
-										</td>
-										<td class="s4-titletext">
-											<h1 name="onetidProjectPropertyTitle">
-												<asp:ContentPlaceHolder ID="PlaceHolderSiteName" runat="server">
-													<sharepoint:splinkbutton runat="server" navigateurl="~site/" id="onetidProjectPropertyTitle">
+                                            </SharePoint:SPLinkButton>
+                                        </td>
+                                        <td class="s4-titletext">
+                                            <h1 name="onetidProjectPropertyTitle">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderSiteName" runat="server">
+                                                    <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/" ID="onetidProjectPropertyTitle">
                                                         <SharePoint:ProjectProperty Property="Title" runat="server" />
-                                                    </sharepoint:splinkbutton>
-												</asp:ContentPlaceHolder>
-											</h1>
-											<span id="onetidPageTitleSeparator" class="s4-nothome s4-bcsep s4-titlesep">
-												<sharepoint:clustereddirectionalseparatorarrow runat="server" />
-											</span>
-											<h2>
-												<asp:ContentPlaceHolder ID="PlaceHolderPageTitleInTitleArea" runat="server" />
-											</h2>
-											<div class="s4-pagedescription" tabindex="0">
-												<asp:ContentPlaceHolder ID="PlaceHolderPageDescription" runat="server" />
-											</div>
-										</td>
-										<td class="s4-socialdata-notif">
-											<sharepoint:delegatecontrol controlid="GlobalSiteLink3" scope="Farm" runat="server" />
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div id="s4-topheader2" class="s4-pr s4-notdlg">
-						<a name="startNavigation"></a>
-						<div id="s4-searcharea" class="s4-search s4-rp">
-							<asp:ContentPlaceHolder ID="PlaceHolderSearchArea" runat="server">
-								<h2 class="ms-hidden">
-									<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,topnav_pagetitle%>" encodemethod="HtmlEncode" />
-								</h2>
-								<sharepoint:delegatecontrol runat="server" controlid="SmallSearchInputBox" version="4" />
-							</asp:ContentPlaceHolder>
-							<span class="s4-help">
-								<span style="height: 17px; width: 17px; position: relative; display: inline-block; overflow: hidden;" class="s4-clust"><a href="#" style="height: 17px; width: 17px; display: inline-block;" onclick="TopHelpButtonClick('HelpHome');return false" accesskey="<%$Resources:wss,multipages_helplink_accesskey%>" id="TopHelpLink" title="<%$Resources:wss,multipages_helplinkalt_text%>" runat="server">
-									<img src="/_layouts/15/images/fgimg.png?rev=40" alt="<%$Resources:wss,multipages_helplinkalt_text%>" style="left: -0px !important; top: -245px !important; position: absolute;" align="absmiddle" border="0" runat="server" />
-								</a></span>
-							</span>
-						</div>
-						<div class="s4-rp s4-app">
-						</div>
-						<div class="s4-lp s4-toplinks">
-							<asp:ContentPlaceHolder ID="PlaceHolderTopNavBar" runat="server">
-								<asp:ContentPlaceHolder ID="PlaceHolderHorizontalNav" runat="server">
-									<sharepoint:aspmenu
-										id="TopNavigationMenuV4"
-										runat="server"
-										enableviewstate="false"
-										datasourceid="topSiteMap"
-										accesskey="<%$Resources:wss,navigation_accesskey%>"
-										usesimplerendering="true"
-										useseparatecss="false"
-										orientation="Horizontal"
-										staticdisplaylevels="2"
-										adjustforshowstartingnode="true"
-										maximumdynamicdisplaylevels="2"
-										skiplinktext=""
-										cssclass="s4-tn" />
-									<sharepoint:delegatecontrol runat="server" controlid="TopNavigationDataSource" id="topNavigationDelegate">
+                                                    </SharePoint:SPLinkButton>
+                                                </asp:ContentPlaceHolder>
+                                            </h1>
+                                            <span id="onetidPageTitleSeparator" class="s4-nothome s4-bcsep s4-titlesep">
+                                                <SharePoint:ClusteredDirectionalSeparatorArrow runat="server" />
+                                            </span>
+                                            <h2>
+                                                <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInTitleArea" runat="server" />
+                                            </h2>
+                                            <div class="s4-pagedescription" tabindex="0">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderPageDescription" runat="server" />
+                                            </div>
+                                        </td>
+                                        <td class="s4-socialdata-notif">
+                                            <SharePoint:DelegateControl ControlId="GlobalSiteLink3" Scope="Farm" runat="server" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="s4-topheader2" class="s4-pr s4-notdlg">
+                        <a name="startNavigation"></a>
+                        <div id="s4-searcharea" class="s4-search s4-rp">
+                            <asp:ContentPlaceHolder ID="PlaceHolderSearchArea" runat="server">
+                                <h2 class="ms-hidden">
+                                    <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,topnav_pagetitle%>" EncodeMethod="HtmlEncode" />
+                                </h2>
+                                <SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox" Version="4" />
+                            </asp:ContentPlaceHolder>
+                            <span class="s4-help">
+                                <span style="height: 17px; width: 17px; position: relative; display: inline-block; overflow: hidden;" class="s4-clust"><a href="#" style="height: 17px; width: 17px; display: inline-block;" onclick="TopHelpButtonClick('HelpHome');return false" accesskey="<%$Resources:wss,multipages_helplink_accesskey%>" id="TopHelpLink" title="<%$Resources:wss,multipages_helplinkalt_text%>" runat="server">
+                                    <img src="/_layouts/15/images/fgimg.png?rev=40" alt="<%$Resources:wss,multipages_helplinkalt_text%>" style="left: -0px !important; top: -245px !important; position: absolute;" align="absmiddle" border="0" runat="server" />
+                                </a></span>
+                            </span>
+                        </div>
+                        <div class="s4-rp s4-app">
+                        </div>
+                        <div class="s4-lp s4-toplinks">
+                            <asp:ContentPlaceHolder ID="PlaceHolderTopNavBar" runat="server">
+                                <asp:ContentPlaceHolder ID="PlaceHolderHorizontalNav" runat="server">
+                                    <SharePoint:AspMenu
+                                        ID="TopNavigationMenuV4"
+                                        runat="server"
+                                        EnableViewState="false"
+                                        DataSourceID="topSiteMap"
+                                        AccessKey="<%$Resources:wss,navigation_accesskey%>"
+                                        UseSimpleRendering="true"
+                                        UseSeparateCSS="false"
+                                        Orientation="Horizontal"
+                                        StaticDisplayLevels="2"
+                                        AdjustForShowStartingNode="true"
+                                        MaximumDynamicDisplayLevels="2"
+                                        SkipLinkText=""
+                                        CssClass="s4-tn" />
+                                    <SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" ID="topNavigationDelegate">
                                         <Template_Controls>
                                             <asp:SiteMapDataSource
                                                 ShowStartingNode="False"
@@ -427,37 +419,37 @@
                                                 runat="server"
                                                 StartingNodeUrl="sid:1002" />
                                         </Template_Controls>
-                                    </sharepoint:delegatecontrol>
-								</asp:ContentPlaceHolder>
-							</asp:ContentPlaceHolder>
-						</div>
-					</div>
-				</div>
-				<div id="s4-statusbarcontainer" style="display: none">
-					<div id="pageStatusBar" class="s4-status-s1">
-					</div>
-				</div>
-				<div id="s4-mainarea" class="s4-pr s4-widecontentarea">
-					<div id="s4-leftpanel" class="s4-notdlg" style="display: none;">
-						<div id="s4-leftpanel-content">
-							<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarDataSource" runat="server" />
-							<asp:ContentPlaceHolder ID="PlaceHolderCalendarNavigator" runat="server" />
-							<asp:ContentPlaceHolder ID="PlaceHolderLeftActions" runat="server"></asp:ContentPlaceHolder>
-							<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarTop" runat="server" />
-							<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBar" runat="server">
-								<div class="ms-quicklaunchouter">
-									<div class="ms-quickLaunch">
-										<h2 class="ms-hidden">
-											<sharepoint:encodedliteral runat="server" text="<%$Resources:wss,quiklnch_pagetitle%>" encodemethod="HtmlEncode" />
-										</h2>
-										<asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchTop" runat="server" />
-										<sharepoint:spnavigationmanager
-											id="QuickLaunchNavigationManager"
-											runat="server"
-											quicklaunchcontrolid="V4QuickLaunchMenu"
-											containedcontrol="QuickLaunch"
-											enableviewstate="false"
-											cssclass="ms-quicklaunch-navmgr">
+                                    </SharePoint:DelegateControl>
+                                </asp:ContentPlaceHolder>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <div id="s4-statusbarcontainer" style="display: none">
+                    <div id="pageStatusBar" class="s4-status-s1">
+                    </div>
+                </div>
+                <div id="s4-mainarea" class="s4-pr s4-widecontentarea">
+                    <div id="s4-leftpanel" class="s4-notdlg" style="display: none;">
+                        <div id="s4-leftpanel-content">
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarDataSource" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderCalendarNavigator" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftActions" runat="server"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarTop" runat="server" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBar" runat="server">
+                                <div class="ms-quicklaunchouter">
+                                    <div class="ms-quickLaunch">
+                                        <h2 class="ms-hidden">
+                                            <SharePoint:EncodedLiteral runat="server" Text="<%$Resources:wss,quiklnch_pagetitle%>" EncodeMethod="HtmlEncode" />
+                                        </h2>
+                                        <asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchTop" runat="server" />
+                                        <SharePoint:SPNavigationManager
+                                            ID="QuickLaunchNavigationManager"
+                                            runat="server"
+                                            QuickLaunchControlId="V4QuickLaunchMenu"
+                                            ContainedControl="QuickLaunch"
+                                            EnableViewState="false"
+                                            CssClass="ms-quicklaunch-navmgr">
                                             <div>
                                                 <SharePoint:DelegateControl runat="server"
                                                     ControlId="QuickLaunchDataSource">
@@ -484,12 +476,12 @@
                                                     SkipLinkText=""
                                                     CssClass="s4-ql" />
                                             </div>
-                                        </sharepoint:spnavigationmanager>
-										<sharepoint:spnavigationmanager
-											id="TreeViewNavigationManagerV4"
-											runat="server"
-											containedcontrol="TreeView"
-											cssclass="s4-treeView">
+                                        </SharePoint:SPNavigationManager>
+                                        <SharePoint:SPNavigationManager
+                                            ID="TreeViewNavigationManagerV4"
+                                            runat="server"
+                                            ContainedControl="TreeView"
+                                            CssClass="s4-treeView">
                                             <SharePoint:SPLinkButton runat="server" NavigateUrl="~site/_layouts/15/viewlsts.aspx" ID="idNavLinkSiteHierarchyV4" Text="<%$Resources:wss,treeview_header%>" AccessKey="<%$Resources:wss,quiklnch_allcontent_AK%>"
                                                 CssClass="s4-qlheader" />
                                             <div class="ms-treeviewouter">
@@ -522,204 +514,215 @@
                                                     </Template_Controls>
                                                 </SharePoint:DelegateControl>
                                             </div>
-                                        </sharepoint:spnavigationmanager>
-										<asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchBottom" runat="server">
-											<ul class="s4-specialNavLinkList">
-												<li>
-													<sharepoint:clusteredsplinkbutton
-														runat="server"
-														navigateurl="~site/_layouts/15/recyclebin.aspx"
-														imageclass="s4-specialNavIcon"
-														imageurl="/_layouts/15/images/fgimg.png?rev=40"
-														imagewidth="16"
-														imageheight="16"
-														offsetx="0"
-														offsety="364"
-														id="idNavLinkRecycleBin"
-														text="<%$Resources:wss,StsDefault_RecycleBin%>"
-														cssclass="s4-rcycl"
-														permissionsstring="DeleteListItems" />
-												</li>
-												<li>
-													<sharepoint:clusteredsplinkbutton
-														id="idNavLinkViewAllV4"
-														runat="server"
-														permissionsstring="ViewFormPages"
-														navigateurl="~site/_layouts/15/viewlsts.aspx"
-														imageclass="s4-specialNavIcon"
-														imageurl="/_layouts/15/images/fgimg.png?rev=40"
-														imagewidth="16"
-														imageheight="16"
-														offsetx="0"
-														offsety="0"
-														text="<%$Resources:wss,quiklnch_allcontent_short%>"
-														accesskey="<%$Resources:wss,quiklnch_allcontent_AK%>" />
-												</li>
-											</ul>
-										</asp:ContentPlaceHolder>
-									</div>
-								</div>
-							</asp:ContentPlaceHolder>
-						</div>
-					</div>
-					<div class="s4-ca s4-ca-dlgNoRibbon" id="MSO_ContentTable">
-						<div class="s4-die" style="display: none;">
-							<asp:ContentPlaceHolder ID="PlaceHolderPageImage" runat="server" Visible="false" />
-							<asp:ContentPlaceHolder ID="PlaceHolderTitleLeftBorder" runat="server" Visible="false">
-							</asp:ContentPlaceHolder>
-							<div id="onetidPageTitleAreaFrame" class='ms-pagetitleareaframe s4-pagetitle'></div>
-							<asp:ContentPlaceHolder ID="PlaceHolderMiniConsole" runat="server" Visible="false" />
-							<span class="s4-die">
-								<asp:ContentPlaceHolder ID="PlaceHolderTitleRightMargin" runat="server" Visible="false" />
-							</span>
-							<asp:ContentPlaceHolder ID="PlaceHolderTitleAreaSeparator" runat="server" Visible="false" />
-							<asp:ContentPlaceHolder ID="PlaceHolderNavSpacer" runat="server" Visible="false">
-								<img src="/_layouts/15/images/blank.gif?rev=40" width='138' height='1' alt="" data-accessibility-nocheck="true" />
-							</asp:ContentPlaceHolder>
-							<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarBorder" runat="server" Visible="false"></asp:ContentPlaceHolder>
-							<asp:ContentPlaceHolder ID="PlaceHolderBodyLeftBorder" runat="server" Visible="false">
-							</asp:ContentPlaceHolder>
-						</div>
-						<sharepoint:versionedplaceholder uiversion="3" id="DesignModeConsoleV3" runat="server">
+                                        </SharePoint:SPNavigationManager>
+                                        <asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchBottom" runat="server">
+                                            <ul class="s4-specialNavLinkList">
+                                                <li>
+                                                    <SharePoint:ClusteredSPLinkButton
+                                                        runat="server"
+                                                        NavigateUrl="~site/_layouts/15/recyclebin.aspx"
+                                                        ImageClass="s4-specialNavIcon"
+                                                        ImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                                        ImageWidth="16"
+                                                        ImageHeight="16"
+                                                        OffsetX="0"
+                                                        OffsetY="364"
+                                                        ID="idNavLinkRecycleBin"
+                                                        Text="<%$Resources:wss,StsDefault_RecycleBin%>"
+                                                        CssClass="s4-rcycl"
+                                                        PermissionsString="DeleteListItems" />
+                                                </li>
+                                                <li>
+                                                    <SharePoint:ClusteredSPLinkButton
+                                                        ID="idNavLinkViewAllV4"
+                                                        runat="server"
+                                                        PermissionsString="ViewFormPages"
+                                                        NavigateUrl="~site/_layouts/15/viewlsts.aspx"
+                                                        ImageClass="s4-specialNavIcon"
+                                                        ImageUrl="/_layouts/15/images/fgimg.png?rev=40"
+                                                        ImageWidth="16"
+                                                        ImageHeight="16"
+                                                        OffsetX="0"
+                                                        OffsetY="0"
+                                                        Text="<%$Resources:wss,quiklnch_allcontent_short%>"
+                                                        AccessKey="<%$Resources:wss,quiklnch_allcontent_AK%>" />
+                                                </li>
+                                            </ul>
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </div>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div class="s4-ca s4-ca-dlgNoRibbon" id="MSO_ContentTable">
+                        <div class="s4-die" style="display: none;">
+                            <asp:ContentPlaceHolder ID="PlaceHolderPageImage" runat="server" Visible="false" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderTitleLeftBorder" runat="server" Visible="false">
+                            </asp:ContentPlaceHolder>
+                            <div id="onetidPageTitleAreaFrame" class='ms-pagetitleareaframe s4-pagetitle'></div>
+                            <asp:ContentPlaceHolder ID="PlaceHolderMiniConsole" runat="server" Visible="false" />
+                            <span class="s4-die">
+                                <asp:ContentPlaceHolder ID="PlaceHolderTitleRightMargin" runat="server" Visible="false" />
+                            </span>
+                            <asp:ContentPlaceHolder ID="PlaceHolderTitleAreaSeparator" runat="server" Visible="false" />
+                            <asp:ContentPlaceHolder ID="PlaceHolderNavSpacer" runat="server" Visible="false">
+                                <img src="/_layouts/15/images/blank.gif?rev=40" width='138' height='1' alt="" data-accessibility-nocheck="true" />
+                            </asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarBorder" runat="server" Visible="false"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder ID="PlaceHolderBodyLeftBorder" runat="server" Visible="false">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <SharePoint:VersionedPlaceHolder UIVersion="3" ID="DesignModeConsoleV3" runat="server">
                             <asp:ContentPlaceHolder ID="WSSDesignConsole" runat="server">
                                 <wssuc:DesignModeConsole id="IdDesignModeConsole" runat="server" />
                             </asp:ContentPlaceHolder>
-                        </sharepoint:versionedplaceholder>
-						<div class='s4-ba' style="margin: 0; padding: 0;">
-							<div class='ms-bodyareacell'>
-								<div id="MSO_ContentDiv" runat="server">
-									<a name="mainContent" style="display: none"></a>
-									<!-- Begin page -->
-									<div id="layout-wrapper">
+                        </SharePoint:VersionedPlaceHolder>
+                        <div class='s4-ba' style="margin: 0; padding: 0;">
+                            <div class='ms-bodyareacell'>
+                                <div id="MSO_ContentDiv" runat="server">
+                                    <a name="mainContent" style="display: none"></a>
+                                    <!-- Begin page -->
+                                    <div id="layout-wrapper">
 
-										<mo:topmenu runat="server" id="TopMenu"></mo:topmenu>
+                                        <mo:topmenu runat="server" id="TopMenu"></mo:topmenu>
 
-										<!-- ============================================================== -->
-										<!-- Start right Content here -->
-										<!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- Start right Content here -->
+                                        <!-- ============================================================== -->
 
-										<div class="mo-main-content">
-											<div class="page-content">
-												<asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">
-												</asp:ContentPlaceHolder>
-												<!-- container-fluid -->
-											</div>
-											<!-- End Page-content -->
+                                        <div class="mo-main-content">
+                                            <div class="page-content">
+                                                <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                                <!-- container-fluid -->
+                                            </div>
+                                            <!-- End Page-content -->
 
-											<footer class="footer">
-												<div class="container-fluid">
-													<div class="row">
-														<div class="col text-center">
-															<script>document.write(new Date().getFullYear())</script>
-															© MMHE.
-														</div>
-													</div>
-												</div>
-											</footer>
+                                            <footer class="footer">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col text-center">
+                                                            <script>document.write(new Date().getFullYear())</script>
+                                                            © MMHE.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </footer>
 
-										</div>
-										<!-- end main content-->
+                                        </div>
+                                        <!-- end main content-->
 
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="s4-die">
-							<asp:ContentPlaceHolder ID="PlaceHolderBodyRightMargin" runat="server">
-							</asp:ContentPlaceHolder>
-						</div>
-					</div>
-				</div>
-				<sharepoint:developerdashboard runat="server" />
-			</div>
-		</div>
-		<asp:ContentPlaceHolder ID="PlaceHolderFormDigest" runat="server">
-			<sharepoint:formdigest runat="server" />
-		</asp:ContentPlaceHolder>
-		<input type="text" name="__spText1" title="text" style="display: none;" />
-		<input type="text" name="__spText2" title="text" style="display: none;" />
-	</form>
-	<asp:ContentPlaceHolder ID="PlaceHolderUtilityContent" runat="server" />
-	<sharepoint:warnonunsupportedbrowsers runat="server" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-die">
+                            <asp:ContentPlaceHolder ID="PlaceHolderBodyRightMargin" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <SharePoint:DeveloperDashboard runat="server" />
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="PlaceHolderFormDigest" runat="server">
+            <SharePoint:FormDigest runat="server" />
+        </asp:ContentPlaceHolder>
+        <input type="text" name="__spText1" title="text" style="display: none;" />
+        <input type="text" name="__spText2" title="text" style="display: none;" />
+    </form>
+    <asp:ContentPlaceHolder ID="PlaceHolderUtilityContent" runat="server" />
+    <SharePoint:WarnOnUnsupportedBrowsers runat="server" />
 
-	<!-- JAVASCRIPT -->
-	<script src="../Style Library/assets/libs/jquery.min.js" type="text/javascript"></script>
-	<script src="../Style Library/assets/libs/bootstrap.bundle.min.js" type="text/javascript"></script>
-	<script src="../Style Library/assets/libs/metisMenu.min.js" type="text/javascript"></script>
-	<script src="../Style Library/assets/libs/simplebar.min.js" type="text/javascript"></script>
+    <!-- JAVASCRIPT -->
+    <script src="../Style Library/assets/libs/jquery.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/metisMenu.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/simplebar.min.js" type="text/javascript"></script>
 
-	<script src="../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
 
-	<script src="../Style Library/assets/js/pages/dashboard.init.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/js/pages/dashboard.init.js" type="text/javascript"></script>
 
 
 
-	<!-- Required datatable js -->
-	<script src="../Style Library/assets/libs/jquery.dataTables.min.js"></script>
-	<script src="../Style Library/assets/libs/dataTables.bootstrap4.min.js"></script>
-	<!-- Buttons examples -->
-	<script src="../Style Library/assets/libs/dataTables.buttons.min.js"></script>
-	<script src="../Style Library/assets/libs/buttons.bootstrap4.min.js"></script>
-	<script src="../Style Library/assets/libs/buttons.html5.min.js"></script>
-	<script src="../Style Library/assets/libs/buttons.print.min.js"></script>
-	<script src="../Style Library/assets/libs/buttons.colVis.min.js"></script>
+    <!-- Required datatable js -->
+    <script src="../Style Library/assets/libs/jquery.dataTables.min.js"></script>
+    <script src="../Style Library/assets/libs/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="../Style Library/assets/libs/dataTables.buttons.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.bootstrap4.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.html5.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.print.min.js"></script>
+    <script src="../Style Library/assets/libs/buttons.colVis.min.js"></script>
 
-	<!-- Responsive examples -->
-	<script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
-	<script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
-	<script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
-	<script type="text/javascript" src="../Style Library/assets/libs/typeahead.js"></script>
+    <!-- Responsive examples -->
+    <script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
+    <script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
+    <script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="../Style Library/assets/libs/typeahead.js"></script>
 
-	<script type="text/javascript">
-		jQuery.fn.extend({
-			live: function (event, callback)
-			{
-				if (this.selector)
-				{
-					jQuery(document).on(event, this.selector, callback);
-				}
-				return this;
-			}
-		});
-		function delaySearch(tableId, key)
-		{
-			var $searchBox = $(tableId + "_filter input[type='search']");
-			$searchBox.off();
+    <script type="text/javascript">
+        jQuery.fn.extend({
+            live: function (event, callback)
+            {
+                if (this.selector)
+                {
+                    jQuery(document).on(event, this.selector, callback);
+                }
+                return this;
+            }
+        });
+        function delaySearch(tableId, key)
+        {
+            var $searchBox = $(tableId + "_filter input[type='search']");
+            $searchBox.off();
 
-			$searchBox.on("keyup", $.debounce(250, function ()
-			{
-				var val = $searchBox.val();
-				sessionStorage.setItem(key, val);
-				$(tableId).DataTable().search(val).draw();
-			}));
-		}
+            $searchBox.on("keyup", $.debounce(250, function ()
+            {
+                var val = $searchBox.val();
+                sessionStorage.setItem(key, val);
+                $(tableId).DataTable().search(val).draw();
+            }));
+        }
 
-		$(document).ready(function ()
-		{
-			$('.app-search input').typeahead({
-				source: function (query, result)
-				{
-					$.ajax({
-						url: "project.asmx/FindProjects",
-						data: 'project=' + query,
-						dataType: "json",
-						type: "GET",
-						success: function (data)
-						{
-							result($.map(data, function (item)
-							{
-								return item;
-							}));
-						}
-					});
-				}
-			});
-		});
-	</script>
-	<asp:ContentPlaceHolder ID="Script" runat="server">
-	</asp:ContentPlaceHolder>
+        $(document).ready(function ()
+        {
+            $('.app-search input').typeahead({
+                source: function (query, result)
+                {
+                    $.ajax({
+                        url: "project.asmx/FindProjects",
+                        data: 'project=' + query,
+                        dataType: "json",
+                        type: "GET",
+                        success: function (data)
+                        {
+                            result($.map(data, function (item)
+                            {
+                                return item;
+                            }));
+                        }
+                    });
+                },
+                afterSelect: updateProject
+            });
+        });
 
-	<!-- App js -->
-	<script src="../Style Library/assets/js/app.js" type="text/javascript"></script>
+        function updateProject(project)
+        {
+            $.ajax({
+                url: "project.asmx/UpdateProject",
+                data: 'project=' + project,
+                dataType: "json",
+                type: "POST"
+            }).done(function () { window.location.reload(true); });
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="Script" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- App js -->
+    <script src="../Style Library/assets/js/app.js" type="text/javascript"></script>
 </body>
 </html>

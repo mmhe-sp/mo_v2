@@ -36,9 +36,20 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -51,19 +62,62 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionStringHelper.cs" />
+    <Compile Include="Entities\MO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MO.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\tblUser.cs">
+      <DependentUpon>MO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\tblUserSessionProjectInfo.cs">
+      <DependentUpon>MO.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\JCSRepository.cs" />
     <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Entities\MO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Entities\MO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MO.edmx</DependentUpon>
+      <LastGenOutput>MO.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\MO.edmx.diagram">
+      <DependentUpon>MO.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\MO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MO.edmx</DependentUpon>
+      <LastGenOutput>MO.cs</LastGenOutput>
+    </None>
     <None Include="key.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMHE.MO.Models\MMHE.MO.Models.csproj">
       <Project>{7fb059eb-30d2-4917-a182-99a0cb088586}</Project>
       <Name>MMHE.MO.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

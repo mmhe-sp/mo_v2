@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MMHE.MO.Business.Entities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="DisciplineCode" />
+          </Key>
+          <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar(max)" />
+          <Property Name="DisciplineCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PS" Type="bit" />
+          <Property Name="TL" Type="bit" />
+          <Property Name="PL" Type="bit" />
+          <Property Name="QC" Type="bit" />
+          <Property Name="PM" Type="bit" />
+          <Property Name="HOD" Type="bit" />
+          <Property Name="TE" Type="bit" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ProjectID" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblUserSessionProjectInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="WBS" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ProjectID" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="MMHEMOBusinessEntitiesStoreContainer">
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserSessionProjectInfo" EntityType="Self.tblUserSessionProjectInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MMHE.MO.Business.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MOContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblUsers" EntityType="MMHE.MO.Business.Entities.tblUser" />
+          <EntitySet Name="tblUserSessionProjectInfoes" EntityType="MMHE.MO.Business.Entities.tblUserSessionProjectInfo" />
+        </EntityContainer>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="DisciplineCode" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisciplineCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PS" Type="Boolean" />
+          <Property Name="TL" Type="Boolean" />
+          <Property Name="PL" Type="Boolean" />
+          <Property Name="QC" Type="Boolean" />
+          <Property Name="PM" Type="Boolean" />
+          <Property Name="HOD" Type="Boolean" />
+          <Property Name="TE" Type="Boolean" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ProjectID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblUserSessionProjectInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="WBS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ProjectID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MMHEMOBusinessEntitiesStoreContainer" CdmEntityContainer="MOContext">
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="MMHE.MO.Business.Entities.tblUser">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TE" ColumnName="TE" />
+                <ScalarProperty Name="HOD" ColumnName="HOD" />
+                <ScalarProperty Name="PM" ColumnName="PM" />
+                <ScalarProperty Name="QC" ColumnName="QC" />
+                <ScalarProperty Name="PL" ColumnName="PL" />
+                <ScalarProperty Name="TL" ColumnName="TL" />
+                <ScalarProperty Name="PS" ColumnName="PS" />
+                <ScalarProperty Name="DisciplineCode" ColumnName="DisciplineCode" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserSessionProjectInfoes">
+            <EntityTypeMapping TypeName="MMHE.MO.Business.Entities.tblUserSessionProjectInfo">
+              <MappingFragment StoreEntitySet="tblUserSessionProjectInfo">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="WBS" ColumnName="WBS" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
