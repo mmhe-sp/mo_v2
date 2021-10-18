@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMHE.MO", "MMHE.MO\MMHE.MO.csproj", "{17FC2684-63E9-42A5-B826-D9E639B1F614}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -35,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA751F6B-26A9-4A48-80C3-F0775C50B3E7}
 	EndGlobalSection
 EndGlobal

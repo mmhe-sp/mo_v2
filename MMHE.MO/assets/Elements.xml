@@ -72,8 +72,6 @@
 		<File Path="assets\libs\responsive.bootstrap4.min.css" Url="assets/libs/responsive.bootstrap4.min.css" Type="GhostableInLibrary" />
 		<File Path="assets\libs\responsive.bootstrap4.min.js" Url="assets/libs/responsive.bootstrap4.min.js" Type="GhostableInLibrary" />
 		<File Path="assets\libs\jquery.ba-throttle-debounce.min.js" Url="assets/libs/jquery.ba-throttle-debounce.min.js" Type="GhostableInLibrary" />
-		<File Path="assets\libs\jquery.tokeninput.js" Url="assets/libs/jquery.tokeninput.js" Type="GhostableInLibrary" />
-    <File Path="assets\libs\token-input.css" Url="assets/libs/token-input.css" />
-    <File Path="assets\libs\bootstrap-autocomplete.min.js" Url="assets/libs/bootstrap-autocomplete.min.js" />
-  </Module>
+		<File Path="assets\libs\typeahead.js" Url="assets/libs/typeahead.js" Type="GhostableInLibrary"/>
+	</Module>
 </Elements>
