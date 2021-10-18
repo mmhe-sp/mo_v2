@@ -48,9 +48,6 @@
 	<!-- App Css-->
 	<link href="../../Style Library/assets/css/app.css" rel="stylesheet" />
 
-	<!-- App Css-->
-	<link href="../../Style Library/assets/libs/token-input.css" rel="stylesheet" />
-
 	<style type="text/css">
 		#s4-titlerow
 		{
@@ -671,7 +668,7 @@
 	<script src="../Style Library/assets/libs/dataTables.responsive.min.js"></script>
 	<script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
 	<script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
-	<script type="text/javascript" src="../Style Library/assets/libs/jquery.tokeninput.js"></script>
+	<script type="text/javascript" src="../Style Library/assets/libs/bootstrap-autocomplete.min.js"></script>
 
 	<script type="text/javascript">
 		jQuery.fn.extend({
@@ -699,7 +696,11 @@
 
 		$(document).ready(function ()
 		{
-			$('.app-search input').tokenInput('project.asmx/FindProjects')
+		    $('.app-search input').autoComplete({
+		        resolverSettings: {
+		            url: 'project.asmx/FindProjects'
+		        }
+		    });
 		});
 	</script>
 	<asp:ContentPlaceHolder ID="Script" runat="server">

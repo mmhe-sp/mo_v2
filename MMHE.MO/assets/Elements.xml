@@ -74,5 +74,6 @@
 		<File Path="assets\libs\jquery.ba-throttle-debounce.min.js" Url="assets/libs/jquery.ba-throttle-debounce.min.js" Type="GhostableInLibrary" />
 		<File Path="assets\libs\jquery.tokeninput.js" Url="assets/libs/jquery.tokeninput.js" Type="GhostableInLibrary" />
     <File Path="assets\libs\token-input.css" Url="assets/libs/token-input.css" />
+    <File Path="assets\libs\bootstrap-autocomplete.min.js" Url="assets/libs/bootstrap-autocomplete.min.js" />
   </Module>
 </Elements>

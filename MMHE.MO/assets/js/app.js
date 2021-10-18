@@ -306,7 +306,7 @@ File: Main Js File
         initSettings();
         initLanguage();
         initPreloader();
-        Waves.init();
+        //Waves.init();
         initCheckAll();
     }
     $(document).ready(function () {

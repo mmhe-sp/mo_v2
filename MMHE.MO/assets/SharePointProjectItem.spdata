@@ -75,5 +75,6 @@
     <ProjectItemFile Source="libs\jquery.ba-throttle-debounce.min.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\jquery.tokeninput.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\token-input.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\bootstrap-autocomplete.min.js" Target="assets\libs\" Type="ElementFile" />
   </Files>
 </ProjectItem>

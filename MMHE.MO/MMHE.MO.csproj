@@ -164,6 +164,7 @@
     <Content Include="assets\js\pages\dashboard.init.js" />
     <Content Include="assets\libs\apexcharts.css" />
     <Content Include="assets\libs\apexcharts.min.js" />
+    <Content Include="assets\libs\bootstrap-autocomplete.min.js" />
     <Content Include="assets\libs\bootstrap.bundle.min.js" />
     <Content Include="assets\libs\buttons.bootstrap4.min.css" />
     <Content Include="assets\libs\buttons.bootstrap4.min.js" />
@@ -184,6 +185,7 @@
     <Content Include="assets\libs\responsive.bootstrap4.min.js" />
     <Content Include="assets\libs\simplebar.min.css" />
     <Content Include="assets\libs\simplebar.min.js" />
+    <Content Include="assets\libs\token-input.css" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />

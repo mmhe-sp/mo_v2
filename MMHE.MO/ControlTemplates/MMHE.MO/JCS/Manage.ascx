@@ -61,14 +61,14 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="datatable-buttons" class="table table-bordered dt-responsive w-100 font-size-12">
+                        <table id="activities" class="table table-bordered dt-responsive w-100 font-size-12">
                             <thead>
                                 <tr>
                                     <th style="width: 40px">Item</th>
                                     <th>Details Scope & Specification</th>
                                     <th style="width: 200px">Resources</th>
                                     <th style="width: 100px">Update By</th>
-                                    <th style="width:20px"></th>
+                                    <th style="width:20px">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,18 +89,16 @@
                                                 <%# DataBinder.Eval(Container.DataItem, "Sequence") %>
                                             </td>
                                             <td>
-                                                <textarea class="form-control auto-resize">
-													<%# DataBinder.Eval(Container.DataItem, "Remarks") %>
-												</textarea>
+                                                <textarea class="form-control auto-resize"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
 
                                             </td>
                                             <td>
-                                                <asp:DropDownList class="form-select" runat="server" ID="ddlResources">
+                                                <select class="form-select" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
                                                     <%foreach (var item in Details.Resources)
                                                       { %>
-                                                    <option value="<%=item.Value %>" <%=item.Value == Container %>><%=item.Text %></option>
+                                                        <option value="<%=item.Value %>"><%=item.Text %></option>
                                                     <%} %>
-                                                </asp:DropDownList>
+                                                </select>
                                             </td>
                                             <td>
                                                 <div class="dark-text">

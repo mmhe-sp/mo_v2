@@ -65,7 +65,7 @@ namespace MMHE.MO.Business.Repositories
 					{
 						Sequence = r.Field<string>("SequenceNo"),
 						ActivityID = r.Field<Guid>("ActivityID"),
-						Remarks = r.Field<string>("Remarks"),
+                        Remarks = r.Field<string>("Remarks").Trim(),
 						Details = r.Field<string>("Details"),
 						UpdatedBy = r.Field<string>("UpdatedBy"),
 						UpdatedOn = r.Field<DateTime>("UpdatedOn"),

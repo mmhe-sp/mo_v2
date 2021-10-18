@@ -12,93 +12,87 @@
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-	<div class="container-fluid">
-		<!-- start page title -->
-		<div class="row">
-			<div class="col-12">
-				<div class="page-title-box d-sm-flex align-items-center justify-content-between">
-					<mo:projectname runat="server" id="projectName"></mo:projectname>
-					<div class="page-title-right">
-						<ol class="breadcrumb m-0">
-							<li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-							<li class="breadcrumb-item active">Job Confirmation Scope</li>
-						</ol>
-					</div>
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <mo:projectname runat="server" id="projectName"></mo:projectname>
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
+                            <li class="breadcrumb-item active">Job Confirmation Scope</li>
+                        </ol>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-		<!-- end page title -->
-		<mo:jcs runat="server" id="jcs"></mo:jcs>
-	</div>
-	<!-- container-fluid -->
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        <mo:jcs runat="server" id="jcs"></mo:jcs>
+    </div>
+    <!-- container-fluid -->
 
+    <div id="stacked-column-chart" style="display:none"></div>
+    <div id="radialBar-chart" style="display:none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-	MMHE::Job Confirmation Scope
+    MMHE::Job Confirmation Scope
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-	Job Confirmation Scope
+    Job Confirmation Scope
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-	<script>
-		$(document).ready(function ()
-		{
-			$("#datatable-buttons").DataTable({
-				lengthChange: !1, buttons: ["excel"], search: false
-			}).buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)");
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#activities").DataTable({
+                lengthChange: !1, search: false
+            });
 
-			$('.auto-resize').on('input', function ()
-			{
-				autoResize(this, "input");
-			});
+            $('.auto-resize').on('input', function ()
+            {
+                autoResize(this, "input");
+            });
 
-			$.each($('.auto-resize'), function (i, v) { autoResize(v, "each"); });
-		});
+            $.each($('.auto-resize'), function (i, v)
+            {
+                autoResize(v, "each");
+            });
+        });
 
-		function autoResize(ctrl, event)
-		{
-			var h = ctrl.scrollHeight;
-			var td = $(ctrl).closest("td");
-			var tr = td.closest("tr");
-			var h2 = td.height();
-			if (h2 > h)
-				h = h2;
+        function autoResize(ctrl, event)
+        {
+            var h = ctrl.scrollHeight;
+            var td = $(ctrl).closest("td");
+            var tr = td.closest("tr");
+            var h2 = td.height();
+            if (h2 > h)
+                h = h2;
 
-			if (event == "each")
-			{
-				var fields = tr.find('.auto-resize');
-				$.each(fields, function (i, v)
-				{
-					h2 = v.scrollHeight;
-					if (h < h2)
-						h = h2;
-				});
-				fields.height(h);
-			} else
-			{
-				ctrl.style.height = "auto";
-				ctrl.style.height = (h) + "px";
+            if (event == "each")
+            {
+                var fields = tr.find('.auto-resize');
+                $.each(fields, function (i, v)
+                {
+                    h2 = v.scrollHeight;
+                    if (h < h2)
+                        h = h2;
+                });
+                fields.height(h);
+            } else
+            {
+                ctrl.style.height = "auto";
+                ctrl.style.height = (h) + "px";
+            }
+        }
 
-				var field;
-				var fields = tr.find('.auto-resize');
-				$.each(fields, function (i, v)
-				{
-					if (v.id.toString() != ctrl.id.toString())
-					{
-						field = v;
-					}
-				});
-				field.setAttribute("style", "height:" + (h) + "px;");
-			}
-		}
-
-		function removeRow(index)
-		{
-			$('.row-' + index).remove();
-		}
-	</script>
+        function removeRow(index)
+        {
+            $('.row-' + index).remove();
+        }
+    </script>
 </asp:Content>

@@ -33,7 +33,8 @@
         <mo:JCS runat="server" ID="jcs"></mo:JCS>
     </div>
     <!-- container-fluid -->
-
+    <div id="stacked-column-chart" style="display:none"></div>
+    <div id="radialBar-chart" style="display:none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
