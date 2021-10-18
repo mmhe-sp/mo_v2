@@ -53,6 +53,7 @@
     <Compile Include="ConnectionStringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\JCSRepository.cs" />
+    <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
