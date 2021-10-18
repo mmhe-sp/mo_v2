@@ -697,8 +697,21 @@
 		$(document).ready(function ()
 		{
 		    $('.app-search input').autoComplete({
-		        resolverSettings: {
-		            url: 'project.asmx/FindProjects'
+		        resolver: 'custom',
+		        events: {
+		            search: function (qry, callback)
+		            {
+		                // let's do a custom ajax call
+		                $.ajax(
+                            'project.asmx/FindProjects',
+                            {
+                                data: { 'project': qry }
+                            }
+                        ).done(function (res)
+                        {
+                            callback(JSON.parse( res))
+                        });
+		            }
 		        }
 		    });
 		});
