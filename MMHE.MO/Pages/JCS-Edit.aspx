@@ -33,8 +33,8 @@
     </div>
     <!-- container-fluid -->
 
-    <div id="stacked-column-chart" style="display:none"></div>
-    <div id="radialBar-chart" style="display:none"></div>
+    <div id="stacked-column-chart" style="display: none"></div>
+    <div id="radialBar-chart" style="display: none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
@@ -49,9 +49,12 @@
     <script type="text/javascript">
         $(document).ready(function ()
         {
-            $("#activities").DataTable({
-                lengthChange: !1, search: false
-            });
+            try
+            {
+                $("#activities").DataTable({
+                    lengthChange: !1, search: false
+                });
+            } catch (e) { }
 
             $('.auto-resize').on('input', function ()
             {
