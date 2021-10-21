@@ -142,6 +142,11 @@
 						type: 'application/vnd.ms-excel'
 					}), d.FileName + ".xls");
 			});
-		}
+        }
+
+        function uploadExcel()
+        {
+
+        }
 	</script>
 </asp:Content>

@@ -5,6 +5,9 @@
     <projectOutputAssembly location="MMHE.MO.Models.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\MMHE.MO.Models\MMHE.MO.Models.csproj" />
     <customAssembly location="EntityFramework.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\MMHE.MO.Business\bin\Debug\EntityFramework.dll" />
     <customAssembly location="EntityFramework.SqlServer.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\MMHE.MO.Business\bin\Debug\EntityFramework.SqlServer.dll" />
+    <customAssembly location="ClosedXML.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\ClosedXML.dll" />
+    <customAssembly location="DocumentFormat.OpenXml.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\DocumentFormat.OpenXml.dll" />
+    <customAssembly location="ExcelNumberFormat.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\ExcelNumberFormat.dll" />
   </assemblies>
   <features>
     <featureReference itemId="9c818581-1098-4147-b106-db8e31a432b9" />
