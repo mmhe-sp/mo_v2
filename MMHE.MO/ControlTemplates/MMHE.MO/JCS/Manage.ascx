@@ -97,7 +97,7 @@
 										</div>
 									</td>
 								</tr>
-								<tr class="row-new" style="display: none">
+								<tr class="row-new d-none">
 									<td style="width: 40px">
 										<span class="seqNo"></span>
 									</td>

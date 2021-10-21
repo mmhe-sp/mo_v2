@@ -125,7 +125,7 @@
 				var clonedTr = tr.clone(true)
 				$('#activities tbody').append(clonedTr);
 				clonedTr.css('display', 'inline-block');
-				clonedTr.addClass('activity').removeClass('row-new');
+				clonedTr.addClass('activity').removeClass('row-new').removeClass('d-none');
 			}
 		}
 
