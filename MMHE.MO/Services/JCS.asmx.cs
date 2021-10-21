@@ -8,6 +8,7 @@ using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
@@ -86,6 +87,97 @@ namespace MMHE.MO.Services
 		{
 			JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
 			var jcsDetails = javaScriptSerializer.Deserialize<JCSDetails>(jcs);
+		}
+
+		private void Import(DataTable dataTable)
+		{
+			//Create a new DataTable.
+			DataTable dt = new DataTable();
+			dt.Columns.Add("OwnerNo", typeof(string));
+			dt.Columns.Add("JSL", typeof(string));
+			dt.Columns.Add("Discipline", typeof(string));
+			dt.Columns.Add("Description", typeof(string));
+			bool addNewRow = false;
+			string discipline = string.Empty;
+			string owner = string.Empty;
+			string jsl = string.Empty;
+			string value = string.Empty;
+			string cell;
+			bool findJSL = true;
+			string contractItems = string.Empty;
+			foreach (DataRow row in dataTable.Rows)
+			{
+				cell = row[0].ToString();
+				if (string.IsNullOrWhiteSpace(cell) == false && cell == "DISC")
+				{
+
+					discipline = row[1].ToString().Split('.')[0];
+					Console.WriteLine(discipline);
+					findJSL = true;
+					continue;
+				}
+
+				cell = row[0].ToString();
+
+				if (IsRowEmpty(row) && findJSL)
+					continue;
+				else if (string.IsNullOrWhiteSpace(cell) && findJSL)
+					continue;
+				else
+					findJSL = false;
+				if (string.IsNullOrWhiteSpace(cell) == false)
+				{
+					if (addNewRow)
+						AddRow(dt, owner, contractItems, discipline, jsl);
+					owner = cell;
+					jsl = row[1].ToString();
+					contractItems = string.Empty;
+					addNewRow = true;
+					continue;
+				}
+				else if (IsRowEmpty(row) == false)
+				{
+					if (string.IsNullOrWhiteSpace(contractItems) == false)
+						contractItems += Environment.NewLine;
+					contractItems += row[1].ToString();
+					contractItems += " " + row[2].ToString();
+					contractItems += " " + row[3].ToString();
+					contractItems += " " + row[4].ToString();
+					contractItems += " " + row[5].ToString();
+				}
+			}
+
+			//Add last Row.
+			if (addNewRow)
+				AddRow(dt, owner, contractItems, discipline, jsl);
+
+			//save data into database
+			var jcsRepository = new JCSRepository();
+			foreach (DataRow dataRow in dt.Rows)
+				jcsRepository.Import(LoggedInUser.ProjectId, LoggedInUser.Id, dataRow);
+
+		}
+
+		private void AddRow(DataTable dt, string owner, string contractItems, string discipline, string jsl)
+		{
+			DataRow dataRow = dt.NewRow();
+			dataRow[0] = owner;
+			dataRow[1] = jsl;
+			dataRow[2] = discipline;
+			dataRow[3] = contractItems;
+			dt.Rows.Add(dataRow);
+		}
+		private bool IsRowEmpty(DataRow row)
+		{
+			return string.IsNullOrWhiteSpace(row[0].ToString())
+				&& string.IsNullOrWhiteSpace(row[1].ToString())
+				&& string.IsNullOrWhiteSpace(row[2].ToString())
+				&& string.IsNullOrWhiteSpace(row[3].ToString())
+				&& string.IsNullOrWhiteSpace(row[4].ToString())
+				&& string.IsNullOrWhiteSpace(row[5].ToString())
+				&& string.IsNullOrWhiteSpace(row[6].ToString())
+				&& string.IsNullOrWhiteSpace(row[7].ToString())
+				&& string.IsNullOrWhiteSpace(row[8].ToString());
 		}
 	}
 }

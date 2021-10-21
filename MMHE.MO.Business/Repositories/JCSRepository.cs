@@ -66,7 +66,7 @@ namespace MMHE.MO.Business.Repositories
 					{
 						Sequence = r.Field<string>("SequenceNo"),
 						ActivityID = r.Field<Guid>("ActivityID"),
-                        Remarks = r.Field<string>("Remarks").Trim(),
+						Remarks = r.Field<string>("Remarks").Trim(),
 						UpdatedBy = r.Field<string>("UpdatedBy"),
 						UpdatedOn = r.Field<DateTime>("UpdatedOn"),
 						Resource = r.Field<string>("Resource")
@@ -81,6 +81,26 @@ namespace MMHE.MO.Business.Repositories
 				}
 			}
 			return jCSDetails;
+		}
+
+		public void Import(string projectNo, string loggedInUser, DataRow dataRow)
+		{
+			SqlParameter[] parameters = new SqlParameter[3];
+			parameters[0] = new SqlParameter("@ProjectNo", projectNo);
+			parameters[1] = new SqlParameter("@OwnerNo", dataRow[0].ToString());
+			parameters[2] = new SqlParameter("@JSL", dataRow[1].ToString());
+			parameters[2] = new SqlParameter("@Description", dataRow[3].ToString());
+			parameters[2] = new SqlParameter("@Discipline", dataRow[2].ToString());
+			parameters[2] = new SqlParameter("@CreatedBy", loggedInUser);
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+			{
+				using (SqlCommand command = new SqlCommand("MO.FindJCS", connection))
+				{
+					command.CommandType = CommandType.StoredProcedure;
+					command.Parameters.AddRange(parameters);
+					command.ExecuteNonQuery();
+				}
+			}
 		}
 	}
 }
