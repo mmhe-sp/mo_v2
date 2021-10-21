@@ -121,7 +121,7 @@
 										</div>
 									</td>
 									<td>
-										<a href="javascript:void(0)" onclick="removeRow(<%= LastRowIndex %>)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+										<a href="javascript:void(0)" onclick="removeRow(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 									</td>
 								</tr>
 								<asp:Repeater ID="jcsRepeater" runat="server">
