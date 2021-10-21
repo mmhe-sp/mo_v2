@@ -5,6 +5,7 @@ using MMHE.MO.Business.Repositories;
 using MMHE.MO.Models;
 
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
@@ -48,37 +49,10 @@ namespace MMHE.MO.Services
         {
             HttpFileCollection files = HttpContext.Current.Request.Files;
             var file = files[0];
-            var ext = Path.GetExtension(file.FileName);
-
-            //save file temporariely
-            string tempFolder = "~/_CONTROLTEMPLATES/15/MMHE.Work_MO/Temp/";
-            string path = Server.MapPath(tempFolder + Path.GetFileName(file.FileName));
-            file.SaveAs(path);
-            string _connString = "";
-            if (ext == ".xls")
-            {   //For Excel 97-03
-                _connString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1}'";
-            }
-            else if (ext == ".xlsx")
-            {    //For Excel 07 and greater
-                _connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1}'";
-            }
-            _connString = String.Format(_connString, path, "Yes");
-            using (OleDbConnection _Oldbconn = new OleDbConnection(_connString))
-            using (OleDbCommand _oldbcmd = new OleDbCommand())
-            {
-                OleDbDataAdapter _oldda = new OleDbDataAdapter();
-                DataTable _dt = new DataTable();
-                _oldbcmd.Connection = _Oldbconn;
-
-                _Oldbconn.Open();
-                DataTable _dtSchema;
-                _dtSchema = _Oldbconn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-                string _xcelSName = _dtSchema.Rows[0]["TABLE_NAME"].ToString();
-                _oldbcmd.CommandText = "SELECT * From [" + _xcelSName + "]";
-                _oldda.SelectCommand = _oldbcmd;
-                _oldda.Fill(_dt);
-                _Oldbconn.Close();
+            using(XLWorkbook workBook = new XLWorkbook(file.InputStream))
+			{
+                IXLWorksheet workSheet = workBook.Worksheet(1);
+                Import(workSheet.Rows().Skip(2));
             }
         }
 
@@ -88,7 +62,7 @@ namespace MMHE.MO.Services
             var jcsDetails = javaScriptSerializer.Deserialize<JCSDetails>(jcs);
         }
 
-        private void Import(DataTable dataTable)
+        private void Import(IEnumerable<IXLRow> rows)
         {
             //Create a new DataTable.
             DataTable dt = new DataTable();
@@ -101,35 +75,33 @@ namespace MMHE.MO.Services
             string owner = string.Empty;
             string jsl = string.Empty;
             string value = string.Empty;
-            string cell;
+            IXLCell cell;
             bool findJSL = true;
             string contractItems = string.Empty;
-            foreach (DataRow row in dataTable.Rows)
+            foreach (IXLRow row in rows)
             {
-                cell = row[0].ToString();
-                if (string.IsNullOrWhiteSpace(cell) == false && cell == "DISC")
+                cell = row.Cell(1);
+                if (cell.IsEmpty() == false && cell.GetString() == "DISC")
                 {
 
-                    discipline = row[1].ToString().Split('.')[0];
+                    discipline = row.Cell(2).GetString().Split('.')[0];
                     Console.WriteLine(discipline);
                     findJSL = true;
                     continue;
                 }
 
-                cell = row[0].ToString();
-
                 if (IsRowEmpty(row) && findJSL)
                     continue;
-                else if (string.IsNullOrWhiteSpace(cell) && findJSL)
+                else if (cell.IsEmpty() && findJSL)
                     continue;
                 else
                     findJSL = false;
-                if (string.IsNullOrWhiteSpace(cell) == false)
+                if (cell.IsEmpty() == false)
                 {
                     if (addNewRow)
                         AddRow(dt, owner, contractItems, discipline, jsl);
-                    owner = cell;
-                    jsl = row[1].ToString();
+                    owner = cell.GetString();
+                    jsl = row.Cell(2).GetString();
                     contractItems = string.Empty;
                     addNewRow = true;
                     continue;
@@ -138,11 +110,11 @@ namespace MMHE.MO.Services
                 {
                     if (string.IsNullOrWhiteSpace(contractItems) == false)
                         contractItems += Environment.NewLine;
-                    contractItems += row[1].ToString();
-                    contractItems += " " + row[2].ToString();
-                    contractItems += " " + row[3].ToString();
-                    contractItems += " " + row[4].ToString();
-                    contractItems += " " + row[5].ToString();
+                    contractItems += row.Cell(2).GetString();
+                    contractItems += " " + row.Cell(3).GetString();
+                    contractItems += " " + row.Cell(4).GetString();
+                    contractItems += " " + row.Cell(5).GetString();
+                    contractItems += " " + row.Cell(6).GetString();
                 }
             }
 
@@ -166,17 +138,18 @@ namespace MMHE.MO.Services
             dataRow[3] = contractItems;
             dt.Rows.Add(dataRow);
         }
-        private bool IsRowEmpty(DataRow row)
+        private bool IsRowEmpty(IXLRow row)
         {
-            return string.IsNullOrWhiteSpace(row[0].ToString())
-                && string.IsNullOrWhiteSpace(row[1].ToString())
-                && string.IsNullOrWhiteSpace(row[2].ToString())
-                && string.IsNullOrWhiteSpace(row[3].ToString())
-                && string.IsNullOrWhiteSpace(row[4].ToString())
-                && string.IsNullOrWhiteSpace(row[5].ToString())
-                && string.IsNullOrWhiteSpace(row[6].ToString())
-                && string.IsNullOrWhiteSpace(row[7].ToString())
-                && string.IsNullOrWhiteSpace(row[8].ToString());
+            return
+                row.Cell(1).IsEmpty()
+                && row.Cell(2).IsEmpty()
+                && row.Cell(3).IsEmpty()
+                && row.Cell(4).IsEmpty()
+                && row.Cell(5).IsEmpty()
+                && row.Cell(6).IsEmpty()
+                && row.Cell(7).IsEmpty()
+                && row.Cell(8).IsEmpty()
+                && row.Cell(1).IsEmpty();
         }
     }
 }
