@@ -97,5 +97,9 @@
         {
             $('.row-' + index).remove();
         }
-    </script>
+        function  Save()
+        {
+			$('.jcsTable tr.')
+		}
+	</script>
 </asp:Content>

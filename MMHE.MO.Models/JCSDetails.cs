@@ -19,5 +19,8 @@ namespace MMHE.MO.Models
         public string Duration { get; set; }
         public List<JCSActivityDetails> Activities { get; set; }
 		public List<Option> Resources { get; set; }
-	}
+
+        public string Description { get; set; }
+
+    }
 }

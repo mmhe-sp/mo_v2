@@ -74,5 +74,6 @@
     <ProjectItemFile Source="libs\responsive.bootstrap4.min.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\jquery.ba-throttle-debounce.min.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\typeahead.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\FileSaver.js" Target="assets\libs\" Type="ElementFile" />
   </Files>
 </ProjectItem>

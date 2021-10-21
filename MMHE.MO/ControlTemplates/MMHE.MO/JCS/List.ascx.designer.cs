@@ -7,18 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MMHE.MO.Controls.JCS {
-    
-    
-    public partial class List {
-        
-        /// <summary>
-        /// jcsRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater jcsRepeater;
-    }
+namespace MMHE.MO.Controls.JCS
+{
+
+
+	public partial class List
+	{
+
+		/// <summary>
+		/// jcsRepeater control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Repeater jcsRepeater;
+	}
 }

@@ -73,5 +73,6 @@
 		<File Path="assets\libs\responsive.bootstrap4.min.js" Url="assets/libs/responsive.bootstrap4.min.js" Type="GhostableInLibrary" />
 		<File Path="assets\libs\jquery.ba-throttle-debounce.min.js" Url="assets/libs/jquery.ba-throttle-debounce.min.js" Type="GhostableInLibrary" />
 		<File Path="assets\libs\typeahead.js" Url="assets/libs/typeahead.js" Type="GhostableInLibrary"/>
-	</Module>
+    <File Path="assets\libs\FileSaver.js" Url="assets/libs/FileSaver.js"  Type="GhostableInLibrary"/>
+  </Module>
 </Elements>

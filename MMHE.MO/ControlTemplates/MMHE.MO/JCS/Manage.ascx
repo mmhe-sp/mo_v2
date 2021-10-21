@@ -9,120 +9,117 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Manage.ascx.cs" Inherits="MMHE.MO.Controls.JCS.Manage" %>
 
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="false">Details</a>
-            </div>
-            <div class="card-body">
-                <div class="details collapse">
-                    <div class="row mb-3">
-                        <div class="col-sm-4">
-                            <label for="example-text-input" class="form-label">Type</label>
-                            <input class="form-control" type="text" placeholder="Type" readonly value="<%=Details.Type %>">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="example-text-input" class="form-label">Owner No.</label>
-                            <input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.OwnerNo %>">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="example-text-input" class="form-label">Discipline</label>
-                            <input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-12">
-                            <label for="example-text-input" class="form-label">Work Title</label>
-                            <input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-sm-6">
-                            <label for="example-text-input" class="form-label">WBS</label>
-                            <input class="form-control" type="text" placeholder="WBS" readonly value="<%=Details.WBS %>">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="example-text-input" class="form-label">Start/End Date</label>
-                            <div class="input-group mb-3">
-                                <input type="date" class="form-control" title="Start Date" aria-label="Start Date" value="<%=Details.StartDate.ToString("yyyy-MM-dd") %>">
-                                <span class="input-group-text">-</span>
-                                <input type="date" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
-                                <span class="input-group-text">Duration <%=Details.Duration %> Days</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
-                            <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>Add Row</button>
-                            <button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="activities" class="table table-bordered dt-responsive w-100 font-size-12">
-                            <thead>
-                                <tr>
-                                    <th style="width: 40px">Item</th>
-                                    <th>Details Scope & Specification</th>
-                                    <th style="width: 200px">Resources</th>
-                                    <th style="width: 100px">Update By</th>
-                                    <th style="width:20px">&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="5">
-                                        <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
-                                        <div class="collapse" id="scope">
-                                            <div class="card card-body">
-                                                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <asp:Repeater ID="jcsRepeater" runat="server">
-                                    <ItemTemplate>
-                                        <tr class="row-<%# Container.ItemIndex %>">
-                                            <td style="width: 40px">
-                                                <%# DataBinder.Eval(Container.DataItem, "Sequence") %>
-                                            </td>
-                                            <td>
-                                                <textarea class="form-control auto-resize"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
-
-                                            </td>
-                                            <td>
-                                                <select class="form-select" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
-                                                    <%foreach (var item in Details.Resources)
-                                                      { %>
-                                                        <option value="<%=item.Value %>"><%=item.Text %></option>
-                                                    <%} %>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <div class="dark-text">
-                                                    <%# DataBinder.Eval(Container.DataItem, "UpdatedBy") %>
-                                                </div>
-                                                <div class="text-muted">
-                                                    <span class="small">
-                                                        <%# DataBinder.Eval(Container.DataItem, "UpdatedOn",  "{0: dd/MM/yyyy}") %>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0)" onclick="removeRow(<%# Container.ItemIndex %>)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end col -->
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="false">Details</a>
+			</div>
+			<div class="card-body">
+				<div class="details collapse">
+					<div class="row mb-3">
+						<div class="col-sm-4">
+							<label for="example-text-input" class="form-label">Type</label>
+							<input class="form-control" type="text" placeholder="Type" readonly value="<%=Details.Type %>">
+						</div>
+						<div class="col-sm-4">
+							<label for="example-text-input" class="form-label">Owner No.</label>
+							<input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.OwnerNo %>">
+						</div>
+						<div class="col-sm-4">
+							<label for="example-text-input" class="form-label">Discipline</label>
+							<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<div class="col-sm-12">
+							<label for="example-text-input" class="form-label">Work Title</label>
+							<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<div class="col-sm-6">
+							<label for="example-text-input" class="form-label">WBS</label>
+							<input class="form-control" type="text" placeholder="WBS" readonly value="<%=Details.WBS %>">
+						</div>
+						<div class="col-sm-6">
+							<label for="startDate" class="form-label">Start/End Date</label>
+							<div class="input-group mb-3">
+								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=Details.StartDate.ToString("yyyy-MM-dd") %>">
+								<span class="input-group-text">-</span>
+								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
+								<span class="input-group-text">Duration <%=Details.Duration %> Days</span>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col">
+							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
+							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>Add Row</button>
+							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<table id="activities" class="table table-bordered dt-responsive w-100 font-size-12">
+							<thead>
+								<tr>
+									<th style="width: 40px">Item</th>
+									<th>Details Scope & Specification</th>
+									<th style="width: 200px">Resources</th>
+									<th style="width: 100px">Update By</th>
+									<th style="width: 20px">&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="5">
+										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
+										<div class="collapse" id="scope">
+											<%=Details.Description %>
+										</div>
+									</td>
+								</tr>
+								<asp:Repeater ID="jcsRepeater" runat="server">
+									<ItemTemplate>
+										<tr class="row-<%# Container.ItemIndex %>">
+											<td style="width: 40px">
+												<%# DataBinder.Eval(Container.DataItem, "Sequence") %>
+											</td>
+											<td>
+												<textarea class="form-control auto-resize"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
+											</td>
+											<td>
+												<select class="form-select" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
+													<%foreach (var item in Details.Resources)
+														{ %>
+													<option value="<%=item.Value %>"><%=item.Text %></option>
+													<%} %>
+												</select>
+											</td>
+											<td>
+												<div class="dark-text">
+													<%# DataBinder.Eval(Container.DataItem, "UpdatedBy") %>
+												</div>
+												<div class="text-muted">
+													<span class="small">
+														<%# DataBinder.Eval(Container.DataItem, "UpdatedOn",  "{0: dd/MM/yyyy}") %>
+													</span>
+												</div>
+											</td>
+											<td>
+												<a href="javascript:void(0)" onclick="removeRow(<%# Container.ItemIndex %>)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+											</td>
+										</tr>
+									</ItemTemplate>
+								</asp:Repeater>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end col -->
 </div>
 <!-- end row -->

@@ -661,6 +661,7 @@
     <script src="../Style Library/assets/libs/responsive.bootstrap4.min.js"></script>
     <script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
     <script type="text/javascript" src="../Style Library/assets/libs/typeahead.js"></script>
+    <script type="text/javascript" src="../Style Library/assets/libs/FileSaver.js"></script>
 
     <script type="text/javascript">
         jQuery.fn.extend({

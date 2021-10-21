@@ -18,7 +18,7 @@ namespace MMHE.MO.Business.Repositories
 			DataTable table = new DataTable();
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
-				using (SqlCommand command = new SqlCommand("SP_GetJCSADetails", connection))
+				using (SqlCommand command = new SqlCommand("MO.FindJCS", connection))
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
@@ -37,7 +37,7 @@ namespace MMHE.MO.Business.Repositories
 			DataSet dataSet = new DataSet();
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
-				using (SqlCommand command = new SqlCommand("GetJCSDetails", connection))
+				using (SqlCommand command = new SqlCommand("MO.GetJCSDetails", connection))
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
@@ -49,6 +49,7 @@ namespace MMHE.MO.Business.Repositories
 					if (table.Rows.Count > 0)
 					{
 						row = table.Rows[0];
+						jCSDetails.Description = row.Field<string>("ContractItems");
 						jCSDetails.JCSID = row.Field<Guid>("JCSID");
 						jCSDetails.OwnerNo = row.Field<string>("OwnerNo");
 						jCSDetails.Type = row.Field<string>("Type");

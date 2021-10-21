@@ -122,5 +122,26 @@
             });
             delaySearch("#jcsTable", __key);
         });
-    </script>
+
+        function showJCSUploadModal()
+        {
+			$('#jcsModal').modal('show');
+        }
+        function exportJCS()
+        {
+			var response = $http({
+				method: "GET",
+				url: "jcs.asmx/Export",
+				data: JSON.stringify(data),
+				dataType: "json",
+			}).then(function (d, status, headers)
+            {
+                var bytes = atob(d.Content);
+				saveAs(new Blob([bytes],
+					{
+						type: 'application/vnd.ms-excel'
+					}), d.FileName + ".xls");
+			});
+		}
+	</script>
 </asp:Content>
