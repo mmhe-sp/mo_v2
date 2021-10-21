@@ -123,7 +123,7 @@
 			for (; count > 0; count--)
 			{
 				var clonedTr = tr.clone(true)
-				$('.activities tbody').append(clonedTr);
+				$('#activities tbody').append(clonedTr);
 				clonedTr.css('display', 'inline-block');
 				clonedTr.addClass('activity').removeClass('row-new');
 			}
