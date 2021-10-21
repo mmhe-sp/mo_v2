@@ -162,15 +162,10 @@
 				type: "POST", //as we will be posting files and other method POST is used
 				processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
 				contentType: false,
-				data: fileData,
-				success: function (result)
-                {
-                    window.location.reload(true);
-				},
-				error: function (err)
-				{
-					alert(err.statusText);
-				}
+				data: fileData
+			}).done(function ()
+			{
+			    window.location.reload();
 			});
         }
 	</script>
