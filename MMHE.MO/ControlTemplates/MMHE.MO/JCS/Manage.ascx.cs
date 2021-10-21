@@ -11,11 +11,13 @@ namespace MMHE.MO.Controls.JCS
 	public partial class Manage : UserControl
 	{
 		public JCSDetails Details { get; set; }
+		public int LastRowIndex = 0;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Details = new JCSRepository().GetDetails(Request.QueryString["id"]);
 			jcsRepeater.DataSource = Details.Activities;
 			jcsRepeater.DataBind();
+			LastRowIndex = Details.Activities.Count + 1;
 		}
 	}
 }

@@ -11,7 +11,7 @@
 <div class="row">
 	<div class="col-12">
 		<div class="card">
-			<div class="card-header">
+			<div class="card-header p-0">
 				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="false">Details</a>
 			</div>
 			<div class="card-body">
@@ -51,12 +51,30 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mb-3">
-						<div class="col">
-							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
-							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>Add Row</button>
-							<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+				</div>
+				<div class="row mb-3">
+					<div class="col">
+						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
+						<div class="dropdown d-inline-block d-lg-none me-1">
+							<button type="button" class="btn btn-primary" id="add-rows"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="mdi mdi-plus-circle me-1"></i>Add Row</button>
+							<div class="dropdown-menu dropdown-menu-end p-0"
+								aria-labelledby="add-rows">
+
+								<form class="p-3">
+									<div class="form-group m-0">
+										<div class="input-group">
+											<input type="text" class="form-control" id="rows" placeholder="Rows" aria-label="Recipient's username">
+											<div class="input-group-append">
+												<button class="btn btn-primary" type="submit" onclick="addNewRows()"><i class="mdi mdi-magnify"></i></button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
+						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
 					</div>
 				</div>
 				<div class="row">
@@ -76,21 +94,48 @@
 									<td colspan="5">
 										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
 										<div class="collapse" id="scope">
-											<%=Details.Description %>
+											<%=Details.Description.Replace(Environment.NewLine,"<br/>") %>
 										</div>
+									</td>
+								</tr>
+								<tr class="row-new" style="display: none">
+									<td style="width: 40px">
+										<span class="seqNo"></span>
+									</td>
+									<td>
+										<textarea class="form-control auto-resize" onchange="addEmptyRow(this)"></textarea>
+									</td>
+									<td>
+										<select class="form-select">
+											<%foreach (var item in Details.Resources)
+												{ %>
+											<option value="<%=item.Value %>"><%=item.Text %></option>
+											<%} %>
+										</select>
+									</td>
+									<td>
+										<div class="dark-text">
+											&nbsp;
+										</div>
+										<div class="text-muted">
+											&nbsp;
+										</div>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="removeRow(<%= LastRowIndex %>)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 									</td>
 								</tr>
 								<asp:Repeater ID="jcsRepeater" runat="server">
 									<ItemTemplate>
-										<tr class="row-<%# Container.ItemIndex %>">
+										<tr class="row-<%# Container.ItemIndex %> activity">
 											<td style="width: 40px">
-												<%# DataBinder.Eval(Container.DataItem, "Sequence") %>
+												<span class="seqNo"><%# DataBinder.Eval(Container.DataItem, "Sequence") %></span>
 											</td>
 											<td>
-												<textarea class="form-control auto-resize"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
+												<textarea class="form-control auto-resize remarks" onchange="addEmptyRow(this)"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
 											</td>
 											<td>
-												<select class="form-select" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
+												<select class="form-select resource" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
 													<%foreach (var item in Details.Resources)
 														{ %>
 													<option value="<%=item.Value %>"><%=item.Text %></option>
@@ -108,7 +153,7 @@
 												</div>
 											</td>
 											<td>
-												<a href="javascript:void(0)" onclick="removeRow(<%# Container.ItemIndex %>)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+												<a href="javascript:void(0)" onclick="removeRow(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 											</td>
 										</tr>
 									</ItemTemplate>

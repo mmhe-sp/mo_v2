@@ -12,94 +12,132 @@
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <div class="container-fluid">
-        <!-- start page title -->
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <mo:projectname runat="server" id="projectName"></mo:projectname>
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Job Confirmation Scope</li>
-                        </ol>
-                    </div>
+	<div class="container-fluid">
+		<!-- start page title -->
+		<div class="row">
+			<div class="col-12">
+				<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+					<mo:projectname runat="server" id="projectName"></mo:projectname>
+					<div class="page-title-right">
+						<ol class="breadcrumb m-0">
+							<li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
+							<li class="breadcrumb-item active">Job Confirmation Scope</li>
+						</ol>
+					</div>
 
-                </div>
-            </div>
-        </div>
-        <!-- end page title -->
-        <mo:jcs runat="server" id="jcs"></mo:jcs>
-    </div>
-    <!-- container-fluid -->
+				</div>
+			</div>
+		</div>
+		<!-- end page title -->
+		<mo:jcs runat="server" id="jcs"></mo:jcs>
+	</div>
+	<!-- container-fluid -->
 
-    <div id="stacked-column-chart" style="display: none"></div>
-    <div id="radialBar-chart" style="display: none"></div>
+	<div id="stacked-column-chart" style="display: none"></div>
+	<div id="radialBar-chart" style="display: none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Job Confirmation Scope
+	MMHE::Job Confirmation Scope
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Job Confirmation Scope
+	Job Confirmation Scope
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            try
-            {
-                $("#activities").DataTable({
-                    lengthChange: !1, search: false
-                });
-            } catch (e) { }
+	<script type="text/javascript">
 
-            $('.auto-resize').on('input', function ()
-            {
-                autoResize(this, "input");
-            });
+		var lastSequence = 0;
+		$(document).ready(function ()
+		{
+			try
+			{
+				$("#activities").DataTable({
+					lengthChange: !1, search: false
+				});
+			} catch (e) { }
 
-            $.each($('.auto-resize'), function (i, v)
-            {
-                autoResize(v, "each");
-            });
-        });
+			$('.auto-resize').on('input', function ()
+			{
+				autoResize(this, "input");
+			});
 
-        function autoResize(ctrl, event)
-        {
-            var h = ctrl.scrollHeight;
-            var td = $(ctrl).closest("td");
-            var tr = td.closest("tr");
-            var h2 = td.height();
-            if (h2 > h)
-                h = h2;
+			$.each($('.auto-resize'), function (i, v)
+			{
+				autoResize(v, "each");
+			});
+			addNewRow(1);
+			resetSequenceNumber();
+		});
 
-            if (event == "each")
-            {
-                var fields = tr.find('.auto-resize');
-                $.each(fields, function (i, v)
-                {
-                    h2 = v.scrollHeight;
-                    if (h < h2)
-                        h = h2;
-                });
-                fields.height(h);
-            } else
-            {
-                ctrl.style.height = "auto";
-                ctrl.style.height = (h) + "px";
-            }
-        }
+		function autoResize(ctrl, event)
+		{
+			var h = ctrl.scrollHeight;
+			var td = $(ctrl).closest("td");
+			var tr = td.closest("tr");
+			var h2 = td.height();
+			if (h2 > h)
+				h = h2;
 
-        function removeRow(index)
-        {
-            $('.row-' + index).remove();
-        }
-        function  Save()
-        {
-			$('.jcsTable tr.')
+			if (event == "each")
+			{
+				var fields = tr.find('.auto-resize');
+				$.each(fields, function (i, v)
+				{
+					h2 = v.scrollHeight;
+					if (h < h2)
+						h = h2;
+				});
+				fields.height(h);
+			} else
+			{
+				ctrl.style.height = "auto";
+				ctrl.style.height = (h) + "px";
+			}
+		}
+
+		function removeRow(ctrl)
+		{
+			$($(ctrl).closest('tr')).remove();
+			resetSequenceNumber();
+		}
+		function Save()
+		{
+
+		}
+
+		function addNewRows()
+		{
+			var value = $('#rows').val();
+			if (isNaN(value)) return;
+			addNewRow(Number(value));
+			resetSequenceNumber();
+		}
+
+		function addNewRow(count)
+		{
+			//find new row
+			var tr = $('tr.row-new');
+			for (; count > 0; count--)
+				$('.jcsTable tbody').append(tr.clone().addClass('activity').removeClass('row-new'));
+		}
+
+		function resetSequenceNumber()
+		{
+			var sequenceNos = $('tr.activity seqNo');
+			for (var index = 1; index <= sequenceNos.length; index++)
+			{
+				$(sequenceNos[index - 1]).text(index);
+			}
+
+		}
+
+		function addEmptyRow(ctrl)
+		{
+			var index = $(ctrl).closest('tr').find('#seqNo');
+			if (lastSequence == index)
+				addNewRow(1);
 		}
 	</script>
 </asp:Content>
