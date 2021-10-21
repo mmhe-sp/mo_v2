@@ -130,7 +130,7 @@
 
 		function resetSequenceNumber()
 		{
-			var sequenceNos = $('tr.activity seqNo');
+			var sequenceNos = $('tr.activity .seqNo');
 			for (var index = 1; index <= sequenceNos.length; index++)
 			{
 				$(sequenceNos[index - 1]).text(index);
