@@ -119,8 +119,13 @@
 		{
 			//find new row
 			var tr = $('tr.row-new');
+
 			for (; count > 0; count--)
-				$('.jcsTable tbody').append(tr.clone().addClass('activity').removeClass('row-new'));
+			{
+				var clonedTr = tr.clone().addClass('activity').removeClass('row-new');
+				clonedTr.css('display', 'inline-block');
+				$('.jcsTable tbody').append(clonedTr);
+			}
 		}
 
 		function resetSequenceNumber()

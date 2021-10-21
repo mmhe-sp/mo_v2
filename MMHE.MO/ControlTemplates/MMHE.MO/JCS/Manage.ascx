@@ -55,19 +55,18 @@
 				<div class="row mb-3">
 					<div class="col">
 						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
-						<div class="dropdown d-inline-block d-lg-none me-1">
-							<button type="button" class="btn btn-primary" id="add-rows"
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary dropdown-toggle" id="add-rows"
 								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="mdi mdi-plus-circle me-1"></i>Add Row</button>
-							<div class="dropdown-menu dropdown-menu-end p-0"
+							<div class="dropdown-menu p-0"
 								aria-labelledby="add-rows">
-
 								<form class="p-3">
 									<div class="form-group m-0">
 										<div class="input-group">
 											<input type="text" class="form-control" id="rows" placeholder="Rows" aria-label="Recipient's username">
 											<div class="input-group-append">
-												<button class="btn btn-primary" type="submit" onclick="addNewRows()"><i class="mdi mdi-magnify"></i></button>
+												<button class="btn btn-primary" type="button" onclick="addNewRows()"><i class="mdi mdi-magnify"></i></button>
 											</div>
 										</div>
 									</div>
@@ -103,7 +102,7 @@
 										<span class="seqNo"></span>
 									</td>
 									<td>
-										<textarea class="form-control auto-resize" onchange="addEmptyRow(this)"></textarea>
+										<textarea class="form-control auto-resize"></textarea>
 									</td>
 									<td>
 										<select class="form-select">
@@ -132,7 +131,7 @@
 												<span class="seqNo"><%# DataBinder.Eval(Container.DataItem, "Sequence") %></span>
 											</td>
 											<td>
-												<textarea class="form-control auto-resize remarks" onchange="addEmptyRow(this)"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
+												<textarea class="form-control auto-resize remarks"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
 											</td>
 											<td>
 												<select class="form-select resource" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
