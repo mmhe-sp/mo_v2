@@ -129,18 +129,17 @@
         }
         function exportJCS()
         {
-			var response = $http({
+			var response = $.ajax({
 				method: "GET",
 				url: "jcs.asmx/Export",
-				data: JSON.stringify(data),
 				dataType: "json",
-			}).then(function (d, status, headers)
+			}).done(function (d, status, headers)
             {
                 var bytes = atob(d.Content);
 				saveAs(new Blob([bytes],
 					{
-						type: 'application/vnd.ms-excel'
-					}), d.FileName + ".xls");
+					    type: 'application/vnd.ms-excel'
+					}), d.FileName);
 			});
         }
 
