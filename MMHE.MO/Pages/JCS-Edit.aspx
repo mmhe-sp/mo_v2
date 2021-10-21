@@ -122,9 +122,10 @@
 
 			for (; count > 0; count--)
 			{
-				var clonedTr = tr.clone().addClass('activity').removeClass('row-new');
-				clonedTr.css('display', 'inline-block');
+				var clonedTr = tr.clone()
 				$('.jcsTable tbody').append(clonedTr);
+				clonedTr.css('display', 'inline-block');
+				clonedTr.addClass('activity').removeClass('row-new');
 			}
 		}
 
