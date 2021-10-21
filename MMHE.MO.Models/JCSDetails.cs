@@ -14,7 +14,7 @@ namespace MMHE.MO.Models
         public string Discipline { get; set; }
         public string WorkTitle { get; set; }
         public string WBS { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Duration { get; set; }
         public List<JCSActivityDetails> Activities { get; set; }

@@ -56,8 +56,8 @@ namespace MMHE.MO.Business.Repositories
 						jCSDetails.Discipline = row.Field<string>("Discipline");
 						jCSDetails.WorkTitle = row.Field<string>("WorkTitle");
 						jCSDetails.WBS = row.Field<string>("WBS");
-						jCSDetails.StartDate = row.Field<DateTime>("StartDate");
-						jCSDetails.EndDate = row.Field<DateTime>("EndDate");
+						jCSDetails.StartDate = row.Field<DateTime?>("StartDate");
+						jCSDetails.EndDate = row.Field<DateTime?>("EndDate");
 						jCSDetails.Duration = row.Field<string>("DurationDays");
 					}
 
@@ -98,9 +98,9 @@ namespace MMHE.MO.Business.Repositories
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
-                    connection.Open();
+					connection.Open();
 					command.ExecuteNonQuery();
-                    connection.Close();
+					connection.Close();
 				}
 			}
 		}
