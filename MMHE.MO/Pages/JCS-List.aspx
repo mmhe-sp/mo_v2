@@ -146,7 +146,33 @@
 
         function uploadExcel()
         {
+			var fileUpload = $("#jcsFile").get(0);
+			var files = fileUpload.files;
 
+			// Create  a FormData object
+			var fileData = new FormData();
+
+			// if there are multiple files , loop through each files
+			for (var i = 0; i < files.length; i++)
+			{
+				fileData.append(files[i].name, files[i]);
+			}
+
+			$.ajax({
+				url: 'jcs.asmx/Upload', //URL to upload files 
+				type: "POST", //as we will be posting files and other method POST is used
+				processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
+				contentType: false,
+				data: fileData,
+				success: function (result)
+                {
+                    window.location.reload(true);
+				},
+				error: function (err)
+				{
+					alert(err.statusText);
+				}
+			});
         }
 	</script>
 </asp:Content>
