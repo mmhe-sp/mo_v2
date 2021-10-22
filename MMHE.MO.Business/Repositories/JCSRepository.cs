@@ -108,7 +108,7 @@ namespace MMHE.MO.Business.Repositories
 				activities.Add(activity);
 			}
 			SqlParameter[] parameters = new SqlParameter[2];
-			parameters[1] = new SqlParameter("@JCS", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
+			parameters[0] = new SqlParameter("@JCS", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
 			parameters[1] = new SqlParameter("@UpdatedBy", updatedBy);
 
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
