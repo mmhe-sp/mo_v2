@@ -69,6 +69,7 @@
 			});
 			addNewRow(1);
 			resetSequenceNumber();
+			initializeResources();
 		});
 
 		function autoResize(ctrl, event)
@@ -120,8 +121,8 @@
 			{
 				row = $(rows[index]);
 				activityId = row.find('.activityId').text();
-				remarks = row.find('.remarks').text();
-				resource = row.find('.resource').text();
+				remarks = row.find('.remarks').val();
+				resource = row.find('.resource').val();
 				sequenceNo = row.find('.seqNo').text();
 				if (!activityId && !remarks)
 					continue;
@@ -139,7 +140,7 @@
 			{
 				alert('JCS Details have been saved successfully.');
 				window.location.reload(true);
-			});
+			}).fail(function(){window.location.reload(true);});
 		}
 
 		function addNewRows()
@@ -178,6 +179,20 @@
 			var index = $(ctrl).closest('tr').find('#seqNo');
 			if (lastSequence == index)
 				addNewRow(1);
+		}
+
+		function initializeResources()
+		{
+		    var lists = $('tr.activity .resource');
+		    var value = '';
+		    var list;
+		    for (var index = 0; index < lists.length;index++)
+		    {
+		        list = $(lists[index]);
+		        value = list.data('value');
+		        if (value)
+		            list.val(value);
+		    }
 		}
 	</script>
 </asp:Content>
