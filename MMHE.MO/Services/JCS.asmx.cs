@@ -7,7 +7,6 @@ using MMHE.MO.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -17,7 +16,7 @@ using System.Web.Services;
 
 namespace MMHE.MO.Services
 {
-    public class JCS : BaseWebService
+	public class JCS : BaseWebService
     {
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
@@ -42,7 +41,6 @@ namespace MMHE.MO.Services
 
             Context.Response.Write(js.Serialize(new { Content = Convert.ToBase64String(excelContent), FileName = "JCS_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx" }));
         }
-
 
         [WebMethod]
         public void Upload()

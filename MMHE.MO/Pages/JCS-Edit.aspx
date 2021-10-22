@@ -102,9 +102,42 @@
 			$($(ctrl).closest('tr')).remove();
 			resetSequenceNumber();
 		}
-		function Save()
+		function saveJCS()
 		{
+			var jcs = { Activities: [] };
+			jcs.StartDate = $('#startDate').val();
+			if (!jcs.StartDate)
+				jcs.StartDate = null;
+			jcs.EndDate = $('#endDate').val();
+			if (!jcs.EndDate)
+				jcs.EndDate = null;
 
+			//get activities
+			var rows = $('tr.activity');
+			var row, activityId, remarks, resource, sequenceNo;
+			for (var index = 0; index < rows.length; index++)
+			{
+				row = $(rows[index]);
+				activityId = row.find('.activityId').text();
+				remarks = row.find('.remarks').text();
+				resource = row.find('.resource').text();
+				sequenceNo = row.find('.seqNo').text();
+				if (!activityId && !remarks)
+					continue;
+				jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource });
+				if (activityId)
+					jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
+			}
+
+			$.ajax({
+				url: "jcs.asmx/Save",
+				data: 'jcs=' + JSON.stringify(jcs),
+				dataType: "json",
+				type: "POST"
+			}).done(function (d)
+			{
+				alert('JCS Details have been saved successfully.')
+			});
 		}
 
 		function addNewRows()

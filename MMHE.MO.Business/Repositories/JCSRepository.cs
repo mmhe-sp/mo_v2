@@ -83,6 +83,11 @@ namespace MMHE.MO.Business.Repositories
 			return jCSDetails;
 		}
 
+		public void Save(JCSDetails jcsDetails)
+		{
+			throw new NotImplementedException();
+		}
+
 		public void Import(string projectNo, string loggedInUser, DataRow dataRow)
 		{
 			SqlParameter[] parameters = new SqlParameter[6];

@@ -18,27 +18,27 @@
 				<div class="details collapse">
 					<div class="row mb-3">
 						<div class="col-sm-4">
-							<label for="example-text-input" class="form-label">Type</label>
+							<label[ class="form-label">Type</label>
 							<input class="form-control" type="text" placeholder="Type" readonly value="<%=Details.Type %>">
 						</div>
 						<div class="col-sm-4">
-							<label for="example-text-input" class="form-label">Owner No.</label>
+							<label[ class="form-label">Owner No.</label>
 							<input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.OwnerNo %>">
 						</div>
 						<div class="col-sm-4">
-							<label for="example-text-input" class="form-label">Discipline</label>
+							<label[ class="form-label">Discipline</label>
 							<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-12">
-							<label for="example-text-input" class="form-label">Work Title</label>
+							<label[ class="form-label">Work Title</label>
 							<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-6">
-							<label for="example-text-input" class="form-label">WBS</label>
+							<label[ class="form-label">WBS</label>
 							<input class="form-control" type="text" placeholder="WBS" readonly value="<%=Details.WBS %>">
 						</div>
 						<div class="col-sm-6">
@@ -54,7 +54,7 @@
 				</div>
 				<div class="row mb-3">
 					<div class="col">
-						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-floppy me-1"></i>Save</button>
+						<button type="button" class="btn btn-primary me-1" onclick="saveJCS()"><i class="mdi mdi-floppy me-1"></i>Save</button>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary dropdown-toggle" id="add-rows"
 								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,10 +102,10 @@
 										<span class="seqNo"></span>
 									</td>
 									<td>
-										<textarea class="form-control auto-resize"></textarea>
+										<textarea class="form-control auto-resize remarks"></textarea>
 									</td>
 									<td>
-										<select class="form-select">
+										<select class="form-select resource">
 											<%foreach (var item in Details.Resources)
 												{ %>
 											<option value="<%=item.Value %>"><%=item.Text %></option>
@@ -129,6 +129,7 @@
 										<tr class="row-<%# Container.ItemIndex %> activity">
 											<td style="width: 40px">
 												<span class="seqNo"><%# DataBinder.Eval(Container.DataItem, "Sequence") %></span>
+												<span class="activityId d-none"><%# DataBinder.Eval(Container.DataItem, "ActivityID") %></span>
 											</td>
 											<td>
 												<textarea class="form-control auto-resize remarks"><%# DataBinder.Eval(Container.DataItem, "Remarks") %></textarea>
