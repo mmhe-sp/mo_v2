@@ -168,3 +168,4 @@
 	<!-- end col -->
 </div>
 <!-- end row -->
+<span class="d-none jcs-id"><%=JCSId %></span>

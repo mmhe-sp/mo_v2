@@ -105,6 +105,7 @@
 		function saveJCS()
 		{
 			var jcs = { Activities: [] };
+			jcs.JCSID = $('.jcs-id').text();
 			jcs.StartDate = $('#startDate').val();
 			if (!jcs.StartDate)
 				jcs.StartDate = null;

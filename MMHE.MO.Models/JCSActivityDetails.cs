@@ -8,7 +8,7 @@ namespace MMHE.MO.Models
 {
     public class JCSActivityDetails
     {
-        public Guid ActivityID { get; set; }
+        public Guid? ActivityID { get; set; }
         public string Remarks { get; set; }
         public string Sequence { get; set; }
 		public DateTime UpdatedOn { get; set; }

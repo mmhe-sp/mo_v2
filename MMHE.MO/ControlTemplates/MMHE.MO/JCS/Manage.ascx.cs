@@ -12,9 +12,11 @@ namespace MMHE.MO.Controls.JCS
 	{
 		public JCSDetails Details { get; set; }
 		public int LastRowIndex = 0;
+		public string JCSId = string.Empty;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Details = new JCSRepository().GetDetails(Request.QueryString["id"]);
+			JCSId = Request.QueryString["id"];
+			Details = new JCSRepository().GetDetails(JCSId);
 			jcsRepeater.DataSource = Details.Activities;
 			jcsRepeater.DataBind();
 			LastRowIndex = Details.Activities.Count + 1;

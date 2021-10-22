@@ -3,7 +3,9 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace MMHE.MO.Business.Repositories
 {
@@ -83,9 +85,42 @@ namespace MMHE.MO.Business.Repositories
 			return jCSDetails;
 		}
 
-		public void Save(JCSDetails jcsDetails)
+		public void Save(JCSDetails jcsDetails, string updatedBy)
 		{
-			throw new NotImplementedException();
+			XElement root = new XElement("JCS");
+			root.Add(new XElement("ID", jcsDetails.JCSID));
+			if (jcsDetails.StartDate.HasValue)
+				root.Add(new XElement("StartDate", jcsDetails.StartDate.Value.ToString("MM/dd/yyyy")));
+
+			if (jcsDetails.EndDate.HasValue)
+				root.Add(new XElement("EndDate", jcsDetails.EndDate.Value.ToString("MM/dd/yyyy")));
+			XElement activities = new XElement("Activities");
+			XElement activity;
+			root.Add(activities);
+			foreach (var item in jcsDetails.Activities)
+			{
+				activity = new XElement("Activity");
+				if (item.ActivityID.HasValue)
+					activity.Add(new XElement("ActivityID", item.ActivityID.Value));
+				activity.Add(new XElement("Remarks", item.Remarks));
+				activity.Add(new XElement("Sequence", item.Sequence));
+				activities.Add(activity);
+			}
+			SqlParameter[] parameters = new SqlParameter[2];
+			parameters[1] = new SqlParameter("@JCS", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
+			parameters[1] = new SqlParameter("@UpdatedBy", updatedBy);
+
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+			{
+				using (SqlCommand command = new SqlCommand("MO.SaveJCSDetails", connection))
+				{
+					command.CommandType = CommandType.StoredProcedure;
+					command.Parameters.AddRange(parameters);
+					connection.Open();
+					command.ExecuteNonQuery();
+					connection.Close();
+				}
+			}
 		}
 
 		public void Import(string projectNo, string loggedInUser, DataRow dataRow)
