@@ -66,7 +66,7 @@
 										<div class="input-group">
 											<input type="text" class="form-control" id="rows" placeholder="Rows" aria-label="Recipient's username">
 											<div class="input-group-append">
-												<button class="btn btn-primary" type="button" onclick="addNewRows()"><i class="mdi mdi-magnify"></i></button>
+												<button class="btn btn-primary" type="button" onclick="addNewRows()"><i class="mdi mdi-plus-circle"></i></button>
 											</div>
 										</div>
 									</div>
