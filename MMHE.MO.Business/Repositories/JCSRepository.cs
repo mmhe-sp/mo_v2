@@ -104,6 +104,7 @@ namespace MMHE.MO.Business.Repositories
 					activity.Add(new XElement("ActivityID", item.ActivityID.Value));
 				activity.Add(new XElement("Remarks", item.Remarks));
 				activity.Add(new XElement("Sequence", item.Sequence));
+				activity.Add(new XElement("Resource", item.Resource));
 				activities.Add(activity);
 			}
 			SqlParameter[] parameters = new SqlParameter[2];

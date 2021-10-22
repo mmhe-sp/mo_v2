@@ -137,7 +137,8 @@
 				type: "POST"
 			}).done(function (d)
 			{
-				alert('JCS Details have been saved successfully.')
+				alert('JCS Details have been saved successfully.');
+				window.location.reload(true);
 			});
 		}
 
