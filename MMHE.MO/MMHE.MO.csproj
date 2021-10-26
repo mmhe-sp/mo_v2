@@ -206,6 +206,8 @@
     <Content Include="assets\libs\responsive.bootstrap4.min.js" />
     <Content Include="assets\libs\simplebar.min.css" />
     <Content Include="assets\libs\simplebar.min.js" />
+    <Content Include="assets\libs\sweetalert2.all.min.js" />
+    <Content Include="assets\libs\sweetalert2.min.css" />
     <Content Include="assets\libs\typeahead.js" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
