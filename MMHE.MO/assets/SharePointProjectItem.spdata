@@ -75,5 +75,7 @@
     <ProjectItemFile Source="libs\jquery.ba-throttle-debounce.min.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\typeahead.js" Target="assets\libs\" Type="ElementFile" />
     <ProjectItemFile Source="libs\FileSaver.js" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\sweetalert2.min.css" Target="assets\libs\" Type="ElementFile" />
+    <ProjectItemFile Source="libs\sweetalert2.all.min.js" Target="assets\libs\" Type="ElementFile" />
   </Files>
 </ProjectItem>

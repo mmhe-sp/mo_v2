@@ -45,6 +45,7 @@
     <link href="../../Style Library/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Icons Css -->
     <link href="../../Style Library/assets/css/icons.min.css" rel="stylesheet" />
+    <link href="../../Style Library/assets/libs/sweetalert2.min.css" rel="stylesheet" />
     <!-- App Css-->
     <link href="../../Style Library/assets/css/app.css" rel="stylesheet" />
 
@@ -662,6 +663,7 @@
     <script src="../Style Library/assets/libs/jquery.ba-throttle-debounce.min.js"></script>
     <script type="text/javascript" src="../Style Library/assets/libs/typeahead.js"></script>
     <script type="text/javascript" src="../Style Library/assets/libs/FileSaver.js"></script>
+    <script type="text/javascript" src="../Style Library/assets/libs/sweetalert2.all.min.js"></script>
 
     <script type="text/javascript">
         jQuery.fn.extend({
