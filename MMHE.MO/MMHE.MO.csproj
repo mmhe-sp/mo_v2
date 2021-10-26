@@ -82,6 +82,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\JCS\List.ascx.designer.cs">
       <DependentUpon>List.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\JSL\List.ascx.cs">
+      <DependentUpon>List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\JSL\List.ascx.designer.cs">
+      <DependentUpon>List.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\ProjectName.ascx.cs">
       <DependentUpon>ProjectName.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +209,7 @@
     <Content Include="assets\libs\typeahead.js" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\JSL\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
@@ -221,12 +229,8 @@
     <Compile Include="Services\Project.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Dashboard.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="UI\BasePage.cs" />
+    <Compile Include="UI\Dashboard.cs" />
     <Content Include="Pages\Project.asmx" />
     <Content Include="Pages\JCS-Edit.aspx" />
     <Content Include="Pages\JCS-List.aspx" />
@@ -243,7 +247,9 @@
       <Name>MMHE.MO.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ControlTemplates\MMHE.MO\VO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

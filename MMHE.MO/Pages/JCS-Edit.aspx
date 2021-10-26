@@ -155,12 +155,13 @@
 
         }
 
-        function addEmptyRow(ctrl)
-        {
-            var index = $(ctrl).closest('tr').find('#seqNo');
-            if (lastSequence == index)
-                addNewRow(1);
-        }
+		function addEmptyRow(ctrl)
+		{
+			var tr = $('tr.row-new').clone(true);
+			$(ctrl).closest('tr').insertAfter(tr)
+			tr.addClass('activity').removeClass('row-new').removeClass('d-none');
+			resetSequenceNumber();
+		}
 
         function initializeResources()
         {
@@ -175,5 +176,11 @@
                     list.val(value);
             }
         }
-    </script>
+
+        function confirmDeletion(ctrl)
+        {
+            Swal.fire({ title: "Marine Operaion", text: "Are you sure you want to delete?", icon: "warning", showCancelButton: !0, confirmButtonColor: "#34c38f", cancelButtonColor: "#f46a6a", confirmButtonText: "Yes, delete it!" })
+                .then(function (t) { if (t.value) removeRow(ctrl); });
+		}
+	</script>
 </asp:Content>

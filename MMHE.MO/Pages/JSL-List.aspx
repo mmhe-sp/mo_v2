@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register TagPrefix="mo" TagName="JCS" Src="~/_controltemplates/15/MMHE.MO/JCS/List.ascx" %>
+<%@ Register TagPrefix="mo" TagName="JSL" Src="~/_controltemplates/15/MMHE.MO/JSL/List.ascx" %>
 <%@ Register TagPrefix="mo" TagName="ProjectName" Src="~/_controltemplates/15/MMHE.MO/ProjectName.ascx" %>
 
 <%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.BasePage,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <!-- end page title -->
-        <mo:JCS runat="server" ID="jcs"></mo:JCS>
+        <mo:JSL runat="server" ID="jcs"></mo:JSL>
     </div>
     <!-- container-fluid -->
     <div id="stacked-column-chart" style="display:none"></div>
@@ -38,16 +38,16 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Job Confirmation Scope
+    MMHE::Job Summary List
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Job Confirmation Scope
+    Job Summary List
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'jcs';
+        var __key = 'jsl';
         $(document).ready(function ()
         {
 

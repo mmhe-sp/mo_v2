@@ -153,7 +153,8 @@
 												</div>
 											</td>
 											<td>
-												<a href="javascript:void(0)" onclick="removeRow(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+												<a href="javascript:void(0)" onclick="addEmptyRow(this)" title="Add Row Below"><i class="mdi mdi-plus-circle me-1"></i></a>
+												<a href="javascript:void(0)" onclick="confirmDeletion(this)" title="Delete Row"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 											</td>
 										</tr>
 									</ItemTemplate>
