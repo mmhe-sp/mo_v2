@@ -146,11 +146,13 @@ namespace MMHE.MO.Business.Repositories
 			}
 		}
 
-		public VODetails GetVODetails(string jcsId)
+        public VODetails GetVODetails(string jcsId, string project, string loggedInUser)
 		{
 			VODetails jCSDetails = new VODetails();
-			SqlParameter[] parameters = new SqlParameter[1];
-			parameters[0] = new SqlParameter("@JCSID", jcsId);
+			SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = new SqlParameter("@JCSID", jcsId);
+            parameters[1] = new SqlParameter("@ProjectNo", project);
+            parameters[2] = new SqlParameter("@UserId", loggedInUser);
 			DataSet dataSet = new DataSet();
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
@@ -199,14 +201,14 @@ namespace MMHE.MO.Business.Repositories
 					table = dataSet.Tables[3];
 					jCSDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new Option
 					{
-						Value = r.Field<string>("CodeID"),
-						Text = r.Field<string>("Description")
+                        Value = r.Field<string>("OwnerNo"),
+                        Text = r.Field<string>("OwnerNo")
 					}).ToList();
 
 					table = dataSet.Tables[4];
 					jCSDetails.Disciplines = table.Rows.Cast<DataRow>().Select(r => new Option
 					{
-						Value = r.Field<string>("CodeID"),
+                        Value = r.Field<string>("DisciplineCode"),
 						Text = r.Field<string>("Description")
 					}).ToList();
 				}
