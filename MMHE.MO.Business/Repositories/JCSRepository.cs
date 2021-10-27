@@ -202,7 +202,7 @@ namespace MMHE.MO.Business.Repositories
 					jCSDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new Option
 					{
                         Value = r.Field<string>("OwnerNo"),
-                        Text = r.Field<string>("OwnerNo")
+                        Text = r.Field<string>("Owner")
 					}).ToList();
 
 					table = dataSet.Tables[4];

@@ -19,6 +19,7 @@ namespace MMHE.MO.Controls.VO
             if (string.IsNullOrWhiteSpace(JCSId))
                 JCSId = Guid.Empty.ToString();
             Details = new JCSRepository().GetVODetails(JCSId, user.ProjectId, user.Id);
+            Details.Type = "VO";
             jcsRepeater.DataSource = Details.Activities;
             jcsRepeater.DataBind();
             LastRowIndex = Details.Activities.Count + 1;

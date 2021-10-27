@@ -23,17 +23,28 @@
 						</div>
 						<div class="col-sm-4">
 							<label[ class="form-label">Owner No.</label>
-							<input class="form-control" type="text" placeholder="Owner No." readonly value="<%=Details.OwnerNo %>">
+							<select class="form-select resource" data-value="Details.OwnerNo">
+								<%foreach (var item in Details.Owners)
+									{ %>
+								<option value="<%=item.Value %>"><%=item.Text %></option>
+								<%} %>
+							</select>
 						</div>
 						<div class="col-sm-4">
 							<label[ class="form-label">Discipline</label>
-							<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
+							
+							<select class="form-select resource" data-value="Details.Discipline">
+								<%foreach (var item in Details.Disciplines)
+									{ %>
+								<option value="<%=item.Value %>"><%=item.Text %></option>
+								<%} %>
+							</select>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-12">
 							<label[ class="form-label">Work Title</label>
-							<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
+							<input class="form-control" type="text" placeholder="Work Title"  value="<%=Details.WorkTitle %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -91,14 +102,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td colspan="5">
-										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
-										<div class="collapse" id="scope">
-											<%=(string.IsNullOrWhiteSpace(Details.Description)?"":Details.Description).Replace(Environment.NewLine,"<br/>") %>
-										</div>
-									</td>
-								</tr>
 								<tr class="row-new d-none">
 									<td style="width: 40px">
 										<span class="seqNo"></span>
