@@ -6,7 +6,7 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Manage.ascx.cs" Inherits="MMHE.MO.Controls.JCS.Manage" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Manage.ascx.cs" Inherits="MMHE.MO.Controls.VO.Manage" %>
 
 <div class="row">
 	<div class="col-12">
@@ -27,13 +27,13 @@
 						</div>
 						<div class="col-sm-4">
 							<label[ class="form-label">Discipline</label>
-							<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
+							<input class="form-control" type="text" placeholder="Discipline" value="<%=Details.Discipline %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-12">
 							<label[ class="form-label">Work Title</label>
-							<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
+							<input class="form-control" type="text" placeholder="Work Title" value="<%=Details.WorkTitle %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -73,7 +73,7 @@
 								</form>
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary me-1" onclick="newVO('vo-manage.aspx?id=<%=Details.JCSID%>')"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-printer me-1"></i>Print</button>
 					</div>
 				</div>
 				<div class="row">

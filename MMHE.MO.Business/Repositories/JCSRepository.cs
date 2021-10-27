@@ -145,5 +145,73 @@ namespace MMHE.MO.Business.Repositories
 				}
 			}
 		}
+
+		public VODetails GetVODetails(string jcsId)
+		{
+			VODetails jCSDetails = new VODetails();
+			SqlParameter[] parameters = new SqlParameter[1];
+			parameters[0] = new SqlParameter("@JCSID", jcsId);
+			DataSet dataSet = new DataSet();
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+			{
+				using (SqlCommand command = new SqlCommand("MO.GetVODetails", connection))
+				{
+					command.CommandType = CommandType.StoredProcedure;
+					command.Parameters.AddRange(parameters);
+					SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+					sqlDataAdapter.Fill(dataSet);
+
+					DataTable table = dataSet.Tables[0];
+					DataRow row;
+					if (table.Rows.Count > 0)
+					{
+						row = table.Rows[0];
+						jCSDetails.Description = row.Field<string>("ContractItems");
+						jCSDetails.JCSID = row.Field<Guid>("JCSID");
+						jCSDetails.OwnerNo = row.Field<string>("OwnerNo");
+						jCSDetails.Type = row.Field<string>("Type");
+						jCSDetails.Discipline = row.Field<string>("Discipline");
+						jCSDetails.WorkTitle = row.Field<string>("WorkTitle");
+						jCSDetails.WBS = row.Field<string>("WBS");
+						jCSDetails.StartDate = row.Field<DateTime?>("StartDate");
+						jCSDetails.EndDate = row.Field<DateTime?>("EndDate");
+						jCSDetails.Duration = row.Field<string>("DurationDays");
+					}
+
+					table = dataSet.Tables[1];
+					jCSDetails.Activities = table.Rows.Cast<DataRow>().Select(r => new JCSActivityDetails
+					{
+						Sequence = r.Field<string>("SequenceNo"),
+						ActivityID = r.Field<Guid>("ActivityID"),
+						Remarks = r.Field<string>("Remarks").Trim(),
+						UpdatedBy = r.Field<string>("UpdatedBy"),
+						UpdatedOn = r.Field<DateTime>("UpdatedOn"),
+						Resource = r.Field<string>("Resource")
+					}).ToList();
+
+					table = dataSet.Tables[2];
+					jCSDetails.Resources = table.Rows.Cast<DataRow>().Select(r => new Option
+					{
+						Value = r.Field<string>("CodeID"),
+						Text = r.Field<string>("Description")
+					}).ToList();
+
+					table = dataSet.Tables[3];
+					jCSDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new Option
+					{
+						Value = r.Field<string>("CodeID"),
+						Text = r.Field<string>("Description")
+					}).ToList();
+
+					table = dataSet.Tables[4];
+					jCSDetails.Disciplines = table.Rows.Cast<DataRow>().Select(r => new Option
+					{
+						Value = r.Field<string>("CodeID"),
+						Text = r.Field<string>("Description")
+					}).ToList();
+				}
+			}
+			return jCSDetails;
+		}
 	}
 }

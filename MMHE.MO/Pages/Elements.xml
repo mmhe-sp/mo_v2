@@ -7,5 +7,6 @@
 		<File Path="Pages\JSL-List.aspx" Url="JSL-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
 		<File Path="Pages\JCS.asmx" Url="JCS.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
 		<File Path="Pages\Project.asmx" Url="Project.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+		<File Path="Pages\VO-Manage.aspx" Url="VO-Manage.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
 	</Module>
 </Elements>

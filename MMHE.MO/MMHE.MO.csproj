@@ -103,6 +103,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.designer.cs">
       <DependentUpon>TopMenu.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\VO\Manage.ascx.cs">
+      <DependentUpon>Manage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\VO\Manage.ascx.designer.cs">
+      <DependentUpon>Manage.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -214,6 +221,7 @@
     <Content Include="ControlTemplates\MMHE.MO\JSL\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\VO\Manage.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
     </Content>
@@ -233,6 +241,7 @@
     </Compile>
     <Compile Include="UI\BasePage.cs" />
     <Compile Include="UI\Dashboard.cs" />
+    <Content Include="Pages\VO-Manage.aspx" />
     <Content Include="Pages\Project.asmx" />
     <Content Include="Pages\JCS-Edit.aspx" />
     <Content Include="Pages\JCS-List.aspx" />
@@ -249,9 +258,7 @@
       <Name>MMHE.MO.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ControlTemplates\MMHE.MO\VO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

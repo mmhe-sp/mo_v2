@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register TagPrefix="mo" TagName="JCS" Src="~/_controltemplates/15/MMHE.MO/JCS/Manage.ascx" %>
+<%@ Register TagPrefix="mo" TagName="VO" Src="~/_controltemplates/15/MMHE.MO/VO/Manage.ascx" %>
 <%@ Register TagPrefix="mo" TagName="ProjectName" Src="~/_controltemplates/15/MMHE.MO/ProjectName.ascx" %>
 
 <%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.BasePage,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
@@ -21,7 +21,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Job Confirmation Scope</li>
+                            <li class="breadcrumb-item active">Manage VO</li>
                         </ol>
                     </div>
 
@@ -29,7 +29,7 @@
             </div>
         </div>
         <!-- end page title -->
-        <mo:JCS runat="server" id="jcs"></mo:JCS>
+        <mo:VO runat="server" id="jcs"></mo:VO>
     </div>
     <!-- container-fluid -->
 
@@ -38,11 +38,11 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Job Confirmation Scope
+    MMHE::Manage VO
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Job Confirmation Scope
+    Manage VO
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
@@ -119,7 +119,7 @@
                 type: "POST"
             }).done(function (d)
             {
-                alert('JCS Details have been saved successfully.');
+                alert('VO Details have been saved successfully.');
                 window.location.reload(true);
             }).fail(function () { window.location.reload(true); });
         }
@@ -181,11 +181,6 @@
         {
             Swal.fire({ title: "Marine Operaion", text: "Are you sure you want to delete?", icon: "warning", showCancelButton: !0, confirmButtonColor: "#34c38f", cancelButtonColor: "#f46a6a", confirmButtonText: "Yes, delete it!" })
                 .then(function (t) { if (t.value) removeRow(ctrl); });
-        }
-
-        function newVO(url)
-        {
-			window.location.href = url;
 		}
 	</script>
 </asp:Content>
