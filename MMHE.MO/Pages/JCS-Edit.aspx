@@ -155,10 +155,13 @@
 
         }
 
-		function addEmptyRow(ctrl)
+		function addEmptyRow(ctrl,top)
 		{
-			var tr = $('tr.row-new').clone(true);
-			$(ctrl).closest('tr').insertAfter(tr)
+		    var tr = $('tr.row-new').clone(true);
+		    if (top == -1)
+		        tr.insertBefore($('tr.activity:nth(0)'));
+		    else
+		        tr.insertAfter($(ctrl).closest('tr'));
 			tr.addClass('activity').removeClass('row-new').removeClass('d-none');
 			resetSequenceNumber();
 		}

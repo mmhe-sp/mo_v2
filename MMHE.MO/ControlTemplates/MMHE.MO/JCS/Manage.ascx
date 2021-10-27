@@ -73,7 +73,7 @@
 								</form>
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary me-1" onclick="newVO('vo-manage.aspx?id=<%=Details.JCSID%>')"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+						<button type="button" class="btn btn-primary me-1" onclick="newVO('vo-manage.aspx')"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
 					</div>
 				</div>
 				<div class="row">
@@ -85,7 +85,9 @@
 									<th>Details Scope & Specification</th>
 									<th style="width: 200px">Resources</th>
 									<th style="width: 100px">Update By</th>
-									<th style="width: 20px">&nbsp;</th>
+									<th style="width: 20px">
+                                        <a href="javascript:void(0)" onclick="addEmptyRow(this,-1)" title="Add Row at Top"><i class="mdi mdi-plus-circle me-1"></i></a>
+									</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -93,7 +95,7 @@
 									<td colspan="5">
 										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
 										<div class="collapse" id="scope">
-											<%=Details.Description.Replace(Environment.NewLine,"<br/>") %>
+											<%=(string.IsNullOrWhiteSpace(Details.Description)?"":Details.Description).Replace(Environment.NewLine,"<br/>") %>
 										</div>
 									</td>
 								</tr>
@@ -121,7 +123,8 @@
 										</div>
 									</td>
 									<td>
-										<a href="javascript:void(0)" onclick="removeRow(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+                                        <a href="javascript:void(0)" onclick="addEmptyRow(this)" title="Add Row Below"><i class="mdi mdi-plus-circle me-1"></i></a>
+										<a href="javascript:void(0)" onclick="confirmDeletion(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 									</td>
 								</tr>
 								<asp:Repeater ID="jcsRepeater" runat="server">

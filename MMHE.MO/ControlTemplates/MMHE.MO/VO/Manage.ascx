@@ -27,13 +27,13 @@
 						</div>
 						<div class="col-sm-4">
 							<label[ class="form-label">Discipline</label>
-							<input class="form-control" type="text" placeholder="Discipline" value="<%=Details.Discipline %>">
+							<input class="form-control" type="text" placeholder="Discipline" readonly value="<%=Details.Discipline %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-12">
 							<label[ class="form-label">Work Title</label>
-							<input class="form-control" type="text" placeholder="Work Title" value="<%=Details.WorkTitle %>">
+							<input class="form-control" type="text" placeholder="Work Title" readonly value="<%=Details.WorkTitle %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -64,9 +64,9 @@
 								<form class="p-3">
 									<div class="form-group m-0">
 										<div class="input-group">
-											<input type="text" class="form-control" id="rows" placeholder="Rows" aria-label="Recipient's username">
+											<input type="text" class="form-control form-control-sm" id="rows" placeholder="Rows" aria-label="Recipient's username">
 											<div class="input-group-append">
-												<button class="btn btn-primary" type="button" onclick="addNewRows()"><i class="mdi mdi-plus-circle"></i></button>
+												<button class="btn btn-primary btn-sm" type="button" onclick="addNewRows()"><i class="mdi mdi-plus-circle"></i></button>
 											</div>
 										</div>
 									</div>
@@ -85,7 +85,9 @@
 									<th>Details Scope & Specification</th>
 									<th style="width: 200px">Resources</th>
 									<th style="width: 100px">Update By</th>
-									<th style="width: 20px">&nbsp;</th>
+									<th style="width: 20px">
+                                        <a href="javascript:void(0)" onclick="addEmptyRow(this,-1)" title="Add Row at Top"><i class="mdi mdi-plus-circle me-1"></i></a>
+									</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -93,7 +95,7 @@
 									<td colspan="5">
 										<a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#scope" role="button" aria-expanded="false" aria-controls="scope">Original Work Scope</a>
 										<div class="collapse" id="scope">
-											<%=Details.Description.Replace(Environment.NewLine,"<br/>") %>
+											<%=(string.IsNullOrWhiteSpace(Details.Description)?"":Details.Description).Replace(Environment.NewLine,"<br/>") %>
 										</div>
 									</td>
 								</tr>
@@ -121,7 +123,8 @@
 										</div>
 									</td>
 									<td>
-										<a href="javascript:void(0)" onclick="removeRow(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
+                                        <a href="javascript:void(0)" onclick="addEmptyRow(this)" title="Add Row Below"><i class="mdi mdi-plus-circle me-1"></i></a>
+										<a href="javascript:void(0)" onclick="confirmDeletion(this)"><i class="mdi mdi-trash-can-outline fx-2 text-danger"></i></a>
 									</td>
 								</tr>
 								<asp:Repeater ID="jcsRepeater" runat="server">
