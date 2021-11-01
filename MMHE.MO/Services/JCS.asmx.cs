@@ -58,10 +58,10 @@ namespace MMHE.MO.Services
 
 		[WebMethod]
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-		public void Save(JCSDetails jcs)
+		public object Save(JCSDetails jcs)
 		{
             new JCSRepository().Save(jcs, LoggedInUser.Id);
-			Context.Response.Write(new JavaScriptSerializer().Serialize(new { Succeeded = true }));
+			return new { Succeeded = true };
 		}
 
 		private void Import(IEnumerable<IXLRow> rows)
