@@ -120,10 +120,10 @@
 				contentType: 'application/json; charset=UTF-8'
 			}).done(function (d)
 			{
-				showMessage('JCS Details have been saved successfully.', 'success').then(reloadGrid);
+				showMessage('JCS Details have been saved successfully.', 'success', reloadGrid);
 			}).fail(function ()
 			{
-				showMessage('Unable to save JCS Details.', 'error').then(reloadGrid);
+				showMessage('Unable to save JCS Details.', 'error',reloadGrid);
 			});
 		}
 
@@ -194,9 +194,9 @@
 			window.location.href = url;
 		}
 
-		function showMessage(message, type)
+		function showMessage(message, type,cb)
 		{
-			Swal.fire({ title: "MMHE", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" });
+			Swal.fire({ title: "MMHE", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
 		}
 		function reloadGrid()
 		{
