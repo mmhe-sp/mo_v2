@@ -114,9 +114,10 @@
 
             $.ajax({
                 url: "jcs.asmx/Save",
-                data: 'jcs=' + JSON.stringify(jcs),
+                data: JSON.stringify({ jcs: jcs }),
                 dataType: "json",
-                type: "POST"
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8'
             }).done(function (d)
             {
                 alert('JCS Details have been saved successfully.');
@@ -155,16 +156,16 @@
 
         }
 
-		function addEmptyRow(ctrl,top)
-		{
-		    var tr = $('tr.row-new').clone(true);
-		    if (top == -1)
-		        tr.insertBefore($('tr.activity:nth(0)'));
-		    else
-		        tr.insertAfter($(ctrl).closest('tr'));
-			tr.addClass('activity').removeClass('row-new').removeClass('d-none');
-			resetSequenceNumber();
-		}
+        function addEmptyRow(ctrl, top)
+        {
+            var tr = $('tr.row-new').clone(true);
+            if (top == -1)
+                tr.insertBefore($('tr.activity:nth(0)'));
+            else
+                tr.insertAfter($(ctrl).closest('tr'));
+            tr.addClass('activity').removeClass('row-new').removeClass('d-none');
+            resetSequenceNumber();
+        }
 
         function initializeResources()
         {
@@ -188,7 +189,7 @@
 
         function newVO(url)
         {
-			window.location.href = url;
-		}
-	</script>
+            window.location.href = url;
+        }
+    </script>
 </asp:Content>

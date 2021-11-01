@@ -16,6 +16,8 @@ using System.Web.Services;
 
 namespace MMHE.MO.Services
 {
+    [WebService]
+    [ScriptService]
 	public class JCS : BaseWebService
 	{
 		[WebMethod]
@@ -56,11 +58,9 @@ namespace MMHE.MO.Services
 
 		[WebMethod]
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-		public void Save(string jcs)
+		public void Save(JCSDetails jcs)
 		{
-			JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-			var jcsDetails = javaScriptSerializer.Deserialize<JCSDetails>(jcs);
-			new JCSRepository().Save(jcsDetails, LoggedInUser.Id);
+            new JCSRepository().Save(jcs, LoggedInUser.Id);
 			Context.Response.Write(new JavaScriptSerializer().Serialize(new { Succeeded = true }));
 		}
 
