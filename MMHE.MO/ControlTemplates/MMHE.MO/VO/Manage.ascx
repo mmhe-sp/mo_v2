@@ -58,7 +58,7 @@
 								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=(Details.StartDate.HasValue?Details.StartDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
 								<span class="input-group-text">-</span>
 								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
-								<span class="input-group-text">Duration <%=Details.Duration %> Days</span>
+								<span class="input-group-text"><%=Details.Duration %> Days</span>
 							</div>
 						</div>
 					</div>

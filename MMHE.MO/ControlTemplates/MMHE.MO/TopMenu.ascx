@@ -250,6 +250,11 @@
             </div>
 
             <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item noti-icon waves-effect" onclick="goToHome()">
+                    <i class="mdi mdi-home"></i>
+                </button>
+            </div>
+            <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                     <i class="bx bx-fullscreen"></i>
                 </button>
@@ -414,3 +419,9 @@
         </nav>
     </div>
 </div>
+<script>
+    function goToHome()
+    {
+        window.location.href = "dashboard.aspx";
+    }
+</script>

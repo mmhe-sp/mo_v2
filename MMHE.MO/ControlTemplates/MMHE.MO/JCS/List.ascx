@@ -39,7 +39,9 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
-                                    <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;"><%# DataBinder.Eval(Container.DataItem, "lType") %>
+                                    <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-success font-size-11"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+                                        <%# DataBinder.Eval(Container.DataItem, "lType") %>
                                         <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
                                     </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
@@ -63,7 +65,7 @@
                                                 <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></small></div>
                                             </div>
                                         </div>
-                                        <span class="badge badge-pill badge-soft-success font-size-11"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span>
+                                        
                                     </td>
                                     <td style="width: 20px">
                                         <a href="jcs-edit.aspx?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>"><i class="mdi mdi-circle-edit-outline"></i></a>

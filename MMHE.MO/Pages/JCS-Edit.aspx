@@ -70,6 +70,7 @@
 			addNewRow(1);
 			resetSequenceNumber();
 			initializeResources();
+			getDuration();
 		});
 
 		function autoResize(ctrl, event)
@@ -201,6 +202,32 @@
 		function reloadGrid()
 		{
 			window.location.reload(true);
+		}
+
+		function getDuration()
+		{
+
+		    var startDate = $('#startDate').val();
+		    var endDate = $('#endDate').val();
+		    var days = 0;
+		    $('#duration').text('');
+		    if (startDate && endDate)
+		    {
+		        startDate = parseDate(startDate);
+		        endDate = parseDate(endDate);
+		        days = endDate.getTime() - startDate.getTime();
+		        // To calculate the no. of days between two dates
+		        days = days / (1000 * 3600 * 24);
+		        $('#duration').text(days + 1);
+		    }
+
+		}
+
+		function parseDate(date)
+		{
+		    var parts = date.split('/');
+		    date = parts[2] + '/' + parts[1] + '/' + parts[0];
+		    return new Date(date)
 		}
 	</script>
 </asp:Content>

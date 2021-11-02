@@ -44,10 +44,10 @@
 						<div class="col-sm-6">
 							<label for="startDate" class="form-label">Start/End Date</label>
 							<div class="input-group mb-3">
-								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=(Details.StartDate.HasValue?Details.StartDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
+								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=(Details.StartDate.HasValue?Details.StartDate.Value.ToString("yyyy-MM-dd"):string.Empty)%>" OnChange="getDuration()">
 								<span class="input-group-text">-</span>
-								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
-								<span class="input-group-text">Duration <%=Details.Duration %> Days</span>
+								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>" onchange="getDuration()">                             
+								<span class="input-group-text"><span id="duration"><%=Details.Duration %></span> &nbsp;Days</span>                                
 							</div>
 						</div>
 					</div>
