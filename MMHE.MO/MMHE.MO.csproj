@@ -225,12 +225,16 @@
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
     </Content>
+    <Content Include="Pages\BulkUpload.asmx" />
     <Content Include="Pages\Dashboard.aspx" />
     <Content Include="MasterPages\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Pages\Elements.xml" />
     <Compile Include="Services\BaseWebService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\BulkUpload.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\JCS.asmx.cs">

@@ -9,5 +9,6 @@
     <ProjectItemFile Source="JCS.asmx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="Project.asmx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="VO-Manage.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="BulkUpload.asmx" Target="Pages\" Type="ElementFile" />
   </Files>
 </ProjectItem>

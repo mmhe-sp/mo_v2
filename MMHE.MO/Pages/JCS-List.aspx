@@ -158,7 +158,7 @@
 			}
 
 			$.ajax({
-				url: 'jcs.asmx/Upload', //URL to upload files 
+				url: 'BulkUpload.asmx/JCS', //URL to upload files 
 				type: "POST", //as we will be posting files and other method POST is used
 				processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
 				contentType: false,
