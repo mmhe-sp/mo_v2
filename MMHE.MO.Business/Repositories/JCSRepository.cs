@@ -202,7 +202,7 @@ namespace MMHE.MO.Business.Repositories
 					jCSDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new Option
 					{
                         Value = r.Field<string>("OwnerNo"),
-                        Text = r.Field<string>("Owner")
+                        Text = r.Field<string>("WorkTitle")
 					}).ToList();
 
 					table = dataSet.Tables[4];
@@ -211,6 +211,14 @@ namespace MMHE.MO.Business.Repositories
                         Value = r.Field<string>("DisciplineCode"),
 						Text = r.Field<string>("Description")
 					}).ToList();
+
+                    table = dataSet.Tables[5];
+                    jCSDetails.WBSList = table.Rows.Cast<DataRow>().Select(r => new WBSDetails
+                    {
+                        ID = r.Field<string>("ID"),
+                        Description = r.Field<string>("Description"),
+                        Disciplinecode = r.Field<string>("Disciplinecode")
+                    }).ToList();
 				}
 			}
 			return jCSDetails;

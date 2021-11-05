@@ -70,6 +70,7 @@
             addNewRow(1);
             resetSequenceNumber();
             initializeResources();
+            getDuration();
         });
 
         function autoResize(ctrl, event)
@@ -114,30 +115,17 @@
 
             $.ajax({
                 url: "jcs.asmx/Save",
-                data: 'jcs=' + JSON.stringify(jcs),
+                data: JSON.stringify({ jcs: jcs }),
                 dataType: "json",
-                type: "POST"
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8'
             }).done(function (d)
             {
-                alert('JCS Details have been saved successfully.');
-                window.location.reload(true);
-            }).fail(function () { window.location.reload(true); });
-        }
-
-        function getDuration()
-        {
-
-            var date1 = $('#startDate').val();
-            var date2 = $('#endDate').val();
-            var days = 0;
-            if (date1 && date2)
+                showMessage('JCS Details have been saved successfully.', 'success', reloadGrid);
+            }).fail(function ()
             {
-                days = date2.getTime() - date1.getTime();
-                // To calculate the no. of days between two dates
-                days = days / (1000 * 3600 * 24);
-
-            }
-            $('#duration').text(days);
+                showMessage('Unable to save JCS Details.', 'error', reloadGrid);
+            });
         }
 
         function addNewRows()
@@ -205,6 +193,53 @@
         function newVO(url)
         {
             window.location.href = url;
+        }
+
+        function showMessage(message, type, cb)
+        {
+            Swal.fire({ title: "MMHE", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
+        }
+        function reloadGrid()
+        {
+            window.location.reload(true);
+        }
+
+        function getDuration()
+        {
+
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+            var days = 0;
+            $('#duration').text('');
+            if (startDate && endDate)
+            {
+                startDate = parseDate(startDate);
+                endDate = parseDate(endDate);
+                days = endDate.getTime() - startDate.getTime();
+                // To calculate the no. of days between two dates
+                days = days / (1000 * 3600 * 24);
+                $('#duration').text(days + 1);
+            }
+
+        }
+
+        function parseDate(date)
+        {
+            var parts = date.split('/');
+            date = parts[2] + '/' + parts[1] + '/' + parts[0];
+            return new Date(date)
+        }
+
+        function updateWorkTitle(owner)
+        {
+            $('#WorkTitle').val($(owner).find('option:selected').data('work-title'));
+        }
+        function updateWBS(discipline)
+        {
+            var d = $(discipline).val();
+            var options = $('#wbs option').hide();
+            $('#wbs option[data-discipline="' + d.trim() + '"]').show();
+            $(options[0]).prop('selected',true).show();
         }
     </script>
 </asp:Content>

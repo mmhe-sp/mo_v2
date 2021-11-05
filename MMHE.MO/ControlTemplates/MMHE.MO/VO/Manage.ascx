@@ -12,28 +12,29 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header p-0">
-				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="false">Details</a>
+				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="true">Details</a>
 			</div>
 			<div class="card-body">
-				<div class="details collapse">
+				<div class="details collapse show">
 					<div class="row mb-3">
 						<div class="col-sm-4">
-							<label[ class="form-label">Type</label>
+							<label class="form-label">Type</label>
 							<input class="form-control" type="text" placeholder="Type" readonly value="<%=Details.Type %>">
 						</div>
 						<div class="col-sm-4">
-							<label[ class="form-label">Owner No.</label>
-							<select class="form-select resource" data-value="Details.OwnerNo">
+							<label class="form-label">Owner No.</label>
+							<select class="form-select resource" data-value="Details.OwnerNo" onchange="updateWorkTitle(this)">
+                                <option disabled selected>Select Owner</option>
 								<%foreach (var item in Details.Owners)
 									{ %>
-								<option value="<%=item.Value %>"><%=item.Text %></option>
+								<option value="<%=item.Value %>" data-work-title="<%=item.Text %>"><%=item.Value %></option>
 								<%} %>
 							</select>
 						</div>
 						<div class="col-sm-4">
-							<label[ class="form-label">Discipline</label>
-							
-							<select class="form-select resource" data-value="Details.Discipline">
+							<label class="form-label">Discipline</label>
+							<select class="form-select resource" data-value="Details.Discipline" onchange="updateWBS(this)">
+                                <option disabled selected>Select Discipline</option>
 								<%foreach (var item in Details.Disciplines)
 									{ %>
 								<option value="<%=item.Value %>"><%=item.Text %></option>
@@ -43,22 +44,28 @@
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-12">
-							<label[ class="form-label">Work Title</label>
-							<input class="form-control" type="text" placeholder="Work Title"  value="<%=Details.WorkTitle %>">
+							<label class="form-label" for="WorkTitle">Work Title</label>
+							<input class="form-control" id="WorkTitle" type="text" placeholder="Work Title"  value="<%=Details.WorkTitle %>" readonly>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<div class="col-sm-6">
-							<label[ class="form-label">WBS</label>
-							<input class="form-control" type="text" placeholder="WBS" readonly value="<%=Details.WBS %>">
+							<label class="form-label">WBS</label>
+                            <select class="form-select resource" data-value="<%=Details.WBS %>" id="wbs">
+                                <option disabled selected>Select WBS</option>
+								<%foreach (var item in Details.WBSList)
+								{ %>
+								    <option value="<%=item.ID %>" data-discipline="<%=item.Disciplinecode %>"><%=item.ID +( string.IsNullOrWhiteSpace(item.Description)?"": " (" + item.Description + ")") %></option>
+								<%} %>
+							</select>
 						</div>
 						<div class="col-sm-6">
 							<label for="startDate" class="form-label">Start/End Date</label>
 							<div class="input-group mb-3">
-								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=(Details.StartDate.HasValue?Details.StartDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
+								<input type="date" id="startDate" class="form-control" title="Start Date" aria-label="Start Date" value="<%=(Details.StartDate.HasValue?Details.StartDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>" onchange="getDuration()">
 								<span class="input-group-text">-</span>
-								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>">
-								<span class="input-group-text"><%=Details.Duration %> Days</span>
+								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>" onchange="getDuration()">
+								<span class="input-group-text"><span id="duration"><%=Details.Duration %></span> &nbsp;Days</span>
 							</div>
 						</div>
 					</div>
