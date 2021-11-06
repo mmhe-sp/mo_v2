@@ -23,7 +23,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label class="form-label">Owner No.</label>
-							<select class="form-select resource" data-value="Details.OwnerNo" onchange="updateWorkTitle(this)">
+							<select class="form-select resource" data-value="Details.OwnerNo" onchange="updateWorkTitle(this)" id="ownerNo">
                                 <option disabled selected>Select Owner</option>
 								<%foreach (var item in Details.Owners)
 									{ %>
@@ -33,7 +33,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label class="form-label">Discipline</label>
-							<select class="form-select resource" data-value="Details.Discipline" onchange="updateWBS(this)">
+							<select class="form-select resource" data-value="Details.Discipline" onchange="updateWBS(this)" id="discipline">
                                 <option disabled selected>Select Discipline</option>
 								<%foreach (var item in Details.Disciplines)
 									{ %>

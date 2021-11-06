@@ -54,7 +54,7 @@
 			try
 			{
 				$("#activities").DataTable({
-					lengthChange: !1, search: false
+					lengthChange: !1, search: false, paging: false, inf: false
 				});
 			} catch (e) { }
 

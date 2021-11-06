@@ -237,6 +237,9 @@
     <Compile Include="Services\BulkUpload.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Services\VO.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\JCS.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -245,6 +248,7 @@
     </Compile>
     <Compile Include="UI\BasePage.cs" />
     <Compile Include="UI\Dashboard.cs" />
+    <Content Include="Pages\VO.asmx" />
     <Content Include="Pages\VO-Manage.aspx" />
     <Content Include="Pages\Project.asmx" />
     <Content Include="Pages\JCS-Edit.aspx" />

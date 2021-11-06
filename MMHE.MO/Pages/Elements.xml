@@ -9,5 +9,6 @@
     <File Path="Pages\Project.asmx" Url="Project.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\VO-Manage.aspx" Url="VO-Manage.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\BulkUpload.asmx" Url="BulkUpload.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\VO.asmx" Url="VO.asmx" />
   </Module>
 </Elements>

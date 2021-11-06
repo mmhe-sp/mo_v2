@@ -18,7 +18,7 @@ namespace MMHE.MO.Controls.VO
             JCSId = Request.QueryString["id"];
             if (string.IsNullOrWhiteSpace(JCSId))
                 JCSId = Guid.Empty.ToString();
-            Details = new JCSRepository().GetVODetails(JCSId, user.ProjectId, user.Id);
+            Details = new VORepository().GetVODetails(JCSId, user.ProjectId, user.Id);
             Details.Type = "VO";
             jcsRepeater.DataSource = Details.Activities;
             jcsRepeater.DataBind();

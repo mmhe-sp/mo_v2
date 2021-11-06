@@ -5,18 +5,15 @@ using MMHE.MO.Business.Repositories;
 using MMHE.MO.Models;
 
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using System.Web.Services;
 
 namespace MMHE.MO.Services
 {
-    [WebService]
+	[WebService]
     [ScriptService]
 	public class JCS : BaseWebService
 	{
