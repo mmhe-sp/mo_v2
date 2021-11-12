@@ -21,6 +21,7 @@
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item"><a href="dashboard.aspx">Marine Operation</a></li>
+							<li class="breadcrumb-item"><a href="jcs-list.aspx">Job Confirmation Scope</a></li>
 							<li class="breadcrumb-item active">Manage VO/AWO</li>
 						</ol>
 					</div>
@@ -88,40 +89,9 @@
 		}
 		function saveJCS()
 		{
-			var jcs = { Activities: [] };
-			jcs.JCSID = $('.jcs-id').text();
-			jcs.Type = $('.jcs-type').text();
-			jcs.StartDate = $('#startDate').val();
-			if (!jcs.StartDate)
-				jcs.StartDate = null;
-			jcs.EndDate = $('#endDate').val();
-			jcs.WBS = $('#wbs').val();
-			jcs.Discipline = $('#discipline').val();
-			jcs.WorkTitle = $('#WorkTitle').val();
-			jcs.OwnerNo = $('#ownerNo').val();
-			if (!jcs.EndDate)
-				jcs.EndDate = null;
-
-			//get activities
-			var rows = $('tr.activity');
-			var row, activityId, remarks, resource, sequenceNo;
-			for (var index = 0; index < rows.length; index++)
-			{
-				row = $(rows[index]);
-				activityId = row.find('.activityId').text();
-				remarks = row.find('.remarks').val();
-				resource = row.find('.resource').val();
-				sequenceNo = row.find('.seqNo').text();
-				if (!activityId && !remarks)
-					continue;
-				jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource });
-				if (activityId)
-					jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
-			}
-
 			$.ajax({
 				url: "vo.asmx/Save",
-				data: JSON.stringify({ vo: jcs }),
+				data: JSON.stringify({ vo: extractModel() }),
 				dataType: "json",
 				type: "POST",
 				contentType: 'application/json; charset=UTF-8'
@@ -133,7 +103,40 @@
 			    showMessage('Unable to save the Details.', 'error', reloadGrid);
 			});
 		}
+		function extractModel()
+		{
+		    var jcs = { Activities: [] };
+		    jcs.JCSID = $('.jcs-id').text();
+		    jcs.Type = $('.jcs-type').text();
+		    jcs.StartDate = $('#startDate').val();
+		    if (!jcs.StartDate)
+		        jcs.StartDate = null;
+		    jcs.EndDate = $('#endDate').val();
+		    jcs.WBS = $('#wbs').val();
+		    jcs.Discipline = $('#discipline').val();
+		    jcs.WorkTitle = $('#WorkTitle').val();
+		    jcs.OwnerNo = $('#ownerNo').val();
+		    if (!jcs.EndDate)
+		        jcs.EndDate = null;
 
+		    //get activities
+		    var rows = $('tr.activity');
+		    var row, activityId, remarks, resource, sequenceNo;
+		    for (var index = 0; index < rows.length; index++)
+		    {
+		        row = $(rows[index]);
+		        activityId = row.find('.activityId').text();
+		        remarks = row.find('.remarks').val();
+		        resource = row.find('.resource').val();
+		        sequenceNo = row.find('.seqNo').text();
+		        if (!activityId && !remarks)
+		            continue;
+		        jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource });
+		        if (activityId)
+		            jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
+		    }
+		    return jcs;
+		}
 		function addNewRows()
 		{
 			var value = $('#rows').val();
@@ -178,7 +181,7 @@
 
 		function initializeResources()
 		{
-			var lists = $('tr.activity .resource');
+			var lists = $('.resource');
 			var value = '';
 			var list;
 			for (var index = 0; index < lists.length; index++)
@@ -249,11 +252,35 @@
 		}
 		function printVO()
 		{
-
+		    $.ajax({
+		        url: "vo.asmx/Print",
+		        data: JSON.stringify({ vo: extractModel() }),
+		        dataType: "json",
+		        type: "POST",
+		        contentType: 'application/json; charset=UTF-8'
+		    }).done(function (d)
+		    {
+		        showMessage('The Details have been printed successfully.', 'success', reloadGrid);
+		    }).fail(function ()
+		    {
+		        showMessage('Unable to print the Details.', 'error', reloadGrid);
+		    });
 		}
 		function approveVO()
 		{
-
+		    $.ajax({
+		        url: "vo.asmx/FinalApprove",
+		        data: JSON.stringify({ vo: extractModel() }),
+		        dataType: "json",
+		        type: "POST",
+		        contentType: 'application/json; charset=UTF-8'
+		    }).done(function (d)
+		    {
+		        showMessage('The Details have been approved successfully.', 'success', reloadGrid);
+		    }).fail(function ()
+		    {
+		        showMessage('Unable to approve the Details.', 'error', reloadGrid);
+		    });
 		}
 	</script>
 </asp:Content>
