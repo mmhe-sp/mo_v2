@@ -24,7 +24,7 @@ namespace MMHE.MO.Controls.VO
                 JCSId = Guid.Empty.ToString();
             }
             Details = new VORepository().GetVODetails(JCSId, user.ProjectId, user.Id);
-            Details.Type = Type;
+            Details.Type = Type =="A"? "Additional Work Order": "Variation Order";
             jcsRepeater.DataSource = Details.Activities;
             jcsRepeater.DataBind();
             LastRowIndex = Details.Activities.Count + 1;
@@ -41,9 +41,9 @@ namespace MMHE.MO.Controls.VO
             {
                 string type = Request.QueryString["Type"];
                 if (string.IsNullOrWhiteSpace(type) || string.Equals(type, "vo", StringComparison.InvariantCultureIgnoreCase))
-                    return "VO";
+                    return "V";
                 else
-                    return "AWO";
+                    return "A";
             }
         }
     }
