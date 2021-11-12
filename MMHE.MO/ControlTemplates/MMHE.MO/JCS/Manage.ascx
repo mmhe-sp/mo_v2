@@ -73,7 +73,7 @@
 								</form>
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary me-1" onclick="newVO('vo-manage.aspx')"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
+						<button type="button" class="btn btn-primary me-1" onclick="newVO('vo-manage.aspx?type=V')"><i class="mdi mdi-plus-circle me-1"></i>New VO</button>
 					</div>
 				</div>
 				<div class="row">

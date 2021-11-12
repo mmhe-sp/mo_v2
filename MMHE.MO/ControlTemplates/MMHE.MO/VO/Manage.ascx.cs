@@ -39,8 +39,8 @@ namespace MMHE.MO.Controls.VO
         {
             get
             {
-                string type = Request.QueryString["Type"];
-                if (string.IsNullOrWhiteSpace(type) || string.Equals(type, "vo", StringComparison.InvariantCultureIgnoreCase))
+                string type = Request.QueryString["type"];
+                if (string.IsNullOrWhiteSpace(type) || string.Equals(type, "v", StringComparison.InvariantCultureIgnoreCase))
                     return "V";
                 else
                     return "A";
