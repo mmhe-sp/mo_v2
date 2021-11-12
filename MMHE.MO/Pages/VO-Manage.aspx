@@ -6,7 +6,7 @@
 <%@ Register TagPrefix="mo" TagName="VO" Src="~/_controltemplates/15/MMHE.MO/VO/Manage.ascx" %>
 <%@ Register TagPrefix="mo" TagName="ProjectName" Src="~/_controltemplates/15/MMHE.MO/ProjectName.ascx" %>
 
-<%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.BasePage,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
+<%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.ManageVO,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
 </asp:Content>
@@ -20,8 +20,8 @@
 					<mo:ProjectName runat="server" id="projectName"></mo:ProjectName>
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
-							<li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-							<li class="breadcrumb-item active">Manage VO</li>
+							<li class="breadcrumb-item"><a href="dashboard.aspx">Marine Operation</a></li>
+							<li class="breadcrumb-item active">Manage VO/AWO</li>
 						</ol>
 					</div>
 
@@ -38,11 +38,11 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-	MMHE::Manage VO
+	MMHE::Manage AWO/VO
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-	Manage VO
+	Manage AWO/VO
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
@@ -55,7 +55,7 @@
 			{
 				$("#activities").DataTable(
 					{
-						lengthChange: !1, search: false, paging: false, inf: false
+						lengthChange: !1, search: false, paging: false, info: false,sorting:false
 					});
 			} catch (e) { }
 
@@ -90,12 +90,14 @@
 		{
 			var jcs = { Activities: [] };
 			jcs.JCSID = $('.jcs-id').text();
+			jcs.Type = $('.jcs-type').text();
 			jcs.StartDate = $('#startDate').val();
 			if (!jcs.StartDate)
 				jcs.StartDate = null;
 			jcs.EndDate = $('#endDate').val();
 			jcs.WBS = $('#wbs').val();
 			jcs.Discipline = $('#discipline').val();
+			jcs.WorkTitle = $('#WorkTitle').val();
 			jcs.OwnerNo = $('#ownerNo').val();
 			if (!jcs.EndDate)
 				jcs.EndDate = null;
@@ -119,16 +121,16 @@
 
 			$.ajax({
 				url: "vo.asmx/Save",
-				data: JSON.stringify({ jcs: jcs }),
+				data: JSON.stringify({ vo: jcs }),
 				dataType: "json",
 				type: "POST",
 				contentType: 'application/json; charset=UTF-8'
 			}).done(function (d)
 			{
-				showMessage('VO Details have been saved successfully.', 'success', reloadGrid);
+				showMessage('The Details have been saved successfully.', 'success', reloadGrid);
 			}).fail(function ()
 			{
-				showMessage('Unable to save VO Details.', 'error', reloadGrid);
+			    showMessage('Unable to save the Details.', 'error', reloadGrid);
 			});
 		}
 
@@ -244,6 +246,14 @@
 			var options = $('#wbs option').hide();
 			$('#wbs option[data-discipline="' + d.trim() + '"]').show();
 			$(options[0]).prop('selected', true).show();
+		}
+		function printVO()
+		{
+
+		}
+		function approveVO()
+		{
+
 		}
 	</script>
 </asp:Content>

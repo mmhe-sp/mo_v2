@@ -21,7 +21,8 @@
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-							<li class="breadcrumb-item active">Job Confirmation Scope</li>
+							<li class="breadcrumb-item"><a href="jcs-list.aspx">Job Confirmation Scope</a></li>
+							<li class="breadcrumb-item active">Manage</li>
 						</ol>
 					</div>
 

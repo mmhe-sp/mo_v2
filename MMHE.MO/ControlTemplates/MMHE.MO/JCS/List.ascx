@@ -8,8 +8,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="List.ascx.cs" Inherits="MMHE.MO.Controls.JCS.List" %>
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New AWO</button>
-        <a href="vo-manage.aspx" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</a>
+        <a href="vo-manage.aspx?Type=AWO" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New AWO</a>
+        <a href="vo-manage.aspx?Type=VO" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New VO</a>
         <button type="button" class="btn btn-primary btn-sm me-1" onclick="exportJCS()"><i class="mdi mdi-download-circle me-1"></i>Export</button>
         <button type="button" class="btn btn-primary btn-sm me-1" onclick="showJCSUploadModal()"><i class="mdi mdi-cloud-upload-outline me-1"></i>Upload</button>
     </div>

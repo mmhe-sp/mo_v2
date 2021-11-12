@@ -91,7 +91,12 @@
 								</form>
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-printer me-1"></i>Print</button>
+                        <%if(CanPrint){ %>
+						<button type="button" class="btn btn-primary me-1" onclick="printVO()"><i class="mdi mdi-printer me-1"></i>Print</button>
+                        <%} %>
+                        <%if(CanApprove){ %>
+						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-printer me-1" onclick="approveVO()"></i>Approve</button>
+                        <%} %>
 					</div>
 				</div>
 				<div class="row">
@@ -183,3 +188,4 @@
 </div>
 <!-- end row -->
 <span class="d-none jcs-id"><%=JCSId %></span>
+<span class="d-none jcs-type"><%=Type %></span>

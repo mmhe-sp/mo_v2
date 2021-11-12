@@ -45,18 +45,12 @@ namespace MMHE.MO.Services
             foreach (IXLRow row in rows)
             {
                 cell = row.Cell(1);
-                if (cell.IsEmpty() == false && cell.GetString() == "DISC")
+                if (cell.IsEmpty() == false && findJSL)
                 {
-
-                    discipline = row.Cell(2).GetString().Split('.')[0];
-                    Console.WriteLine(discipline);
-                    findJSL = true;
                     continue;
                 }
 
                 if (IsRowEmpty(row) && findJSL)
-                    continue;
-                else if (cell.IsEmpty() && findJSL)
                     continue;
                 else
                     findJSL = false;
@@ -112,8 +106,7 @@ namespace MMHE.MO.Services
                 && row.Cell(5).IsEmpty()
                 && row.Cell(6).IsEmpty()
                 && row.Cell(7).IsEmpty()
-                && row.Cell(8).IsEmpty()
-                && row.Cell(1).IsEmpty();
+                && row.Cell(8).IsEmpty();
         }
     }
 }

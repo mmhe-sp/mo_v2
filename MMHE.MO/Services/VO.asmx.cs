@@ -7,16 +7,16 @@ using System.Web.Services;
 
 namespace MMHE.MO.Services
 {
-	[WebService]
+    [WebService]
     [ScriptService]
-	public class VO : BaseWebService
-	{
-		[WebMethod]
-		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-		public object Save(VODetails vo)
-		{
-            new VORepository().Save(vo, LoggedInUser.Id);
-			return new { Succeeded = true };
-		}
-	}
+    public class VO : BaseWebService
+    {
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public object Save(VODetails vo)
+        {
+            new VORepository().Save(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
+            return new { Succeeded = true };
+        }
+    }
 }

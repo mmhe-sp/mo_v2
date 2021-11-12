@@ -20,7 +20,6 @@
                         <img src="../Style Library/assets/images/logo-dark.png" alt="" height="40">
                     </span>
                 </a>
-
                 <a href="Dashboard.aspx" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="../Style Library/assets/images/logo-light.svg" alt="" height="22">
@@ -42,7 +41,6 @@
                     <span class="bx bx-search-alt"></span>
                 </div>
             </div>
-
         </div>
 
         <div class="d-flex">
@@ -54,7 +52,6 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                     aria-labelledby="page-header-search-dropdown">
-
                     <form class="p-3">
                         <div class="form-group m-0">
                             <div class="input-group">
@@ -379,9 +376,6 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="jcs-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Confirmation Scope</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="awo-vo.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">AWO/VO</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button">

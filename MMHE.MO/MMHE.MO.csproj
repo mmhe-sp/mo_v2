@@ -112,6 +112,9 @@
     </Compile>
     <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ManageVO.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\fonts\boxicons.eot" />
@@ -246,8 +249,12 @@
     <Compile Include="Services\Project.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\BasePage.cs" />
-    <Compile Include="UI\Dashboard.cs" />
+    <Compile Include="UI\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Dashboard.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Content Include="Pages\VO.asmx" />
     <Content Include="Pages\VO-Manage.aspx" />
     <Content Include="Pages\Project.asmx" />

@@ -22,7 +22,8 @@ namespace MMHE.MO.Models
 		public List<Option> Resources { get; set; }
 		public List<Option> Disciplines { get; set; }
 		public string Description { get; set; }
-
+        public bool CanPrint { get; set; }
+        public bool CanApprove { get; set; }
         public List<WBSDetails> WBSList { get; set; }
     }
 }
