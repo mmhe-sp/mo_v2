@@ -72,6 +72,9 @@ namespace MMHE.MO.Business.Repositories
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
+					connection.Open();
+					command.ExecuteNonQuery();
+					connection.Close();
 				}
 			}
 		}
@@ -87,6 +90,9 @@ namespace MMHE.MO.Business.Repositories
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
+					connection.Open();
+					command.ExecuteNonQuery();
+					connection.Close();
 				}
 			}
 		}
