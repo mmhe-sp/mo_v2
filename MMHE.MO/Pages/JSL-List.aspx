@@ -121,30 +121,7 @@
                 }
             });
             delaySearch("#jcsTable", __key);
-            getStatusBackground();
+           
         });
-
-        function getStatusBackground()
-        {
-            var statuses = $('.jsl-status');
-            $.each(statuses, function (i, v)
-            {
-                var s = $(v);
-                var bgColor = 'inherit';
-                switch (s.text())
-                {
-                    case 'approved':
-                        bgColor = 'magento';
-                        break;
-					case 'pending':
-						bgColor = 'orange';
-						break;
-					case 'final approved':
-						bgColor = 'green';
-						break;
-                }
-                s.css('background-color', bgColor);
-            });
-		}
 	</script>
 </asp:Content>
