@@ -68,7 +68,7 @@ namespace MMHE.MO.Business.Repositories
 			parameters[1] = new SqlParameter("@UserId", loggedInUser);
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
-				using (SqlCommand command = new SqlCommand("MO.PrintVO", connection))
+				using (SqlCommand command = new SqlCommand("MO.ApproveVO", connection))
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
@@ -86,7 +86,7 @@ namespace MMHE.MO.Business.Repositories
 			parameters[1] = new SqlParameter("@UserId", loggedInUser);
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
-				using (SqlCommand command = new SqlCommand("MO.ApproveVO", connection))
+				using (SqlCommand command = new SqlCommand("MO.PrintVO", connection))
 				{
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddRange(parameters);
