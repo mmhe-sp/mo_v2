@@ -18,5 +18,21 @@ namespace MMHE.MO.Services
             new VORepository().Save(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
             return new { Succeeded = true };
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public object Print(VODetails vo)
+        {
+            new VORepository().Print(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
+            return new { Succeeded = true };
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public object FinalApprove(VODetails vo)
+        {
+            new VORepository().FinalApprove(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
+            return new { Succeeded = true };
+        }
     }
 }
