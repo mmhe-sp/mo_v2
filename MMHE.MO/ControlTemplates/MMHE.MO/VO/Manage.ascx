@@ -27,7 +27,7 @@
                                 <option disabled selected>Select Owner</option>
 								<%foreach (var item in Details.Owners)
 									{ %>
-								<option value="<%=item.Value %>" data-work-title="<%=item.Text %>" data-discipline="<%=item.Discipline %>" data-wbs="<%=item.WBS %>" ><%=item.Value + " (" + item.Text + ")" %></option>
+								<option value="<%=item.OwnerNo %>" data-work-title="<%=item.WorkTitle %>" data-discipline="<%=item.Discipline %>" data-wbs="<%=item.WBS %>" ><%=item.OwnerNo + " (" + item.WorkTitle + ")" %></option>
 								<%} %>
 							</select>
 						</div>
