@@ -73,6 +73,7 @@
 			resetSequenceNumber();
 			initializeResources();
 			getDuration();
+			enableDetails();
 		});
 
 		function autoResize(ctrl, event)
@@ -281,6 +282,21 @@
 		    {
 		        showMessage('Unable to approve the Details.', 'error', reloadGrid);
 		    });
+		}
+
+		function enableDetails()
+		{
+			var type = $('.jcs-type').text();
+			var canEdit = $('.jcs-can-edit').text();
+			if (canEdit == "false")
+			{
+				if (type == 'V')
+				{
+					$('#ownerNo').prop('disabled', true);
+					$('#WorkTitle').prop('disabled', true);
+					$('#wbs').prop('disabled', true);
+				}
+			}
 		}
 	</script>
 </asp:Content>
