@@ -101,7 +101,10 @@ namespace MMHE.MO.Business.Repositories
 		{
 			VODetails voDetails = new VODetails();
 			SqlParameter[] parameters = new SqlParameter[4];
-			parameters[0] = new SqlParameter("@JCSID", jcsId);
+            if (string.IsNullOrWhiteSpace(jcsId))
+                parameters[0] = new SqlParameter("@JCSID", DBNull.Value);
+            else
+                parameters[0] = new SqlParameter("@JCSID", jcsId);
 			if (string.IsNullOrWhiteSpace(voId))
 				parameters[1] = new SqlParameter("@VOID", DBNull.Value);
 			else

@@ -193,7 +193,7 @@
 
 		function newVO(url)
 		{
-			window.location.href = url + "&jcs=" + $('#jcs-id').text();
+			window.location.href = url + "&jcs=" + $('.jcs-id').text();
 		}
 
 		function showMessage(message, type,cb)

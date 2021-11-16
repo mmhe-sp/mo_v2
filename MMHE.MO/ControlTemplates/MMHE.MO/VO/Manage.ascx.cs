@@ -14,7 +14,7 @@ namespace MMHE.MO.Controls.VO
 		public bool CanPrint { get; set; }
 		public bool CanChange { get; set; }
 		public int LastRowIndex = 0;
-		public string JCSId = string.Empty;
+		public string JCSId = null;
 		public string voId = null;
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -25,7 +25,6 @@ namespace MMHE.MO.Controls.VO
 			if (string.IsNullOrWhiteSpace(JCSId))
 			{
 				isNew = true;
-				JCSId = Guid.Empty.ToString();
 			}
 
 			Details = new VORepository().GetVODetails(JCSId, voId, user.ProjectId, user.Id);
