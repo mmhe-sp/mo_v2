@@ -243,7 +243,10 @@
 
 		function updateWorkTitle(owner)
 		{
-			$('#WorkTitle').val($(owner).find('option:selected').data('work-title'));
+			var option = $(owner).find('option:selected');
+			$('#WorkTitle').val(option.data('work-title'));
+			$('#discipline').val(option.data('discipline'));
+			$('#wbs').val(option.data('wbs'));
 		}
 		function updateWBS(discipline)
 		{

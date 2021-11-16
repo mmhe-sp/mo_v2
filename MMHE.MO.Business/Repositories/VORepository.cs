@@ -162,10 +162,12 @@ namespace MMHE.MO.Business.Repositories
 					}).ToList();
 
 					table = dataSet.Tables[3];
-					voDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new Option
+					voDetails.Owners = table.Rows.Cast<DataRow>().Select(r => new OwnerDetails
 					{
-						Value = r.Field<string>("OwnerNo"),
-						Text = r.Field<string>("WorkTitle")
+						OwnerNo = r.Field<string>("OwnerNo"),
+						WorkTitle = r.Field<string>("WorkTitle"),
+						Discipline = r.Field<string>("Discipline"),
+						WBS = r.Field<string>("WBS").Split('|')[0].Trim()
 					}).ToList();
 
 					table = dataSet.Tables[4];

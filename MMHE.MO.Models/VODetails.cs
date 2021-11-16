@@ -18,7 +18,7 @@ namespace MMHE.MO.Models
 		public DateTime? EndDate { get; set; }
 		public string Duration { get; set; }
 		public List<JCSActivityDetails> Activities { get; set; }
-		public List<Option> Owners { get; set; }
+		public List<OwnerDetails> Owners { get; set; }
 		public List<Option> Resources { get; set; }
 		public List<Option> Disciplines { get; set; }
 		public string Description { get; set; }
