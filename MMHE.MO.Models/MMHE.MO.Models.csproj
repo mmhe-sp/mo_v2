@@ -49,6 +49,7 @@
     <Compile Include="JCSActivityDetails.cs" />
     <Compile Include="JCSDetails.cs" />
     <Compile Include="Option.cs" />
+    <Compile Include="OwnerDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VODetails.cs" />
     <Compile Include="WBSDetails.cs" />
