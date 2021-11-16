@@ -97,13 +97,17 @@ namespace MMHE.MO.Business.Repositories
 			}
 		}
 
-		public VODetails GetVODetails(string jcsId, string project, string loggedInUser)
+		public VODetails GetVODetails(string jcsId, string voId, string project, string loggedInUser)
 		{
 			VODetails voDetails = new VODetails();
-			SqlParameter[] parameters = new SqlParameter[3];
+			SqlParameter[] parameters = new SqlParameter[4];
 			parameters[0] = new SqlParameter("@JCSID", jcsId);
-			parameters[1] = new SqlParameter("@ProjectNo", project);
-			parameters[2] = new SqlParameter("@UserId", loggedInUser);
+			if (string.IsNullOrWhiteSpace(voId))
+				parameters[1] = new SqlParameter("@VOID", DBNull.Value);
+			else
+				parameters[1] = new SqlParameter("@VOID", voId);
+			parameters[2] = new SqlParameter("@ProjectNo", project);
+			parameters[3] = new SqlParameter("@UserId", loggedInUser);
 			DataSet dataSet = new DataSet();
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
