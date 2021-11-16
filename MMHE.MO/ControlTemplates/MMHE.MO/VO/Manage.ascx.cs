@@ -39,7 +39,8 @@ namespace MMHE.MO.Controls.VO
 				CanPrint = true;
 			if (Details.CanPrint && !isNew)
 				CanPrint = true;
-			CanChange = !string.IsNullOrWhiteSpace(voId);
+			
+            CanChange = Type == "V" && string.IsNullOrWhiteSpace(voId) && isNew;
 		}
 
 		public string Type

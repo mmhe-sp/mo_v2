@@ -44,9 +44,11 @@ namespace MMHE.MO.Business.Repositories
 				activity.Add(new XElement("Resource", item.Resource));
 				activities.Add(activity);
 			}
-			SqlParameter[] parameters = new SqlParameter[2];
+			SqlParameter[] parameters = new SqlParameter[3];
 			parameters[0] = new SqlParameter("@JCS", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
-			parameters[1] = new SqlParameter("@UpdatedBy", updatedBy);
+            parameters[1] = new SqlParameter("@UpdatedBy", updatedBy);
+            parameters[2] = new SqlParameter("@JCSID",Guid.Empty);
+            parameters[2].Direction = ParameterDirection.Output;
 
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{
@@ -57,6 +59,7 @@ namespace MMHE.MO.Business.Repositories
 					connection.Open();
 					command.ExecuteNonQuery();
 					connection.Close();
+                    jcsDetails.JCSID = Guid.Parse(parameters[2].Value.ToString());
 				}
 			}
 		}

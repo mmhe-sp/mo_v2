@@ -98,7 +98,8 @@
 				contentType: 'application/json; charset=UTF-8'
 			}).done(function (d)
 			{
-				showMessage('The Details have been saved successfully.', 'success', reloadGrid);
+			    d = d.d;
+			    showMessage('The Details have been saved successfully.', 'success', function () { window.location.href = 'vo-manage.aspx?type=v&id=' + d.Id;});
 			}).fail(function ()
 			{
 			    showMessage('Unable to save the Details.', 'error', reloadGrid);
@@ -294,6 +295,7 @@
 				{
 					$('#ownerNo').prop('disabled', true);
 					$('#WorkTitle').prop('disabled', true);
+					$('#discipline').prop('disabled', true);
 					$('#wbs').prop('disabled', true);
 				}
 			}

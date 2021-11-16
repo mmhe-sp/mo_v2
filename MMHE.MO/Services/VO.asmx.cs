@@ -16,7 +16,7 @@ namespace MMHE.MO.Services
         public object Save(VODetails vo)
         {
             new VORepository().Save(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
-            return new { Succeeded = true };
+            return new { Succeeded = true, Id = vo.JCSID };
         }
 
         [WebMethod]

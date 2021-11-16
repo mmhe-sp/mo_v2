@@ -33,7 +33,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label class="form-label">Discipline</label>
-							<select class="form-select resource" data-value="<%=Details.Discipline%>" onchange="updateWBS(this)" id="discipline" disabled>
+							<select class="form-select resource" data-value="<%=Details.Discipline%>" onchange="updateWBS(this)" id="discipline">
                                 <option disabled selected>Select Discipline</option>
 								<%foreach (var item in Details.Disciplines)
 									{ %>
@@ -189,4 +189,4 @@
 <!-- end row -->
 <span class="d-none jcs-id"><%=JCSId %></span>
 <span class="d-none jcs-type"><%=Type %></span>
-<span class="d-none jcs-can-edit"><%=CanEdit.ToString().ToLower() %></span>
+<span class="d-none jcs-can-edit"><%=CanChange.ToString().ToLower() %></span>
