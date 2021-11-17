@@ -30,7 +30,7 @@
 								<option value="<%=item.OwnerNo %>" data-work-title="<%=item.WorkTitle %>" data-discipline="<%=item.Discipline %>" data-wbs="<%=item.WBS %>" ><%=item.OwnerNo + " (" + item.WorkTitle + ")" %></option>
 								<%} %>
 							</select>
-							<input class="form-control" id="txtOwnerNo" type="text" placeholder="Owner No"  value="<%=Details.OwnerNo %>" style="display:none"/>
+							<input class="form-control" id="txtOwnerNo" type="text" placeholder="Owner No"  value="<%=Details.OwnerNo %>" maxlength="20"/>
 						</div>
 						<div class="col-sm-4">
 							<label class="form-label">Discipline</label>

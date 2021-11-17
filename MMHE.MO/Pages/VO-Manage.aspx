@@ -90,16 +90,17 @@
         }
         function saveJCS()
         {
+            var vo= extractModel();
             $.ajax({
                 url: "vo.asmx/Save",
-                data: JSON.stringify({ vo: extractModel() }),
+                data: JSON.stringify({ vo: vo }),
                 dataType: "json",
                 type: "POST",
                 contentType: 'application/json; charset=UTF-8'
             }).done(function (d)
             {
                 d = d.d;
-                showMessage('The Details have been saved successfully.', 'success', function () { window.location.href = 'vo-manage.aspx?type=v&id=' + d.Id; });
+                showMessage('The Details have been saved successfully.', 'success', function () { window.location.href = 'vo-manage.aspx?type=' + vo.Type + '&id=' + d.Id; });
             }).fail(function ()
             {
                 showMessage('Unable to save the Details.', 'error', reloadGrid);
