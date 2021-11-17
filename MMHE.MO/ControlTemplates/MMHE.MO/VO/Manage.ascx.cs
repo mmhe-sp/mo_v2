@@ -41,6 +41,10 @@ namespace MMHE.MO.Controls.VO
 				CanPrint = true;
 			
             CanChange = Type == "V" && string.IsNullOrWhiteSpace(voId);
+			if(Type == "A")
+			{
+				CanChange = isNew;
+			}
 		}
 
 		public string Type

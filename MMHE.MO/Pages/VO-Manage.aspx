@@ -117,7 +117,10 @@
             jcs.WBS = $('#wbs').val();
             jcs.Discipline = $('#discipline').val();
             jcs.WorkTitle = $('#WorkTitle').val();
-            jcs.OwnerNo = $('#ownerNo').val();
+            if (jcs.Type == "V")
+                jcs.OwnerNo = $('#ownerNo').val();
+            else
+				jcs.OwnerNo = $('#txtOwnerNo').val();
             if (!jcs.EndDate)
                 jcs.EndDate = null;
 
@@ -295,12 +298,24 @@
 
             if (type == 'V')
             {
+				$('#txtOwnerNo').hide();
                 if (canEdit == 'false')
                     $('#ownerNo').prop('disabled', true);
                 $('#WorkTitle').prop('disabled', true);
                 $('#discipline').prop('disabled', true);
                 $('#wbs').prop('disabled', true);
             }
+            else if (type == "A")
+            {
+                $('#ownerNo').hide();
+                if (canEdit == 'false')
+                {
+					$('#txtOwnerNo').prop('disabled', true);
+					$('#WorkTitle').prop('disabled', true);
+					$('#discipline').prop('disabled', true);
+					$('#wbs').prop('disabled', true);
+				}
+			}
         }
-    </script>
+	</script>
 </asp:Content>

@@ -30,6 +30,7 @@
 								<option value="<%=item.OwnerNo %>" data-work-title="<%=item.WorkTitle %>" data-discipline="<%=item.Discipline %>" data-wbs="<%=item.WBS %>" ><%=item.OwnerNo + " (" + item.WorkTitle + ")" %></option>
 								<%} %>
 							</select>
+							<input class="form-control" id="txtOwnerNo" type="text" placeholder="Owner No"  value="<%=Details.OwnerNo %>" style="display:none"/>
 						</div>
 						<div class="col-sm-4">
 							<label class="form-label">Discipline</label>
@@ -45,7 +46,7 @@
 					<div class="mb-3 row">
 						<div class="col-sm-12">
 							<label class="form-label" for="WorkTitle">Work Title</label>
-							<input class="form-control" id="WorkTitle" type="text" placeholder="Work Title"  value="<%=Details.WorkTitle %>" readonly>
+							<input class="form-control" id="WorkTitle" type="text" placeholder="Work Title"  value="<%=Details.WorkTitle %>">
 						</div>
 					</div>
 					<div class="mb-3 row">
