@@ -65,13 +65,13 @@
                 </div>
             </div>
 
-            <div class="dropdown d-none d-lg-inline-block ms-1">
+            <div class="dropdown d-none d-lg-inline-block ms-1 d-none">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                     <i class="bx bx-fullscreen"></i>
                 </button>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block d-none">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="bx bx-bell bx-tada"></i>
@@ -158,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block d-none">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="../Style Library/assets/images/users/avatar-1.jpg"
@@ -176,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block d-none">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                     <i class="bx bx-cog bx-spin"></i>
                 </button>
@@ -251,13 +251,13 @@
                     <i class="mdi mdi-home"></i>
                 </button>
             </div>
-            <div class="dropdown d-none d-lg-inline-block ms-1">
+            <div class="dropdown d-none d-lg-inline-block ms-1 d-none">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                     <i class="bx bx-fullscreen"></i>
                 </button>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block d-none">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="bx bx-bell bx-tada"></i>
@@ -344,7 +344,7 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <div class="dropdown d-inline-block d-none">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <img class="rounded-circle header-profile-user" src="../Style Library/assets/images/users/avatar-1.jpg"
@@ -378,15 +378,9 @@
                         <a href="jcs-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Confirmation Scope</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none" href="dwc.aspx">
                             <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Daily Work Progress</span>
-                            <div class="arrow-down"></div>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="topnav-dashboard">
-                            <a href="" class="dropdown-item" key="t-default">Daily Work Progress Update</a>
-                            <a href="" class="dropdown-item" key="t-saas">Daily Work Progress Verification</a>
-                            <a href="" class="dropdown-item" key="t-crypto">Work Done Verification</a>
-                        </div>
                     </li>
 
                     <li class="nav-item dropdown">

@@ -187,7 +187,7 @@
 
 		function confirmDeletion(ctrl)
 		{
-			Swal.fire({ title: "Marine Operaion", text: "Are you sure you want to delete?", icon: "warning", showCancelButton: !0, confirmButtonColor: "#34c38f", cancelButtonColor: "#f46a6a", confirmButtonText: "Yes, delete it!" })
+			Swal.fire({ title: "", text: "Are you sure you want to delete?", icon: "warning", showCancelButton: !0, confirmButtonColor: "#34c38f", cancelButtonColor: "#f46a6a", confirmButtonText: "Yes, delete it!" })
 				.then(function (t) { if (t.value) removeRow(ctrl); });
 		}
 
@@ -198,7 +198,7 @@
 
 		function showMessage(message, type,cb)
 		{
-			Swal.fire({ title: "MMHE", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
+			Swal.fire({ title: "", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
 		}
 		function reloadGrid()
 		{
