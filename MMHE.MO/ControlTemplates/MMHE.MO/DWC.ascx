@@ -18,7 +18,7 @@
 							<th></th>
 							<th>Owner No</th>
 							<th class="no-sort text-center" style="column-width: 150px;">Type</th>
-							<th class="no-sort text-center" style="column-width: 150px;"><%=Date %></th>
+							<th class="no-sort text-center" style="column-width: 150px;"><%=Today %></th>
 							<th class="no-sort text-center" style="column-width: 150px;"><%=Tomorrow %></th>
 							<th class="no-sort text-center" style="column-width: 40px;">Work Title</th>
 							<th class="no-sort text-center" style="column-width: 120px;">Completion %</th>
