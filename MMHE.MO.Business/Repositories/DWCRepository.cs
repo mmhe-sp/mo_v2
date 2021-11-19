@@ -14,10 +14,9 @@ namespace MMHE.MO.Business.Repositories
 	{
 		public List<DWCActivity> GetAll(string project, string loggedInUser)
 		{
-			SqlParameter[] parameters = new SqlParameter[3];
-			parameters[0] = new SqlParameter("@pType", "Active");
-			parameters[1] = new SqlParameter("@pProNo", project);
-			parameters[2] = new SqlParameter("@pEmpID", loggedInUser);
+			SqlParameter[] parameters = new SqlParameter[2];
+			parameters[0] = new SqlParameter("@pProNo", project);
+			parameters[1] = new SqlParameter("@pEmpID", loggedInUser);
 			DataTable table = new DataTable();
 			List<DWCActivity> dwc = null;
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
@@ -39,12 +38,12 @@ namespace MMHE.MO.Business.Repositories
 						Work_Title = r.Field<string>("Work_Title"),
 						OwnerNo = r.Field<string>("OwnerNo"),
 						MyGroup = r.Field<string>("MyGroup"),
-						CompletionPer = r.Field<decimal>("CompletionPer"),
+						//CompletionPer = r.Field<decimal>("CompletionPer"),
 						lType = r.Field<string>("lType"),
 						JSLStatus = r.Field<string>("JSLStatus"),
-						Type = r.Field<string>("Type"),
-						Subscontractor = r.Field<string>("Subscontractor"),
-						WBS = r.Field<string>("WBS"),
+						//Type = r.Field<string>("Type"),
+                        Subscontractor = r.Field<string>("SubContractor"),
+						//WBS = r.Field<string>("WBS"),
 						JSLRemarks = r.Field<string>("JSLRemarks")
 					}).ToList();
 				}

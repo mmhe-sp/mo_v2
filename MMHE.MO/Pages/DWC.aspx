@@ -79,26 +79,8 @@
             var table = $('#jcsTable').DataTable({
                 search: { search: value },
                 ordering:  false,
-                "columnDefs": [
-                { "visible": false, "targets": groupColumn }
-                ],
                 order: [[groupColumn, 'asc']],
                 displayLength: 25,
-                drawCallback: function (settings)
-                {
-                    var api = this.api();
-                    var rows = api.rows({ page: 'current' }).nodes();
-                    var last = null;
-                    var count = 0;
-                    api.column(groupColumn, { page: 'current' }).data().each(function (group, i)
-                    {
-                        if (last !== group)
-                        {
-                            $(rows).eq(i).before('<tr class="group bg-light"><th colspan="6">' + group + '</th></tr>');
-                            last = group;
-                        }
-                    });
-                },
                 "aLengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "All"]],
                 "iDisplayLength": 10,
                 "pageLength": -1,
@@ -107,19 +89,7 @@
                 scrollX: true,
             });
 
-            // Order by the grouping
-            $('#jcsTable tbody').on('click', 'tr.group', function ()
-            {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc')
-                {
-                    table.order([groupColumn, 'desc']).draw();
-                }
-                else
-                {
-                    table.order([groupColumn, 'asc']).draw();
-                }
-            });
+            
             delaySearch("#jcsTable", __key);
            
         });
