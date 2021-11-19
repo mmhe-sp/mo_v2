@@ -103,6 +103,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\ProjectName.ascx.designer.cs">
       <DependentUpon>ProjectName.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx.cs">
+      <DependentUpon>WCR.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx.designer.cs">
+      <DependentUpon>WCR.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.cs">
       <DependentUpon>TopMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +167,9 @@
       <FeatureId>{9c818581-1098-4147-b106-db8e31a432b9}</FeatureId>
     </None>
     <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3fbd87af-6f54-40f2-8f8d-8aa4c5488bd7}</SharePointProjectItemId>
+    </None>
     <None Include="MasterPages\MO.master" />
     <None Include="MasterPages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fab25ca6-a30a-4467-be21-37e5331dee09}</SharePointProjectItemId>
@@ -231,6 +241,7 @@
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JSL\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\VO\Manage.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
@@ -241,6 +252,8 @@
     <Content Include="MasterPages\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Pages\WDR.aspx" />
+    <Content Include="Pages\WCR.aspx" />
     <Content Include="Pages\Elements.xml" />
     <Compile Include="Services\BaseWebService.cs">
       <SubType>Component</SubType>
@@ -282,7 +295,14 @@
       <Name>MMHE.MO.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\ReportClient.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\ReportSubconMain.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllCancelled.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllOwnerArrange.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllShipStaff.rdlc" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-	<Module Name="Pages" Url="Pages">
-		<File Path="Pages\Dashboard.aspx" Url="Dashboard.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\JCS-Edit.aspx" Url="JCS-Edit.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\JCS-List.aspx" Url="JCS-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\JSL-List.aspx" Url="JSL-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\JCS.asmx" Url="JCS.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\Project.asmx" Url="Project.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\VO-Manage.aspx" Url="VO-Manage.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\BulkUpload.asmx" Url="BulkUpload.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\VO.asmx" Url="VO.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-		<File Path="Pages\DWC.aspx" Url="DWC.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-	</Module>
+  <Module Name="Pages" Url="Pages">
+    <File Path="Pages\Dashboard.aspx" Url="Dashboard.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JCS-Edit.aspx" Url="JCS-Edit.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JCS-List.aspx" Url="JCS-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JSL-List.aspx" Url="JSL-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JCS.asmx" Url="JCS.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\Project.asmx" Url="Project.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\VO-Manage.aspx" Url="VO-Manage.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\BulkUpload.asmx" Url="BulkUpload.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\VO.asmx" Url="VO.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\DWC.aspx" Url="DWC.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\WCR.aspx" Url="WCR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\WDR.aspx" Url="WDR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+  </Module>
 </Elements>
