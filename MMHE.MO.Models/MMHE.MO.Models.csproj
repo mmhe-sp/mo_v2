@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DWCActivity.cs" />
+    <Compile Include="DWCDetails.cs" />
+    <Compile Include="DWCProgress.cs" />
     <Compile Include="IdentityUser.cs" />
     <Compile Include="JCSActivityDetails.cs" />
     <Compile Include="JCSDetails.cs" />

@@ -15,7 +15,6 @@
 				<table id="jcsTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
 					<thead class="thead-dark">
 						<tr>
-							<th></th>
 							<th>Owner No</th>
 							<th class="no-sort text-center" style="column-width: 150px;">Type</th>
 							<th class="no-sort text-center" style="column-width: 150px;"><%=Today %></th>
@@ -27,38 +26,37 @@
 						</tr>
 					</thead>
 					<tbody>
-						<asp:Repeater ID="jcsRepeater" runat="server">
-							<ItemTemplate>
-								<tr>
-									<td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
-									<td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
-									<td>
-										<div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
-										<%# DataBinder.Eval(Container.DataItem, "lType") %>
-									</td>
-									<td>
-										<div class="text-dark">
-											<%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
-										</div>
-									</td>
-									<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-										<textarea class="form-control"></textarea>
-									</td>
-									<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-										<textarea class="form-control" ></textarea>
-									</td>
-									<td>
-										<input type="text" value="<%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>" />
-									</td>
-									<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-										<textarea class="form-control"></textarea>
-									</td>
-									<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-										<textarea class="form-control" ></textarea>
-									</td>
-								</tr>
-							</ItemTemplate>
-						</asp:Repeater>
+						<%foreach (var details in Details)
+							{ %>
+						<tr>
+							<td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
+							<td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
+							<td>
+								<div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+								<%# DataBinder.Eval(Container.DataItem, "lType") %>
+							</td>
+							<td>
+								<div class="text-dark">
+									<%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
+								</div>
+							</td>
+							<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+								<textarea class="form-control"></textarea>
+							</td>
+							<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+								<textarea class="form-control"></textarea>
+							</td>
+							<td>
+								<input type="text" value="<%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>" />
+							</td>
+							<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+								<textarea class="form-control"></textarea>
+							</td>
+							<td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+								<textarea class="form-control"></textarea>
+							</td>
+						</tr>
+						<%} %>
 					</tbody>
 				</table>
 			</div>
