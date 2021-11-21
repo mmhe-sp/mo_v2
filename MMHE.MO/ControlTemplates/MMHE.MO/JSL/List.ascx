@@ -66,7 +66,7 @@
                                         
                                     </td>
                                     <td style="width: 20px">
-                                        <a href="<%#(DataBinder.Eval(Container.DataItem, "ActivityType").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>&type=<%#DataBinder.Eval(Container.DataItem, "ActivityType") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                        <a href="<%#(DataBinder.Eval(Container.DataItem, "Type").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>&type=<%#DataBinder.Eval(Container.DataItem, "Type") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
