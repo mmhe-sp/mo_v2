@@ -127,6 +127,9 @@
     </Compile>
     <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\JSL.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\ManageVO.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -253,6 +256,7 @@
     <Content Include="MasterPages\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Pages\JSL.asmx" />
     <Content Include="Pages\WDR.aspx" />
     <Content Include="Pages\WCR.aspx" />
     <Content Include="Pages\Elements.xml" />

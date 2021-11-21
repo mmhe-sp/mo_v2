@@ -19,7 +19,7 @@
                 <table id="jcsTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
                     <thead class="thead-dark">
                         <tr>
-                            <th></th>
+                            <th>Seq No</th>
                             <th class="no-sort text-center" style="column-width: 150px;">Type
                                 <div class="text-muted"><small>Discipline</small></div>
                             </th>
@@ -28,7 +28,7 @@
                             <th class="no-sort text-center">Work Title
                                 <div class="text-muted"><small>Remarks</small></div>
                             </th>
-                            <th class="no-sort text-center" style="column-width: 120px;">Progress</th>
+                            <th class="no-sort text-center" style="column-width: 120px;">Weightage</th>
                             <th class="no-sort text-center" style="width: 20px"></th>
                         </tr>
                     </thead>
@@ -36,7 +36,7 @@
                         <asp:Repeater ID="jcsRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
                                         <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
@@ -56,11 +56,11 @@
                                         <div class="row mb-1">
                                             <div class="col text-start">
                                                 <div class="text-muted">
-                                                    <small><%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>%</small>
+                                                    <small><%# DataBinder.Eval(Container.DataItem, "Weightage") %>%</small>
                                                 </div>
                                             </div>
                                             <div class="col text-end">
-                                                <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></small></div>
+                                                <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "WCRStatus") %></small></div>
                                             </div>
                                         </div>
                                         
