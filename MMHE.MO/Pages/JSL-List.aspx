@@ -47,7 +47,7 @@
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'jcs';
+        var __key = 'jsl';
         $(document).ready(function ()
         {
 
@@ -79,9 +79,6 @@
             var table = $('#jcsTable').DataTable({
                 search: { search: value },
                 ordering:  false,
-                "columnDefs": [
-                { "visible": false, "targets": groupColumn }
-                ],
                 order: [[groupColumn, 'asc']],
                 displayLength: 25,
                 "aLengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "All"]],
