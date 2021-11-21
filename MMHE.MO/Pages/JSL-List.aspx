@@ -47,7 +47,7 @@
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'jsl';
+        var __key = 'jcs';
         $(document).ready(function ()
         {
 
@@ -121,7 +121,75 @@
                 }
             });
             delaySearch("#jcsTable", __key);
-           
+			getStatusBackground();
         });
+
+        function showUploadModal()
+        {
+			$('#jcsModal').modal('show');
+        }
+        function download()
+        {
+			var response = $.ajax({
+				method: "GET",
+				url: "jsl.asmx/Export",
+				dataType: "json",
+			}).done(function (d, status, headers)
+            {
+                var bytes = atob(d.Content);
+				saveAs(new Blob([bytes],
+					{
+					    type: 'application/vnd.ms-excel'
+					}), d.FileName);
+			});
+        }
+
+        function uploadExcel()
+        {
+			var fileUpload = $("#jcsFile").get(0);
+			var files = fileUpload.files;
+
+			// Create  a FormData object
+			var fileData = new FormData();
+
+			// if there are multiple files , loop through each files
+			for (var i = 0; i < files.length; i++)
+			{
+				fileData.append(files[i].name, files[i]);
+			}
+
+			$.ajax({
+				url: 'BulkUpload.asmx/JSL', //URL to upload files 
+				type: "POST", //as we will be posting files and other method POST is used
+				processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
+				contentType: false,
+				data: fileData
+			}).done(function ()
+			{
+			    window.location.reload();
+			});
+        }
+		function getStatusBackground()
+		{
+			var statuses = $('.jsl-status');
+			$.each(statuses, function (i, v)
+			{
+				var s = $(v);
+                var bgColor = 'inherit';
+                switch (s.text().toLocaleLowerCase())
+				{
+					case 'approved':
+						bgColor = 'magento';
+						break;
+					case 'pending':
+						bgColor = 'orange';
+						break;
+					case 'final approved':
+						bgColor = 'green';
+						break;
+				}
+				s.css('background-color', bgColor);
+			});
+		}
 	</script>
 </asp:Content>

@@ -13,5 +13,6 @@
     <File Path="Pages\DWC.aspx" Url="DWC.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\WCR.aspx" Url="WCR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\WDR.aspx" Url="WDR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
+    <File Path="Pages\JSL.asmx" Url="JSL.asmx" />
   </Module>
 </Elements>

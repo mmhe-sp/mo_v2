@@ -14,5 +14,6 @@
     <ProjectItemFile Source="DWC.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="WCR.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="WDR.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="JSL.asmx" Target="Pages\" Type="ElementFile" />
   </Files>
 </ProjectItem>
