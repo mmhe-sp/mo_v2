@@ -10,7 +10,7 @@
     <customAssembly location="ExcelNumberFormat.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\ExcelNumberFormat.dll" />
     <customAssembly location="Microsoft.ReportViewer.WebForms.DLL" deploymentTarget="WebApplication" sourcePath="..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL" />
     <customAssembly location="Microsoft.ReportViewer.ProcessingObjectModel.DLL" deploymentTarget="WebApplication" sourcePath="..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL" />
-    <customAssembly location="Microsoft.ReportViewer.Common.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll" />
+    <customAssembly location="Microsoft.ReportViewer.Common.dll" deploymentTarget="WebApplication" sourcePath="..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll" />
   </assemblies>
   <features>
     <featureReference itemId="9c818581-1098-4147-b106-db8e31a432b9" />
