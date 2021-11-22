@@ -16,12 +16,12 @@
                 <table id="jcsTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
                     <thead class="thead-dark">
                         <tr>
-                            <th style="column-width: 150px;">Owner No
+                            <th style="column-width: 200px;">Owner No
                                 <div>
                                     <small>Type</small>
                                 </div>
                             </th>
-                            <th class="no-sort text-center">Work Title</th>
+                            <th class="no-sort text-center" style="column-width:250px;">Work Title</th>
                             <th class="no-sort text-center" style="column-width: 150px;"><%=Today %></th>
                             <th class="no-sort text-center" style="column-width: 150px;"><%=Tomorrow %></th>
                             <th class="no-sort text-center" style="column-width: 70px;">Completion %</th>
@@ -42,7 +42,7 @@
 
                         <tr>
 
-                            <td style="width: 40px;">
+                            <td>
                                 <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%= item.JSLStatus %></span></div>
                                 <%= item.OwnerNo %>
                                 <div>
@@ -53,21 +53,27 @@
                             <td>
                                 <div class="text-dark">
                                     <%= item.Work_Title %>
+                                    <div class="text-end text-muted">
+                                        <small>
+                                            <%=(item.StartDate.HasValue?item.StartDate.Value.ToShortDateString():"") %>
+                                            <%=(item.StartDate.HasValue && item.EndDate.HasValue?"-":"") + (item.EndDate.HasValue?item.EndDate.Value.ToShortDateString():"")  %>
+                                        </small>
+                                    </div>
                                 </div>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
                             <td>
                                 <input type="text" value="<%= item.CompletionPer %>" class="form-control" />
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
                         </tr>
@@ -77,19 +83,19 @@
                             <td>
                                 <%= activity.Subscontractor %>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
                             <td>
                                 <input type="text"  class="form-control" />
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
+                            <td style="white-space: inherit; word-wrap: break-word !important;">
                                 <textarea class="form-control"></textarea>
                             </td>
                         </tr>
