@@ -58,6 +58,7 @@ namespace MMHE.MO.Business.Repositories
 						jCSDetails.Discipline = row.Field<string>("Discipline");
 						jCSDetails.WorkTitle = row.Field<string>("WorkTitle");
 						jCSDetails.WBS = row.Field<string>("WBS");
+						jCSDetails.CanSubmit = row.Field<bool>("CanSubmit");
 						jCSDetails.StartDate = row.Field<DateTime?>("StartDate");
 						jCSDetails.EndDate = row.Field<DateTime?>("EndDate");
 						jCSDetails.Duration = row.Field<string>("DurationDays");
@@ -83,6 +84,25 @@ namespace MMHE.MO.Business.Repositories
 				}
 			}
 			return jCSDetails;
+		}
+
+		public void Submit(Guid jCSID, string id)
+		{
+			SqlParameter[] parameters = new SqlParameter[2];
+			parameters[0] = new SqlParameter("@JCSId", jCSID);
+			parameters[1] = new SqlParameter("@SubmittedBy", id);
+
+			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+			{
+				using (SqlCommand command = new SqlCommand("MO.SubmitJCSDetails", connection))
+				{
+					command.CommandType = CommandType.StoredProcedure;
+					command.Parameters.AddRange(parameters);
+					connection.Open();
+					command.ExecuteNonQuery();
+					connection.Close();
+				}
+			}
 		}
 
 		public void Save(JCSDetails jcsDetails, string updatedBy)

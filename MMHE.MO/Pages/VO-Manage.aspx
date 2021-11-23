@@ -292,6 +292,23 @@
             });
         }
 
+		function approveVO()
+		{
+			$.ajax({
+				url: "jcs.asmx/Submit",
+				data: JSON.stringify({ vo: extractModel() }),
+				dataType: "json",
+				type: "POST",
+				contentType: 'application/json; charset=UTF-8'
+			}).done(function (d)
+			{
+				showMessage('The Details have been approved successfully.', 'success', reloadGrid);
+			}).fail(function ()
+			{
+				showMessage('Unable to approve the Details.', 'error', reloadGrid);
+			});
+		}
+
         function enableDetails()
         {
             var type = $('.jcs-type').text();

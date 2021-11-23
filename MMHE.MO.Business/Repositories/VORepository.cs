@@ -141,6 +141,7 @@ namespace MMHE.MO.Business.Repositories
 						voDetails.Duration = row.Field<string>("DurationDays");
 						voDetails.CanPrint = row.Field<bool>("CanPrint");
 						voDetails.CanApprove = row.Field<bool>("CanApprove");
+						voDetails.CanSubmit = row.Field<bool>("CanSubmit");
 					}
 
 					table = dataSet.Tables[1];

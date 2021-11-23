@@ -11,6 +11,7 @@ namespace MMHE.MO.Controls.JCS
 		public JCSDetails Details { get; set; }
 		public int LastRowIndex = 0;
 		public string JCSId = string.Empty;
+		public bool CanSubmit { get; set; }
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			JCSId = Request.QueryString["id"];
@@ -18,6 +19,7 @@ namespace MMHE.MO.Controls.JCS
 			jcsRepeater.DataSource = Details.Activities;
 			jcsRepeater.DataBind();
 			LastRowIndex = Details.Activities.Count + 1;
+			CanSubmit = Details.CanSubmit;
 		}
 	}
 }

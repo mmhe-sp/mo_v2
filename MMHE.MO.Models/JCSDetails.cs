@@ -21,6 +21,6 @@ namespace MMHE.MO.Models
 		public List<Option> Resources { get; set; }
 
         public string Description { get; set; }
-
-    }
+		public bool CanSubmit { get; set; }
+	}
 }

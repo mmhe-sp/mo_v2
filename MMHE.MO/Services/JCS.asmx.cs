@@ -50,5 +50,13 @@ namespace MMHE.MO.Services
             new JCSRepository().Save(jcs, LoggedInUser.Id);
 			return new { Succeeded = true };
 		}
+
+		[WebMethod]
+		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public object Submit(JCSDetails jcs)
+		{
+			new JCSRepository().Submit(jcs.JCSID, LoggedInUser.Id);
+			return new { Succeeded = true };
+		}
 	}
 }

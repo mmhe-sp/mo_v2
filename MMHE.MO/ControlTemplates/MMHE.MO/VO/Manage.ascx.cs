@@ -13,6 +13,7 @@ namespace MMHE.MO.Controls.VO
 		public bool CanApprove { get; set; }
 		public bool CanPrint { get; set; }
 		public bool CanChange { get; set; }
+		public bool CanSubmit { get; set; }
 		public int LastRowIndex = 0;
 		public string JCSId = null;
 		public string voId = null;
@@ -39,12 +40,15 @@ namespace MMHE.MO.Controls.VO
 				CanPrint = true;
 			if (Details.CanPrint && !isNew)
 				CanPrint = true;
-			
-            CanChange = isNew && string.IsNullOrWhiteSpace(voId);
-			if(Type == "A")
+
+			CanChange = isNew && string.IsNullOrWhiteSpace(voId);
+			if (Type == "A")
 			{
 				CanChange = isNew;
 			}
+
+			if (Details.CanSubmit && !isNew)
+				CanSubmit = true;
 		}
 
 		public string Type

@@ -230,5 +230,22 @@
 		    date = parts[2] + '/' + parts[1] + '/' + parts[0];
 		    return new Date(date)
 		}
+
+		function submitJCS()
+		{
+			$.ajax({
+				url: "jcs.asmx/Submit",
+				data: JSON.stringify({ vo: extractModel() }),
+				dataType: "json",
+				type: "POST",
+				contentType: 'application/json; charset=UTF-8'
+			}).done(function (d)
+			{
+				showMessage('The Details have been submitted successfully.', 'success', reloadGrid);
+			}).fail(function ()
+			{
+				showMessage('Unable to submit the Details.', 'error', reloadGrid);
+			});
+		}
 	</script>
 </asp:Content>
