@@ -292,7 +292,7 @@
             });
         }
 
-		function approveVO()
+		function submitJCS()
 		{
 			$.ajax({
 				url: "jcs.asmx/Submit",
@@ -302,10 +302,10 @@
 				contentType: 'application/json; charset=UTF-8'
 			}).done(function (d)
 			{
-				showMessage('The Details have been approved successfully.', 'success', reloadGrid);
+				showMessage('The Details have been submitted successfully.', 'success', reloadGrid);
 			}).fail(function ()
 			{
-				showMessage('Unable to approve the Details.', 'error', reloadGrid);
+				showMessage('Unable to submit the Details.', 'error', reloadGrid);
 			});
 		}
 
