@@ -15,5 +15,6 @@ namespace MMHE.MO.Models
 		public string Details { get; set; }
 		public string UpdatedBy { get; set; }
 		public string Resource { get; set; }
+		public string ResourceType { get; set; }
 	}
 }

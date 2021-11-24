@@ -88,6 +88,23 @@
 		}
 		function saveJCS()
 		{
+			$.ajax({
+				url: "jcs.asmx/Save",
+				data: JSON.stringify({ jcs: extractModel() }),
+				dataType: "json",
+				type: "POST",
+				contentType: 'application/json; charset=UTF-8'
+			}).done(function (d)
+			{
+				showMessage('JCS Details have been saved successfully.', 'success', reloadGrid);
+			}).fail(function ()
+			{
+				showMessage('Unable to save JCS Details.', 'error', reloadGrid);
+			});
+		}
+
+		function extractModel()
+		{
 			var jcs = { Activities: [] };
 			jcs.JCSID = $('.jcs-id').text();
 			jcs.StartDate = $('#startDate').val();
@@ -105,28 +122,15 @@
 				row = $(rows[index]);
 				activityId = row.find('.activityId').text();
 				remarks = row.find('.remarks').val();
-				resource = row.find('.resource').val();
+				resource = row.find('.resource option:selected');
 				sequenceNo = row.find('.seqNo').text();
 				if (!activityId && !remarks)
 					continue;
-				jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource });
+				jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource.text(), ResourceTye: resource.data('type') });
 				if (activityId)
 					jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
 			}
-
-			$.ajax({
-				url: "jcs.asmx/Save",
-				data: JSON.stringify({ jcs: jcs }),
-				dataType: "json",
-				type: "POST",
-				contentType: 'application/json; charset=UTF-8'
-			}).done(function (d)
-			{
-				showMessage('JCS Details have been saved successfully.', 'success', reloadGrid);
-			}).fail(function ()
-			{
-				showMessage('Unable to save JCS Details.', 'error',reloadGrid);
-			});
+			return jcs;
 		}
 
 		function addNewRows()
@@ -196,7 +200,7 @@
 			window.location.href = url + "&jcs=" + $('.jcs-id').text();
 		}
 
-		function showMessage(message, type,cb)
+		function showMessage(message, type, cb)
 		{
 			Swal.fire({ title: "", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
 		}
@@ -208,27 +212,27 @@
 		function getDuration()
 		{
 
-		    var startDate = $('#startDate').val();
-		    var endDate = $('#endDate').val();
-		    var days = 0;
-		    $('#duration').text('');
-		    if (startDate && endDate)
-		    {
-		        startDate = parseDate(startDate);
-		        endDate = parseDate(endDate);
-		        days = endDate.getTime() - startDate.getTime();
-		        // To calculate the no. of days between two dates
-		        days = days / (1000 * 3600 * 24);
-		        $('#duration').text(days + 1);
-		    }
+			var startDate = $('#startDate').val();
+			var endDate = $('#endDate').val();
+			var days = 0;
+			$('#duration').text('');
+			if (startDate && endDate)
+			{
+				startDate = parseDate(startDate);
+				endDate = parseDate(endDate);
+				days = endDate.getTime() - startDate.getTime();
+				// To calculate the no. of days between two dates
+				days = days / (1000 * 3600 * 24);
+				$('#duration').text(days + 1);
+			}
 
 		}
 
 		function parseDate(date)
 		{
-		    var parts = date.split('/');
-		    date = parts[2] + '/' + parts[1] + '/' + parts[0];
-		    return new Date(date)
+			var parts = date.split('/');
+			date = parts[2] + '/' + parts[1] + '/' + parts[0];
+			return new Date(date)
 		}
 
 		function submitJCS()

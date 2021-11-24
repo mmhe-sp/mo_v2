@@ -54,6 +54,7 @@
     <Compile Include="Option.cs" />
     <Compile Include="OwnerDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceDetails.cs" />
     <Compile Include="VODetails.cs" />
     <Compile Include="WBSDetails.cs" />
   </ItemGroup>
