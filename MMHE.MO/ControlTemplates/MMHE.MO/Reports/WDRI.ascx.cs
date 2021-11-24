@@ -26,9 +26,9 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
     {
         string connStr = "server=MHB01VSQLDT01; database=MMHE.MO; User ID=apps_user;Password=P@ssw0rd;";
         string txtEndDate = "";
-        string jcsid = "dc6f5dab-a80f-440b-a18f-08356e5e6f0c";
+        string jcsid = "E571284B-88AE-46C7-B29D-56E9EE9552C2";
         string dc = "01";
-        string ownerno = "271.06";
+        string ownerno = "271.02";
         string reprotType = "Subcon";
         string ProjectID = "1.21M0034";
         string vn = "YR Marine & Engineering Sdn Bhd";
@@ -119,7 +119,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
         private DataSet GetWDRSReportDetailsAll(string ownerno, string jcsid, string dc, string date, string reprotType, string ProjectID)
         {
             DataSet ds = new DataSet();
-            date = "22/11/2021";
+            date = "24/11/2021";
             try
             {
                 string adate = date.Split('/')[2] + "-" + date.Split('/')[1] + "-" + date.Split('/')[0];
@@ -184,7 +184,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             // DataTable dtEmployeeDetails =
             string ownerno = e.Parameters[0].Values[0].ToString();
             string jcsid = e.Parameters[1].Values[0].ToString();
-            string dc = e.Parameters[2].Values[0].ToString();
+            string dc = "01";
             string date = string.Empty;
             if (e.Parameters[3].Values[0] != null)
                 date = e.Parameters[3].Values[0].ToString();
@@ -197,7 +197,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             string ProjectID = string.Empty;
             if (ProjectID != null)
             {
-                ProjectID = ProjectID.ToString();
+                ProjectID = "1.21M0034";
             }
             DataSet WDRSReportDetailsHeader = GetWDRSReportDetailsHeader(ownerno, jcsid, dc, date, vendor, reprotType, ProjectID);
             DataTable dtReportDetailsHeader = WDRSReportDetailsHeader.Tables[0];
