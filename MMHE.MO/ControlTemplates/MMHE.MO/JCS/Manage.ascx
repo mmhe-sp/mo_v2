@@ -113,7 +113,7 @@
 										<select class="form-select resource">
 											<%foreach (var item in Details.Resources)
 												{ %>
-											<option value="<%=item.CodeID %>" data-type="<%=item.Description %>"><%=item.Text %></option>
+											<option value="<%=item.CodeID %>" data-type="<%=item.Type %>"><%=item.Description %></option>
 											<%} %>
 										</select>
 									</td>
