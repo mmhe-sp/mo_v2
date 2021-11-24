@@ -76,10 +76,11 @@ namespace MMHE.MO.Business.Repositories
 					}).ToList();
 
 					table = dataSet.Tables[2];
-					jCSDetails.Resources = table.Rows.Cast<DataRow>().Select(r => new Option
+					jCSDetails.Resources = table.Rows.Cast<DataRow>().Select(r => new ResourceDetails
 					{
-						Value = r.Field<string>("CodeID"),
-						Text = r.Field<string>("Description")
+						CodeID = r.Field<string>("CodeID"),
+						Description = r.Field<string>("Description"),
+						Type = r.Field<string>("Type")
 					}).ToList();
 				}
 			}
@@ -125,6 +126,7 @@ namespace MMHE.MO.Business.Repositories
 				activity.Add(new XElement("Remarks", item.Remarks));
 				activity.Add(new XElement("Sequence", item.Sequence));
 				activity.Add(new XElement("Resource", item.Resource));
+				activity.Add(new XElement("ResourceType", item.ResourceType));
 				activities.Add(activity);
 			}
 			SqlParameter[] parameters = new SqlParameter[2];

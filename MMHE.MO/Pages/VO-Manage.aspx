@@ -133,11 +133,12 @@
                 row = $(rows[index]);
                 activityId = row.find('.activityId').text();
                 remarks = row.find('.remarks').val();
-                resource = row.find('.resource').val();
+
+                resource = row.find('.resource option:selected');
                 sequenceNo = row.find('.seqNo').text();
                 if (!activityId && !remarks)
                     continue;
-                jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource });
+                jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource.text(), ResourceTye: resource.data('type') });
                 if (activityId)
                     jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
             }
