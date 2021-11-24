@@ -144,7 +144,7 @@
 												<select class="form-select resource" data-value="<%# DataBinder.Eval(Container.DataItem, "Resource") %>">
 													<%foreach (var item in Details.Resources)
 														{ %>
-													<option value="<%=item.Value %>"><%=item.Text %></option>
+													<option value="<%=item.CodeID %>" data-type="<%=item.Type %>"><%=item.Description %></option>
 													<%} %>
 												</select>
 											</td>
