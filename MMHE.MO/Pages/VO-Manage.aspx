@@ -296,7 +296,7 @@
 		{
 			$.ajax({
 				url: "jcs.asmx/Submit",
-				data: JSON.stringify({ vo: extractModel() }),
+				data: JSON.stringify({ jcs: extractModel() }),
 				dataType: "json",
 				type: "POST",
 				contentType: 'application/json; charset=UTF-8'
