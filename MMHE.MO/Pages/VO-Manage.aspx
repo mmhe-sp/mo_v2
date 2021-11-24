@@ -138,7 +138,7 @@
                 sequenceNo = row.find('.seqNo').text();
                 if (!activityId && !remarks)
                     continue;
-                jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource.text(), ResourceTye: resource.data('type') });
+                jcs.Activities.push({ Remarks: remarks, Sequence: sequenceNo, Resource: resource.val(), ResourceType: resource.data('type') });
                 if (activityId)
                     jcs.Activities[jcs.Activities.length - 1].ActivityID = activityId;
             }

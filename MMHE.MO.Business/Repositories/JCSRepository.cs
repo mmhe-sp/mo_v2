@@ -80,7 +80,7 @@ namespace MMHE.MO.Business.Repositories
 					{
 						CodeID = r.Field<string>("CodeID"),
 						Description = r.Field<string>("Description"),
-						Type = r.Field<string>("Type")
+						Type = r.Field<int>("Type")
 					}).ToList();
 				}
 			}
