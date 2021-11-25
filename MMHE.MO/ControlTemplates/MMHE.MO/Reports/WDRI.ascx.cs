@@ -19,12 +19,13 @@ using System.Security.Permissions;
 using Microsoft.SharePoint.Utilities;
 using System.Security;
 using Microsoft.Reporting.WebForms;
+using MMHE.MO.Business;
 
 namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 {
     public partial class WDRI : UserControl
     {
-        string connStr = "server=MHB01VSQLDT01; database=MMHE.MO; User ID=apps_user;Password=P@ssw0rd;";
+        string connStr = ConnectionStringHelper.MO;
         string txtEndDate = "";
         string jcsid = "E571284B-88AE-46C7-B29D-56E9EE9552C2";
         string dc = "01";
