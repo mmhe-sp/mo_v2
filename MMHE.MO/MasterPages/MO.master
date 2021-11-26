@@ -83,6 +83,25 @@
         .app-search {
             width: 500px;
         }
+        a.btn.btn-primary:visited 
+        {
+            color: #fff !important;
+        }
+        a:visited 
+        {
+            color: #0072BC !important;
+        }
+        a.nav-link
+        {
+            color:rgba(255, 255, 255, 0.6);
+        }
+        @media (min-width: 1200px) 
+        {
+            .mmhe body[data-layout="horizontal"] .container-fluid, .mmhe body[data-layout="horizontal"] .navbar-header 
+            {
+                max-width: 100% !important;
+            }
+        }
     </style>
     <!-- DataTables -->
     <link href="../../Style Library/assets/libs/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -91,7 +110,7 @@
     <!-- Responsive datatable examples -->
     <link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal" data-layout-size="boxed">
+<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal">
     <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
         <asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
         <WebPartPages:SPWebPartManager ID="m" runat="Server" />
