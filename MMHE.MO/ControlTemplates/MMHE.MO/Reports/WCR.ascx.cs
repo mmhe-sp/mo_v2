@@ -12,8 +12,13 @@ namespace MMHE.MO.Controls.Reports
 {
     public partial class WCR : UserControl
     {
-        string connStr = "";
-        string endDate = "";
+        string connStr = "server=MHB01VSQLP02; database=MMHE.MO; User ID=apps_user;Password=P@ssw0rd;";
+
+        string endDate = "22/11/2021";
+        string jcsid = "bf46c07d-bb5b-49f3-9ed3-0c9387ae7500";
+        string dc = "01";
+        string ownerno = "271.05";
+        string reprotType = "InHouse";
         protected void Page_Load(object sender, EventArgs e)
         {
             BindReport();
@@ -25,11 +30,11 @@ namespace MMHE.MO.Controls.Reports
             permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
             permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
             WDRSReport.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
-            if (Request.QueryString["type"] == "Subcon")
+            if (reprotType == "Subcon")
             {
                 if (Request.QueryString["CANCELLED"] == "CANCELLED")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -37,7 +42,7 @@ namespace MMHE.MO.Controls.Reports
                 }
                 else if (Request.QueryString["CANCELLED"] == "ShipStaff")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -45,7 +50,7 @@ namespace MMHE.MO.Controls.Reports
                 }
                 else if (Request.QueryString["CANCELLED"] == "OwnerArrange")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -56,7 +61,7 @@ namespace MMHE.MO.Controls.Reports
                     WDRSReport.ProcessingMode = ProcessingMode.Local;
 
 
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
 
@@ -68,7 +73,7 @@ namespace MMHE.MO.Controls.Reports
             {
                 if (Request.QueryString["CANCELLED"] == "CANCELLED")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -76,7 +81,7 @@ namespace MMHE.MO.Controls.Reports
                 }
                 else if (Request.QueryString["CANCELLED"] == "ShipStaff")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -84,7 +89,7 @@ namespace MMHE.MO.Controls.Reports
                 }
                 else if (Request.QueryString["CANCELLED"] == "OwnerArrange")
                 {
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAllCancelled(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
@@ -94,10 +99,10 @@ namespace MMHE.MO.Controls.Reports
                 {
                     WDRSReport.ProcessingMode = ProcessingMode.Local;
 
-                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], endDate, Request.QueryString["type"]);
+                    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(ownerno, jcsid, dc, endDate, reprotType);
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
-                    DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(Request.QueryString["jcsid"]);
+                    DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(jcsid);
                     DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
@@ -230,6 +235,6 @@ namespace MMHE.MO.Controls.Reports
 
         }
 
-		
+
     }
 }
