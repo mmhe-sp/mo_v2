@@ -90,6 +90,7 @@
     <Compile Include="Repositories\ProjectsRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\VORepository.cs" />
+    <Compile Include="Repositories\WDRRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Entities\MO.edmx">

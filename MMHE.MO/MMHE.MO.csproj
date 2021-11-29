@@ -66,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -119,6 +120,20 @@
     <Compile Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx.designer.cs">
       <DependentUpon>WCR.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WDR.ascx.cs">
+      <DependentUpon>WDR.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WDR.ascx.designer.cs">
+      <DependentUpon>WDR.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WDRI.ascx.cs">
+      <DependentUpon>WDRI.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\WDRI.ascx.designer.cs">
+      <DependentUpon>WDRI.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\TopMenu.ascx.cs">
       <DependentUpon>TopMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +147,13 @@
     </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\VO\Manage.ascx.designer.cs">
       <DependentUpon>Manage.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\WDR\WDR-List.ascx.cs">
+      <DependentUpon>WDR-List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\WDR\WDR-List.ascx.designer.cs">
+      <DependentUpon>WDR-List.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -254,8 +276,11 @@
     <Content Include="ControlTemplates\MMHE.MO\JSL\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\Reports\WDR.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\Reports\WDRI.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\VO\Manage.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\WDR\WDR-List.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
     </Content>
@@ -264,7 +289,9 @@
     <Content Include="MasterPages\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Pages\WDR-List.aspx" />
     <Content Include="Pages\JSL.asmx" />
+    <Content Include="Pages\WDRI.aspx" />
     <Content Include="Pages\WDR.aspx" />
     <Content Include="Pages\WCR.aspx" />
     <Content Include="Pages\Elements.xml" />
@@ -311,10 +338,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportClient.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\ReportClientWCR.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportSubconMain.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAll.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllCancelled.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllOwnerArrange.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllShipStaff.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WDRSReportAll.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\WDRSReportSubconAll.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

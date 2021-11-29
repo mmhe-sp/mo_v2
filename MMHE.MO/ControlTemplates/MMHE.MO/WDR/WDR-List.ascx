@@ -21,7 +21,6 @@
                 <table id="wdrTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
                     <thead class="thead-dark">
                         <tr>
-                            <th></th>
                             <th class="no-sort text-center">Type
                                 <div class="text-muted"><small>Discipline</small></div>
                             </th>
@@ -38,40 +37,22 @@
                         <asp:Repeater ID="rWDRSubmission" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+                                        <div class="float-end"></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
-                                        <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
+                                        <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "Description") %></small></div>
                                     </td>
-                                    <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>                                    
+                                    <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <div class="text-dark">
-                                            <%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
+                                            <%# DataBinder.Eval(Container.DataItem, "WorkTitle") %>
                                         </div>
-                                        <span class="text-muted">
-                                            <small><%# DataBinder.Eval(Container.DataItem, "JSLRemarks") %></small>
-                                        </span>
                                     </td>
                                     <td><%# DataBinder.Eval(Container.DataItem, "StartDate",  "{0:dd/MM/yyyy}") %></td>
                                     <td><%# DataBinder.Eval(Container.DataItem, "EndDate",  "{0:dd/MM/yyyy}") %></td>
-                                    <td class="text-center" style="width: 40px;">
-                                        <%--<div class="row mb-1">
-                                            <div class="col text-start">
-                                                <div class="text-muted">
-                                                    <small><%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="col text-end">
-                                                <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></small></div>
-                                            </div>
-                                        </div> --%>                                       
-                                    </td>
                                     <td style="width: 20px">
-                                        <%--<a href="<%#(DataBinder.Eval(Container.DataItem, "ActivityType").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>&type=<%#DataBinder.Eval(Container.DataItem, "ActivityType") %>"><i class="mdi mdi-circle-edit-outline"></i></a>--%>
                                         <a href="WDRI.aspx?refno=<%# DataBinder.Eval(Container.DataItem, "OwnerNo") %>&jcsid=<%# DataBinder.Eval(Container.DataItem, "JCSID") %>&dc=<%# DataBinder.Eval(Container.DataItem, "DisciplineCode") %>&ProjectID=<%# DataBinder.Eval(Container.DataItem, "ProjectID") %>&type=Subcon"><i class="mdi mdi-circle-edit-outline"></i></a>
-                                        <td>
-                                    </td>
+                                        <td></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

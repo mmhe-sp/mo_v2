@@ -22,7 +22,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Work Done List</li>
+                            <li class="breadcrumb-item active">Work Done Submission</li>
                         </ol>
                     </div>
 
@@ -38,16 +38,16 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Work Done List
+    MMHE::Work Done Submission
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Work Done List
+    Work Done Submission
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'jsl';
+        var __key = 'wdr';
         $(document).ready(function ()
         {
 

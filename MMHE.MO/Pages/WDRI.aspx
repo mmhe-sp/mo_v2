@@ -22,7 +22,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Daily Work Progress</li>
+                            <li class="breadcrumb-item active">Work Done Report</li>
                         </ol>
                     </div>
 
@@ -30,7 +30,7 @@
             </div>
         </div>
         <!-- end page title -->
-        <mo:WDRI runat="server" id="jcs"></mo:WDRI>
+        <mo:WDRI runat="server" id="wdri"></mo:WDRI>
     </div>
     <!-- container-fluid -->
     <div id="stacked-column-chart" style="display:none"></div>
@@ -38,13 +38,9 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Daily Work Progress
+    MMHE::Work Done Report
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Daily Work Progress
-</asp:Content>
-
-<asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-   
+    Work Done Report
 </asp:Content>

@@ -26,17 +26,12 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
     public partial class WDRI : UserControl
     {
         string connStr = ConnectionStringHelper.MO;
-        string txtEndDate = "";
-        string jcsid = "E571284B-88AE-46C7-B29D-56E9EE9552C2";
-        string dc = "01";
-        string ownerno = "271.02";
-        string reprotType = "Subcon";
-        string ProjectID = "1.21M0034";
-        string vn = "YR Marine & Engineering Sdn Bhd";
+        string txtEndDate = DateTime.Now.ToString("dd/MM/yyyy");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindWDRReport();
             this.WDRSReport.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing);
+            BindWDRReport();            
         }
 
         private void BindWDRReport()
@@ -45,11 +40,11 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
             permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
             WDRSReport.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
-            if (reprotType == "Subcon")
+            if (Request.QueryString["type"] == "Subcon")
             {
                 WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/Report.rdlc";
             }
-            else if (reprotType == "WDRSub")
+            else if (Request.QueryString["type"] == "WDRSub")
             {
                 WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportSubconMain.rdlc";
             }
@@ -64,18 +59,18 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             DataSet WDRSReportDetailsAll;
             DataTable dtReportDetailsAll;
 
-            if (reprotType == "Subcon")
+            if (Request.QueryString["type"] == "Subcon")
             {
-                WDRSReportDetailsAll = GetWDRSReportDetailsAll(ownerno, jcsid, dc, txtEndDate, reprotType, ProjectID);
+                WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"], Request.QueryString["ProjectID"]);
                 dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                 WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
 
             }
-            else if (reprotType == "WDRSub")
+            else if (Request.QueryString["type"] == "WDRSub")
             {
-                WDRSReportDetailsAll = GetWDRSReportDetailsAll(ownerno, jcsid, dc, txtEndDate, reprotType, ProjectID);
+                WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"], Request.QueryString["ProjectID"]);
 
-                string _vName = vn;
+                string _vName = Request.QueryString["VN"];
                 if (Request.QueryString[null] != null)
                 {
                     string _vExName = string.Empty;
@@ -109,7 +104,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             }
             else
             {
-                WDRSReportDetailsAll = GetWDRSReportDetailsAll(ownerno, jcsid, dc, txtEndDate, reprotType, ProjectID);
+                WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"],txtEndDate, Request.QueryString["type"], Request.QueryString["ProjectID"]);
                 dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                 WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
             }
@@ -119,8 +114,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 
         private DataSet GetWDRSReportDetailsAll(string ownerno, string jcsid, string dc, string date, string reprotType, string ProjectID)
         {
-            DataSet ds = new DataSet();
-            date = "24/11/2021";
+            DataSet ds = new DataSet();            
             try
             {
                 string adate = date.Split('/')[2] + "-" + date.Split('/')[1] + "-" + date.Split('/')[0];
@@ -185,7 +179,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             // DataTable dtEmployeeDetails =
             string ownerno = e.Parameters[0].Values[0].ToString();
             string jcsid = e.Parameters[1].Values[0].ToString();
-            string dc = "01";
+            string dc = e.Parameters[2].Values[0].ToString();
             string date = string.Empty;
             if (e.Parameters[3].Values[0] != null)
                 date = e.Parameters[3].Values[0].ToString();
@@ -196,33 +190,30 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             //Common objCommon = new Common();
             //Header
             string ProjectID = string.Empty;
-            if (ProjectID != null)
+            if (Request.QueryString["ProjectID"] != null)
             {
-                ProjectID = "1.21M0034";
+                ProjectID = Request.QueryString["ProjectID"].ToString();
             }
-            DataSet WDRSReportDetailsHeader = GetWDRSReportDetailsHeader(ownerno, jcsid, dc, date, vendor, reprotType, ProjectID);
+            DataSet WDRSReportDetailsHeader = GetWDRSReportDetailsHeader(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"], ProjectID);
             DataTable dtReportDetailsHeader = WDRSReportDetailsHeader.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Header", dtReportDetailsHeader));
             // Approvals
-            DataSet WDRSReportDetailsApprovals = GetWDRSReportDetailsApprovals(ownerno, jcsid, dc, date, vendor, reprotType, ProjectID);
+            DataSet WDRSReportDetailsApprovals = GetWDRSReportDetailsApprovals(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"], ProjectID);
             DataTable dtReportDetailsApprovals = WDRSReportDetailsApprovals.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approvals", dtReportDetailsApprovals));
 
-            DataSet WDRSReportDetailsAll = GetWDRSReportDetailsMain(ownerno, jcsid, dc, date, vendor, reprotType);
+            DataSet WDRSReportDetailsAll = GetWDRSReportDetailsMain(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
-            DataSet dsIWRMainDetailsAll = IWRMainDetailsAll(ownerno, jcsid, dc, date, vendor, reprotType);
+            DataSet dsIWRMainDetailsAll = IWRMainDetailsAll(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportIWRMainDetailsAll = dsIWRMainDetailsAll.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("IWRMAIN", dtReportIWRMainDetailsAll));
 
-            DataSet dsIWRAdditionalDetailsAll = IWRAdditionalDetailsAll(ownerno, jcsid, dc, date, vendor, reprotType);
+            DataSet dsIWRAdditionalDetailsAll = IWRAdditionalDetailsAll(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportIWRAdditionalDetailsAll = dsIWRAdditionalDetailsAll.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("IWRAdditional", dtReportIWRAdditionalDetailsAll));
-            //   WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dtReportDetailsAll));
-            //DataSet WDRSReportAdditionalworks = GetWDRSReportAdditionalworks(ownerno, "Additionalworks");
-            //DataTable dtReportAdditionalworks = WDRSReportAdditionalworks.Tables[0];
-            //e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", dtReportAdditionalworks));
+            
             DataSet WDRSReportMaterialSuppliedbyYard = GetWDRSReportAdditionalworks(jcsid, "MaterialSuppliedbyYard", vendor);
             DataTable dtReportMaterialSuppliedbyYard = WDRSReportMaterialSuppliedbyYard.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet3", dtReportMaterialSuppliedbyYard));
@@ -230,7 +221,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             DataSet WDRSReportAccessories = GetWDRSReportAdditionalworks(jcsid, "Accessories", vendor);
             DataTable dtReportAccessories = WDRSReportAccessories.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet4", dtReportAccessories));
-            DataSet WDRSReportDetailsAllAdditional = GetWDRSReportDetailsMainAdditional(ownerno, jcsid, dc, date, vendor, reprotType);
+            DataSet WDRSReportDetailsAllAdditional = GetWDRSReportDetailsMainAdditional(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportDetailsAllAdditional = WDRSReportDetailsAllAdditional.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AdditionalScope", dtReportDetailsAllAdditional));
         }
@@ -789,7 +780,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@JCSID", JCSID);
                 command.Parameters.AddWithValue("@Type", Type);
-                if (reprotType == "WDRSub")
+                if (Request.QueryString["type"] == "WDRSub")
                 {
                     command.Parameters.AddWithValue("@Vendor", Vendor);
                     command.CommandText = "[Sp_GetWDRSAdditionalWorksJCSIDByAll]";

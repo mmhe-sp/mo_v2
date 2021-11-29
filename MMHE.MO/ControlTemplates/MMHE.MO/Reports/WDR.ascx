@@ -11,14 +11,11 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header p-0">
-                <a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="true">Details</a>
-            </div>
             <div class="card-body">
                 <rsweb:ReportViewer ID="WDRSReport" PageCountMode="Actual" AsyncRendering="false" ShowRefreshButton="false" runat="server" ShowExportControls="true"
-                        ShowFindControls="false" ShowZoomControl="false" Width="100%" Height="100%" EnableTheming="true" ShowPrintButton="true"
-                        Style="border: 1px solid #ccc" BorderStyle="Solid" BorderWidth="1px" SizeToReportContent="true">
-                    </rsweb:ReportViewer>
+                    ShowFindControls="false" ShowZoomControl="false" Width="100%" Height="100%" EnableTheming="true" ShowPrintButton="true"
+                    Style="border: 1px solid #ccc" BorderStyle="Solid" BorderWidth="1px" SizeToReportContent="true">
+                </rsweb:ReportViewer>
             </div>
         </div>
     </div>

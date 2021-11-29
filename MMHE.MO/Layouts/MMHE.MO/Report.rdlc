@@ -43,7 +43,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -123,14 +122,14 @@
   </Body>
   <Width>6.18823in</Width>
   <Page>
-    <PageHeight>8.3in</PageHeight>
-    <PageWidth>11.7in</PageWidth>
+    <PageHeight>27cm</PageHeight>
+    <PageWidth>26cm</PageWidth>
     <InteractiveHeight>0in</InteractiveHeight>
     <InteractiveWidth>8.5in</InteractiveWidth>
-    <LeftMargin>0.2in</LeftMargin>
-    <RightMargin>0.2in</RightMargin>
-    <TopMargin>0.2in</TopMargin>
-    <BottomMargin>0.2in</BottomMargin>
+    <LeftMargin>0.508cm</LeftMargin>
+    <RightMargin>0.508cm</RightMargin>
+    <TopMargin>0.508cm</TopMargin>
+    <BottomMargin>0.508cm</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
