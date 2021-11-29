@@ -330,7 +330,7 @@
             var type = $('.jcs-type').text();
             var canEdit = $('.jcs-can-edit').text();
 
-            if (type == 'V')
+            if (type == 'V' || type == "I")
             {
 				$('#txtOwnerNo').hide();
                 if (canEdit == 'false')
