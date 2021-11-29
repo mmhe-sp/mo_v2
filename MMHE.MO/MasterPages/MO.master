@@ -91,16 +91,16 @@
         {
             color: #0072BC !important;
         }
-        a.nav-link
-        {
-            color:rgba(255, 255, 255, 0.6);
-        }
         @media (min-width: 1200px) 
         {
             .mmhe body[data-layout="horizontal"] .container-fluid, .mmhe body[data-layout="horizontal"] .navbar-header 
             {
                 max-width: 100% !important;
             }
+        }
+        .mmhe body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:visited
+        {
+            color:rgba(255, 255, 255, 0.6) !important;
         }
     </style>
     <!-- DataTables -->

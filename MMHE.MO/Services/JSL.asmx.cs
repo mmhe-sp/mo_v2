@@ -47,7 +47,7 @@ namespace MMHE.MO.Services
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public object Save(JCSDetails jcs)
 		{
-            new JCSRepository().Save(jcs, LoggedInUser.Id);
+            new JCSRepository().Save(jcs,0, LoggedInUser.Id);
 			return new { Succeeded = true };
 		}
 	}
