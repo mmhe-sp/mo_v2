@@ -106,7 +106,7 @@ namespace MMHE.MO.Business.Repositories
 			}
 		}
 
-		public void Save(JCSDetails jcsDetails, string updatedBy)
+		public void Save(JCSDetails jcsDetails,int status, string updatedBy)
 		{
 			XElement root = new XElement("JCS");
 			root.Add(new XElement("ID", jcsDetails.JCSID));
@@ -115,6 +115,8 @@ namespace MMHE.MO.Business.Repositories
 
 			if (jcsDetails.EndDate.HasValue)
 				root.Add(new XElement("EndDate", jcsDetails.EndDate.Value.ToString("MM/dd/yyyy")));
+
+			root.Add(new XElement("WFStatus", status));
 			XElement activities = new XElement("Activities");
 			XElement activity;
 			root.Add(activities);

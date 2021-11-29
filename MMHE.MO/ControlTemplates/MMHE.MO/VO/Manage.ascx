@@ -68,6 +68,7 @@
 								<input type="date" id="endDate" class="form-control" title="End Date" aria-label="End Date" value="<%=(Details.EndDate.HasValue?Details.EndDate.Value.ToString("yyyy-MM-dd"):string.Empty) %>" onchange="getDuration()">
 								<span class="input-group-text"><span id="duration"><%=Details.Duration %></span> &nbsp;Days</span>
 							</div>
+							<span id="date-val" class="text-danger"></span>
 						</div>
 					</div>
 				</div>

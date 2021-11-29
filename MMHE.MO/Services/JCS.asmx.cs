@@ -14,7 +14,7 @@ using System.Web.Services;
 namespace MMHE.MO.Services
 {
 	[WebService]
-    [ScriptService]
+	[ScriptService]
 	public class JCS : BaseWebService
 	{
 		[WebMethod]
@@ -41,13 +41,13 @@ namespace MMHE.MO.Services
 			Context.Response.Write(js.Serialize(new { Content = Convert.ToBase64String(excelContent), FileName = "JCS_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx" }));
 		}
 
-		
+
 
 		[WebMethod]
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public object Save(JCSDetails jcs)
 		{
-            new JCSRepository().Save(jcs, LoggedInUser.Id);
+			new JCSRepository().Save(jcs, 0, LoggedInUser.Id);
 			return new { Succeeded = true };
 		}
 
@@ -55,7 +55,7 @@ namespace MMHE.MO.Services
 		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 		public object Submit(JCSDetails jcs)
 		{
-			new JCSRepository().Submit(jcs.JCSID, LoggedInUser.Id);
+			new JCSRepository().Save(jcs, 1, LoggedInUser.Id);
 			return new { Succeeded = true };
 		}
 	}

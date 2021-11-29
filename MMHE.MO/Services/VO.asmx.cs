@@ -15,7 +15,15 @@ namespace MMHE.MO.Services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public object Save(VODetails vo)
         {
-            new VORepository().Save(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
+            new VORepository().Save(vo,0, LoggedInUser.ProjectId, LoggedInUser.Id);
+            return new { Succeeded = true, Id = vo.JCSID };
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public object Submit(VODetails vo)
+        {
+            new VORepository().Save(vo, 1, LoggedInUser.ProjectId, LoggedInUser.Id);
             return new { Succeeded = true, Id = vo.JCSID };
         }
 

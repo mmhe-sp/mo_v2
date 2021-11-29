@@ -15,7 +15,7 @@ namespace MMHE.MO.Business.Repositories
 	public class VORepository
 	{
 
-		public void Save(VODetails jcsDetails, string projectNo, string updatedBy)
+		public void Save(VODetails jcsDetails, int status, string projectNo, string updatedBy)
 		{
 			XElement root = new XElement("JCS");
 			if (jcsDetails.JCSID.HasValue && jcsDetails.JCSID != Guid.Empty)
@@ -26,6 +26,7 @@ namespace MMHE.MO.Business.Repositories
 			root.Add(new XElement("Discipline", jcsDetails.Discipline));
 			root.Add(new XElement("WorkTitle", jcsDetails.WorkTitle));
 			root.Add(new XElement("WBS", jcsDetails.WBS));
+			root.Add(new XElement("WFStatus", status));
 			if (jcsDetails.StartDate.HasValue)
 				root.Add(new XElement("StartDate", jcsDetails.StartDate.Value.ToString("MM/dd/yyyy")));
 

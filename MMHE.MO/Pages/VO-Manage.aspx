@@ -294,10 +294,25 @@
         }
 
 		function submitJCS()
-		{
+        {
+            var model = extractModel();
+            var isValid = true;
+            var dateVal = $('#date-val').text('');
+            if (!model.StartDate || !model.EndDate)
+            {
+                isValid = false;
+                dateVal.text = "Start Date and End Date are required.";
+            }
+            else if (parseDate(model.StartDate) > parseDate(model.EndDate))
+            {
+				isValid = false;
+				dateVal.text = "Start Date should be less than or equal to End Date.";
+			}
+            if (isValid == false)
+                return;
 			$.ajax({
-				url: "jcs.asmx/Submit",
-				data: JSON.stringify({ jcs: extractModel() }),
+				url: "vo.asmx/Submit",
+				data: JSON.stringify({ vo: model }),
 				dataType: "json",
 				type: "POST",
 				contentType: 'application/json; charset=UTF-8'
