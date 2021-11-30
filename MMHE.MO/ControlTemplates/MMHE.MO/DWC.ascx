@@ -111,7 +111,7 @@
                                         <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#__a<%=activitySequence%>" role="button" aria-expanded="false" aria-controls="__a<%=activitySequence%>" class="d-block">
                                             <%= activity.Subscontractor %>
                                         </a>
-                                        <span class="collapse mt-2" id="__a<%=activitySequence%>" style="white-space: inherit; word-wrap: break-word !important;">
+                                        <span class="collapse mt-2" id="__a<%=activitySequence%>" style="white-space: normal; word-wrap: break-word !important;">
                                             <%=(string.IsNullOrWhiteSpace(activity.ActivityTitle)?"":activity.ActivityTitle).Replace(Environment.NewLine,"<br/>") %>
                                         </span>
                                     </td>
