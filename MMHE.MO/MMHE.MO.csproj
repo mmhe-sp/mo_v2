@@ -157,6 +157,9 @@
     </Compile>
     <Compile Include="Helpers\LoggedInUserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DWC.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\JSL.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -289,6 +292,7 @@
     <Content Include="MasterPages\Elements.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Pages\DWC.asmx" />
     <Content Include="Pages\WDR-List.aspx" />
     <Content Include="Pages\JSL.asmx" />
     <Content Include="Pages\WDRI.aspx" />

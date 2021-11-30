@@ -33,8 +33,8 @@
         <mo:DWC runat="server" id="jcs"></mo:DWC>
     </div>
     <!-- container-fluid -->
-    <div id="stacked-column-chart" style="display:none"></div>
-    <div id="radialBar-chart" style="display:none"></div>
+    <div id="stacked-column-chart" style="display: none"></div>
+    <div id="radialBar-chart" style="display: none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
@@ -47,39 +47,40 @@
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'jsl';
+        var __key = 'dwc';
         $(document).ready(function ()
         {
 
-            $('#jcsTable thead tr').clone(true).appendTo('#jcsTable thead');
-            $('#jcsTable thead tr:eq(1) th').each(function (i)
-            {
-                var title = $(this).text();
-                if (title != "")
-                {
-                    $(this).html('<input type="text" placeholder="Search" class="form-control form-control-sm" />');
+            //$('#jcsTable thead tr').clone(true).appendTo('#jcsTable thead');
+            //$('#jcsTable thead tr:eq(1) th').each(function (i)
+            //{
+            //    var title = $(this).text();
+            //    if (title != "")
+            //    {
+            //        $(this).html('<input type="text" placeholder="Search" class="form-control form-control-sm" />');
 
-                    $('input', this).on('keyup change', function ()
-                    {
-                        if (table.column(i).search() !== this.value)
-                        {
-                            table
-                                .column(i)
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                }
-            });
+            //        $('input', this).on('keyup change', function ()
+            //        {
+            //            if (table.column(i).search() !== this.value)
+            //            {
+            //                table
+            //                    .column(i)
+            //                    .search(this.value)
+            //                    .draw();
+            //            }
+            //        });
+            //    }
+            //});
 
             var groupColumn = 0;
-            var value = sessionStorage.getItem(__key);
+            var value = '';
             if (!value)
                 value = '';
             var table = $('#jcsTable').DataTable({
                 search: { search: value },
-                ordering:  false,
+                ordering: false,
                 order: [[groupColumn, 'asc']],
+                autoWidth:false,
                 displayLength: 25,
                 "aLengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "All"]],
                 "iDisplayLength": 10,
@@ -89,9 +90,32 @@
                 scrollX: true,
             });
 
-            
+
             delaySearch("#jcsTable", __key);
-           
+
         });
-	</script>
+
+        function saveProgress()
+        {
+
+            var vo = extractModel();
+            $.ajax({
+                url: "dwc.asmx/SaveProgress",
+                data: JSON.stringify({ dwc: vo }),
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8'
+            }).done(function (d)
+            {
+                d = d.d;
+                showMessage('The progress have been saved successfully.', 'success', function () { window.location.reload(true); });
+            }).fail(function ()
+            {
+                showMessage('Unable to save the progress.', 'error', reloadGrid);
+            });
+        }
+        function extractModel()
+        {
+        }
+    </script>
 </asp:Content>

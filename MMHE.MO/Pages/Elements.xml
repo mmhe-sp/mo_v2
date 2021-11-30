@@ -13,8 +13,9 @@
     <File Path="Pages\DWC.aspx" Url="DWC.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\WCR.aspx" Url="WCR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
     <File Path="Pages\WDR.aspx" Url="WDR.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-    <File Path="Pages\JSL.asmx" Url="JSL.asmx" />
+    <File Path="Pages\JSL.asmx" Url="JSL.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
     <File Path="Pages\WDRI.aspx" Url="WDRI.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE"/>
-    <File Path="Pages\WDR-List.aspx" Url="WDR-List.aspx" />
+    <File Path="Pages\WDR-List.aspx" Url="WDR-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
+    <File Path="Pages\DWC.asmx" Url="DWC.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
   </Module>
 </Elements>
