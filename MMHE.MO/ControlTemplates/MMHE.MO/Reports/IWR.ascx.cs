@@ -7,7 +7,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MMHE.MO.Controls.Reports
 {
-    public partial class VO : UserControl
+    public partial class IWR : UserControl
     {
         public string JCSId { get; set; }
 

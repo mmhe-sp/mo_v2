@@ -84,10 +84,10 @@ namespace MMHE.MO.Business.Repositories
 			}
 		}
 
-		public void Print(VODetails vo, string projectId, string loggedInUser)
+        public void Print(string jcsId, string projectId, string loggedInUser)
 		{
 			SqlParameter[] parameters = new SqlParameter[2];
-			parameters[0] = new SqlParameter("@JCSID", vo.JCSID);
+            parameters[0] = new SqlParameter("@JCSID", jcsId);
 			parameters[1] = new SqlParameter("@UserId", loggedInUser);
 			using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
 			{

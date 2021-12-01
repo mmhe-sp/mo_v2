@@ -278,7 +278,7 @@
             if (isValid == false)
                 return;
 
-            window.location.href = "vo-print.aspx?id=" + model.JCSID;
+            window.location.href = (model.Type == "I"?"iwr.aspx?id=": "vo-print.aspx?id=") + model.JCSID;
         }
         function approveVO()
         {
