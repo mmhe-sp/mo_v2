@@ -27,14 +27,7 @@ namespace MMHE.MO.Services
             return new { Succeeded = true, Id = vo.JCSID };
         }
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public object Print(VODetails vo)
-        {
-            new VORepository().Print(vo, LoggedInUser.ProjectId, LoggedInUser.Id);
-            return new { Succeeded = true };
-        }
-
+        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public object FinalApprove(VODetails vo)
