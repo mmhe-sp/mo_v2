@@ -113,6 +113,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\ProjectName.ascx.designer.cs">
       <DependentUpon>ProjectName.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\VO.ascx.cs">
+      <DependentUpon>VO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Reports\VO.ascx.designer.cs">
+      <DependentUpon>VO.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx.cs">
       <DependentUpon>WCR.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -278,6 +285,7 @@
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JSL\List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\ProjectName.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\Reports\VO.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\Reports\WCR.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\Reports\WDR.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\Reports\WDRI.ascx" />
@@ -293,6 +301,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Pages\DWC.asmx" />
+    <Content Include="Pages\VO-Print.aspx" />
     <Content Include="Pages\WDR-List.aspx" />
     <Content Include="Pages\JSL.asmx" />
     <Content Include="Pages\WDRI.aspx" />

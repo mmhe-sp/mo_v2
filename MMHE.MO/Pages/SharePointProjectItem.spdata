@@ -18,5 +18,6 @@
     <ProjectItemFile Source="WDRI.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="WDR-List.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="DWC.asmx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="VO-Print.aspx" Target="Pages\" Type="ElementFile" />
   </Files>
 </ProjectItem>

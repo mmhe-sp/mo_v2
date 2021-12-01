@@ -262,19 +262,23 @@
         }
         function printVO()
         {
-            $.ajax({
-                url: "vo.asmx/Print",
-                data: JSON.stringify({ vo: extractModel() }),
-                dataType: "json",
-                type: "POST",
-                contentType: 'application/json; charset=UTF-8'
-            }).done(function (d)
+            var model = extractModel();
+            var isValid = true;
+            var dateVal = $('#date-val').text('');
+            if (!model.StartDate || !model.EndDate)
             {
-                showMessage('The Details have been printed successfully.', 'success', reloadGrid);
-            }).fail(function ()
+                isValid = false;
+                dateVal.text = "Start Date and End Date are required.";
+            }
+            else if (parseDate(model.StartDate) > parseDate(model.EndDate))
             {
-                showMessage('Unable to print the Details.', 'error', reloadGrid);
-            });
+                isValid = false;
+                dateVal.text = "Start Date should be less than or equal to End Date.";
+            }
+            if (isValid == false)
+                return;
+
+            window.location.href = "vo-print.aspx?id=" + model.JCSID;
         }
         function approveVO()
         {

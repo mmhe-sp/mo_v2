@@ -13,10 +13,6 @@
     {
         width:70px;
     }
-    table.dataTable tbody td {
-    word-break: break-word;
-    vertical-align: top;
-}
 </style>
 <% int activitySequence = 0; %>
 <div class="row mt-3">
@@ -90,14 +86,11 @@
                                         <textarea class="form-control"></textarea>
                                     </td>
                                     <td>
-                                        <input type="text" value="<%= item.CompletionPer %>" class="form-control percentage"  />
+                                        <span class="percentage"  />
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control"></textarea>
                                     </td>
-                                    <%--<td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control"></textarea>
-                                    </td>--%>
                                 </tr>
                                 <%foreach (var activity in item.ActivityProgress)
                                   {
@@ -122,7 +115,7 @@
                                         <textarea class="form-control tomorrow"></textarea>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control percentage" />
+                                        <input type="number" class="form-control percentage" min="0" max="100" step="0.1" />
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control remarks"></textarea>
