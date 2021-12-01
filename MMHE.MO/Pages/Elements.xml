@@ -18,5 +18,6 @@
     <File Path="Pages\WDR-List.aspx" Url="WDR-List.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
     <File Path="Pages\DWC.asmx" Url="DWC.asmx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
     <File Path="Pages\VO-Print.aspx" Url="VO-Print.aspx" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="FALSE"  Level="Published"  ReplaceContent="TRUE" />
+    <File Path="Pages\WCR-List.aspx" Url="WCR-List.aspx" />
   </Module>
 </Elements>

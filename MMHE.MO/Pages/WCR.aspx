@@ -22,7 +22,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Daily Work Progress</li>
+                            <li class="breadcrumb-item active">Work Completion Report - Client</li>
                         </ol>
                     </div>
 
@@ -38,13 +38,9 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Daily Work Progress
+    MMHE::Work Completion Report - Client
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
     Daily Work Progress
-</asp:Content>
-
-<asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-   
 </asp:Content>

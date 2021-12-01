@@ -11,9 +11,6 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header p-0">
-                <a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="true">Details</a>
-            </div>
             <div class="card-body">
                 <rsweb:reportviewer id="WDRSReport" pagecountmode="Actual" asyncrendering="false" showrefreshbutton="false" runat="server" showexportcontrols="true"
                     showfindcontrols="false" showzoomcontrol="false" width="100%" height="100%" enabletheming="true" showprintbutton="true"
