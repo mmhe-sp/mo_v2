@@ -162,6 +162,13 @@
     <Compile Include="ControlTemplates\MMHE.MO\VO\Manage.ascx.designer.cs">
       <DependentUpon>Manage.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\WCR\WCR-List.ascx.cs">
+      <DependentUpon>WCR-List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\WCR\WCR-List.ascx.designer.cs">
+      <DependentUpon>WCR-List.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\WDR\WDR-List.ascx.cs">
       <DependentUpon>WDR-List.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,6 +306,7 @@
     <Content Include="ControlTemplates\MMHE.MO\Reports\WDRI.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\TopMenu.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\VO\Manage.ascx" />
+    <Content Include="ControlTemplates\MMHE.MO\WCR\WCR-List.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\WDR\WDR-List.ascx" />
     <Content Include="Features\MO2\MO2.Template.xml">
       <DependentUpon>MO2.feature</DependentUpon>
@@ -311,6 +319,7 @@
     <Content Include="Pages\DWC.asmx" />
     <Content Include="Pages\IWR.aspx" />
     <Content Include="Pages\VO-Print.aspx" />
+    <Content Include="Pages\WCR-List.aspx" />
     <Content Include="Pages\WDR-List.aspx" />
     <Content Include="Pages\JSL.asmx" />
     <Content Include="Pages\WDRI.aspx" />

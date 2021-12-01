@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register TagPrefix="mo" TagName="WDR" Src="~/_controltemplates/15/MMHE.MO/WDR/WDR-List.ascx" %>
+<%@ Register TagPrefix="mo" TagName="WCRList" Src="~/_controltemplates/15/MMHE.MO/WCR/WCR-List.ascx" %>
 <%@ Register TagPrefix="mo" TagName="ProjectName" Src="~/_controltemplates/15/MMHE.MO/ProjectName.ascx" %>
 
 <%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.BasePage,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
@@ -18,19 +18,17 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <mo:ProjectName runat="server" id="projectName"></mo:ProjectName>
-
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-                            <li class="breadcrumb-item active">Work Done Report - Subcon</li>
+                            <li class="breadcrumb-item active">Work Completion Report - Client</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>
         <!-- end page title -->
-        <mo:WDR runat="server" ID="jcs"></mo:WDR>
+        <mo:WCRList runat="server" ID="jcs"></mo:WCRList>
     </div>
     <!-- container-fluid -->
     <div id="stacked-column-chart" style="display:none"></div>
@@ -38,21 +36,21 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    MMHE::Work Done Report - Subcon
+    MMHE::Work Completion Report - Client
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Work Done Report - Subcon
+    Work Completion Report - Client
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
-        var __key = 'wdr';
+        var __key = 'wcr-list';
         $(document).ready(function ()
         {
 
-            $('#wdrTable thead tr').clone(true).appendTo('#wdrTable thead');
-            $('#wdrTable thead tr:eq(1) th').each(function (i)
+            $('#wcrTable thead tr').clone(true).appendTo('#wcrTable thead');
+            $('#wcrTable thead tr:eq(1) th').each(function (i)
             {
                 var title = $(this).text();
                 if (title != "")
@@ -76,7 +74,7 @@
             var value = sessionStorage.getItem(__key);
             if (!value)
                 value = '';
-            var table = $('#wdrTable').DataTable({
+            var table = $('#wcrTable').DataTable({
                 search: { search: value },
                 ordering:  false,
                 order: [[groupColumn, 'asc']],
@@ -90,7 +88,7 @@
             });
 
             // Order by the grouping
-            $('#wdrTable tbody').on('click', 'tr.group', function ()
+            $('#wcrTable tbody').on('click', 'tr.group', function ()
             {
                 var currentOrder = table.order()[0];
                 if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc')
@@ -102,55 +100,10 @@
                     table.order([groupColumn, 'asc']).draw();
                 }
             });
-            delaySearch("#wdrTable", __key);
+            delaySearch("#wcrTable", __key);
 			getStatusBackground();
         });
 
-        //function showUploadModal()
-        //{
-		//	$('#jcsModal').modal('show');
-        //}
-        //function download()
-        //{
-		//	var response = $.ajax({
-		//		method: "GET",
-		//		url: "jsl.asmx/Export",
-		//		dataType: "json",
-		//	}).done(function (d, status, headers)
-        //    {
-        //        var bytes = atob(d.Content);
-		//		saveAs(new Blob([bytes],
-		//			{
-		//			    type: 'application/vnd.ms-excel'
-		//			}), d.FileName);
-		//	});
-        //}
-
-        //function uploadExcel()
-        //{
-		//	var fileUpload = $("#jcsFile").get(0);
-		//	var files = fileUpload.files;
-
-		//	// Create  a FormData object
-		//	var fileData = new FormData();
-
-		//	// if there are multiple files , loop through each files
-		//	for (var i = 0; i < files.length; i++)
-		//	{
-		//		fileData.append(files[i].name, files[i]);
-		//	}
-
-		//	$.ajax({
-		//		url: 'BulkUpload.asmx/JSL', //URL to upload files 
-		//		type: "POST", //as we will be posting files and other method POST is used
-		//		processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
-		//		contentType: false,
-		//		data: fileData
-		//	}).done(function ()
-		//	{
-		//	    window.location.reload();
-		//	});
-        //}
 		function getStatusBackground()
 		{
 			var statuses = $('.jsl-status');

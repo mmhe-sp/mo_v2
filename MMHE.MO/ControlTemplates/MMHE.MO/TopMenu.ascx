@@ -394,7 +394,7 @@
                             aria-labelledby="topnav-uielement">
                             <%--<a href="report.aspx" class="dropdown-item" key="t-alerts">Daily Work Progress Log</a>--%>
                             <a href="wdr-list.aspx" class="dropdown-item" key="t-dropdowns">Work Done Report - Subcon</a>
-                            <a href="wcr.aspx" class="dropdown-item" key="t-buttons">Work Completion Report - Client</a>                           
+                            <a href="wcr-list.aspx" class="dropdown-item" key="t-buttons">Work Completion Report - Client</a>                           
                             <a href="" class="dropdown-item" key="t-dropdowns">IWR Report</a>
                             <a href="" class="dropdown-item" key="t-carousel">Work Completion Summary</a>
                             <a href="" class="dropdown-item" key="t-dropdowns">AWO/VO Summary</a>

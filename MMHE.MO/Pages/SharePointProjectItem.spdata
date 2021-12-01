@@ -20,5 +20,6 @@
     <ProjectItemFile Source="DWC.asmx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="VO-Print.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="IWR.aspx" Target="Pages\" Type="ElementFile" />
+    <ProjectItemFile Source="WCR-List.aspx" Target="Pages\" Type="ElementFile" />
   </Files>
 </ProjectItem>
