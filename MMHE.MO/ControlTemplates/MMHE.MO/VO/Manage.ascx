@@ -100,7 +100,7 @@
 						<button type="button" class="btn btn-primary me-1" onclick="printVO()"><i class="mdi mdi-printer me-1"></i>Print</button>
                         <%} %>
                         <%if(CanApprove){ %>
-						<button type="button" class="btn btn-primary me-1"><i class="mdi mdi-printer me-1" onclick="approveVO()"></i>Approve</button>
+						<button type="button" class="btn btn-primary me-1" onclick="approveVO()"><i class="mdi mdi-check-circle-outline me-1"></i>Approve</button>
                         <%} %>
 					</div>
 				</div>
