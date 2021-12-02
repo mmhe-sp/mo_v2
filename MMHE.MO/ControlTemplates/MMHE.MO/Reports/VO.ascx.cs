@@ -10,11 +10,13 @@ namespace MMHE.MO.Controls.Reports
     public partial class VO : UserControl
     {
         public string JCSId { get; set; }
+        public string JCSType { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             var user = (Page as BasePage).LoggedInUser;
             JCSId = Request.QueryString["id"];
+            JCSType = Request.QueryString["type"];
             new VORepository().Print(JCSId, user.ProjectId, user.Id);
         }
     }

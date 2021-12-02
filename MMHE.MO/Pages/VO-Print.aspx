@@ -33,8 +33,8 @@
         <mo:VO runat="server" id="jcs"></mo:VO>
     </div>
     <!-- container-fluid -->
-    <div id="stacked-column-chart" style="display:none"></div>
-    <div id="radialBar-chart" style="display:none"></div>
+    <div id="stacked-column-chart" style="display: none"></div>
+    <div id="radialBar-chart" style="display: none"></div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
@@ -46,5 +46,11 @@
 </asp:Content>
 
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-   
+    <script type="text/javascript">
+        function goBack()
+        {
+            var type = $('#backurl').text();
+
+        }
+    </script>
 </asp:Content>
