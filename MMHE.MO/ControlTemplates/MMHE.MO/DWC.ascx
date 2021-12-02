@@ -9,9 +9,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DWC.ascx.cs" Inherits="MMHE.MO.Controls.DWC" %>
 
 <style>
-    .percentage
-    {
-        width:70px;
+    .percentage {
+        width: 70px;
     }
 </style>
 <% int activitySequence = 0; %>
@@ -35,11 +34,11 @@
                                             <small>Type</small>
                                         </div>
                                     </th>
-                                    <th style="width:200px;">Work Title</th>
-                                    <th style="width:150px;"><%=Today %></th>
-                                    <th style="width:150px;"><%=Tomorrow %></th>
-                                    <th style="width:70px;">Completion %</th>
-                                    <th style="width:150px;">Remarks</th>
+                                    <th style="width: 200px;">Work Title</th>
+                                    <th style="width: 150px;"><%=Today %></th>
+                                    <th style="width: 150px;"><%=Tomorrow %></th>
+                                    <th style="width: 70px;">Completion %</th>
+                                    <th style="width: 150px;">Remarks</th>
                                     <%--<th class="no-sort text-center" style="column-width: 150px;">SubContractor
                                         <br />
                                         Remarks
@@ -49,7 +48,7 @@
                             <tbody>
                                 <%foreach (var details in Details)
                                   {
-                                       %>
+                                %>
                                 <tr class="discipline">
                                     <td colspan="6" class="group bg-light">
                                         <%=details.Key %>
@@ -58,7 +57,7 @@
                                 <%foreach (MMHE.MO.Models.DWCDetails item in details)
                                   { %>
 
-                                <tr class="jcs">
+                                <tr class="jcs" data-id="<%=item.JCSID %>">
 
                                     <td>
                                         <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%= item.JSLStatus %></span></div>
@@ -68,7 +67,7 @@
                                         </div>
 
                                     </td>
-                                    <td style="width:200px;">
+                                    <td style="width: 200px;">
                                         <div class="text-dark">
                                             <%= item.Work_Title %>
                                             <div class="text-end text-muted">
@@ -80,45 +79,50 @@
                                         </div>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control"></textarea>
+                                        <textarea class="form-control today"><%=item.Today %></textarea>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control"></textarea>
+                                        <textarea class="form-control tomorrow"><%=item.Tomorrow %></textarea>
                                     </td>
                                     <td>
-                                        <span class="percentage"  />
+                                        <span class="percentage font-weight-bold" />
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control"></textarea>
+                                        <textarea class="form-control"><%=item.Remarks %></textarea>
                                     </td>
                                 </tr>
                                 <%foreach (var activity in item.ActivityProgress)
                                   {
                                       activitySequence++;
-                                      %>
-                                <tr class="activity">
+                                %>
+                                <tr class="activity" data-id="<%=activity.ActivityID %>" data-jcs-id="<%=item.JCSID %>">
                                     <td>
                                         <span class="id d-none"><%=activity.ActivityID%></span>
                                     </td>
-                                    <td style="width:200px;">
+                                    <td style="width: 200px;">
                                         <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#__a<%=activitySequence%>" role="button" aria-expanded="false" aria-controls="__a<%=activitySequence%>" class="d-block">
                                             <%= activity.Subscontractor %>
                                         </a>
                                         <span class="collapse mt-2" id="__a<%=activitySequence%>" style="white-space: normal; word-wrap: break-word !important;">
-                                            <%=(string.IsNullOrWhiteSpace(activity.ActivityTitle)?"":activity.ActivityTitle).Replace(Environment.NewLine,"<br/>") %>
+                                            <%=(string.IsNullOrWhiteSpace(activity.ActivityTitle)?"":activity.ActivityTitle).Replace(Environment.NewLine,"<br/><br/>") %>
                                         </span>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control today"></textarea>
+                                        <textarea class="form-control today"><%=activity.Today %></textarea>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control tomorrow"></textarea>
+                                        <textarea class="form-control tomorrow"><%=activity.Tomorrow %></textarea>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control percentage" min="0" max="100" step="0.1" />
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control percentage" min="0" max="100" step="0.1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" oninput="calculateJCSCompletion('<%=item.JCSID %>')" />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="basic-addon1">%</span>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control remarks"></textarea>
+                                        <textarea class="form-control remarks"><%=activity.Remarks %></textarea>
                                     </td>
                                     <%--<td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control"></textarea>

@@ -48,6 +48,7 @@
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
         var __key = 'dwc';
+        var jscDataTable;
         $(document).ready(function ()
         {
 
@@ -76,25 +77,71 @@
             var value = '';
             if (!value)
                 value = '';
-            var table = $('#jcsTable').DataTable({
-                search: { search: value },
-                ordering: false,
-                order: [[groupColumn, 'asc']],
-                autoWidth:false,
-                displayLength: 25,
-                "aLengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "All"]],
-                "iDisplayLength": 10,
-                "pageLength": -1,
-                "dom": '<"pull-left"f><"pull-right"l>tip',
-                scrollY: "300px",
-                scrollX: true,
-            });
+            try
+            {
+                var table = $('#jcsTable').DataTable({
+                    search: { search: value },
+                    ordering: false,
+                    order: [[groupColumn, 'asc']],
+                    autoWidth: false,
+                    displayLength: 25,
+                    "aLengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "All"]],
+                    "iDisplayLength": 10,
+                    "pageLength": -1,
+                    "dom": '<"pull-left"f><"pull-right"l>tip',
+                    scrollY: "300px",
+                    scrollX: true,
+                });
 
-
+            }
+            catch (e) { }
             delaySearch("#jcsTable", __key);
 
+            jscDataTable = $("#jcsTable");
+
+            var records = jscDataTable.find('tr.jcs');
+            $.each(records, function (i, v)
+            {
+                calculateJCSCompletion($(v).data('id'));
+            });
         });
 
+        function calculateJCSCompletion(jcsId)
+        {
+            var activities = jscDataTable.find('tr.activity[data-jcs-id="' + jcsId + '"]');
+            var percentage = 0;
+            var total = 0;
+            var ctrl;
+            var current;
+            var count = 0;
+            $.each(activities, function (i, v)
+            {
+                count++;
+                ctrl = $(v).find('input.percentage')
+                current = ctrl.data('current');
+                if (isNaN(current))
+                    current = 0;
+                else current = Number(current);
+                if (current > 0)
+                    current = 0;
+                else if (current > 100)
+                    current = 100;
+                percentage = ctrl.val();
+                if (isNaN(percentage))
+                    percentage = current;
+                else
+                    percentage = Number(percentage);
+                if (percentage < current)
+                    percentage = current;
+                else if (100 < percentage)
+                    percentage = 100;
+                total += percentage
+                ctrl.val(percentage);
+            });
+            if (!count)
+                count = 1;
+            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count) + '%');
+        }
         function saveProgress()
         {
 

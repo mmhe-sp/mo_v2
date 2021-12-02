@@ -21,5 +21,8 @@ namespace MMHE.MO.Models
 		public string Type { get; set; }
 		public string Subscontractor { get; set; }
 		public string WBS { get; set; }
+        public string Remarks { get; set; }
+        public string Today { get; set; }
+        public string Tomorrow { get; set; }
 	}
 }

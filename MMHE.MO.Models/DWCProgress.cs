@@ -9,5 +9,9 @@ namespace MMHE.MO.Models
 		public string ActivityTitle { get; set; }
 		public string Subscontractor { get; set; }
 		public string SubscontractorId { get; set; }
+        public decimal Completion { get; set; }
+        public string Remarks { get; set; }
+        public string Today { get; set; }
+        public string Tomorrow { get; set; }
 	}
 }
