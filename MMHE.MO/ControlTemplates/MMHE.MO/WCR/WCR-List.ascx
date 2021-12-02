@@ -37,6 +37,7 @@
                                     </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jcs-status"><%# DataBinder.Eval(Container.DataItem, "WFStatus") %></span></div>
                                         <div class="text-dark">
                                             <%# DataBinder.Eval(Container.DataItem, "WorkTitle") %>
                                         </div>
