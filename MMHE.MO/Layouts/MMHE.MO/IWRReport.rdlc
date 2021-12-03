@@ -1062,6 +1062,7 @@
               </Tablix>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
+            <Top>0cm</Top>
             <Left>0.93296cm</Left>
             <Height>5.36583cm</Height>
             <Width>23.23324cm</Width>

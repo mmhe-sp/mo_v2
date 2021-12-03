@@ -187,6 +187,16 @@
     <Compile Include="UI\ManageVO.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="_MMHE_MODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_MMHE_MODataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\fonts\boxicons.eot" />
@@ -241,6 +251,28 @@
     </None>
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a1cddc43-b6aa-4201-86c3-ae5bb2ebf230}</SharePointProjectItemId>
+    </None>
+    <None Include="_MMHE_MODataSet.xsc">
+      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_MMHE_MODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_MMHE_MODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_MMHE_MODataSet.xss">
+      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_MMHE_MODataSet1.xsc">
+      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_MMHE_MODataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_MMHE_MODataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_MMHE_MODataSet1.xss">
+      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -367,11 +399,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Layouts\MMHE.MO\AWOVOReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\IWRReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportClient.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportClientWCR.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportSubconMain.rdlc" />
+    <EmbeddedResource Include="Layouts\MMHE.MO\SurveyReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAll.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllCancelled.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\WCRReportClientAllOwnerArrange.rdlc" />

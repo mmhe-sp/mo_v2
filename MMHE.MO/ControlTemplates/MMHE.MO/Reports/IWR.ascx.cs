@@ -43,7 +43,7 @@ namespace MMHE.MO.Controls.Reports
             //IWRReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
             DataSet WDRSReportDetailsAll2 = GetWDRSReportDetailsMain(JCSId);
-            DataTable dtReportDetailsAll2 = WDRSReportDetailsAll.Tables[0];
+            DataTable dtReportDetailsAll2 = WDRSReportDetailsAll2.Tables[0];
             IWRReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll2));
 
             IWRReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/IWRReport.rdlc";

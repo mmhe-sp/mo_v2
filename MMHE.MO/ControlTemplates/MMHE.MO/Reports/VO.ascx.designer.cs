@@ -11,5 +11,14 @@ namespace MMHE.MO.Controls.Reports {
     
     
     public partial class VO {
+        
+        /// <summary>
+        /// AWOVOReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer AWOVOReport;
     }
 }
