@@ -12,7 +12,7 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header p-0">
-				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="false">Details</a>
+				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="<%=(!Details.StartDate.HasValue || !Details.EndDate.HasValue?"true":"false") %>">Details</a>
 			</div>
 			<div class="card-body">
 				<div class="details collapse">
