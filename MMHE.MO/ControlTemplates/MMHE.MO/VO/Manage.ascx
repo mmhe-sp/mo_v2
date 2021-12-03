@@ -76,7 +76,7 @@
 					<div class="col">
 						<button type="button" class="btn btn-primary me-1" onclick="saveJCS()"><i class="mdi mdi-floppy me-1"></i>Save</button>
 						<%if(CanSubmit){ %>
-						<button type="button" class="btn btn-primary me-1" onclick="submitJCS()"><i class="mdi mdi-floppy me-1"></i>Submit</button>
+						<button type="button" class="btn btn-primary me-1" onclick="submitJCS()"><i class="mdi mdi-floppy me-1"></i>Complete</button>
 						<%} %>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary dropdown-toggle" id="add-rows"
