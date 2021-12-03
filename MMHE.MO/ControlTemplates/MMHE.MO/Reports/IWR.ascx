@@ -6,7 +6,8 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IWR.ascx.cs" Inherits="MMHE.MO.Controls.Reports.IWR" %>
-
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <div class="row">
     <div class="col-12">
         <a href="vo-manage.aspx?id=<%=JCSId %>&type=I" class="btn btn-primary btn-sm me-1" onclick="goBack()"><i class="mdi mdi-keyboard-backspace me-1"></i>Go Back</a>
@@ -17,7 +18,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                IWR Report will go here.
+                 <rsweb:reportviewer id="IWRReport" pagecountmode="Actual" asyncrendering="false" showrefreshbutton="false" runat="server" showexportcontrols="true"
+                    showfindcontrols="false" showzoomcontrol="false" width="100%" height="100%" enabletheming="true" showprintbutton="true"
+                    style="border: 1px solid #ccc" borderstyle="Solid" borderwidth="1px" sizetoreportcontent="true">
+                    </rsweb:reportviewer>
             </div>
         </div>
     </div>

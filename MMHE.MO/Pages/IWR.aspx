@@ -44,7 +44,3 @@
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
     IWR
 </asp:Content>
-
-<asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
-   
-</asp:Content>
