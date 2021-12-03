@@ -31,13 +31,12 @@
                             <ItemTemplate>
                                 <tr>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"></div>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jcs-status"><%# DataBinder.Eval(Container.DataItem, "WFStatus") %></span></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
                                         <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "Description") %></small></div>
                                     </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
-                                    <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jcs-status"><%# DataBinder.Eval(Container.DataItem, "WFStatus") %></span></div>
+                                    <td style="white-space: inherit; word-wrap: break-word !important;">                                        
                                         <div class="text-dark">
                                             <%# DataBinder.Eval(Container.DataItem, "WorkTitle") %>
                                         </div>

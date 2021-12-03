@@ -367,6 +367,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Layouts\MMHE.MO\IWRReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportClient.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\ReportClientWCR.rdlc" />
