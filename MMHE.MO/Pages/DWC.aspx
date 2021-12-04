@@ -52,27 +52,6 @@
         $(document).ready(function ()
         {
 
-            //$('#jcsTable thead tr').clone(true).appendTo('#jcsTable thead');
-            //$('#jcsTable thead tr:eq(1) th').each(function (i)
-            //{
-            //    var title = $(this).text();
-            //    if (title != "")
-            //    {
-            //        $(this).html('<input type="text" placeholder="Search" class="form-control form-control-sm" />');
-
-            //        $('input', this).on('keyup change', function ()
-            //        {
-            //            if (table.column(i).search() !== this.value)
-            //            {
-            //                table
-            //                    .column(i)
-            //                    .search(this.value)
-            //                    .draw();
-            //            }
-            //        });
-            //    }
-            //});
-
             var groupColumn = 0;
             var value = '';
             if (!value)
@@ -103,6 +82,17 @@
             $.each(records, function (i, v)
             {
                 calculateJCSCompletion($(v).data('id'));
+            });
+            getJSLStatusBackground();
+
+            $('.auto-resize').on('input', function ()
+            {
+                autoResize(this, "input");
+            });
+
+            $.each($('.auto-resize'), function (i, v)
+            {
+                autoResize(v, "each");
             });
         });
 
@@ -140,7 +130,7 @@
             });
             if (!count)
                 count = 1;
-            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count) + '%');
+            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count).toFixed(2) + '%');
         }
         function saveProgress()
         {
@@ -163,6 +153,11 @@
         }
         function extractModel()
         {
+        }
+        function autoResize(ctrl, event)
+        {
+            var h = ctrl.scrollHeight;
+            ctrl.style.height = (h) + "px";
         }
     </script>
 </asp:Content>

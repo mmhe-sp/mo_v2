@@ -76,5 +76,6 @@
 		<File Path="assets\libs\FileSaver.js" Url="assets/libs/FileSaver.js"  Type="GhostableInLibrary"/>
 		<File Path="assets\libs\sweetalert2.min.css" Url="assets/libs/sweetalert2.min.css" Type="GhostableInLibrary" />
 		<File Path="assets\libs\sweetalert2.all.min.js" Url="assets/libs/sweetalert2.all.min.js" Type="GhostableInLibrary" />
-	</Module>
+    <File Path="assets\js\custom.js" Url="assets/js/custom.js" Type="GhostableInLibrary" />
+  </Module>
 </Elements>

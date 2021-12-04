@@ -32,7 +32,6 @@ namespace MMHE.MO.Controls
                     progress.Add(new DWCDetails
                     {
                         Work_Title = activity.Work_Title,
-                        CompletionPer = activity.CompletionPer,
                         EndDate = activity.EndDate,
                         JCSID = activity.JCSID,
                         JSLStatus = activity.JSLStatus,
@@ -48,7 +47,8 @@ namespace MMHE.MO.Controls
                             ActivityTitle = d.ActivityTitle,
                             ActivityType = d.ActivityType,
                             Subscontractor = d.Subscontractor,
-                            SubscontractorId = d.Subscontractor
+                            SubscontractorId = d.Subscontractor,
+                            Completion = d.CompletionPer
                         }).ToList()
                     });
                 }

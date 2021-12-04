@@ -40,14 +40,14 @@
                                 <tr>
                                     <td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10  text-uppercase jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
                                         <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
                                     </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "WBS") %></td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jcs-status"><%# DataBinder.Eval(Container.DataItem, "JCSStatus") %></span></div>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 text-uppercase jcs-status"><%# DataBinder.Eval(Container.DataItem, "JCSStatus") %></span></div>
                                         <div class="text-dark">
                                             <%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
                                         </div>

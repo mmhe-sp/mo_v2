@@ -39,7 +39,7 @@ namespace MMHE.MO.Business.Repositories
                         Work_Title = r.Field<string>("Work_Title"),
                         OwnerNo = r.Field<string>("OwnerNo"),
                         MyGroup = r.Field<string>("MyGroup"),
-                        //CompletionPer = r.Field<decimal>("CompletionPer"),
+                        CompletionPer = r.Field<decimal>("CompletionPer"),
                         lType = r.Field<string>("lType"),
                         JSLStatus = r.Field<string>("JSLStatus"),
                         //Type = r.Field<string>("Type"),
