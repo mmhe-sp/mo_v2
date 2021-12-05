@@ -8,8 +8,8 @@ namespace MMHE.MO.Models
 {
     public class UpdatedDWCProgress
     {
-        public List<ActivityProgress> Activities { get; set; }
-        public string Today { get; set; }
-        public string Tomorrow { get; set; }
+        public DateTime Today { get; set; }
+        public DateTime Tomorrow { get; set; }
+        public List<JCSProgress> JCS { get; set; }
     }
 }

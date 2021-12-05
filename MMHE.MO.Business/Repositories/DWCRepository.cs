@@ -57,22 +57,40 @@ namespace MMHE.MO.Business.Repositories
             XElement root = new XElement("DWC");
             root.Add(new XElement("ProjectNo", project));
             root.Add(new XElement("Today", dwc.Today));
-
             root.Add(new XElement("Tomorrow", dwc.Tomorrow));
 
             XElement activities = new XElement("Activities");
             XElement activity;
             root.Add(activities);
-            foreach (var item in dwc.Activities)
+
+            XElement jcs = new XElement("JCS");
+            XElement jcsRow;
+            root.Add(jcs);
+            foreach (var j in dwc.JCS)
             {
-                activity = new XElement("Activity");
-                activity.Add(new XElement("ActivityID", item.ActivityID));
-                activity.Add(new XElement("Remarks", item.Remarks));
-                activity.Add(new XElement("Completion", item.Completion));
-                activity.Add(new XElement("Today", item.Today));
-                activity.Add(new XElement("Towmorrow", item.Towmorrow));
-                activities.Add(activity);
+                jcsRow = new XElement("Row");
+                jcsRow.Add(new XElement("JCSID", j.JCSID));
+                jcsRow.Add(new XElement("Remarks", j.Remarks));
+                jcsRow.Add(new XElement("Today", j.Today));
+                jcsRow.Add(new XElement("Tomorrow", j.Tomorrow));
+                foreach (var item in j.Activities)
+                {
+                    activity = new XElement("Activity");
+                    activity.Add(new XElement("ActivityID", item.ActivityID));
+                    if (string.IsNullOrWhiteSpace(item.SubContractorRemarks))
+                        activity.Add(new XElement("SubContractorRemarks", item.SubContractorRemarks));
+                    if (string.IsNullOrWhiteSpace(item.Remarks))
+                        activity.Add(new XElement("Remarks", item.Remarks));
+                    activity.Add(new XElement("Completion", item.Completion));
+                    if (string.IsNullOrWhiteSpace(item.Today))
+                        activity.Add(new XElement("Today", item.Today));
+                    if (string.IsNullOrWhiteSpace(item.Tomorrow))
+                        activity.Add(new XElement("Tomorrow", item.Tomorrow));
+                    activity.Add(new XElement("JCSID", j.JCSID));
+                    activities.Add(activity);
+                }
             }
+
             SqlParameter[] parameters = new SqlParameter[2];
             parameters[0] = new SqlParameter("@DWC", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
             parameters[1] = new SqlParameter("@UpdatedBy", loggedInUser);

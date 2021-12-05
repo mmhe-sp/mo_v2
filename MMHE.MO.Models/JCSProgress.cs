@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MMHE.MO.Models
 {
-    public class ActivityProgress
+    public class JCSProgress
     {
-        public string ActivityID { get; set; }
-        public string Remarks { get; set; }
+        public List<ActivityProgress> Activities { get; set; }
         public string Today { get; set; }
         public string Tomorrow { get; set; }
-        public decimal Completion { get; set; }
-        public string SubContractorRemarks { get; set; }
+        public string JCSID { get; set; }
+        public string Remarks { get; set; }
     }
 }

@@ -14,11 +14,15 @@ namespace MMHE.MO.Controls
     {
         public string Today { get; set; }
         public string Tomorrow { get; set; }
+        public string _Today { get; set; }
+        public string _Tomorrow { get; set; }
         public IEnumerable<IGrouping<string, DWCDetails>> Details { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             Today = DateTime.Now.ToString("dd-MMM-yy");
+            _Today = DateTime.Now.ToString("yyyy-MM-dd");
             Tomorrow = DateTime.Now.AddDays(1).ToString("dd-MMM-yy");
+            _Tomorrow = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
             var user = (Page as BasePage).LoggedInUser;
             var details = new DWCRepository().GetAll(user.ProjectId, user.Id);
             var progress = new List<DWCDetails>();

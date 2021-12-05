@@ -151,8 +151,53 @@
                 showMessage('Unable to save the progress.', 'error', reloadGrid);
             });
         }
+
         function extractModel()
         {
+            var rows = jscDataTable.find('tbody tr');
+            var row;
+            var jcsId;
+            var activities = [];
+            var activity;
+            var dwc = { Today: $('span.today').text(), Tomorrow: $('span.tomorrow').text(), JCS: [] };
+            var jcs;
+
+            for (var index = 0; index < rows.length; index++)
+            {
+                row = $(rows[index]);
+                if (row.hasClass('discipline'))
+                    continue;
+                else if (row.hasClass('jcs'))
+                {
+
+                    jcsId = row.data('id');
+                    activities = [];
+                    jcs = {
+                        JCSID: jcsId,
+                        Activities: activities,
+                        Today: row.find('textarea.today').val(),
+                        Tomorrow: row.find('textarea.tomorrow').val(),
+                        Remarks: row.find('textarea.remarks').val()
+                    };
+                    dwc.JCS.push(jcs);
+                    continue;
+                }
+                else if (row.hasClass('activity'))
+                {
+                    activity = {
+                        JCSID: jcsId,
+                        ActivityID: row.data('id'),
+                        Today: row.find('textarea.today').val(),
+                        Tomorrow: row.find('textarea.tomorrow').val(),
+                        Completion: row.find('input.percentage').val(),
+                        Remarks: row.find('textarea.remarks').val(),
+                        SubContractorRemarks: row.find('textarea.remarks').val()
+                    };
+                    activities.push(activity);
+                }
+            }
+
+            return dwc;
         }
         function autoResize(ctrl, event)
         {

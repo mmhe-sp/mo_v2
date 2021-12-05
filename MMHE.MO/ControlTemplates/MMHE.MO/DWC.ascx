@@ -19,7 +19,15 @@
         <div class="card">
             <div class="card-body">
                 <div class="row mb-3">
-                    <div class="col">
+                    <div class="col text-start">
+                        <%--<div class="form form-inline">
+                            <label>Subcontractor:</label>
+                            <select class="form-control">
+                                <option value="0">All</option>
+                            </select>
+                        </div>--%>
+                    </div>
+                    <div class="col text-end">
                         <button type="button" class="btn btn-primary me-1" onclick="saveProgress()"><i class="mdi mdi-floppy me-1"></i>Save</button>
                     </div>
                 </div>
@@ -39,7 +47,7 @@
                                     <th style="width: 150px;"><%=Tomorrow %> (Plan)</th>
                                     <th style="width: 70px;">Completion %</th>
                                     <th style="width: 150px;">Remarks</th>
-                                    <%--<th class="no-sort text-center" style="column-width: 150px;">SubContractor
+                                    <%--<th style="width: 150px;">Sub-Contractor
                                         <br />
                                         Remarks
                                     </th>--%>
@@ -140,3 +148,6 @@
     <!-- end col -->
 </div>
 <!-- end row -->
+
+<span class="today"><%=_Today %></span>
+<span class="tomorrow"><%=_Tomorrow %></span>
