@@ -13,5 +13,9 @@ namespace MMHE.MO.Models
         public string Remarks { get; set; }
         public string Today { get; set; }
         public string Tomorrow { get; set; }
-	}
+
+        public string IWRStatus { get; set; }
+
+        public string ActivityDiscipline { get; set; }
+    }
 }

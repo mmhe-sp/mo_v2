@@ -49,8 +49,6 @@ namespace MMHE.MO.Controls.VO
 
 			if (Details.CanPrint && !isNew)
 				CanPrint = true;
-			if (Details.CanPrint && !isNew)
-				CanPrint = true;
 
 			CanChange = isNew && string.IsNullOrWhiteSpace(voId);
 			if (Type == "A")

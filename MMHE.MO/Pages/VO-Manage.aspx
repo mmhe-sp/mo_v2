@@ -211,10 +211,7 @@
             window.location.href = url;
         }
 
-        function showMessage(message, type, cb)
-        {
-            Swal.fire({ title: "", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
-        }
+        
         function reloadGrid()
         {
             window.location.reload(true);

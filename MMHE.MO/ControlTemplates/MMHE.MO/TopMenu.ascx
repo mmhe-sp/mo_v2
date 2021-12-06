@@ -372,13 +372,13 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a href="jsl-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Summary List</a>
+                        <a href="jsl-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default" onclick="showProgress()">Job Summary List</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="jcs-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default">Job Confirmation Scope</a>
+                        <a href="jcs-list.aspx" class="nav-link dropdown-toggle arrow-none" key="t-default" onclick="showProgress()">Job Confirmation Scope</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="dwc.aspx">
+                        <a class="nav-link dropdown-toggle arrow-none" href="dwc.aspx" onclick="showProgress()">
                             <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Daily Work Progress</span>
                         </a>
                     </li>
@@ -393,11 +393,11 @@
                         <div class="dropdown-menu"
                             aria-labelledby="topnav-uielement">
                             <%--<a href="report.aspx" class="dropdown-item" key="t-alerts">Daily Work Progress Log</a>--%>
-                            <a href="wdr-list.aspx" class="dropdown-item" key="t-dropdowns">Work Done Report - Subcon</a>
-                            <a href="wcr-list.aspx" class="dropdown-item" key="t-buttons">Work Completion Report - Client</a>                           
-                            <a href="" class="dropdown-item" key="t-dropdowns">IWR Report</a>
+                            <a href="wdr-list.aspx" class="dropdown-item" key="t-dropdowns" onclick="showProgress()">Work Done Report - Subcon</a>
+                            <a href="wcr-list.aspx" class="dropdown-item" key="t-buttons" onclick="showProgress()">Work Completion Report - Client</a>                           
+                            <%--<a href="" class="dropdown-item" key="t-dropdowns">IWR Report</a>
                             <a href="" class="dropdown-item" key="t-carousel">Work Completion Summary</a>
-                            <a href="" class="dropdown-item" key="t-dropdowns">AWO/VO Summary</a>
+                            <a href="" class="dropdown-item" key="t-dropdowns">AWO/VO Summary</a>--%>
                         </div>
                     </li>
 

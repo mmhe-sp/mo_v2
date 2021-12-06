@@ -52,7 +52,9 @@ namespace MMHE.MO.Controls
                             ActivityType = d.ActivityType,
                             Subscontractor = d.Subscontractor,
                             SubscontractorId = d.Subscontractor,
-                            Completion = d.CompletionPer
+                            Completion = d.CompletionPer,
+                            IWRStatus = d.IWRStatus,
+                            ActivityDiscipline = d.ActivityDiscipline
                         }).ToList()
                     });
                 }

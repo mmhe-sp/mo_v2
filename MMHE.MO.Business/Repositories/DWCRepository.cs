@@ -45,7 +45,9 @@ namespace MMHE.MO.Business.Repositories
                         //Type = r.Field<string>("Type"),
                         Subscontractor = r.Field<string>("SubContractor"),
                         //WBS = r.Field<string>("WBS"),
-                        JSLRemarks = r.Field<string>("JSLRemarks")
+                        JSLRemarks = r.Field<string>("JSLRemarks"),
+                        IWRStatus = r.Field<string>("IWRStatus"),
+                        ActivityDiscipline = r.Field<string>("ActivityDiscipline")
                     }).ToList();
                 }
             }
@@ -73,6 +75,7 @@ namespace MMHE.MO.Business.Repositories
                 jcsRow.Add(new XElement("Remarks", j.Remarks));
                 jcsRow.Add(new XElement("Today", j.Today));
                 jcsRow.Add(new XElement("Tomorrow", j.Tomorrow));
+                jcs.Add(jcsRow);
                 foreach (var item in j.Activities)
                 {
                     activity = new XElement("Activity");

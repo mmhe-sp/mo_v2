@@ -12,13 +12,17 @@
     .percentage {
         width: 70px;
     }
+
+    textarea.form-control-sm {
+        min-height: calc(1.5em + .967rem + 4px);
+    }
 </style>
 <% int activitySequence = 0; %>
 <div class="row mt-3">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <div class="row mb-3">
+                <div class="row">
                     <div class="col text-start">
                         <%--<div class="form form-inline">
                             <label>Subcontractor:</label>
@@ -76,9 +80,9 @@
 
                                     </td>
                                     <td style="width: 200px;">
-                                        <div class="text-dark">
+                                        <div class="text-dark ">
                                             <%= item.Work_Title %>
-                                            <div class="text-end text-muted">
+                                            <div class="text-start text-muted">
                                                 <small>
                                                     <%=(item.StartDate.HasValue?item.StartDate.Value.ToShortDateString():"") %>
                                                     <%=(item.StartDate.HasValue && item.EndDate.HasValue?"-":"") + (item.EndDate.HasValue?item.EndDate.Value.ToShortDateString():"")  %>
@@ -106,8 +110,19 @@
                                 <tr class="activity" data-id="<%=activity.ActivityID %>" data-jcs-id="<%=item.JCSID %>">
                                     <td>
                                         <span class="id d-none"><%=activity.ActivityID%></span>
+
+                                        <%if (activity.ActivityType == "I")
+                                          { %>IWR
+                                        <div>
+                                            <small><%= activity.ActivityDiscipline %></small>
+                                        </div>
+                                        <%} %>
                                     </td>
                                     <td style="width: 200px;">
+                                        <%if (activity.ActivityType == "I")
+                                          { %>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11"><%=activity.IWRStatus %></span></div>
+                                        <%} %>
                                         <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#__a<%=activitySequence%>" role="button" aria-expanded="false" aria-controls="__a<%=activitySequence%>" class="d-block">
                                             <%= activity.Subscontractor %>
                                         </a>
@@ -116,19 +131,28 @@
                                         </span>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
+                                        <%if (activity.ActivityType != "I")
+                                          { %>
                                         <textarea class="form-control form-control-sm today auto-resize" rows="1"><%=activity.Today %></textarea>
+                                        <%} %>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
+                                        <%if (activity.ActivityType != "I")
+                                          { %>
                                         <textarea class="form-control form-control-sm tomorrow auto-resize" rows="1"><%=activity.Tomorrow %></textarea>
+                                        <%} %>
                                     </td>
                                     <td>
-                                        <div class="input-group mb-3">
+                                        <div class="input-group">
                                             <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="0.1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" oninput="calculateJCSCompletion('<%=item.JCSID %>')" />
                                             <span class="input-group-text">%</span>
                                         </div>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
+                                        <%if (activity.ActivityType != "I")
+                                          { %>
                                         <textarea class="form-control form-control-sm remarks auto-resize" rows="1"><%=activity.Remarks %></textarea>
+                                        <%} %>
                                     </td>
                                     <%--<td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control form-control-sm auto-resize"></textarea>

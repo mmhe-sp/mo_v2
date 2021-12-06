@@ -83,29 +83,62 @@
         .app-search {
             width: 500px;
         }
-        a.btn.btn-primary:visited 
-        {
+
+        a.btn.btn-primary:visited {
             color: #fff !important;
         }
-        a:visited 
-        {
+
+        a:visited {
             color: #0072BC !important;
         }
-        @media (min-width: 1200px) 
-        {
-            .mmhe body[data-layout="horizontal"] .container-fluid, .mmhe body[data-layout="horizontal"] .navbar-header 
-            {
+
+        @media (min-width: 1200px) {
+            .mmhe body[data-layout="horizontal"] .container-fluid, .mmhe body[data-layout="horizontal"] .navbar-header {
                 max-width: 100% !important;
             }
         }
-        .mmhe body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:visited
-        {
-            color:rgba(255, 255, 255, 0.6) !important;
+
+        .mmhe body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:visited {
+            color: rgba(255, 255, 255, 0.6) !important;
         }
-        .badge-soft-approved
-        {
-            color:#ff00ff;
-            background:rgba(255,0,255,.18);
+
+        .badge-soft-approved {
+            color: #ff00ff;
+            background: rgba(255,0,255,.18);
+        }
+
+        .spinner-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9000;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            opacity: 0.4;
+        }
+
+        .spinner-hide .spinner-container, .spinner-hide .spinner-modal-backdrop {
+            display: none;
+        }
+
+        .spinner-container {
+            -webkit-box-align: center !important;
+            -ms-flex-align: center !important;
+            align-items: center !important;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .spinner {
+            display: inline-block;
+            text-align: center;
+            width: 100vw;
+            color: #fff;
         }
     </style>
     <!-- DataTables -->
@@ -115,7 +148,15 @@
     <!-- Responsive datatable examples -->
     <link href="../../Style Library/assets/libs/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal">
+<body scroll="no" onload="if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();" data-topbar="light" data-layout="horizontal" class="spinner-hide">
+    <div class="spinner-modal-backdrop"></div>
+    <div class="spinner-container">
+        <div class="spinner">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">...</span>
+            </div>
+        </div>
+    </div>
     <form runat="server" onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}">
         <asp:ScriptManager ID="ScriptManager" runat="server" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />
         <WebPartPages:SPWebPartManager ID="m" runat="Server" />
@@ -715,6 +756,12 @@
 
         $(document).ready(function ()
         {
+            $.ajaxSetup({
+                global: true,
+                beforeSend: function () { showProgress(); },
+                complete: function () { showProgress(true); }
+            });
+
             $('.app-search input').typeahead({
                 source: function (query, result)
                 {
@@ -745,12 +792,48 @@
                 type: "POST"
             }).done(function () { window.location.reload(true); });
         }
+
+        //hide spinner when page is ready
+        document.onreadystatechange = function ()
+        {
+            if (document.readyState == "interactive")
+            {
+                showProgress(true);
+                if (window.parent)
+                {
+                    if (typeof window.parent.showProgress === "function")
+                    {
+                        // safe to use the function
+                        window.parent.showProgress(true);
+                    }
+                }
+            }
+        };
+        function showProgress(hide)
+        {
+            console.log(hide);
+            if (!hide)
+                $('body').removeClass('spinner-hide');
+            else
+                $('body').addClass('spinner-hide')
+            return true;
+        }
+    </script>
+
+    <script>
+        $('body').removeClass('spinner-hide');
     </script>
     <asp:ContentPlaceHolder ID="Script" runat="server">
     </asp:ContentPlaceHolder>
 
     <!-- App js -->
     <script src="../Style Library/assets/js/app.js" type="text/javascript"></script>
-     <script src="../Style Library/assets/js/custom.js" type="text/javascript"></script>
+    <script src="../Style Library/assets/js/custom.js" type="text/javascript"></script>
+    <script>
+        function showMessage(message, type, cb)
+        {
+            Swal.fire({ title: "", text: message, icon: type, showCancelButton: 0, confirmButtonColor: "#556ee6" }).then(cb);
+        }
+    </script>
 </body>
 </html>
