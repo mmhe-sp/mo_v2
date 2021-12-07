@@ -5,6 +5,7 @@
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Assembly Name="MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
 <%@ Register TagPrefix="mo" TagName="ProjectName" Src="~/_controltemplates/15/MMHE.MO/ProjectName.ascx" %>
+<%@ Register TagPrefix="da" TagName="dashboard" Src="~/_controltemplates/15/MMHE.MO/Dashboard/Dashboard.ascx" %>
 
 <%@ Page Language="C#" MasterPageFile="../_catalogs/masterpage/MO.master" Inherits="MMHE.MO.UI.BasePage,MMHE.MO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42907a3e9063eed0" %>
 
@@ -32,7 +33,7 @@
 
 		<div class="row">
 			<div class="col-xl-4">
-				<div class="card">
+				<%--<div class="card">
 					<div class="card-body">
 						<div class="d-flex">
 							<div class="flex-grow-1">
@@ -55,7 +56,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>--%>
+                <da:dashboard runat="server" id="wdri"></da:dashboard>
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title mb-4 text-center">Daily Work Update</h4>
@@ -120,7 +122,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>        
 		<!-- end row -->
 
 		<div class="row">

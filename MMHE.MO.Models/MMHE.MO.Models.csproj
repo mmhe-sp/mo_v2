@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityProgress.cs" />
+    <Compile Include="DashboardStatistics.cs" />
     <Compile Include="DWCActivity.cs" />
     <Compile Include="DWCDetails.cs" />
     <Compile Include="DWCProgress.cs" />

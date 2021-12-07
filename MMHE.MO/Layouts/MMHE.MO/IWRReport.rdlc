@@ -427,7 +427,7 @@
                 <Top>1.1999cm</Top>
                 <Left>17.53607cm</Left>
                 <Height>0.52239cm</Height>
-                <Width>2.68925cm</Width>
+                <Width>2.89541cm</Width>
                 <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
@@ -461,7 +461,7 @@
                 <Top>2.22323cm</Top>
                 <Left>17.53607cm</Left>
                 <Height>0.52239cm</Height>
-                <Width>2.28507cm</Width>
+                <Width>2.89541cm</Width>
                 <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
@@ -770,7 +770,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>PRINT DATE</Value>
+                        <Value>DATE</Value>
                         <Style>
                           <FontFamily>Times New Roman</FontFamily>
                           <FontWeight>Bold</FontWeight>
@@ -786,7 +786,7 @@
                 <Top>3.48495cm</Top>
                 <Left>16.47625cm</Left>
                 <Height>0.52239cm</Height>
-                <Width>3.16398cm</Width>
+                <Width>3.02227cm</Width>
                 <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
@@ -805,7 +805,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value />
+                        <Value>=CDate(Now).ToString("dd/MM/yyyy")</Value>
                         <Style>
                           <FontFamily>Times New Roman</FontFamily>
                         </Style>
@@ -820,7 +820,7 @@
                 <Top>4.49821cm</Top>
                 <Left>16.50691cm</Left>
                 <Height>0.52239cm</Height>
-                <Width>3.13332cm</Width>
+                <Width>2.99161cm</Width>
                 <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
@@ -1062,7 +1062,6 @@
               </Tablix>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0cm</Top>
             <Left>0.93296cm</Left>
             <Height>5.36583cm</Height>
             <Width>23.23324cm</Width>

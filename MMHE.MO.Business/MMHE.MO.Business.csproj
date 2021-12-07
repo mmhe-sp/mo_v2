@@ -84,6 +84,7 @@
       <DependentUpon>MO.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DashboardRepository.cs" />
     <Compile Include="Repositories\DWCRepository.cs" />
     <Compile Include="Repositories\JCSRepository.cs" />
     <Compile Include="Repositories\JSLRepository.cs" />

@@ -508,7 +508,6 @@
               </SortExpression>
             </SortExpressions>
             <Top>6.56546cm</Top>
-            <Left>1.15231cm</Left>
             <Height>1.30583cm</Height>
             <Width>19.39696cm</Width>
             <Style>
@@ -539,7 +538,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>5.28123cm</Top>
-            <Left>1.15231cm</Left>
             <Height>0.65334cm</Height>
             <Width>17.94076cm</Width>
             <ZIndex>1</ZIndex>
@@ -572,9 +570,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>0.45356cm</Top>
-            <Left>5.26049cm</Left>
+            <Left>3.99049cm</Left>
             <Height>1.86471cm</Height>
-            <Width>15.28879cm</Width>
+            <Width>15.68276cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -612,7 +610,6 @@
             <Value>logo1</Value>
             <Sizing>Fit</Sizing>
             <Top>0.45356cm</Top>
-            <Left>1.21279cm</Left>
             <Height>1.86471cm</Height>
             <Width>4.00058cm</Width>
             <ZIndex>3</ZIndex>
@@ -850,7 +847,7 @@
                 <Top>0.23375cm</Top>
                 <Left>14.15686cm</Left>
                 <Height>0.56644cm</Height>
-                <Width>5.14598cm</Width>
+                <Width>5.07542cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -890,7 +887,7 @@
                 <Top>0.95894cm</Top>
                 <Left>14.15686cm</Left>
                 <Height>0.56644cm</Height>
-                <Width>5.14598cm</Width>
+                <Width>5.07542cm</Width>
                 <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
@@ -929,10 +926,10 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>1.70358cm</Top>
+                <Top>1.6807cm</Top>
                 <Left>14.15686cm</Left>
                 <Height>0.56644cm</Height>
-                <Width>5.14598cm</Width>
+                <Width>5.07542cm</Width>
                 <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
@@ -1048,7 +1045,7 @@
                 <Top>0.87075cm</Top>
                 <Left>0.04586cm</Left>
                 <Height>0cm</Height>
-                <Width>19.3511cm</Width>
+                <Width>19.62739cm</Width>
                 <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
@@ -1060,7 +1057,7 @@
                 <Top>1.61186cm</Top>
                 <Left>0.04586cm</Left>
                 <Height>0cm</Height>
-                <Width>19.3511cm</Width>
+                <Width>19.62739cm</Width>
                 <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
@@ -1072,7 +1069,7 @@
                 <Top>2.38825cm</Top>
                 <Left>0.04586cm</Left>
                 <Height>0cm</Height>
-                <Width>19.3511cm</Width>
+                <Width>19.62739cm</Width>
                 <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
@@ -1082,7 +1079,7 @@
               </Line>
               <Line Name="Line15">
                 <Top>0.12792cm</Top>
-                <Left>19.40867cm</Left>
+                <Left>19.67325cm</Left>
                 <Height>2.26033cm</Height>
                 <Width>0cm</Width>
                 <ZIndex>14</ZIndex>
@@ -1132,7 +1129,7 @@
                 <Top>0.12792cm</Top>
                 <Left>0.04586cm</Left>
                 <Height>0cm</Height>
-                <Width>19.3511cm</Width>
+                <Width>19.62739cm</Width>
                 <ZIndex>18</ZIndex>
                 <Style>
                   <Border>
@@ -1142,9 +1139,8 @@
               </Line>
             </ReportItems>
             <Top>2.3865cm</Top>
-            <Left>1.15231cm</Left>
             <Height>2.75362cm</Height>
-            <Width>19.41749cm</Width>
+            <Width>20.01721cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1153,7 +1149,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>3.43879in</Height>
+        <Height>3.64712in</Height>
         <Style>
           <Border>
             <Style>None</Style>
