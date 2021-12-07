@@ -368,6 +368,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Layouts\MMHE.MO\AWOVOReport-copy.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\AWOVOReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\IWRReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />
