@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="flex-shrink-0 dropdown ms-2">
-                        <asp:Label ID="TotalJSLItems" runat="server"></asp:Label>
+                        <asp:Label ID="TotalJSLItems" runat="server" style="font-weight: bold;font-size: large;"></asp:Label>
                     </div>
                 </div>
             </div>
@@ -26,33 +26,36 @@
     </div>
 </div>
 <div class="card">
+    <div class="card-header p-0">
+        <a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium">Details</a>
+    </div>
     <div class="card-body">
-        <table id="jslStatTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="no-sort text-center">Discipline</th>
-                    <th class="no-sort text-center">Base Scope</th>
-                    <th class="no-sort text-center">Variation</th>
-                    <th class="no-sort text-center">Additional</th>
-                    <th class="no-sort text-center">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <asp:Repeater ID="tJSLStatistics" runat="server">
-                    <ItemTemplate>
-                        <tr>
-                            <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                <%# DataBinder.Eval(Container.DataItem, "Discipline") %>
-                            </td>
-                            <td><%# DataBinder.Eval(Container.DataItem, "BaseScope") %></td>
-                            <td><%# DataBinder.Eval(Container.DataItem, "Variation") %></td>
-                            <td><%# DataBinder.Eval(Container.DataItem, "Additional") %></td>
-                            <td><%# DataBinder.Eval(Container.DataItem, "Total") %></td>
-                        </tr>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </tbody>
-        </table>
+        <div class="details collapse show">
+            <table id="jslStatTable" class="table table-bordered table-striped nowrap w-100 font-size-10">
+                <thead class="thead-dark" style="background-color: cornflowerblue;">
+                    <tr>
+                        <th class="no-sort text-center">Discipline</th>
+                        <th class="no-sort text-center">Base Scope</th>
+                        <th class="no-sort text-center">Variation</th>
+                        <th class="no-sort text-center">Additional</th>
+                        <th class="no-sort text-center">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater ID="tJSLStatistics" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# DataBinder.Eval(Container.DataItem, "Discipline") %></td>
+                                <td><%# DataBinder.Eval(Container.DataItem, "BaseScope") %></td>
+                                <td><%# DataBinder.Eval(Container.DataItem, "Variation") %></td>
+                                <td><%# DataBinder.Eval(Container.DataItem, "Additional") %></td>
+                                <td><%# DataBinder.Eval(Container.DataItem, "Total") %></td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+            </table>
+        </div>        
     </div>
 </div>
 		
