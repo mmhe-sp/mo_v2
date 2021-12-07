@@ -78,6 +78,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTemplates\MMHE.MO\Dashboard\Dashboard.ascx.cs">
+      <DependentUpon>Dashboard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\MMHE.MO\Dashboard\Dashboard.ascx.designer.cs">
+      <DependentUpon>Dashboard.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlTemplates\MMHE.MO\DWC.ascx.cs">
       <DependentUpon>DWC.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -295,6 +302,7 @@
     <Content Include="assets\libs\sweetalert2.all.min.js" />
     <Content Include="assets\libs\sweetalert2.min.css" />
     <Content Include="assets\libs\typeahead.js" />
+    <Content Include="ControlTemplates\MMHE.MO\Dashboard\Dashboard.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\DWC.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\Manage.ascx" />
     <Content Include="ControlTemplates\MMHE.MO\JCS\List.ascx" />
@@ -368,7 +376,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layouts\MMHE.MO\AWOVOReport-copy.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\AWOVOReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\IWRReport.rdlc" />
     <EmbeddedResource Include="Layouts\MMHE.MO\Report.rdlc" />

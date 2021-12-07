@@ -537,82 +537,11 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox12">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>ACCESSORIES</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>7.32051cm</Top>
-            <Left>0.3596cm</Left>
-            <Height>0.65334cm</Height>
-            <Width>17.94077cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>4pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox13">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>MATERIAL SUPPLIED BY YARD</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>5.71439cm</Top>
-            <Left>0.4151cm</Left>
-            <Height>0.65334cm</Height>
-            <Width>17.88527cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>4pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix8">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.27186cm</Width>
+                  <Width>2.54372cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -801,7 +730,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>15.79747cm</Size>
+                            <Size>14.52561cm</Size>
                             <CellContents>
                               <Textbox Name="Textbox116">
                                 <CanGrow>true</CanGrow>
@@ -846,19 +775,8 @@
                       </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="AWO_VONO">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!AWO_VONO.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!AWO_VONO.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
                     <Size>2.11024cm</Size>
                     <CellContents>
@@ -875,7 +793,9 @@
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>AWO_VONO2</rd:DefaultName>
@@ -908,14 +828,14 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Activities1">
+                      <Group Name="SequenceNo">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!Activities.Value</GroupExpression>
+                          <GroupExpression>=Fields!SequenceNo.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Activities.Value</Value>
+                          <Value>=Fields!SequenceNo.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixMembers>
@@ -936,7 +856,9 @@
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
-                                    <Style />
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
                                   </Paragraph>
                                 </Paragraphs>
                                 <rd:DefaultName>SequenceNo1</rd:DefaultName>
@@ -969,18 +891,8 @@
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="Remarks1">
-                                <GroupExpressions>
-                                  <GroupExpression>=Fields!Remarks.Value</GroupExpression>
-                                </GroupExpressions>
-                              </Group>
-                              <SortExpressions>
-                                <SortExpression>
-                                  <Value>=Fields!Remarks.Value</Value>
-                                </SortExpression>
-                              </SortExpressions>
                               <TablixHeader>
-                                <Size>15.79747cm</Size>
+                                <Size>14.52561cm</Size>
                                 <CellContents>
                                   <Textbox Name="Remarks1">
                                     <CanGrow>true</CanGrow>
@@ -1027,59 +939,7 @@
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
-                                <TablixMember>
-                                  <Group Name="Location1">
-                                    <GroupExpressions>
-                                      <GroupExpression>=Fields!Location.Value</GroupExpression>
-                                    </GroupExpressions>
-                                  </Group>
-                                  <SortExpressions>
-                                    <SortExpression>
-                                      <Value>=Fields!Location.Value</Value>
-                                    </SortExpression>
-                                  </SortExpressions>
-                                  <TablixMembers>
-                                    <TablixMember>
-                                      <Group Name="SubActivities1">
-                                        <GroupExpressions>
-                                          <GroupExpression>=Fields!SubActivities.Value</GroupExpression>
-                                        </GroupExpressions>
-                                      </Group>
-                                      <SortExpressions>
-                                        <SortExpression>
-                                          <Value>=Fields!SubActivities.Value</Value>
-                                        </SortExpression>
-                                      </SortExpressions>
-                                      <TablixMembers>
-                                        <TablixMember>
-                                          <Group Name="Quantity">
-                                            <GroupExpressions>
-                                              <GroupExpression>=Fields!Quantity.Value</GroupExpression>
-                                            </GroupExpressions>
-                                          </Group>
-                                          <SortExpressions>
-                                            <SortExpression>
-                                              <Value>=Fields!Quantity.Value</Value>
-                                            </SortExpression>
-                                          </SortExpressions>
-                                          <TablixMembers>
-                                            <TablixMember>
-                                              <Group Name="Details4" />
-                                              <SortExpressions>
-                                                <SortExpression>
-                                                  <Value>=Fields!SequenceNo.Value</Value>
-                                                </SortExpression>
-                                                <SortExpression>
-                                                  <Value>=Fields!SequenceOrder.Value</Value>
-                                                </SortExpression>
-                                              </SortExpressions>
-                                            </TablixMember>
-                                          </TablixMembers>
-                                        </TablixMember>
-                                      </TablixMembers>
-                                    </TablixMember>
-                                  </TablixMembers>
-                                </TablixMember>
+                                <TablixMember />
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
@@ -1103,7 +963,6 @@
             <Left>0.35961cm</Left>
             <Height>1.2cm</Height>
             <Width>21.38407cm</Width>
-            <ZIndex>2</ZIndex>
             <Visibility>
               <Hidden>=CountRows() = 0</Hidden>
             </Visibility>
@@ -1134,11 +993,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>2.73189cm</Top>
+            <Top>2.85889cm</Top>
             <Left>0.4151cm</Left>
             <Height>0.65334cm</Height>
             <Width>17.88527cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1153,7 +1012,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.27186cm</Width>
+                  <Width>2.54372cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1292,7 +1151,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>16.24083cm</Size>
+                        <Size>14.96897cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox131">
                             <CanGrow>true</CanGrow>
@@ -1335,90 +1194,42 @@
                       </TablixMembers>
                     </TablixMember>
                   </TablixMembers>
-                  <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Activities">
+                  <Group Name="SequenceOrder">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Activities.Value</GroupExpression>
+                      <GroupExpression>=Fields!SequenceOrder.Value</GroupExpression>
                     </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>StartAndEnd</BreakLocation>
-                    </PageBreak>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Activities.Value</Value>
+                      <Value>=Fields!SequenceOrder.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <TablixHeader>
-                    <Size>3.87138cm</Size>
-                    <CellContents>
-                      <Textbox Name="SequenceNo">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!SequenceNo.Value</Value>
-                                <Style>
-                                  <FontFamily>Times New Roman</FontFamily>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>SequenceNo</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <TopBorder>
-                            <Style>None</Style>
-                          </TopBorder>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Remarks">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Remarks.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Remarks.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
-                        <Size>16.24083cm</Size>
+                        <Size>3.87138cm</Size>
                         <CellContents>
-                          <Textbox Name="Remarks">
+                          <Textbox Name="SequenceNo">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Remarks.Value</Value>
+                                    <Value>=Fields!SequenceOrder.Value</Value>
                                     <Style>
                                       <FontFamily>Times New Roman</FontFamily>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Remarks</rd:DefaultName>
+                            <rd:DefaultName>SequenceNo</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -1437,20 +1248,44 @@
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="Location">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!Location.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!Location.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>14.96897cm</Size>
+                            <CellContents>
+                              <Textbox Name="Remarks">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!Remarks.Value</Value>
+                                        <Style>
+                                          <FontFamily>Times New Roman</FontFamily>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Remarks</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <TopBorder>
+                                    <Style>None</Style>
+                                  </TopBorder>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
                           <TablixMembers>
-                            <TablixMember>
-                              <Group Name="Details1" />
-                            </TablixMember>
+                            <TablixMember />
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -1476,7 +1311,7 @@
             <Left>0.35961cm</Left>
             <Height>1.30583cm</Height>
             <Width>21.38407cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1508,7 +1343,7 @@
             <Left>0.35961cm</Left>
             <Height>0.65334cm</Height>
             <Width>17.94076cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1540,79 +1375,9 @@
             <Left>0.4151cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>4</ZIndex>
             <Visibility>
-              <Hidden>=Microsoft.VisualBasic.Interaction.IIF(First(Fields!Activities.Value Is Nothing, "AdditionalScope"), True, False)</Hidden>
-            </Visibility>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox31">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=IIF(Len(First(Fields!Discipline.Value, "DataSet3")) &lt;= 0, "NIL", "")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox15</rd:DefaultName>
-            <Top>6.54412cm</Top>
-            <Left>0.3596cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
-            <ZIndex>7</ZIndex>
-            <Visibility>
-              <Hidden>=Microsoft.VisualBasic.Interaction.IIF(First(Fields!Discipline.Value Is Nothing, "DataSet3"), True, False)</Hidden>
-            </Visibility>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox15">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=IIF(Len(First(Fields!Discipline.Value, "DataSet4")) &lt;= 0, "NIL", "")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox15</rd:DefaultName>
-            <Top>8.15024cm</Top>
-            <Left>0.3596cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
-            <ZIndex>8</ZIndex>
-            <Visibility>
-              <Hidden>=IIF((First(Fields!Discipline.Value Is Nothing, "DataSet4")),True,False)</Hidden>
+              <Hidden>=Microsoft.VisualBasic.Interaction.IIF(First(Fields!Activities.Value Is Nothing, "AdditionalScope"), False, True)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1625,10 +1390,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.72662in</Height>
+        <Height>2.43495in</Height>
         <Style />
       </Body>
-      <Width>8.7957in</Width>
+      <Width>9.54476in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
