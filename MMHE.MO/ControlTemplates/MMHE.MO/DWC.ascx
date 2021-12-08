@@ -24,12 +24,21 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col text-start">
-                        <%--<div class="form form-inline">
-                            <label>Subcontractor:</label>
-                            <select class="form-control">
-                                <option value="0">All</option>
-                            </select>
-                        </div>--%>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <label class="col-form-label">Subcontractor:</label>
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-control" onchange="filterRowsByResource(this)" id="subContractor">
+                                    <option value="0">All</option>
+                                    <%foreach (var item in Resources)
+                                      { %>
+                                    <option value="<%=item.Value %>"><%=item.Text %></option>
+                                    <%} %>
+                                </select>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="col text-end">
                         <button type="button" class="btn btn-primary me-1" onclick="saveProgress()"><i class="mdi mdi-floppy me-1"></i>Save</button>
@@ -41,20 +50,20 @@
                         <table id="jcsTable" class="table table-bordered table-striped nowrap w-100 font-size-12">
                             <thead class="bg-primary bg-gradient text-white text-center align-middle">
                                 <tr>
-                                    <th style="width: 100px;">Owner No
+                                    <th style="width: 125px;">Owner No
                                         <div>
                                             <small>Type</small>
                                         </div>
                                     </th>
-                                    <th style="width: 200px;">Work Title</th>
+                                    <th style="width: 150px;">Work Title</th>
                                     <th style="width: 150px;"><%=Today %> (Progress)</th>
                                     <th style="width: 150px;"><%=Tomorrow %> (Plan)</th>
                                     <th style="width: 70px;">Completion %</th>
                                     <th style="width: 150px;">Remarks</th>
-                                    <%--<th style="width: 150px;">Sub-Contractor
+                                    <th style="width: 150px;" class="s-contractator">Sub-Contractor
                                         <br />
                                         Remarks
-                                    </th>--%>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,7 +71,7 @@
                                   {
                                 %>
                                 <tr class="discipline">
-                                    <td colspan="6" class="group bg-light">
+                                    <td colspan="7" class="group bg-light">
                                         <%=details.Key %>
                                     </td>
                                 </tr>
@@ -72,7 +81,7 @@
                                 <tr class="jcs" data-id="<%=item.JCSID %>">
 
                                     <td>
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11 jsl-status"><%= item.JSLStatus %></span></div>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 jsl-status text-uppercase"><%= item.JSLStatus %></span></div>
                                         <%= item.OwnerNo %>
                                         <div>
                                             <small><%= item.lType %></small>
@@ -102,12 +111,13 @@
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control form-control-sm remarks auto-resize" rows="1"><%=item.Remarks %></textarea>
                                     </td>
+                                    <td class="s-contractator"></td>
                                 </tr>
                                 <%foreach (var activity in item.ActivityProgress)
                                   {
                                       activitySequence++;
                                 %>
-                                <tr class="activity" data-id="<%=activity.ActivityID %>" data-jcs-id="<%=item.JCSID %>">
+                                <tr class="activity" data-id="<%=activity.ActivityID %>" data-jcs-id="<%=item.JCSID %>" data-subcontractor="<%=activity.SubscontractorId %>">
                                     <td>
                                         <span class="id d-none"><%=activity.ActivityID%></span>
 
@@ -121,7 +131,7 @@
                                     <td style="width: 200px;">
                                         <%if (activity.ActivityType == "I")
                                           { %>
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-11"><%=activity.IWRStatus %></span></div>
+                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 text-uppercase"><%=activity.IWRStatus %></span></div>
                                         <%} %>
                                         <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#__a<%=activitySequence%>" role="button" aria-expanded="false" aria-controls="__a<%=activitySequence%>" class="d-block">
                                             <%= activity.Subscontractor %>
@@ -154,9 +164,9 @@
                                         <textarea class="form-control form-control-sm remarks auto-resize" rows="1"><%=activity.Remarks %></textarea>
                                         <%} %>
                                     </td>
-                                    <%--<td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <textarea class="form-control form-control-sm auto-resize"></textarea>
-                                    </td>--%>
+                                    <td style="white-space: inherit; word-wrap: break-word !important;" class="s-contractator">
+                                        <textarea class="form-control form-control-sm auto-resize s-remarks"></textarea>
+                                    </td>
                                 </tr>
                                 <%} %>
                                 <%} %>

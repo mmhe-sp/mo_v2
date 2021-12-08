@@ -94,6 +94,7 @@
             {
                 autoResize(v, "each");
             });
+            filterRowsByResource($('#subContractor')[0]);
         });
 
         function calculateJCSCompletion(jcsId)
@@ -203,6 +204,21 @@
         {
             var h = ctrl.scrollHeight;
             ctrl.style.height = (h) + "px";
+        }
+
+        function filterRowsByResource(ctrl)
+        {
+            if(ctrl.value == '0')
+            {
+                $('tr.activity.d-none').removeClass('d-none');
+                $('td.s-contractator,th.s-contractator').addClass('d-none');
+            }
+            else
+            {
+                $('tr.activity[data-subcontractor!="' + ctrl.value + '"]').addClass('d-none');
+                $('td.s-contractator,th.s-contractator').removeClass('d-none');
+
+            }
         }
     </script>
 </asp:Content>

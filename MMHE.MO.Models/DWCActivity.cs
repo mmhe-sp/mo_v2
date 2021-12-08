@@ -26,5 +26,7 @@ namespace MMHE.MO.Models
         public string Tomorrow { get; set; }
         public string IWRStatus { get; set; }
         public string ActivityDiscipline { get; set; }
+
+        public string SubContractorID { get; set; }
     }
 }

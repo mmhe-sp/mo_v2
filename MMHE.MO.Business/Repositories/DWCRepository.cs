@@ -44,7 +44,7 @@ namespace MMHE.MO.Business.Repositories
                         JSLStatus = r.Field<string>("JSLStatus"),
                         //Type = r.Field<string>("Type"),
                         Subscontractor = r.Field<string>("SubContractor"),
-                        //WBS = r.Field<string>("WBS"),
+                        SubContractorID = r.Field<string>("SubContractorID"),
                         JSLRemarks = r.Field<string>("JSLRemarks"),
                         IWRStatus = r.Field<string>("IWRStatus"),
                         ActivityDiscipline = r.Field<string>("ActivityDiscipline")

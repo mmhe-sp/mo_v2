@@ -17,6 +17,7 @@ namespace MMHE.MO.Controls
         public string _Today { get; set; }
         public string _Tomorrow { get; set; }
         public IEnumerable<IGrouping<string, DWCDetails>> Details { get; set; }
+        public List<Option> Resources { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             Today = DateTime.Now.ToString("dd-MMM-yy");
@@ -51,7 +52,7 @@ namespace MMHE.MO.Controls
                             ActivityTitle = d.ActivityTitle,
                             ActivityType = d.ActivityType,
                             Subscontractor = d.Subscontractor,
-                            SubscontractorId = d.Subscontractor,
+                            SubscontractorId = d.SubContractorID,
                             Completion = d.CompletionPer,
                             IWRStatus = d.IWRStatus,
                             ActivityDiscipline = d.ActivityDiscipline
@@ -61,6 +62,8 @@ namespace MMHE.MO.Controls
             }
 
             Details = progress.GroupBy(d => d.MyGroup).OrderBy(d => d.Key).ToList();
+
+            Resources = details.GroupBy(d => new { d.Subscontractor, d.SubContractorID }).Select(g => new Option { Text = g.Key.Subscontractor, Value = g.Key.SubContractorID }).ToList();
 
         }
     }
