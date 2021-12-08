@@ -11,5 +11,8 @@ namespace MMHE.MO.Models
     {
         public DataTable TotalJSL { get; set; }
         public DataTable Statistics { get; set; }
+        public DataTable TotalPerson { get; set; }
+        public DataTable TotalTask { get; set; }
+        public DataTable GraphDetails { get; set; }
     }
 }

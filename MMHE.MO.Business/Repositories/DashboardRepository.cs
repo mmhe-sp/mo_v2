@@ -27,6 +27,9 @@ namespace MMHE.MO.Business.Repositories
 
                     dashboardStatistics.TotalJSL = dataSet.Tables[0];
                     dashboardStatistics.Statistics = dataSet.Tables[1];
+                    dashboardStatistics.TotalPerson = dataSet.Tables[2];
+                    dashboardStatistics.TotalTask = dataSet.Tables[3];
+                    dashboardStatistics.GraphDetails = dataSet.Tables[4];
                 }
             }
             return dashboardStatistics;
