@@ -122,7 +122,63 @@
         </div>
     </div>
 </div>
-
+<%--<script src="../../../../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
+<script src="../../../../Style Library/assets/js/pages/apexcharts.init.js"></script>
+<link href="../../../../Style Library/assets/libs/apexcharts.css" rel="stylesheet" />
+<script type="text/javascript">
+    var options = {
+        chart: {
+            height: 305,
+            type: "bar",
+            stacked: 0,
+            toolbar: {
+                show: !1
+            },
+            zoom: {
+                enabled: !0
+            }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: "25%",
+                endingShape: "rounded"
+            }
+        },
+        dataLabels: {
+            enabled: 1,
+            position: 'top'
+        },
+        series: [{
+            name: "WIP",
+            data: [44, 55, 41]
+        }, {
+            name: "New",
+            data: [13, 23, 20]
+        }, {
+            name: "Pending",
+            data: [11, 17, 15]
+        }, {
+            name: "Approve",
+            data: [11, 17, 15]
+        }, {
+            name: "Final Approval",
+            data: [11, 17, 15]
+        }],
+        xaxis: {
+            categories: ["OS", "VO", "AWO"]
+        },
+        colors: ["#556ee6", "#f1b44c", "#34c38f"],
+        legend: {
+            position: "bottom"
+        },
+        fill: {
+            opacity: 1
+        }
+    },
+    chart = new ApexCharts(document.querySelector("#stacked-column-chart"), options);
+    chart.render();
+</script>--%>
 
 
 

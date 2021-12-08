@@ -34,6 +34,8 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Dashboard
             {
                 lTotalTask.Text = dr2["TotalTask"].ToString();
             }
+            //Graph details
+            DataTable gDetails = result.GraphDetails;
             tJSLStatistics.DataBind();
         }
     }
