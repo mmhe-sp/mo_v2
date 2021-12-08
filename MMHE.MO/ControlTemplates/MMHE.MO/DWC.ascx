@@ -122,9 +122,12 @@
                                         <span class="id d-none"><%=activity.ActivityID%></span>
 
                                         <%if (activity.ActivityType == "I")
-                                          { %>IWR
-                                        <div>
-                                            <small><%= activity.ActivityDiscipline %></small>
+                                          { %>
+                                        <div class="text-end">
+                                            IWR
+                                            <div>
+                                                <small><%= activity.ActivityDiscipline %></small>
+                                            </div>
                                         </div>
                                         <%} %>
                                     </td>

@@ -15,7 +15,7 @@
 				<a data-bs-target=".details" data-bs-toggle="collapse" class="accordion-button fw-medium" aria-expanded="<%=(!Details.StartDate.HasValue || !Details.EndDate.HasValue?"true":"false") %>">Details</a>
 			</div>
 			<div class="card-body">
-				<div class="details collapse">
+				<div class="details collapse <%=(!Details.StartDate.HasValue || !Details.EndDate.HasValue?"show":"") %>">
 					<div class="row mb-3">
 						<div class="col-sm-4">
 							<label class="form-label">Type</label>
