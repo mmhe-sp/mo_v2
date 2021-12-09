@@ -61,7 +61,9 @@ namespace MMHE.MO.Controls
                             ActivityDiscipline = d.ActivityDiscipline,
                             Today = d.ActivityToday,
                             Tomorrow = d.ActivityTomorrow,
-                            Remarks = d.ActivityRemarks
+                            Remarks = d.ActivityRemarks,
+                            SubContractorRemarks = d.SubContractorRemarks,
+                            Status = d.Status
                         }).ToList()
                     });
                 }

@@ -21,5 +21,13 @@ namespace MMHE.MO.Services
             new DWCRepository().SaveProgress(LoggedInUser.ProjectId, LoggedInUser.Id, dwc);
             return new { Succeeded = true };
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public object Verify(UpdatedDWCProgress dwc)
+        {
+            new DWCRepository().Verify(LoggedInUser.ProjectId, LoggedInUser.Id, dwc);
+            return new { Succeeded = true };
+        }
     }
 }

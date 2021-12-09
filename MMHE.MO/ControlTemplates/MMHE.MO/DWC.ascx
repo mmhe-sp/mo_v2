@@ -29,18 +29,19 @@
                                 <label class="col-form-label">Subcontractor:</label>
                             </div>
                             <div class="col-auto">
-                                <select class="form-control" onchange="filterRowsByResource(this)" id="subContractor">
+                                <select class="form-control subcontractor" onchange="filterRowsByResource(this)" id="subContractor">
                                     <option value="0">All</option>
                                     <%foreach (var item in Resources)
                                       { %>
                                     <option value="<%=item.Value %>"><%=item.Text %></option>
                                     <%} %>
                                 </select>
-
+                                <span class="text-danger d-none subcontractor-req-msg">Please select Sub-Contractor.</span>
                             </div>
                         </div>
                     </div>
                     <div class="col text-end">
+                        <button type="button" class="btn btn-primary me-1" onclick="verify()"><i class="mdi mdi-check-circle-outline me-1"></i>Subcon Verify</button>
                         <button type="button" class="btn btn-primary me-1" onclick="saveProgress()"><i class="mdi mdi-floppy me-1"></i>Save</button>
                     </div>
                 </div>
@@ -132,6 +133,11 @@
                                         <%} %>
                                     </td>
                                     <td style="width: 200px;">
+                                        <%if (activity.Status == 1)
+                                          {%>
+                                            <div class="float-end" title="Subcon Verified"><i class="mdi mdi-check-circle-outline text-success"></i></div>
+                                            <%} %>
+                                            
                                         <%if (activity.ActivityType == "I")
                                           { %>
                                         <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 text-uppercase"><%=activity.IWRStatus %></span></div>
@@ -176,7 +182,7 @@
                                         <%} %>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;" class="s-contractator">
-                                        <textarea class="form-control form-control-sm auto-resize s-remarks"></textarea>
+                                        <textarea class="form-control form-control-sm auto-resize s-remarks" rows="1"><%=activity.SubContractorRemarks %></textarea>
                                     </td>
                                 </tr>
                                 <%} %>
@@ -194,5 +200,5 @@
 </div>
 <!-- end row -->
 
-<span class="today"><%=_Today %></span>
-<span class="tomorrow"><%=_Tomorrow %></span>
+<span class="today d-none"><%=_Today %></span>
+<span class="tomorrow d-none"><%=_Tomorrow %></span>

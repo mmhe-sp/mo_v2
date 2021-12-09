@@ -146,10 +146,10 @@
             }).done(function (d)
             {
                 d = d.d;
-                showMessage('The progress have been saved successfully.', 'success', function () { window.location.reload(true); });
+                showMessage('The progress have been saved successfully.', 'success', reloadPage);
             }).fail(function ()
             {
-                showMessage('Unable to save the progress.', 'error', reloadGrid);
+                showMessage('Unable to save the progress.', 'error', reloadPage);
             });
         }
 
@@ -208,9 +208,9 @@
 
         function filterRowsByResource(ctrl)
         {
-            if(ctrl.value == '0')
+            $('tr.activity.d-none').removeClass('d-none');
+            if (ctrl.value == '0')
             {
-                $('tr.activity.d-none').removeClass('d-none');
                 $('td.s-contractator,th.s-contractator').addClass('d-none');
             }
             else
@@ -219,6 +219,37 @@
                 $('td.s-contractator,th.s-contractator').removeClass('d-none');
 
             }
+        }
+
+        function verify()
+        {
+            var vo = extractModel();
+            vo.Subcontractor = $("#subContractor").val();
+            $('.subcontractor-req-msg').addClass('d-none');
+            if (vo.Subcontractor == "0")
+            {
+                $('.subcontractor-req-msg').removeClass('d-none');
+                return;
+            }
+            $.ajax({
+                url: "dwc.asmx/Verify",
+                data: JSON.stringify({ dwc: vo }),
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8'
+            }).done(function (d)
+            {
+                d = d.d;
+                showMessage('The subcon verification is done.', 'success', reloadPage);
+            }).fail(function ()
+            {
+                showMessage('Unable to do subcon verification.', 'error', reloadPage);
+            });
+        }
+
+        function reloadPage()
+        {
+            window.location.reload(true);
         }
     </script>
 </asp:Content>
