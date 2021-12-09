@@ -47,7 +47,15 @@ namespace MMHE.MO.Business.Repositories
                         SubContractorID = r.Field<string>("SubContractorID"),
                         JSLRemarks = r.Field<string>("JSLRemarks"),
                         IWRStatus = r.Field<string>("IWRStatus"),
-                        ActivityDiscipline = r.Field<string>("ActivityDiscipline")
+                        ActivityDiscipline = r.Field<string>("ActivityDiscipline"),
+                        Today = r.Field<string>("Today"),
+                        Tomorrow = r.Field<string>("Tomorrow"),
+                        Remarks = r.Field<string>("Remarks"),
+                        ActivityToday = r.Field<string>("ActivityToday"),
+                        ActivityTomorrow = r.Field<string>("ActivityTomorrow"),
+                        ActivityRemarks = r.Field<string>("ActivityRemarks")
+
+
                     }).ToList();
                 }
             }
@@ -82,12 +90,12 @@ namespace MMHE.MO.Business.Repositories
                     activity.Add(new XElement("ActivityID", item.ActivityID));
                     if (string.IsNullOrWhiteSpace(item.SubContractorRemarks))
                         activity.Add(new XElement("SubContractorRemarks", item.SubContractorRemarks));
-                    if (string.IsNullOrWhiteSpace(item.Remarks))
+                    if (!string.IsNullOrWhiteSpace(item.Remarks))
                         activity.Add(new XElement("Remarks", item.Remarks));
                     activity.Add(new XElement("Completion", item.Completion));
-                    if (string.IsNullOrWhiteSpace(item.Today))
+                    if (!string.IsNullOrWhiteSpace(item.Today))
                         activity.Add(new XElement("Today", item.Today));
-                    if (string.IsNullOrWhiteSpace(item.Tomorrow))
+                    if (!string.IsNullOrWhiteSpace(item.Tomorrow))
                         activity.Add(new XElement("Tomorrow", item.Tomorrow));
                     activity.Add(new XElement("JCSID", j.JCSID));
                     activities.Add(activity);
