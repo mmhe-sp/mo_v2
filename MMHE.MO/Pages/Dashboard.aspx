@@ -14,7 +14,6 @@
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
 	<div class="container-fluid">
-
 		<!-- start page title -->
 		<div class="row">
 			<div class="col-12">
@@ -32,96 +31,7 @@
 		<!-- end page title -->
 
 		<div class="row">
-			<div class="col-xl-4">
-				<%--<div class="card">
-					<div class="card-body">
-						<div class="d-flex">
-							<div class="flex-grow-1">
-								<div class="d-flex">
-									<div class="flex-grow-1">
-										<div class="text-muted">
-											<h5 class="mb-1">Job Summary List</h5>
-										</div>
-									</div>
-									<div class="flex-shrink-0 dropdown ms-2">
-										<h4>583</h4>
-									</div>
-								</div>
-								<hr>
-								<div class="text-end">
-									<a href="javascript: void(0);" class="btn btn-primary waves-effect waves-light btn-sm">Add <i class="mdi mdi-plus-circle ms-1"></i></a>
-									<a href="javascript: void(0);" class="btn btn-primary waves-effect waves-light btn-sm">Export <i class="mdi mdi-download-circle ms-1"></i></a>
-									<a href="javascript: void(0);" class="btn btn-primary waves-effect waves-light btn-sm">Import <i class="mdi mdi-progress-upload ms-1"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>--%>
-                <da:dashboard runat="server" id="wdri"></da:dashboard>
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title mb-4 text-center">Daily Work Update</h4>
-
-						<div class="table-responsive mt-4">
-							<table class="table align-middle table-nowrap">
-								<tbody>
-									<tr>
-										<td style="width: 30%">
-											<p class="mb-0">Progress Update</p>
-										</td>
-										<td style="width: 25%">
-											<h5 class="mb-0">1,456</h5>
-										</td>
-										<td>
-											<div class="progress bg-transparent progress-sm">
-												<div class="progress-bar bg-primary rounded" role="progressbar" style="width: 94%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="mb-0">Progress Verification</p>
-										</td>
-										<td>
-											<h5 class="mb-0">1,123</h5>
-										</td>
-										<td>
-											<div class="progress bg-transparent progress-sm">
-												<div class="progress-bar bg-success rounded" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="mb-0">Work Done Verification</p>
-										</td>
-										<td>
-											<h5 class="mb-0">1,026</h5>
-										</td>
-										<td>
-											<div class="progress bg-transparent progress-sm">
-												<div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-8">
-
-				<div class="card">
-					<div class="card-body">
-						<div class="d-sm-flex flex-wrap">
-							<h4 class="card-title mb-4">Job Scope Summary</h4>
-						</div>
-
-						<div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>
-					</div>
-				</div>
-			</div>
+            <da:dashboard runat="server" id="wdri"></da:dashboard>			
 		</div>        
 		<!-- end row -->
 

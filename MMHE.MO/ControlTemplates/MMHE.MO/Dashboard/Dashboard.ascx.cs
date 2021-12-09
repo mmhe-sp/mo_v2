@@ -12,6 +12,8 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Dashboard
     public partial class Dashboard : UserControl
     {
         protected Label TotalJSLItems;
+        protected Label lTotalNumber;
+        protected Label lTotalTask;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -22,7 +24,18 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Dashboard
             {
                 TotalJSLItems.Text = dr["TotalJSLItems"].ToString(); 
             }
-
+            //
+            foreach (DataRow dr1 in result.TotalPerson.Rows)
+            {
+                lTotalNumber.Text = dr1["TotalPercen"].ToString();
+            }
+            //TotalTask
+            foreach (DataRow dr2 in result.TotalTask.Rows)
+            {
+                lTotalTask.Text = dr2["TotalTask"].ToString();
+            }
+            //Graph details
+            DataTable gDetails = result.GraphDetails;
             tJSLStatistics.DataBind();
         }
     }
