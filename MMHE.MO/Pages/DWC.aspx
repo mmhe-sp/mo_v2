@@ -192,7 +192,7 @@
                         Tomorrow: row.find('textarea.tomorrow').val(),
                         Completion: row.find('input.percentage').val(),
                         Remarks: row.find('textarea.remarks').val(),
-                        SubContractorRemarks: row.find('textarea.remarks').val()
+                        SubContractorRemarks: row.find('textarea.s-remarks').val()
                     };
                     activities.push(activity);
                 }

@@ -46,6 +46,9 @@ namespace MMHE.MO.Controls
                         StartDate = activity.StartDate,
                         Type = activity.Type,
                         WBS = activity.WBS,
+                        Today = activity.Today,
+                        Tomorrow = activity.Tomorrow,
+                        Remarks = activity.Remarks,
                         ActivityProgress = jcs.Where(d => d.ActivityID.HasValue).Select(d => new DWCProgress
                         {
                             ActivityID = d.ActivityID.Value,
@@ -55,7 +58,10 @@ namespace MMHE.MO.Controls
                             SubscontractorId = d.SubContractorID,
                             Completion = d.CompletionPer,
                             IWRStatus = d.IWRStatus,
-                            ActivityDiscipline = d.ActivityDiscipline
+                            ActivityDiscipline = d.ActivityDiscipline,
+                            Today = d.ActivityToday,
+                            Tomorrow = d.ActivityTomorrow,
+                            Remarks = d.ActivityRemarks
                         }).ToList()
                     });
                 }

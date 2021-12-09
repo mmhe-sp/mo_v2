@@ -156,10 +156,18 @@
                                         <%} %>
                                     </td>
                                     <td>
+                                        <%if (activity.ActivityType == "I" && activity.Completion >= 100)
+                                          { %>
+                                        <input type="hidden" class="form-control form-control-sm percentage" value="<%=activity.Completion %>" />
+                                        <span class="percentage"><%=activity.Completion %>%</span>
+                                        <%}
+                                          else
+                                          { %>
                                         <div class="input-group">
                                             <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="0.1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" oninput="calculateJCSCompletion('<%=item.JCSID %>')" />
                                             <span class="input-group-text">%</span>
                                         </div>
+                                        <%} %>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <%if (activity.ActivityType != "I")
