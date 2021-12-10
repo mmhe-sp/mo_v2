@@ -11,5 +11,7 @@ namespace MMHE.MO.Models
         public DateTime Today { get; set; }
         public DateTime Tomorrow { get; set; }
         public List<JCSProgress> JCS { get; set; }
+
+        public string Subcontractor { get; set; }
     }
 }

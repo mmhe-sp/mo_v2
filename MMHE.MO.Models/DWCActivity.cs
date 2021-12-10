@@ -30,5 +30,9 @@ namespace MMHE.MO.Models
         public string ActivityToday { get; set; }
         public string ActivityTomorrow { get; set; }
         public string ActivityRemarks { get; set; }
+
+        public string SubContractorRemarks { get; set; }
+
+        public int Status { get; set; }
     }
 }

@@ -131,7 +131,7 @@
             });
             if (!count)
                 count = 1;
-            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count).toFixed(2) + '%');
+            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count).toFixed(2) + ' %');
         }
         function saveProgress()
         {
@@ -208,7 +208,7 @@
 
         function filterRowsByResource(ctrl)
         {
-            $('tr.activity.d-none').removeClass('d-none');
+            $('#jcsTable tbody tr').removeClass('d-none');
             if (ctrl.value == '0')
             {
                 $('td.s-contractator,th.s-contractator').addClass('d-none');
@@ -217,7 +217,8 @@
             {
                 $('tr.activity[data-subcontractor!="' + ctrl.value + '"]').addClass('d-none');
                 $('td.s-contractator,th.s-contractator').removeClass('d-none');
-
+                hideEmptyJCS();
+                hideEmptyDisciplines();
             }
         }
 
@@ -250,6 +251,48 @@
         function reloadPage()
         {
             window.location.reload(true);
+        }
+
+        function hideEmptyJCS()
+        {
+            var trs = $('#jcsTable tbody tr:visible');
+            var jscTr;
+            var tr;
+            for (var index = 0; index < trs.length; index++)
+            {
+                tr = $(trs[index]);
+                if (tr.hasClass('jcs'))
+                {
+                    if (jscTr)
+                        jscTr.addClass('d-none');
+                    jscTr = tr;
+                }
+                else if (tr.hasClass('activity'))
+                    jscTr = null;
+            }
+            if (jscTr)
+                jscTr.addClass('d-none');
+        }
+
+        function hideEmptyDisciplines()
+        {
+            var trs = $('#jcsTable tbody tr:visible');
+            var jscTr;
+            var tr;
+            for (var index = 0; index < trs.length; index++)
+            {
+                tr = $(trs[index]);
+                if (tr.hasClass('discipline'))
+                {
+                    if (jscTr)
+                        jscTr.addClass('d-none');
+                    jscTr = tr;
+                }
+                else if (tr.hasClass('jcs'))
+                    jscTr = null;
+            }
+            if (jscTr)
+                jscTr.addClass('d-none');
         }
     </script>
 </asp:Content>

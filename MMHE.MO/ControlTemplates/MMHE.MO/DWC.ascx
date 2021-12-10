@@ -106,7 +106,7 @@
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <textarea class="form-control form-control-sm tomorrow auto-resize" rows="1"><%=item.Tomorrow %></textarea>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <span class="percentage font-weight-bold" />
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">

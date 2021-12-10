@@ -53,7 +53,9 @@ namespace MMHE.MO.Business.Repositories
                         Remarks = r.Field<string>("Remarks"),
                         ActivityToday = r.Field<string>("ActivityToday"),
                         ActivityTomorrow = r.Field<string>("ActivityTomorrow"),
-                        ActivityRemarks = r.Field<string>("ActivityRemarks")
+                        ActivityRemarks = r.Field<string>("ActivityRemarks"),
+                        SubContractorRemarks = r.Field<string>("sRemarks"),
+                        Status = r.Field<int?>("Status")??0
 
 
                     }).ToList();
@@ -109,6 +111,48 @@ namespace MMHE.MO.Business.Repositories
             using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
             {
                 using (SqlCommand command = new SqlCommand("MO.SaveDWCProgress", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddRange(parameters);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void Verify(string project, string loggedInUser, UpdatedDWCProgress dwc)
+        {
+            XElement root = new XElement("DWC");
+            root.Add(new XElement("ProjectNo", project));
+            root.Add(new XElement("Subcontractor", dwc.Subcontractor));
+            root.Add(new XElement("Today", dwc.Today));
+            root.Add(new XElement("Tomorrow", dwc.Tomorrow));
+
+            XElement activities = new XElement("Activities");
+            XElement activity;
+            root.Add(activities);
+
+            foreach (var j in dwc.JCS)
+            {
+                foreach (var item in j.Activities)
+                {
+                    activity = new XElement("Activity");
+                    activity.Add(new XElement("ActivityID", item.ActivityID));
+                    if (!string.IsNullOrWhiteSpace(item.SubContractorRemarks))
+                        activity.Add(new XElement("Remarks", item.SubContractorRemarks));
+                    activity.Add(new XElement("JCSID", j.JCSID));
+                    activities.Add(activity);
+                }
+            }
+
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@DWC", new SqlXml(XElement.Parse(root.ToString()).CreateReader()));
+            parameters[1] = new SqlParameter("@UpdatedBy", loggedInUser);
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+            {
+                using (SqlCommand command = new SqlCommand("MO.VerifyDWCSubcon", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddRange(parameters);

@@ -17,5 +17,9 @@ namespace MMHE.MO.Models
         public string IWRStatus { get; set; }
 
         public string ActivityDiscipline { get; set; }
+
+        public string SubContractorRemarks { get; set; }
+
+        public int Status { get; set; }
     }
 }
