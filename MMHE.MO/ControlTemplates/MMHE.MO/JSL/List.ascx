@@ -6,6 +6,11 @@
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="List.ascx.cs" Inherits="MMHE.MO.Controls.JSL.List" %>
+
+<%-- need to delete --%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
+
 <div class="row">
     <div class="col-12">
         <button type="button" class="btn btn-primary btn-sm me-1" onclick="download()"><i class="mdi mdi-download-circle me-1"></i>Export</button>
@@ -38,7 +43,9 @@
                                 <tr>
                                     <td><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10  text-uppercase jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+                                        <label hidden id="backgroundcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "BackgroundColor") %></label>
+                                        <label hidden id="fontcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "FontColor") %></label>
+                                        <div class="float-end"><span id="statusBadge+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>" name="statusBadge+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>" style="color: <%# DataBinder.Eval(Container.DataItem, "FontColor") %>; background-color: <%# DataBinder.Eval(Container.DataItem, "BackgroundColor") %>" class="badge badge-pill badge-soft-primary font-size-10  text-uppercase jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
                                         <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
                                     </td>
@@ -63,7 +70,7 @@
                                                 <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "WCRStatus") %></small></div>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                     <td style="width: 20px">
                                         <a href="<%#(DataBinder.Eval(Container.DataItem, "Type").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JSLID") %>&type=<%#DataBinder.Eval(Container.DataItem, "Type") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
@@ -104,4 +111,40 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jcsTable tbody tr td div span[id*='statusBadge']").each(function () {
+            var $srow = $(this).closest('tr')[0];
+            var innerHTMLString = "";
+            $.each($srow.cells, function (index, Value) {
+                if (Value.innerHTML.indexOf('fontcolor+') > -1) {
+                    innerHTMLString = $srow.cells[index].innerHTML;
+                }
+            });
+
+            var element = jQuery.parseHTML(innerHTMLString);
+            var Id = element[1].id;
+
+            var fontColor = element[1].innerText;
+            var backgroundColor = element[3].innerText;
+            Id = Id.split('+')[1];
+
+            if (backgroundColor != "" && backgroundColor != null && backgroundColor != undefined && fontColor != null && fontColor != "" && fontColor != undefined) {
+                if (fontColor.toUpperCase() == backgroundColor.toUpperCase()) {
+
+                    //$("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").removeAttr('style');
+                    //$("#statusBadge+" + Id).removeAttr('style')
+                    if (fontColor.toUpperCase() == "WHITE") {
+                        $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'black' });
+                    }
+                    else {
+                        $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'white' });
+                    }
+
+                }
+            }
+        })
+    });
+</script>
 <!-- /.modal -->
