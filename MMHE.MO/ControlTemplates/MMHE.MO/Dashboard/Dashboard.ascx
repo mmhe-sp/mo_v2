@@ -7,6 +7,10 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.ascx.cs" Inherits="MMHE.MO.ControlTemplates.MMHE.MO.Dashboard.Dashboard" %>
 
+<%-- need to change --%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.32.0/apexcharts.min.js" integrity="sha512-JWuHiH5weF9hQAM/H5LaXRekU40IcLV8QgqGtvlR2t6vFNmDdCxkmFDajuHiuN0Tyh3n7HO/qdb3ARyUokKs0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
 <div class="col-xl-4">
     <div class="card">
         <div class="card-body">
@@ -118,67 +122,61 @@
             <div class="d-sm-flex flex-wrap">
                 <h4 class="card-title mb-4">Job Confirmation Scope</h4>
             </div>
-            <div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>
+            <div id="stacked-column-chart-jcs" class="apex-charts" dir="ltr"></div>
         </div>
     </div>
 </div>
-<%--<script src="../../../../Style Library/assets/libs/apexcharts.min.js" type="text/javascript"></script>
-<script src="../../../../Style Library/assets/js/pages/apexcharts.init.js"></script>
-<link href="../../../../Style Library/assets/libs/apexcharts.css" rel="stylesheet" />
+
 <script type="text/javascript">
-    var options = {
-        chart: {
-            height: 305,
-            type: "bar",
-            stacked: 0,
-            toolbar: {
-                show: !1
+
+
+    $(document).ready(function () {
+        debugger;
+        <% var serializer = new System.Web.Script.Serialization.JavaScriptSerializer(); %>
+        var data = <%= serializer.Serialize(statistics) %>;
+
+        var options = {
+            chart: {
+                height: 305,
+                type: "bar",
+                stacked: 0,
+                toolbar: {
+                    show: !1
+                },
+                zoom: {
+                    enabled: !0
+                }
             },
-            zoom: {
-                enabled: !0
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: "25%",
+                    endingShape: "rounded"
+                }
+            },
+            dataLabels: {
+                enabled: 1,
+                position: 'top'
+            },
+            series: data,
+            xaxis: {
+                categories: ["O", "V", "A"]
+            },
+            colors: ["#556ee6", "#f1b44c", "#34c38f"],
+            legend: {
+                position: "bottom"
+            },
+            fill: {
+                opacity: 1
             }
         },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: "25%",
-                endingShape: "rounded"
-            }
-        },
-        dataLabels: {
-            enabled: 1,
-            position: 'top'
-        },
-        series: [{
-            name: "WIP",
-            data: [44, 55, 41]
-        }, {
-            name: "New",
-            data: [13, 23, 20]
-        }, {
-            name: "Pending",
-            data: [11, 17, 15]
-        }, {
-            name: "Approve",
-            data: [11, 17, 15]
-        }, {
-            name: "Final Approval",
-            data: [11, 17, 15]
-        }],
-        xaxis: {
-            categories: ["OS", "VO", "AWO"]
-        },
-        colors: ["#556ee6", "#f1b44c", "#34c38f"],
-        legend: {
-            position: "bottom"
-        },
-        fill: {
-            opacity: 1
-        }
-    },
-    chart = new ApexCharts(document.querySelector("#stacked-column-chart"), options);
-    chart.render();
-</script>--%>
+        chart = new ApexCharts(document.querySelector("#stacked-column-chart-jcs"), options);
+        chart.render();
+    });
+
+    
+
+</script>
 
 
 
