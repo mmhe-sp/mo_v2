@@ -162,7 +162,7 @@
                                         <%} %>
                                     </td>
                                     <td>
-                                        <%if (activity.ActivityType == "I" && activity.Completion >= 100)
+                                        <%if (activity.ActivityType == "I")
                                           { %>
                                         <input type="hidden" class="form-control form-control-sm percentage" value="<%=activity.Completion %>" />
                                         <span class="percentage"><%=activity.Completion %>%</span>

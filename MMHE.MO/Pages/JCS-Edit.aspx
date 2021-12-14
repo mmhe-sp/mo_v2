@@ -55,7 +55,7 @@
 			try
 			{
 				$("#activities").DataTable({
-					lengthChange: !1, search: false, paging: false, inf: false
+					lengthChange: !1, search: false, paging: false, info: false
 				});
 			} catch (e) { }
 
@@ -260,7 +260,7 @@
 				contentType: 'application/json; charset=UTF-8'
 			}).done(function (d)
 			{
-				showMessage('The Details have been submitted successfully.', 'success', reloadGrid);
+			    showMessage('The Details have been submitted successfully.', 'success', function () { window.location.href = "jcs-list.aspx";});
 			}).fail(function ()
 			{
 				showMessage('Unable to submit the Details.', 'error', reloadGrid);

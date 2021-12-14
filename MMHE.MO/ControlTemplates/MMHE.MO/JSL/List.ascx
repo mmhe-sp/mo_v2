@@ -73,7 +73,7 @@
 
                                     </td>
                                     <td style="width: 20px">
-                                        <a href="<%#(DataBinder.Eval(Container.DataItem, "Type").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JSLID") %>&type=<%#DataBinder.Eval(Container.DataItem, "Type") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                        <a href="javascript::void(0)" onclick="editJCS()"><i class="mdi mdi-circle-edit-outline"></i></a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -112,6 +112,26 @@
     <!-- /.modal-dialog -->
 </div>
 
+
+<div class="modal" id="jcsEditModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Manage JSL Master</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveJSL()">Upload</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#jcsTable tbody tr td div span[id*='statusBadge']").each(function () {

@@ -151,5 +151,9 @@
 			    window.location.reload();
 			});
         }
+        function editJCS()
+        {
+
+        }
 	</script>
 </asp:Content>

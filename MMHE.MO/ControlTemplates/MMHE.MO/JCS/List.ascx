@@ -6,6 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="List.ascx.cs" Inherits="MMHE.MO.Controls.JCS.List" %>
+
 <div class="row">
     <div class="col-12">
         <a href="vo-manage.aspx?type=A" class="btn btn-primary btn-sm me-1"><i class="mdi mdi-plus-circle me-1"></i>New AWO</a>
@@ -40,14 +41,22 @@
                                 <tr>
                                     <td><%# DataBinder.Eval(Container.DataItem, "MyGroup") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10  text-uppercase jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
+                                        <%--Added By Akshay on 13-12-21 --%>
+                                        <label hidden id="jslbackgroundcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "JSLBackgroundColor") %></label>
+                                        <label hidden id="jslfontcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "JSLFontColor") %></label>
+                                        <%--Added By Akshay on 13-12-21 --%>
+                                        <div class="float-end"><span id="statusBadge+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>" style="color: <%# DataBinder.Eval(Container.DataItem, "JSLFontColor") %>; background-color: <%# DataBinder.Eval(Container.DataItem, "JSLBackgroundColor") %>" class="badge badge-pill badge-soft-primary font-size-10  text-uppercase jsl-status"><%# DataBinder.Eval(Container.DataItem, "JSLStatus") %></span></div>
                                         <%# DataBinder.Eval(Container.DataItem, "lType") %>
                                         <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "lDiscipline") %></small></div>
                                     </td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "OwnerNo") %></td>
                                     <td style="width: 40px;"><%# DataBinder.Eval(Container.DataItem, "WBS") %></td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 text-uppercase jcs-status"><%# DataBinder.Eval(Container.DataItem, "JCSStatus") %></span></div>
+                                        <%--Added By Akshay on 13-12-21 --%>
+                                        <label hidden id="jcsbackgroundcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "JCSBackgroundColor") %></label>
+                                        <label hidden id="jcsfontcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "JCSFontColor") %></label>
+                                        <%--Added By Akshay on 13-12-21 --%>
+                                        <div class="float-end"><span id="jcsstatusBadge+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>" style="color: <%# DataBinder.Eval(Container.DataItem, "JCSFontColor") %>; background-color: <%# DataBinder.Eval(Container.DataItem, "JCSBackgroundColor") %>" class="badge badge-pill badge-soft-primary font-size-10 text-uppercase jcs-status"><%# DataBinder.Eval(Container.DataItem, "JCSStatus") %></span></div>
                                         <div class="text-dark">
                                             <%# DataBinder.Eval(Container.DataItem, "Work_Title") %>
                                         </div>
@@ -56,17 +65,9 @@
                                         </span>
                                     </td>
                                     <td class="text-center" style="width: 40px;">
-                                        <div class="row mb-1">
-                                            <div class="col text-start">
-                                                <div class="text-muted">
-                                                    <small><%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="col text-end">
-                                                <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></small></div>
-                                            </div>
+                                        <div class="text-muted text-center">
+                                            <%# DataBinder.Eval(Container.DataItem, "CompletionPer") %>%
                                         </div>
-                                        
                                     </td>
                                     <td style="width: 20px">
                                         <a href="<%#(DataBinder.Eval(Container.DataItem, "ActivityType").ToString() == "O")?"jcs-edit.aspx":"vo-manage.aspx" %>?id=<%#DataBinder.Eval(Container.DataItem, "JCSID") %>&type=<%#DataBinder.Eval(Container.DataItem, "ActivityType") %>"><i class="mdi mdi-circle-edit-outline"></i></a>
