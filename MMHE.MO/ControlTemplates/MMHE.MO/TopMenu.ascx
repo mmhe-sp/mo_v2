@@ -393,8 +393,8 @@
                         <div class="dropdown-menu"
                             aria-labelledby="topnav-uielement">
                             <%--<a href="report.aspx" class="dropdown-item" key="t-alerts">Daily Work Progress Log</a>--%>
-                            <a href="wdr-list.aspx" class="dropdown-item" key="t-dropdowns" onclick="showProgress()">Work Done Report - Subcon</a>
-                            <a href="wcr-list.aspx" class="dropdown-item" key="t-buttons" onclick="showProgress()">Work Completion Report - Client</a>                           
+                            <a href="wcr-list.aspx" class="dropdown-item" key="t-buttons" onclick="showProgress()">Work Completion Report - Client</a>
+                            <a href="wdr-list.aspx" class="dropdown-item" key="t-dropdowns" onclick="showProgress()">Work Done Report - Subcon</a>                                                       
                             <%--<a href="" class="dropdown-item" key="t-dropdowns">IWR Report</a>
                             <a href="" class="dropdown-item" key="t-carousel">Work Completion Summary</a>
                             <a href="" class="dropdown-item" key="t-dropdowns">AWO/VO Summary</a>--%>
