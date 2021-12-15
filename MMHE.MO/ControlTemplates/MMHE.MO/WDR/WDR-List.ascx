@@ -23,8 +23,8 @@
                                 <div class="text-muted"><small>Remarks</small></div>
                             </th>
                             <th class="no-sort text-center">DWC Completion Date</th>
-                            <th class="no-sort text-center">WCR Completion Date</th>
-                            <th class="no-sort text-center">Progress</th>
+                            <th class="no-sort text-center">WDR Completion Date</th>
+                            <%--<th class="no-sort text-center">Progress</th>--%>
                             <th class="no-sort text-center" style="width: 20px"></th>
                         </tr>
                     </thead>
@@ -51,7 +51,7 @@
                                     </td>
                                     <td><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0:dd/MM/yyyy}") %></td>
                                     <td><%# DataBinder.Eval(Container.DataItem, "WDRCompletedDt",  "{0:dd/MM/yyyy}") %></td>
-                                    <td class="text-center">
+                                    <%--<td class="text-center">
                                         <div class="row mb-1">
                                             <div class="col text-start">
                                                 <div class="text-muted">
@@ -60,9 +60,9 @@
                                             </div>
                                             <%--<div class="col text-end">
                                                 <div class="text-muted"><small><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></small></div>
-                                            </div>--%>
+                                            </div>
                                         </div>                                        
-                                    </td>
+                                    </td>--%>
                                     <td style="width: 20px">
                                         <a href="WDRI.aspx?refno=<%# DataBinder.Eval(Container.DataItem, "OwnerNo") %>&jcsid=<%# DataBinder.Eval(Container.DataItem, "JCSID") %>&dc=<%# DataBinder.Eval(Container.DataItem, "DisciplineCode") %>&ProjectID=<%# DataBinder.Eval(Container.DataItem, "ProjectID") %>&type=Subcon">WDR Report</a>
                                     </td>

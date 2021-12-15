@@ -21,8 +21,8 @@
                             <th class="no-sort text-center">Work Title
                                 <div class="text-muted"><small>Remarks</small></div>
                             </th>
-                            <th class="no-sort text-center">Start Date</th>
-                            <th class="no-sort text-center">End Date</th>
+                            <th class="no-sort text-center">DWC Completion Date</th>
+                            <th class="no-sort text-center">WCR Completion Date</th>
                             <th class="no-sort text-center" style="width: 20px"></th>
                         </tr>
                     </thead>
@@ -41,8 +41,8 @@
                                             <%# DataBinder.Eval(Container.DataItem, "WorkTitle") %>
                                         </div>
                                     </td>
-                                    <td><%# DataBinder.Eval(Container.DataItem, "StartDate",  "{0:dd/MM/yyyy}") %></td>
-                                    <td><%# DataBinder.Eval(Container.DataItem, "EndDate",  "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtWCRAct",  "{0:dd/MM/yyyy}") %></td>
                                     <td style="width: 20px">
                                         <a href="WCR.aspx?refno=<%# DataBinder.Eval(Container.DataItem, "OwnerNo") %>&jcsid=<%# DataBinder.Eval(Container.DataItem, "JCSID") %>&dc=<%# DataBinder.Eval(Container.DataItem, "DisciplineCode") %>&type=InHouse&CANCELLED=<%# DataBinder.Eval(Container.DataItem, "CANCELLED") %>">WCR Report</a>
                                     </td>

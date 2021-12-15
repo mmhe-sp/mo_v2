@@ -194,26 +194,6 @@
     <Compile Include="UI\ManageVO.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_MMHE_MODataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_MMHE_MODataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_MMHE_MODataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_MMHE_MODataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_MMHE_MODataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_MMHE_MODataSet3.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\fonts\boxicons.eot" />
@@ -268,50 +248,6 @@
     </None>
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a1cddc43-b6aa-4201-86c3-ae5bb2ebf230}</SharePointProjectItemId>
-    </None>
-    <None Include="_MMHE_MODataSet.xsc">
-      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_MMHE_MODataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_MMHE_MODataSet.xss">
-      <DependentUpon>_MMHE_MODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet1.xsc">
-      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_MMHE_MODataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_MMHE_MODataSet1.xss">
-      <DependentUpon>_MMHE_MODataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet2.xsc">
-      <DependentUpon>_MMHE_MODataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_MMHE_MODataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_MMHE_MODataSet2.xss">
-      <DependentUpon>_MMHE_MODataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet3.xsc">
-      <DependentUpon>_MMHE_MODataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="_MMHE_MODataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_MMHE_MODataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_MMHE_MODataSet3.xss">
-      <DependentUpon>_MMHE_MODataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
