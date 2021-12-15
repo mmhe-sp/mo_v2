@@ -427,7 +427,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Yard has to provide manpower and tools, and equipment to perform a job as per attached survey report.</Value>
+                        <Value>Yard has to provide manpower and tools, and equipment to perform a job as per attached.</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>
@@ -2214,10 +2214,9 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>VESSEL :</Value>
+                        <Value>=First(Fields!ProjectName.Value, "ReportDataSet")</Value>
                         <Style>
                           <FontFamily>Times New Roman</FontFamily>
-                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2226,9 +2225,9 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox1</rd:DefaultName>
                 <Top>0.70899cm</Top>
-                <Left>17.37762cm</Left>
-                <Height>0.50294cm</Height>
-                <Width>1.85625cm</Width>
+                <Left>19.64858cm</Left>
+                <Height>0.72859cm</Height>
+                <Width>5.18037cm</Width>
                 <ZIndex>88</ZIndex>
                 <Style>
                   <Border>
@@ -2372,40 +2371,6 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox56">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=First(Fields!ProjectName.Value, "ReportDataSet")</Value>
-                        <Style>
-                          <FontFamily>Times New Roman</FontFamily>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Left</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox56</rd:DefaultName>
-                <Top>0.29385in</Top>
-                <Left>7.66297in</Left>
-                <Height>0.25in</Height>
-                <Width>2.1122in</Width>
-                <ZIndex>93</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
               <Textbox Name="Textbox57">
                 <CanGrow>true</CanGrow>
                 <KeepTogether>true</KeepTogether>
@@ -2429,7 +2394,7 @@
                 <Left>7.73566in</Left>
                 <Height>0.25in</Height>
                 <Width>2.03952in</Width>
-                <ZIndex>94</ZIndex>
+                <ZIndex>93</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2463,7 +2428,7 @@
                 <Left>8.11066in</Left>
                 <Height>0.20833in</Height>
                 <Width>1.66452in</Width>
-                <ZIndex>95</ZIndex>
+                <ZIndex>94</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2497,7 +2462,7 @@
                 <Left>8.11066in</Left>
                 <Height>0.19737in</Height>
                 <Width>1.66452in</Width>
-                <ZIndex>96</ZIndex>
+                <ZIndex>95</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2531,7 +2496,7 @@
                 <Left>8.06066in</Left>
                 <Height>0.25in</Height>
                 <Width>1.57231in</Width>
-                <ZIndex>97</ZIndex>
+                <ZIndex>96</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2547,7 +2512,7 @@
                 <Left>1.40528in</Left>
                 <Height>0.71196in</Height>
                 <Width>0in</Width>
-                <ZIndex>98</ZIndex>
+                <ZIndex>97</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2559,7 +2524,7 @@
                 <Left>3.23968in</Left>
                 <Height>0.325in</Height>
                 <Width>0in</Width>
-                <ZIndex>99</ZIndex>
+                <ZIndex>98</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2571,7 +2536,7 @@
                 <Left>4.19725cm</Left>
                 <Height>0.8255cm</Height>
                 <Width>0cm</Width>
-                <ZIndex>100</ZIndex>
+                <ZIndex>99</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2601,7 +2566,7 @@
                 <Left>3.31485in</Left>
                 <Height>0.2125in</Height>
                 <Width>0.40979in</Width>
-                <ZIndex>101</ZIndex>
+                <ZIndex>100</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2626,13 +2591,49 @@
                         </Style>
                       </TextRun>
                     </TextRuns>
-                    <Style />
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox54</rd:DefaultName>
-                <Left>8.28985in</Left>
+                <Top>0.0635cm</Top>
+                <Left>7.73566in</Left>
                 <Height>0.16042in</Height>
-                <Width>1.5682in</Width>
+                <Width>2.12239in</Width>
+                <ZIndex>101</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox55">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>VESSEL :    </Value>
+                        <Style>
+                          <FontFamily>Times New Roman</FontFamily>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox1</rd:DefaultName>
+                <Top>0.70899cm</Top>
+                <Left>17.3892cm</Left>
+                <Height>0.50294cm</Height>
+                <Width>1.85625cm</Width>
                 <ZIndex>102</ZIndex>
                 <Style>
                   <Border>

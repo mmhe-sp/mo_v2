@@ -55,8 +55,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet1</rd:DataSetName>
-        <rd:SchemaPath>E:\Simbiotik\Sumeet\repo\mo_v2\MMHE.MO\_MMHE_MODataSet1.xsd</rd:SchemaPath>
+        <rd:DataSetName>_MMHE_MODataSet2</rd:DataSetName>
+        <rd:SchemaPath>E:\Simbiotik\Sumeet\repo\mo_v2\MMHE.MO\_MMHE_MODataSet2.xsd</rd:SchemaPath>
         <rd:TableName>Sp_FetchIWRSubReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -111,8 +111,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Simbiotik\Sumeet\repo\mo_v2\MMHE.MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
+        <rd:DataSetName>_MMHE_MODataSet3</rd:DataSetName>
+        <rd:SchemaPath>E:\Simbiotik\Sumeet\repo\mo_v2\MMHE.MO\_MMHE_MODataSet3.xsd</rd:SchemaPath>
         <rd:TableName>Sp_FetchIWRMainReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -855,20 +855,59 @@
                   </Border>
                 </Style>
               </Line>
-              <Tablix Name="Tablix12">
+              <Tablix Name="Tablix1">
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>17.32464cm</Width>
+                      <Width>1.52633cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>16.58016cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
                     <TablixRow>
-                      <Height>0.70583cm</Height>
+                      <Height>0.6cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="Textbox56">
+                            <Textbox Name="Textbox15">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Items</Value>
+                                      <Style>
+                                        <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                        <FontWeight>Bold</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox15</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="Textbox18">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -885,17 +924,15 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>Textbox56</rd:DefaultName>
+                              <rd:DefaultName>Textbox18</rd:DefaultName>
                               <Style>
                                 <Border>
+                                  <Color>LightGrey</Color>
                                   <Style>Solid</Style>
                                 </Border>
-                                <BackgroundColor>Silver</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -911,6 +948,38 @@
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
+                            <Textbox Name="SequenceOrder1">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!SequenceOrder.Value</Value>
+                                      <Style />
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>SequenceOrder1</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
                             <Textbox Name="Remarks">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
@@ -919,12 +988,12 @@
                                   <TextRuns>
                                     <TextRun>
                                       <Value>=Fields!Remarks.Value</Value>
-                                      <Style />
+                                      <Style>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                      </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Remarks</rd:DefaultName>
@@ -933,9 +1002,6 @@
                                   <Color>LightGrey</Color>
                                   <Style>Solid</Style>
                                 </Border>
-                                <TopBorder>
-                                  <Style>None</Style>
-                                </TopBorder>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -951,108 +1017,24 @@
                 <TablixColumnHierarchy>
                   <TablixMembers>
                     <TablixMember />
+                    <TablixMember />
                   </TablixMembers>
                 </TablixColumnHierarchy>
                 <TablixRowHierarchy>
                   <TablixMembers>
                     <TablixMember>
-                      <TablixHeader>
-                        <Size>1.52716cm</Size>
-                        <CellContents>
-                          <Textbox Name="Textbox14">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>Items</Value>
-                                    <Style>
-                                      <FontStyle>Normal</FontStyle>
-                                      <FontFamily>Times New Roman</FontFamily>
-                                      <FontWeight>Bold</FontWeight>
-                                      <TextDecoration>None</TextDecoration>
-                                      <Color>#000000</Color>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <TextAlign>Center</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Textbox2</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Style>Solid</Style>
-                              </Border>
-                              <BackgroundColor>Silver</BackgroundColor>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember />
-                      </TablixMembers>
+                      <KeepWithGroup>After</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
-                      <TablixHeader>
-                        <Size>1.52716cm</Size>
-                        <CellContents>
-                          <Textbox Name="Textbox15">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!SequenceOrder.Value</Value>
-                                    <Style>
-                                      <FontFamily>Times New Roman</FontFamily>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style />
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Textbox4</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Color>LightGrey</Color>
-                                <Style>Solid</Style>
-                              </Border>
-                              <TopBorder>
-                                <Style>None</Style>
-                              </TopBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
-                              <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
-                      <TablixMembers>
-                        <TablixMember />
-                      </TablixMembers>
+                      <Group Name="Details" />
                     </TablixMember>
                   </TablixMembers>
                 </TablixRowHierarchy>
-                <RepeatRowHeaders>true</RepeatRowHeaders>
                 <DataSetName>MainScope</DataSetName>
-                <SortExpressions>
-                  <SortExpression>
-                    <Value>=Fields!SequenceOrder.Value</Value>
-                  </SortExpression>
-                </SortExpressions>
-                <Top>1.34208cm</Top>
-                <Left>0.44056cm</Left>
-                <Height>1.30583cm</Height>
-                <Width>18.8518cm</Width>
+                <Top>1.52704cm</Top>
+                <Left>0.42348cm</Left>
+                <Height>1.2cm</Height>
+                <Width>18.10649cm</Width>
                 <ZIndex>14</ZIndex>
                 <Style>
                   <Border>
