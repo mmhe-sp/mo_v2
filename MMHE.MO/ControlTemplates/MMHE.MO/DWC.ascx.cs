@@ -49,6 +49,7 @@ namespace MMHE.MO.Controls
                         Today = activity.Today,
                         Tomorrow = activity.Tomorrow,
                         Remarks = activity.Remarks,
+                        Discipline = activity.Discipline,
                         ActivityProgress = jcs.Where(d => d.ActivityID.HasValue).Select(d => new DWCProgress
                         {
                             ActivityID = d.ActivityID.Value,
@@ -71,7 +72,9 @@ namespace MMHE.MO.Controls
 
             Details = progress.GroupBy(d => d.MyGroup).OrderBy(d => d.Key).ToList();
 
-            Resources = details.GroupBy(d => new { d.Subscontractor, d.SubContractorID }).Select(g => new Option { Text = g.Key.Subscontractor, Value = g.Key.SubContractorID }).ToList();
+            Resources = details.GroupBy(d => new { d.Subscontractor, d.SubContractorID })
+                .Select(g => new Option { Text = g.Key.Subscontractor, Value = g.Key.SubContractorID })
+                .Where(d => string.IsNullOrWhiteSpace(d.Text) == false).OrderBy(d => d.Text).ToList();
 
         }
     }

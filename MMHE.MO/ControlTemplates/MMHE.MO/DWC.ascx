@@ -5,6 +5,7 @@
 <%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Import Namespace="System.Linq" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DWC.ascx.cs" Inherits="MMHE.MO.Controls.DWC" %>
 
@@ -29,7 +30,7 @@
                                 <label class="col-form-label">Subcontractor:</label>
                             </div>
                             <div class="col-auto">
-                                <select class="form-control subcontractor" onchange="filterRowsByResource(this)" id="subContractor">
+                                <select class="form-select subcontractor" onchange="filterRowsByResource(this)" id="subContractor">
                                     <option value="0">All</option>
                                     <%foreach (var item in Resources)
                                       { %>
@@ -71,15 +72,20 @@
                                 <%foreach (var details in Details)
                                   {
                                 %>
-                                <tr class="discipline">
-                                    <td colspan="7" class="group bg-light">
+                                <tr class="discipline" data-discipline="<%=details.First().Discipline %>">
+                                    <td colspan="4" class="group bg-light">
                                         <%=details.Key %>
                                     </td>
+                                    <td class="bg-light text-center">
+                                       <span class="percentage font-weight-bold" />
+                                    </td>
+                                    <td class="bg-light"></td>
+                                    <td class="bg-light s-contractator"></td>
                                 </tr>
                                 <%foreach (MMHE.MO.Models.DWCDetails item in details)
                                   { %>
 
-                                <tr class="jcs" data-id="<%=item.JCSID %>">
+                                <tr class="jcs" data-id="<%=item.JCSID %>" data-discipline="<%=item.Discipline %>">
 
                                     <td>
                                         <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 jsl-status text-uppercase"><%= item.JSLStatus %></span></div>
@@ -135,12 +141,16 @@
                                     <td style="width: 200px;">
                                         <%if (activity.Status == 1)
                                           {%>
-                                            <div class="float-end" title="Subcon Verified"><i class="mdi mdi-check-circle-outline text-success"></i></div>
-                                            <%} %>
-                                            
+                                        <div class="float-end" title="Subcon Verified">
+                                            <span class="badge rounded-pill bg-success text-uppercase">
+                                                <i class="mdi mdi-check-circle-outline"></i> Subcon Verified
+                                            </span>
+                                        </div>
+                                        <%} %>
+
                                         <%if (activity.ActivityType == "I")
                                           { %>
-                                        <div class="float-end"><span class="badge badge-pill badge-soft-primary font-size-10 text-uppercase"><%=activity.IWRStatus %></span></div>
+                                        <div class="float-end"><span class="badge badge-pill <%=activity.IWRStatus.Equals("Pending",StringComparison.InvariantCultureIgnoreCase)?"bg-warning":"bg-success" %>  font-size-10 text-uppercase"><%=activity.IWRStatus %></span></div>
                                         <%} %>
                                         <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#__a<%=activitySequence%>" role="button" aria-expanded="false" aria-controls="__a<%=activitySequence%>" class="d-block">
                                             <%= activity.Subscontractor %>
@@ -152,7 +162,7 @@
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
                                         <%if (activity.ActivityType != "I")
                                           { %>
-                                        <textarea class="form-control form-control-sm today auto-resize" rows="1"><%=activity.Today %></textarea>
+                                        <textarea class="form-control form-control-sm today auto-resize" rows="1" <%=activity.Status == 1?"readonly":"" %>><%=activity.Today %></textarea>
                                         <%} %>
                                     </td>
                                     <td style="white-space: inherit; word-wrap: break-word !important;">
@@ -165,12 +175,14 @@
                                         <%if (activity.ActivityType == "I")
                                           { %>
                                         <input type="hidden" class="form-control form-control-sm percentage" value="<%=activity.Completion %>" />
-                                        <span class="percentage"><%=activity.Completion %>%</span>
+                                        <div class="text-center">
+                                            <span class="percentage"><%=activity.Completion.ToString("N0") %>%</span>
+                                        </div>
                                         <%}
                                           else
                                           { %>
                                         <div class="input-group">
-                                            <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="0.1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" oninput="calculateJCSCompletion('<%=item.JCSID %>')" />
+                                            <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" onchange="calculateJCSCompletion('<%=item.JCSID %>')" <%=activity.Status == 1?"readonly":"" %>/>
                                             <span class="input-group-text">%</span>
                                         </div>
                                         <%} %>

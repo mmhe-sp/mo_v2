@@ -153,7 +153,49 @@
         }
         function editJCS()
         {
-
+            $('#jcsEditModal').modal('show');
         }
+
+        $(document).ready(function ()
+        {
+            $("#jcsTable tbody tr td div span[id*='statusBadge']").each(function ()
+            {
+                var $srow = $(this).closest('tr')[0];
+                var innerHTMLString = "";
+                $.each($srow.cells, function (index, Value)
+                {
+                    if (Value.innerHTML.indexOf('fontcolor+') > -1)
+                    {
+                        innerHTMLString = $srow.cells[index].innerHTML;
+                    }
+                });
+
+                var element = jQuery.parseHTML(innerHTMLString);
+                var Id = element[1].id;
+
+                var fontColor = element[1].innerText;
+                var backgroundColor = element[3].innerText;
+                Id = Id.split('+')[1];
+
+                if (backgroundColor != "" && backgroundColor != null && backgroundColor != undefined && fontColor != null && fontColor != "" && fontColor != undefined)
+                {
+                    if (fontColor.toUpperCase() == backgroundColor.toUpperCase())
+                    {
+
+                        //$("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").removeAttr('style');
+                        //$("#statusBadge+" + Id).removeAttr('style')
+                        if (fontColor.toUpperCase() == "WHITE")
+                        {
+                            $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'black' });
+                        }
+                        else
+                        {
+                            $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'white' });
+                        }
+
+                    }
+                }
+            })
+        });
 	</script>
 </asp:Content>

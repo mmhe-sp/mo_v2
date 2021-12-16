@@ -48,6 +48,7 @@ namespace MMHE.MO.Business.Repositories
                         JSLRemarks = r.Field<string>("JSLRemarks"),
                         IWRStatus = r.Field<string>("IWRStatus"),
                         ActivityDiscipline = r.Field<string>("ActivityDiscipline"),
+                        Discipline = r.Field<string>("Discipline"),
                         Today = r.Field<string>("Today"),
                         Tomorrow = r.Field<string>("Tomorrow"),
                         Remarks = r.Field<string>("Remarks"),

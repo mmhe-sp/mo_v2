@@ -7,10 +7,6 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="List.ascx.cs" Inherits="MMHE.MO.Controls.JSL.List" %>
 
-<%-- need to delete --%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
-
-
 <div class="row">
     <div class="col-12">
         <button type="button" class="btn btn-primary btn-sm me-1" onclick="download()"><i class="mdi mdi-download-circle me-1"></i>Export</button>
@@ -73,7 +69,7 @@
 
                                     </td>
                                     <td style="width: 20px">
-                                        <a href="javascript::void(0)" onclick="editJCS()"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                        <a href="javascript::void(0)"><i class="mdi mdi-circle-edit-outline"></i></a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -121,10 +117,52 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-               
+                <div class="mb-3 row">
+                    <div class="col-sm-12">
+                        <label class="form-label">Sequence No</label>
+                        <input class="form-control" type="text" placeholder="Sequence Number" value="">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4">
+                        <label class="form-label">Type</label>
+                        <select class="form-select resource" data-value="" onchange="updateWorkTitle(this)" id="ownerNo">
+                            <option disabled selected>Select Owner</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label class="form-label">Discipline</label>
+                        <select class="form-select resource" data-value="" onchange="updateWBS(this)" id="discipline">
+                            <option disabled selected>Select Discipline</option>
+                           
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4">
+                        <label class="form-label">Owner No.</label>
+                        <input class="form-control" type="text" placeholder="Owner No." readonly value="">
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="form-label">Status</label>
+                        <select class="form-select resource" data-value="">
+                            <option disabled selected>Select Status</option>
+                           
+                        </select>
+                        
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-12">
+                        <label class="form-label">Work Title</label>
+                        <input class="form-control" type="text" placeholder="Work Title" value="">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="saveJSL()">Upload</button>
+                <button type="button" class="btn btn-primary" onclick="saveJSL()">Save</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -132,39 +170,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#jcsTable tbody tr td div span[id*='statusBadge']").each(function () {
-            var $srow = $(this).closest('tr')[0];
-            var innerHTMLString = "";
-            $.each($srow.cells, function (index, Value) {
-                if (Value.innerHTML.indexOf('fontcolor+') > -1) {
-                    innerHTMLString = $srow.cells[index].innerHTML;
-                }
-            });
-
-            var element = jQuery.parseHTML(innerHTMLString);
-            var Id = element[1].id;
-
-            var fontColor = element[1].innerText;
-            var backgroundColor = element[3].innerText;
-            Id = Id.split('+')[1];
-
-            if (backgroundColor != "" && backgroundColor != null && backgroundColor != undefined && fontColor != null && fontColor != "" && fontColor != undefined) {
-                if (fontColor.toUpperCase() == backgroundColor.toUpperCase()) {
-
-                    //$("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").removeAttr('style');
-                    //$("#statusBadge+" + Id).removeAttr('style')
-                    if (fontColor.toUpperCase() == "WHITE") {
-                        $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'black' });
-                    }
-                    else {
-                        $("#jcsTable tbody tr td div span[id = 'statusBadge+" + Id + "']").css({ 'color': 'white' });
-                    }
-
-                }
-            }
-        })
-    });
-</script>
 <!-- /.modal -->

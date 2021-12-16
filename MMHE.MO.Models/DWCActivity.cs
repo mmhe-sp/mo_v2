@@ -34,5 +34,7 @@ namespace MMHE.MO.Models
         public string SubContractorRemarks { get; set; }
 
         public int Status { get; set; }
+
+        public string Discipline { get; set; }
     }
 }

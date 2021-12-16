@@ -48,6 +48,7 @@
 <asp:Content ID="ContentScript" ContentPlaceHolderID="Script" runat="server">
     <script>
         var __key = 'dwc';
+        var __resourceKey = __key + "_resource";
         var jscDataTable;
         $(document).ready(function ()
         {
@@ -94,7 +95,7 @@
             {
                 autoResize(v, "each");
             });
-            filterRowsByResource($('#subContractor')[0]);
+            filterRowsByResource($('#subContractor')[0], sessionStorage.getItem(__resourceKey));
         });
 
         function calculateJCSCompletion(jcsId)
@@ -113,7 +114,7 @@
                 if (isNaN(current))
                     current = 0;
                 else current = Number(current);
-                if (current > 0)
+                if (current < 0)
                     current = 0;
                 else if (current > 100)
                     current = 100;
@@ -131,7 +132,29 @@
             });
             if (!count)
                 count = 1;
-            jscDataTable.find('tr.jcs[data-id="' + jcsId + '"] span.percentage').text((total / count).toFixed(2) + ' %');
+
+            var jcsRow = jscDataTable.find('tr.jcs[data-id="' + jcsId + '"]');
+            jcsRow.find('span.percentage').text((total / count).toFixed(0) + ' %');
+            var discipline = jcsRow.data('discipline');
+            if (discipline)
+            {
+                var jcsRows = $('tr.jcs[data-discipline="' + discipline + '"] span.percentage');
+                count = 0;
+                percentage = 0;
+                current = 0;
+                $.each(jcsRows, function (i, v)
+                {
+                    current = $(v).text().replace('%', '').trim();
+                    if (!isNaN(current))
+                        percentage += Number(current);
+                    count++;
+                });
+                if (!count)
+                    count = 1;
+                percentage = percentage / count;
+                $('tr.discipline[data-discipline=' + discipline + '] span.percentage').text(percentage.toFixed(0) + ' %');
+            }
+            
         }
         function saveProgress()
         {
@@ -206,15 +229,24 @@
             ctrl.style.height = (h) + "px";
         }
 
-        function filterRowsByResource(ctrl)
+        function filterRowsByResource(ctrl,value)
         {
             $('#jcsTable tbody tr').removeClass('d-none');
+            if (value)
+            {
+                if ($(ctrl).find("option[value='" + value + "']").length > 0)
+                    $(ctrl).val(value);
+            }
             if (ctrl.value == '0')
             {
                 $('td.s-contractator,th.s-contractator').addClass('d-none');
+                sessionStorage.removeItem(__resourceKey);
+
             }
             else
             {
+                sessionStorage.setItem(__resourceKey, ctrl.value);
+
                 $('tr.activity[data-subcontractor!="' + ctrl.value + '"]').addClass('d-none');
                 $('td.s-contractator,th.s-contractator').removeClass('d-none');
                 hideEmptyJCS();
