@@ -13,6 +13,15 @@ namespace MMHE.MO.Controls.Reports {
     public partial class WCR {
         
         /// <summary>
+        /// btnComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnComplete;
+        
+        /// <summary>
         /// WDRSReport control.
         /// </summary>
         /// <remarks>
