@@ -51,7 +51,7 @@ namespace MMHE.MO.Controls.Reports
         {
             string ownerNo = Request.QueryString["refno"];            
             var user = (Page as BasePage).LoggedInUser;
-            bool result = new WCRRepository().UpdateWCRStatus(user.Id.ToString(),ownerNo);
+            bool result = false;// new WCRRepository().UpdateWCRStatus(user.Id.ToString(), ownerNo);
             if (result == true)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(),

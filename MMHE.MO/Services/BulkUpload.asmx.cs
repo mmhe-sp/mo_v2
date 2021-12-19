@@ -3,6 +3,7 @@ using MMHE.MO.Business.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,26 @@ namespace MMHE.MO.Services
             using (XLWorkbook workBook = new XLWorkbook(file.InputStream))
             {
                 IXLWorksheet workSheet = workBook.Worksheet(1);
-                Import(workSheet.Rows().Skip(2));
+                ImportJCS(workSheet.Rows().Skip(2));
             }
         }
 
-        private void Import(IEnumerable<IXLRow> rows)
+        [WebMethod]
+        public bool JSL()
+        {
+            HttpFileCollection files = HttpContext.Current.Request.Files;
+            var file = files[0];
+            using (XLWorkbook workBook = new XLWorkbook(file.InputStream))
+            {
+                IXLWorksheet workSheet = workBook.Worksheet(1);
+                ImportJSL(workSheet.Rows().Skip(1));
+            }
+            return true;
+        }
+
+
+
+        private void ImportJCS(IEnumerable<IXLRow> rows)
         {
             //Create a new DataTable.
             DataTable dt = new DataTable();
@@ -50,21 +66,21 @@ namespace MMHE.MO.Services
                     continue;
                 }
 
-                if (IsRowEmpty(row) && findJSL)
+                if (IsJCSRowEmpty(row) && findJSL)
                     continue;
                 else
                     findJSL = false;
                 if (cell.IsEmpty() == false)
                 {
                     if (addNewRow)
-                        AddRow(dt, owner, contractItems, discipline, jsl);
+                        AddJCSRow(dt, owner, contractItems, discipline, jsl);
                     owner = cell.GetString();
                     jsl = row.Cell(2).GetString();
                     contractItems = string.Empty;
                     addNewRow = true;
                     continue;
                 }
-                else if (IsRowEmpty(row) == false)
+                else if (IsJCSRowEmpty(row) == false)
                 {
                     if (string.IsNullOrWhiteSpace(contractItems) == false)
                         contractItems += Environment.NewLine;
@@ -78,7 +94,7 @@ namespace MMHE.MO.Services
 
             //Add last Row.
             if (addNewRow)
-                AddRow(dt, owner, contractItems, discipline, jsl);
+                AddJCSRow(dt, owner, contractItems, discipline, jsl);
 
             //save data into database
             var jcsRepository = new JCSRepository();
@@ -87,7 +103,7 @@ namespace MMHE.MO.Services
 
         }
 
-        private void AddRow(DataTable dt, string owner, string contractItems, string discipline, string jsl)
+        private void AddJCSRow(DataTable dt, string owner, string contractItems, string discipline, string jsl)
         {
             DataRow dataRow = dt.NewRow();
             dataRow[0] = owner;
@@ -96,7 +112,8 @@ namespace MMHE.MO.Services
             dataRow[3] = contractItems;
             dt.Rows.Add(dataRow);
         }
-        private bool IsRowEmpty(IXLRow row)
+
+        private bool IsJCSRowEmpty(IXLRow row)
         {
             return
                 row.Cell(1).IsEmpty()
@@ -107,6 +124,40 @@ namespace MMHE.MO.Services
                 && row.Cell(6).IsEmpty()
                 && row.Cell(7).IsEmpty()
                 && row.Cell(8).IsEmpty();
+        }
+
+
+        private void ImportJSL(IEnumerable<IXLRow> rows)
+        {
+            Int32 iRow = 0;
+            JSLRepository jslRepository = new JSLRepository();
+            foreach (IXLRow _dr in rows)
+            {
+                string dtRcvPMT = _dr.Cell(11).GetString();
+                string dtSubmitTo = _dr.Cell(12).GetString();
+                string dtRcvClient = _dr.Cell(13).GetString();
+
+
+                string dtWorkCompleted = _dr.Cell(15).GetString();
+                string dtWCRPlan = "";
+                string dtWCRAct = _dr.Cell(16).GetString();
+                string dtWCRSign = _dr.Cell(17).GetString();
+
+
+                if (_dr.Cell(3).GetString() != "")
+                {
+                    jslRepository.Import("XCELINS", "", LoggedInUser.ProjectId, _dr.Cell(1).GetString(), _dr.Cell(2).GetString(),
+                    _dr.Cell(4).GetString(), _dr.Cell(5).GetString(), "",
+                    _dr.Cell(6).GetString(), _dr.Cell(8).GetString(), _dr.Cell(7).GetString(),
+                    _dr.Cell(9).GetString(), _dr.Cell(10).GetString(), dtRcvPMT,
+                    dtSubmitTo.ToString(), dtRcvClient, _dr.Cell(14).GetString(), dtWorkCompleted,
+                    dtWCRPlan.ToString(), dtWCRAct.ToString(),
+                    dtWCRSign.ToString(), "", _dr.Cell(18).GetString(), LoggedInUser.Id, _dr.Cell(3).GetString());
+                }
+
+
+                iRow = iRow + 1;
+            }
         }
     }
 }

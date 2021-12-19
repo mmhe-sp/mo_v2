@@ -1,15 +1,11 @@
 ﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
-<%@ Import Namespace="Microsoft.SharePoint" %> 
-<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.ascx.cs" Inherits="MMHE.MO.ControlTemplates.MMHE.MO.Dashboard.Dashboard" %>
-
-<%-- need to change --%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.32.0/apexcharts.min.js" integrity="sha512-JWuHiH5weF9hQAM/H5LaXRekU40IcLV8QgqGtvlR2t6vFNmDdCxkmFDajuHiuN0Tyh3n7HO/qdb3ARyUokKs0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
 
 <div class="col-xl-4">
     <div class="card">
@@ -128,57 +124,10 @@
 </div>
 
 <script type="text/javascript">
-
-
-    $(document).ready(function () {
-        debugger;
-        <% var serializer = new System.Web.Script.Serialization.JavaScriptSerializer(); %>
-        var data = <%= serializer.Serialize(statistics) %>;
-
-        var options = {
-            chart: {
-                height: 305,
-                type: "bar",
-                stacked: 0,
-                toolbar: {
-                    show: !1
-                },
-                zoom: {
-                    enabled: !0
-                }
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: "25%",
-                    endingShape: "rounded"
-                }
-            },
-            dataLabels: {
-                enabled: 1,
-                position: 'top'
-            },
-            series: data,
-            xaxis: {
-                categories: ["O", "V", "A"]
-            },
-            colors: ["#556ee6", "#f1b44c", "#34c38f"],
-            legend: {
-                position: "bottom"
-            },
-            fill: {
-                opacity: 1
-            }
-        },
-        chart = new ApexCharts(document.querySelector("#stacked-column-chart-jcs"), options);
-        chart.render();
-    });
-
-    
-
+    var data = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(statistics) %>;
 </script>
 
 
 
 
-		
+

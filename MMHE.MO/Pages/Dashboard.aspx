@@ -13,90 +13,134 @@
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-	<div class="container-fluid">
-		<!-- start page title -->
-		<div class="row">
-			<div class="col-12">
-				<div class="page-title-box d-sm-flex align-items-center justify-content-between">
-					<mo:ProjectName runat="server" id="projectName"></mo:ProjectName>
-					<div class="page-title-right">
-						<ol class="breadcrumb m-0">
-							<li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
-							<li class="breadcrumb-item active">Dashboard</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end page title -->
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <mo:ProjectName runat="server" id="projectName"></mo:ProjectName>
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Marine Operation</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
 
-		<div class="row">
-            <da:dashboard runat="server" id="wdri"></da:dashboard>			
-		</div>        
-		<!-- end row -->
+        <div class="row">
+            <da:dashboard runat="server" id="wdri"></da:dashboard>
+        </div>
+        <!-- end row -->
 
-		<div class="row">
-			<div class="col">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
-							<div class="col text-center">
-								<div class="avatar-sm mx-auto mb-3 mt-1">
-									<span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
-										<i class="mdi mdi-format-list-checks ms-1"></i>
-									</span>
-								</div>
-								<h6><small><a href="">Daily Work Progress Log</a></small></h6>
-							</div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center">
+                                <div class="avatar-sm mx-auto mb-3 mt-1">
+                                    <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
+                                        <i class="mdi mdi-format-list-checks ms-1"></i>
+                                    </span>
+                                </div>
+                                <h6><small><a href="">Daily Work Progress Log</a></small></h6>
+                            </div>
 
-							<div class="col text-center">
-								<div class="avatar-sm mx-auto mb-3 mt-1">
-									<span class="avatar-title rounded-circle bg-success bg-soft text-primary font-size-16">
-										<i class="mdi mdi-check-box-multiple-outline ms-1"></i>
-									</span>
-								</div>
-								<h6><small><a href="">Work Completion Report</a></small></h6>
-							</div>
-							<div class="col text-center">
-								<div class="avatar-sm mx-auto mb-3 mt-1">
-									<span class="avatar-title rounded-circle bg-success bg-soft text-primary font-size-16">
-										<i class="mdi mdi-notebook-check ms-1"></i>
-									</span>
-								</div>
-								<h6><small><a href="">Work Done Report</a></small></h6>
-							</div>
-							<div class="col text-center">
-								<div class="avatar-sm mx-auto mb-3 mt-1">
-									<span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
-										<i class="mdi mdi-chart-areaspline ms-1"></i>
-									</span>
-								</div>
-								<h6><small><a href="">Work Completion Summary</a></small></h6>
-							</div>
+                            <div class="col text-center">
+                                <div class="avatar-sm mx-auto mb-3 mt-1">
+                                    <span class="avatar-title rounded-circle bg-success bg-soft text-primary font-size-16">
+                                        <i class="mdi mdi-check-box-multiple-outline ms-1"></i>
+                                    </span>
+                                </div>
+                                <h6><small><a href="">Work Completion Report</a></small></h6>
+                            </div>
+                            <div class="col text-center">
+                                <div class="avatar-sm mx-auto mb-3 mt-1">
+                                    <span class="avatar-title rounded-circle bg-success bg-soft text-primary font-size-16">
+                                        <i class="mdi mdi-notebook-check ms-1"></i>
+                                    </span>
+                                </div>
+                                <h6><small><a href="">Work Done Report</a></small></h6>
+                            </div>
+                            <div class="col text-center">
+                                <div class="avatar-sm mx-auto mb-3 mt-1">
+                                    <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
+                                        <i class="mdi mdi-chart-areaspline ms-1"></i>
+                                    </span>
+                                </div>
+                                <h6><small><a href="">Work Completion Summary</a></small></h6>
+                            </div>
 
-							<div class="col text-center">
-								<div class="avatar-sm mx-auto mb-3 mt-1">
-									<span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
-										<i class="mdi mdi-note-text-outline ms-1"></i>
-									</span>
-								</div>
-								<h6><small><a href="">AWO/VO Summary</a></small></h6>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                            <div class="col text-center">
+                                <div class="avatar-sm mx-auto mb-3 mt-1">
+                                    <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
+                                        <i class="mdi mdi-note-text-outline ms-1"></i>
+                                    </span>
+                                </div>
+                                <h6><small><a href="">AWO/VO Summary</a></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	</div>
-	<!-- container-fluid -->
+    </div>
+    <!-- container-fluid -->
 
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-	MMHE::Dashboard
+    MMHE::Dashboard
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-	Dashboard
+    Dashboard
+</asp:Content>
+<asp:Content ID="contentScript" ContentPlaceHolderID="Script" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            var options = {
+                chart: {
+                    height: 305,
+                    type: "bar",
+                    stacked: 0,
+                    toolbar: {
+                        show: !1
+                    },
+                    zoom: {
+                        enabled: !0
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "25%",
+                        endingShape: "rounded"
+                    }
+                },
+                dataLabels: {
+                    enabled: 1,
+                    position: 'top'
+                },
+                series: data,
+                xaxis: {
+                    categories: ["Original", "Variation", "Additional"]
+                },
+                colors: ["#556ee6", "#f1b44c", "#34c38f"],
+                legend: {
+                    position: "bottom"
+                },
+                fill: {
+                    opacity: 1
+                }
+            },
+         chart = new ApexCharts(document.querySelector("#stacked-column-chart-jcs"), options);
+            chart.render();
+        });
+    </script>
 </asp:Content>

@@ -9,6 +9,6 @@ namespace MMHE.MO.Business
 {
 	public static class ConnectionStringHelper
 	{
-		public static string MO { get { return ConfigurationManager.ConnectionStrings["ConnectionStringMO"].ConnectionString; } }
+        public static string MO { get { return ConfigurationManager.ConnectionStrings["MOV2"].ConnectionString; } }
 	}
 }

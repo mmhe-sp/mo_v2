@@ -120,43 +120,63 @@
                 <div class="mb-3 row">
                     <div class="col-sm-12">
                         <label class="form-label">Sequence No</label>
-                        <input class="form-control" type="text" placeholder="Sequence Number" value="">
+                        <input class="form-control" type="text" placeholder="Sequence Number" id="sequenceNo">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-sm-4">
+                    <div class="col">
                         <label class="form-label">Type</label>
-                        <select class="form-select resource" data-value="" onchange="updateWorkTitle(this)" id="ownerNo">
-                            <option disabled selected>Select Owner</option>
-                            
+                        <select class="form-select resource" data-value="" onchange="updateWorkTitle(this)" id="type">
+                            <option disabled selected>Select Type</option>
                         </select>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col">
                         <label class="form-label">Discipline</label>
                         <select class="form-select resource" data-value="" onchange="updateWBS(this)" id="discipline">
                             <option disabled selected>Select Discipline</option>
-                           
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-sm-4">
+                    <div class="col">
                         <label class="form-label">Owner No.</label>
-                        <input class="form-control" type="text" placeholder="Owner No." readonly value="">
+                        <input class="form-control" type="text" placeholder="Owner No." value="" id="ownerNo">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col">
                         <label class="form-label">Status</label>
-                        <select class="form-select resource" data-value="">
+                        <select class="form-select resource" data-value="" id="status">
                             <option disabled selected>Select Status</option>
-                           
                         </select>
                         
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">WBS</label>
+                        <select class="form-select resource" data-value="" id="wbs">
+                            <option disabled selected>Select Status</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <span id="wbsDesc"></span>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <div class="col-sm-12">
                         <label class="form-label">Work Title</label>
+                        <input class="form-control" type="text" placeholder="Work Title" value="">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-12">
+                        <label class="form-label">Remarks</label>
+                        <textarea class="form-control" placeholder="Remarks" id="remarks"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-12">
+                        <label class="form-label">Weightage</label>
                         <input class="form-control" type="text" placeholder="Work Title" value="">
                     </div>
                 </div>

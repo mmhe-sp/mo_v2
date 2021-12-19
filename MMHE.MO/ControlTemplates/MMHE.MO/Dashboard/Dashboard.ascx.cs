@@ -43,13 +43,12 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Dashboard
             List<string> jslStatus = gDetails.AsEnumerable().GroupBy(a => a.Field<string>("JSLStatus")).Select(a => a.Key).ToList();
             foreach (string value in jslStatus)
             {
-                var ActivityValueForO = gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Original").Sum(row => row.Field<int>("Count1"));
-                var ActivityValueForV = gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Variation").Sum(row => row.Field<int>("Count1"));
-                var ActivityValueForA = gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Additional").Sum(row => row.Field<int>("Count1"));
-
                 var count = statistics.Count(a => a.name.ToLower() == value.ToLower());
                 if (count <= 0)
-                    statistics.Add(new Statistics() { name = value, data = new List<int>() { ActivityValueForO, ActivityValueForV, ActivityValueForA } });
+                    statistics.Add(new Statistics() { name = value, data = new List<int>() { 
+                        gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Original").Sum(row => row.Field<int>("Count1"))
+                        , gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Variation").Sum(row => row.Field<int>("Count1")), 
+                    gDetails.AsEnumerable().Where(row => row.Field<string>("JSLStatus") == value).Where(row => row.Field<string>("ActivityType") == "Additional").Sum(row => row.Field<int>("Count1"))} });
             }
             tJSLStatistics.DataBind();
         }
