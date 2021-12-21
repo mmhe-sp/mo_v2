@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using MMHE.MO.Business;
 using MMHE.MO.Business.Repositories;
+using MMHE.MO.Helpers;
 using MMHE.MO.UI;
 using System;
 using System.Data;
@@ -27,7 +28,7 @@ namespace MMHE.MO.Controls.Reports
             catch (Exception ex)
             {
                 throw ex;
-            }            
+            }
         }
 
         //protected bool IsContinue() 
@@ -49,7 +50,7 @@ namespace MMHE.MO.Controls.Reports
 
         protected void btnComplete_Click(object sender, EventArgs e)
         {
-            string ownerNo = Request.QueryString["refno"];            
+            string ownerNo = Request.QueryString["refno"];
             var user = (Page as BasePage).LoggedInUser;
             bool result = false;// new WCRRepository().UpdateWCRStatus(user.Id.ToString(), ownerNo);
             if (result == true)
@@ -66,7 +67,7 @@ namespace MMHE.MO.Controls.Reports
                     "alert('Oops Somthing went wrong, please try again later!');",
                     true);
             }
-            
+
         }
 
         private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
@@ -143,7 +144,7 @@ namespace MMHE.MO.Controls.Reports
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
-                    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/WCRReportClientAllCancelled.rdlc";
+                    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "WCRReportClientAllCancelled.rdlc";
                 }
                 else if (Request.QueryString["CANCELLED"] == "ShipStaff")
                 {
@@ -151,7 +152,7 @@ namespace MMHE.MO.Controls.Reports
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
-                    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/WCRReportClientAllShipStaff.rdlc";
+                    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "WCRReportClientAllShipStaff.rdlc";
                 }
                 else if (Request.QueryString["CANCELLED"] == "OwnerArrange")
                 {
@@ -159,7 +160,7 @@ namespace MMHE.MO.Controls.Reports
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll));
 
-                    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/WCRReportClientAllOwnerArrange.rdlc";
+                    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "WCRReportClientAllOwnerArrange.rdlc";
                 }
                 else
                 {
@@ -170,7 +171,7 @@ namespace MMHE.MO.Controls.Reports
                     DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                     WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
 
-                    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/Report.rdlc";
+                    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "Report.rdlc";
                 }
 
             }
@@ -184,7 +185,7 @@ namespace MMHE.MO.Controls.Reports
             //    DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
             //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
-            //    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportWCRIndividual.rdlc";
+            //    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividual.rdlc";
             //}
             //else if (Request.QueryString["type"].Contains("Original"))
             //{
@@ -196,7 +197,7 @@ namespace MMHE.MO.Controls.Reports
             //    DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
             //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
-            //    WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportWCRIndividualOriginal.rdlc";
+            //    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividualOriginal.rdlc";
             //}
             else
             {
@@ -208,11 +209,11 @@ namespace MMHE.MO.Controls.Reports
                 DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
                 WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportClientWCR.rdlc";                
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportClientWCR.rdlc";
             }
             WDRSReport.LocalReport.EnableHyperlinks = true;
             WDRSReport.LocalReport.Refresh();
-        }       
+        }
 
         private DataSet GetWDRSReportDetailsAllCancelled(string ownerno, string jcsid, string dc, string date, string reprotType)
         {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using MMHE.MO.Business;
 using MMHE.MO.Business.Repositories;
+using MMHE.MO.Helpers;
 using MMHE.MO.UI;
 using System;
 using System.Data;
@@ -15,12 +16,12 @@ namespace MMHE.MO.Controls.Reports
 {
     public partial class IWR : UserControl
     {
-        public string JCSId {get;set;}
+        public string JCSId { get; set; }
         public string connStr = ConnectionStringHelper.MO;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             JCSId = Request.QueryString["id"];
             BindReport();
             //var user = (Page as BasePage).LoggedInUser;            
@@ -29,7 +30,7 @@ namespace MMHE.MO.Controls.Reports
 
         private void BindReport()
         {
-            
+
             PermissionSet permissions = new PermissionSet(PermissionState.None);
             permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
             permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
@@ -46,7 +47,7 @@ namespace MMHE.MO.Controls.Reports
             DataTable dtReportDetailsAll2 = WDRSReportDetailsAll2.Tables[0];
             IWRReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("MainScope", dtReportDetailsAll2));
 
-            IWRReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/IWRReport.rdlc";
+            IWRReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "IWRReport.rdlc";
 
             IWRReport.LocalReport.EnableHyperlinks = true;
             IWRReport.LocalReport.Refresh();
@@ -64,7 +65,7 @@ namespace MMHE.MO.Controls.Reports
                 connection = new SqlConnection(connStr);
                 connection.Open();
                 command.Connection = connection;
-                command.CommandType = CommandType.StoredProcedure;                
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@JCSID", jcsid);
 
                 command.CommandText = "[Sp_FetchIWRMainReport]";
@@ -77,7 +78,7 @@ namespace MMHE.MO.Controls.Reports
             {
             }
             return ds;
-        }        
+        }
 
         private DataSet GetWDRSReportDetailsMain(string jcsid)
         {
@@ -91,7 +92,7 @@ namespace MMHE.MO.Controls.Reports
                 connection = new SqlConnection(connStr);
                 connection.Open();
                 command.Connection = connection;
-                command.CommandType = CommandType.StoredProcedure;                
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@JCSID", jcsid);
                 command.CommandText = "Sp_FetchIWRSubReport";
                 adapter = new SqlDataAdapter(command);
@@ -105,6 +106,6 @@ namespace MMHE.MO.Controls.Reports
             return ds;
         }
 
-            
+
     }
 }

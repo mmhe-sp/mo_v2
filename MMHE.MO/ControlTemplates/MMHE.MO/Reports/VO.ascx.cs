@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using MMHE.MO.Business;
 using MMHE.MO.Business.Repositories;
+using MMHE.MO.Helpers;
 using MMHE.MO.UI;
 using System;
 using System.Data;
@@ -32,8 +33,8 @@ namespace MMHE.MO.Controls.Reports
 
         private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
         {
-            string jcsid = JCSId;            
-            
+            string jcsid = JCSId;
+
             DataSet WDRSReportDetailsAll = GetWDRSReportDetailsMain(jcsid);
             DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
@@ -58,7 +59,7 @@ namespace MMHE.MO.Controls.Reports
             DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
             AWOVOReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
 
-            AWOVOReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/AWOVOReport.rdlc";
+            AWOVOReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "AWOVOReport.rdlc";
 
             AWOVOReport.LocalReport.EnableHyperlinks = true;
             AWOVOReport.LocalReport.Refresh();
@@ -89,13 +90,13 @@ namespace MMHE.MO.Controls.Reports
             }
             return ds;
         }
-        
+
         private DataSet GetWDRSReportDetailsMainScope(string jcsid)
         {
             DataSet ds = new DataSet();
             try
             {
-                             
+
                 SqlConnection connection;
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
@@ -103,7 +104,7 @@ namespace MMHE.MO.Controls.Reports
                 connection = new SqlConnection(connStr);
                 connection.Open();
                 command.Connection = connection;
-                command.CommandType = CommandType.StoredProcedure;                
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@JCSID", jcsid);
                 command.CommandText = "Sp_FetchAWOVOScope";
                 adapter = new SqlDataAdapter(command);
@@ -117,7 +118,7 @@ namespace MMHE.MO.Controls.Reports
             return ds;
         }
 
-       
+
 
     }
 }

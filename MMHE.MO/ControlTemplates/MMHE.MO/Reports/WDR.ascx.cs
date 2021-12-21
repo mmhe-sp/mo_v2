@@ -19,6 +19,7 @@ using System.Security.Permissions;
 using Microsoft.SharePoint.Utilities;
 using System.Security;
 using Microsoft.Reporting.WebForms;
+using MMHE.MO.Helpers;
 
 namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 {
@@ -46,15 +47,15 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             WDRSReport.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
             if (reprotType == "Subcon")
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/Report.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "Report.rdlc";
             }
             else if (reprotType == "WDRSub")
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportSubconMain.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportSubconMain.rdlc";
             }
             else
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportClient.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportClient.rdlc";
             }
             WDRSReport.ProcessingMode = ProcessingMode.Local;
 

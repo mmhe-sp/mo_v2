@@ -20,6 +20,7 @@ using Microsoft.SharePoint.Utilities;
 using System.Security;
 using Microsoft.Reporting.WebForms;
 using MMHE.MO.Business;
+using MMHE.MO.Helpers;
 
 namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 {
@@ -27,11 +28,11 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
     {
         string connStr = ConnectionStringHelper.MO;
         string txtEndDate = DateTime.Now.ToString("dd/MM/yyyy");
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.WDRSReport.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing);
-            BindWDRReport();            
+            BindWDRReport();
         }
 
         private void BindWDRReport()
@@ -42,15 +43,15 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             WDRSReport.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
             if (Request.QueryString["type"] == "Subcon")
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/Report.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "Report.rdlc";
             }
             else if (Request.QueryString["type"] == "WDRSub")
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportSubconMain.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportSubconMain.rdlc";
             }
             else
             {
-                WDRSReport.LocalReport.ReportPath = "E:/Simbiotik/Sumeet/repo/mo_v2/MMHE.MO/Layouts/MMHE.MO/ReportClient.rdlc";
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportClient.rdlc";
             }
             WDRSReport.ProcessingMode = ProcessingMode.Local;
 
@@ -104,7 +105,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             }
             else
             {
-                WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"],txtEndDate, Request.QueryString["type"], Request.QueryString["ProjectID"]);
+                WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"], Request.QueryString["ProjectID"]);
                 dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
                 WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
             }
@@ -114,7 +115,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 
         private DataSet GetWDRSReportDetailsAll(string ownerno, string jcsid, string dc, string date, string reprotType, string ProjectID)
         {
-            DataSet ds = new DataSet();            
+            DataSet ds = new DataSet();
             try
             {
                 string adate = date.Split('/')[2] + "-" + date.Split('/')[1] + "-" + date.Split('/')[0];
@@ -213,7 +214,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
             DataSet dsIWRAdditionalDetailsAll = IWRAdditionalDetailsAll(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportIWRAdditionalDetailsAll = dsIWRAdditionalDetailsAll.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("IWRAdditional", dtReportIWRAdditionalDetailsAll));
-            
+
             DataSet WDRSReportMaterialSuppliedbyYard = GetWDRSReportAdditionalworks(jcsid, "MaterialSuppliedbyYard", vendor);
             DataTable dtReportMaterialSuppliedbyYard = WDRSReportMaterialSuppliedbyYard.Tables[0];
             e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet3", dtReportMaterialSuppliedbyYard));
