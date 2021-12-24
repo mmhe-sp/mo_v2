@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-12">
         <a href="wcr-list.aspx" class="btn btn-primary me-1" onclick="goBack()"><i class="mdi mdi-keyboard-backspace me-1"></i>Go Back</a>
-        <asp:Button runat="server" ID="btnComplete" Disabled="true" class="btn btn-primary me-1" OnClick="btnComplete_Click" OnClientClick="if (!confirm('Are you sure you want proceed?')) return false;" Text="Complete"></asp:Button>
+        <asp:Button runat="server" ID="btnComplete" class="btn btn-primary me-1" OnClick="btnComplete_Click" OnClientClick="if (!confirm('Are you sure you want proceed?')) return false;" Text="Complete"></asp:Button>
     </div>
 </div>
 
