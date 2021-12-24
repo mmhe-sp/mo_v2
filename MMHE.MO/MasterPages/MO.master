@@ -699,7 +699,7 @@
     </form>
     <asp:ContentPlaceHolder ID="PlaceHolderUtilityContent" runat="server" />
     <SharePoint:WarnOnUnsupportedBrowsers runat="server" />
-
+    <form id="export-excel" method="post" target="_self"></form>
     <!-- JAVASCRIPT -->
     <script src="../Style Library/assets/libs/jquery.min.js" type="text/javascript"></script>
     <script src="../Style Library/assets/libs/bootstrap.bundle.min.js" type="text/javascript"></script>

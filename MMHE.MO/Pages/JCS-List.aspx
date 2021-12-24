@@ -130,18 +130,19 @@
         }
         function exportJCS()
         {
-			var response = $.ajax({
-				method: "GET",
-				url: "jcs.asmx/Export",
-				dataType: "json",
-			}).done(function (d, status, headers)
-            {
-                var bytes = atob(d.Content);
-				saveAs(new Blob([bytes],
-					{
-					    type: 'application/vnd.ms-excel'
-					}), d.FileName);
-			});
+            $('#export-excel').attr('action', "bulkupload.asmx/ExportJCS").submit();
+			//var response = $.ajax({
+			//	method: "GET",
+			//	url: "jcs.asmx/Export",
+			//	dataType: "json",
+			//}).done(function (d, status, headers)
+            //{
+            //    var bytes = atob(d.Content);
+			//	saveAs(new Blob([bytes],
+			//		{
+			//		    type: 'application/vnd.ms-excel'
+			//		}), d.FileName);
+			//});
         }
 
         function uploadExcel()

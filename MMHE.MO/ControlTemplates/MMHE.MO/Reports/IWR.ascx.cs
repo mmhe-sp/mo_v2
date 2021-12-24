@@ -17,7 +17,7 @@ namespace MMHE.MO.Controls.Reports
     public partial class IWR : UserControl
     {
         public string JCSId { get; set; }
-        public string connStr = ConnectionStringHelper.MO;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace MMHE.MO.Controls.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -89,7 +89,7 @@ namespace MMHE.MO.Controls.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;

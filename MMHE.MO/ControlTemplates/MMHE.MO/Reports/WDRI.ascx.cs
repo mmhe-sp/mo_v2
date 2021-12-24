@@ -26,7 +26,6 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 {
     public partial class WDRI : UserControl
     {
-        string connStr = ConnectionStringHelper.MO;
         string txtEndDate = DateTime.Now.ToString("dd/MM/yyyy");
 
         protected void Page_Load(object sender, EventArgs e)
@@ -123,7 +122,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -288,7 +287,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -398,7 +397,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -495,7 +494,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -606,7 +605,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -717,7 +716,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -775,7 +774,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -862,7 +861,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;

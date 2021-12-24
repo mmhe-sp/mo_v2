@@ -28,6 +28,64 @@ namespace MMHE.MO.Services
         }
 
         [WebMethod]
+        public void ExportJCS()
+        {
+            // Prepare the response
+            HttpResponse httpResponse = Context.Response;
+            httpResponse.Clear();
+            httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + ("JCS_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx") + "\"");
+
+            DataTable dataTable = new JCSRepository().GetAll(LoggedInUser.ProjectId, LoggedInUser.Id);
+            dataTable.TableName = "JCS";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dataTable);
+                wb.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.General;
+                wb.Style.Font.Bold = false;
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    stream.WriteTo(httpResponse.OutputStream);
+                    stream.Close();
+                }
+            }
+
+            httpResponse.End();
+
+
+        }
+
+        [WebMethod]
+        public void ExportJSL()
+        {
+            // Prepare the response
+            HttpResponse httpResponse = Context.Response;
+            httpResponse.Clear();
+            httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + ("JSL_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx") + "\"");
+
+            DataTable dataTable = new JSLRepository().ExportJSL(LoggedInUser.ProjectId);
+            dataTable.TableName = "JSL";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dataTable);
+                wb.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.General;
+                wb.Style.Font.Bold = false;
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    stream.WriteTo(httpResponse.OutputStream);
+                    stream.Close();
+                }
+            }
+
+            httpResponse.End();
+
+
+        }
+
+        [WebMethod]
         public bool JSL()
         {
             HttpFileCollection files = HttpContext.Current.Request.Files;

@@ -20,12 +20,13 @@ using Microsoft.SharePoint.Utilities;
 using System.Security;
 using Microsoft.Reporting.WebForms;
 using MMHE.MO.Helpers;
+using MMHE.MO.Business;
 
 namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
 {
     public partial class WDR : UserControl
     {
-        string connStr = "server=MHB01VSQLDT01; database=MMHE.MO; User ID=apps_user;Password=P@ssw0rd;";
+        
         string txtEndDate = "";
         string jcsid = "b8ff0906-e53f-4748-9ec3-0adabc008568";
         string dc = "01";
@@ -128,7 +129,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -296,7 +297,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -406,7 +407,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -503,7 +504,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -614,7 +615,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -725,7 +726,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -783,7 +784,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
@@ -870,7 +871,7 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.Reports
                 SqlDataAdapter adapter;
                 SqlCommand command = new SqlCommand();
 
-                connection = new SqlConnection(connStr);
+                connection = new SqlConnection(ConnectionStringHelper.MO);
                 connection.Open();
                 command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;

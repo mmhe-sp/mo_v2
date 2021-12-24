@@ -232,5 +232,23 @@ namespace MMHE.MO.Business.Repositories
                 _con.Close();
             }
         }
+
+        public DataTable ExportJSL(string project)
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[1] = new SqlParameter("@ProjectNo", project);
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+            {
+                using (SqlCommand command = new SqlCommand("MO.ExportJSL", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddRange(parameters);
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                    sqlDataAdapter.Fill(table);
+                }
+            }
+            return table;
+        }
     }
 }
