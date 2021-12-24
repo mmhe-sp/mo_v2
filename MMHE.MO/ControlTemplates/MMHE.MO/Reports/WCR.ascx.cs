@@ -52,7 +52,7 @@ namespace MMHE.MO.Controls.Reports
         {
             string ownerNo = Request.QueryString["refno"];
             var user = (Page as BasePage).LoggedInUser;
-            bool result = false;// new WCRRepository().UpdateWCRStatus(user.Id.ToString(), ownerNo);
+            bool result = new WCRRepository().UpdateWCRStatus(user.Id.ToString(), ownerNo);
             if (result == true)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(),
@@ -112,21 +112,7 @@ namespace MMHE.MO.Controls.Reports
 
             DataSet WDRSReportDetailsAllAdditional = GetWDRSReportDetailsMainAdditional(ownerno, jcsid, dc, date, vendor, Request.QueryString["type"]);
             DataTable dtReportDetailsAllAdditional = WDRSReportDetailsAllAdditional.Tables[0];
-            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AdditionalScope", dtReportDetailsAllAdditional));
-
-
-            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dtReportDetailsAll));
-            //   WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dtReportDetailsAll));
-            DataSet WDRSReportAdditionalworks = GetWDRSReportAdditionalworks(jcsid, "Additionalworks");
-            DataTable dtReportAdditionalworks = WDRSReportAdditionalworks.Tables[0];
-            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", dtReportAdditionalworks));
-            DataSet WDRSReportMaterialSuppliedbyYard = GetWDRSReportAdditionalworks(jcsid, "MaterialSuppliedbyYard");
-            DataTable dtReportMaterialSuppliedbyYard = WDRSReportMaterialSuppliedbyYard.Tables[0];
-            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet3", dtReportMaterialSuppliedbyYard));
-
-            DataSet WDRSReportAccessories = GetWDRSReportAdditionalworks(jcsid, "Accessories");
-            DataTable dtReportAccessories = WDRSReportAccessories.Tables[0];
-            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet4", dtReportAccessories));
+            e.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("AdditionalScope", dtReportDetailsAllAdditional));            
 
         }
 
@@ -175,30 +161,32 @@ namespace MMHE.MO.Controls.Reports
                 }
 
             }
-            //else if (Request.QueryString["type"].Contains("Variation"))
-            //{
-            //    WDRSReport.ProcessingMode = ProcessingMode.Local;
-            //    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"]);
-            //    DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
-            //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
-            //    DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(Request.QueryString["jcsid"]);
-            //    DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
-            //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
+            else if (Request.QueryString["type"].Contains("Variation"))
+            {
+                WDRSReport.ProcessingMode = ProcessingMode.Local;
+                DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"]);
+                DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
+                WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
+                DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(Request.QueryString["jcsid"]);
+                DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
+                WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
-            //    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividual.rdlc";
-            //}
-            //else if (Request.QueryString["type"].Contains("Original"))
-            //{
-            //    WDRSReport.ProcessingMode = ProcessingMode.Local;
-            //    DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"]);
-            //    DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
-            //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
-            //    DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(Request.QueryString["jcsid"]);
-            //    DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
-            //    WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividual.rdlc";
+                btnComplete.Visible = false;
+            }
+            else if (Request.QueryString["type"].Contains("Original"))
+            {
+                WDRSReport.ProcessingMode = ProcessingMode.Local;
+                DataSet WDRSReportDetailsAll = GetWDRSReportDetailsAll(Request.QueryString["refno"], Request.QueryString["jcsid"], Request.QueryString["dc"], txtEndDate, Request.QueryString["type"]);
+                DataTable dtReportDetailsAll = WDRSReportDetailsAll.Tables[0];
+                WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("ReportDataSet", dtReportDetailsAll));
+                DataSet WDRSReportDetailsApproval = GetWCRSReportApprovals(Request.QueryString["jcsid"]);
+                DataTable dtReportDetailsApproval = WDRSReportDetailsApproval.Tables[0];
+                WDRSReport.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("Approval", dtReportDetailsApproval));
 
-            //    WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividualOriginal.rdlc";
-            //}
+                WDRSReport.LocalReport.ReportPath = AppSettingsHelper.ReportPath + "ReportWCRIndividualOriginal.rdlc";
+                btnComplete.Visible = false;
+            }
             else
             {
                 WDRSReport.ProcessingMode = ProcessingMode.Local;
