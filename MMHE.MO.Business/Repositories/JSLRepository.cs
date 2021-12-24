@@ -235,8 +235,8 @@ namespace MMHE.MO.Business.Repositories
 
         public DataTable ExportJSL(string project)
         {
-            SqlParameter[] parameters = new SqlParameter[3];
-            parameters[1] = new SqlParameter("@ProjectNo", project);
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@ProjectNo", project);
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
             {
