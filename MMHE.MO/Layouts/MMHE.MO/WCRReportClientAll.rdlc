@@ -724,7 +724,7 @@
             <Top>3.56161cm</Top>
             <Left>0.35961cm</Left>
             <Height>1.2cm</Height>
-            <Width>19.68362cm</Width>
+            <Width>19.68363cm</Width>
             <Visibility>
               <Hidden>=CountRows() = 0</Hidden>
             </Visibility>
@@ -958,14 +958,14 @@
                   </TablixMembers>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="SequenceOrder">
+                  <Group Name="SequenceNo1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!SequenceOrder.Value</GroupExpression>
+                      <GroupExpression>=Fields!SequenceNo.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!SequenceOrder.Value</Value>
+                      <Value>=Fields!SequenceNo.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
@@ -1072,7 +1072,7 @@
             <Top>0.96619cm</Top>
             <Left>0.35961cm</Left>
             <Height>1.30583cm</Height>
-            <Width>19.68362cm</Width>
+            <Width>19.68363cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
