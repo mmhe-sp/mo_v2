@@ -188,114 +188,6 @@
         <rd:TableAdapterName>Sp_FetchWDRSClient__________________________TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="DataSet2">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet43</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="Discipline">
-          <DataField>Discipline</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Units">
-          <DataField>Units</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Nag_work\MO\02022021\MarineRepairworkpack\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_GetWDRSAdditionalWorksJCSID</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_GetWDRSAdditionalWorksJCSIDTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet3">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet44</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="Discipline">
-          <DataField>Discipline</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Units">
-          <DataField>Units</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Nag_work\MO\02022021\MarineRepairworkpack\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_GetWDRSAdditionalWorksJCSID</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_GetWDRSAdditionalWorksJCSIDTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet4">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet45</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="Discipline">
-          <DataField>Discipline</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Units">
-          <DataField>Units</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Nag_work\MO\02022021\MarineRepairworkpack\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_GetWDRSAdditionalWorksJCSID</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_GetWDRSAdditionalWorksJCSIDTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="AdditionalScope">
       <Query>
         <DataSourceName>ID_MMHE_MODataSet46</DataSourceName>
@@ -392,146 +284,6 @@
         <rd:TableAdapterName>Sp_FetchWDRSClientAdditionalScopeTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="IWRMAIN">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet47</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="Discipline">
-          <DataField>Discipline</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Units">
-          <DataField>Units</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Nag_work\MO\02022021\MarineRepairworkpack\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_FetchWDRSIWRMainDetailsAll</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_FetchWDRSIWRMainDetailsAllTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="IWRAdditional">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet48</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="Discipline">
-          <DataField>Discipline</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Units">
-          <DataField>Units</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="AWO_VONO">
-          <DataField>AWO_VONO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="OwnerNo">
-          <DataField>OwnerNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Work_Title">
-          <DataField>Work_Title</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SubJobNo">
-          <DataField>SubJobNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Naga_Space\MO\MarineRepairworkpack\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_FetchWDRSIWRAdditionalDetailsAll</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_FetchWDRSIWRAdditionalDetailsAllTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Approvals">
-      <Query>
-        <DataSourceName>ID_MMHE_MODataSet49</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="tlApprovedBy">
-          <DataField>tlApprovedBy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tlApprovedDate">
-          <DataField>tlApprovedDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="tlcomments">
-          <DataField>tlcomments</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SubApprovedBy">
-          <DataField>SubApprovedBy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SubApprovedDate">
-          <DataField>SubApprovedDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SubComments">
-          <DataField>SubComments</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PSApprovedBy">
-          <DataField>PSApprovedBy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PSApprovedDate">
-          <DataField>PSApprovedDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PSComments">
-          <DataField>PSComments</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_MMHE_MODataSet4</rd:DataSetName>
-        <rd:SchemaPath>E:\Nag_work\MO\08032021_MO\MMHE.Work_Pack_MO\_MMHE_MODataSet4.xsd</rd:SchemaPath>
-        <rd:TableName>Sp_FetchWDRReport_Approval</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Sp_FetchWDRReport_ApprovalTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -541,7 +293,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.54372cm</Width>
+                  <Width>2.02117cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -648,7 +400,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.2045cm</Size>
+                    <Size>1.68195cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox114">
                         <CanGrow>true</CanGrow>
@@ -689,7 +441,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>1.97745cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox5">
                             <CanGrow>true</CanGrow>
@@ -730,7 +482,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>14.52561cm</Size>
+                            <Size>14.00306cm</Size>
                             <CellContents>
                               <Textbox Name="Textbox116">
                                 <CanGrow>true</CanGrow>
@@ -790,7 +542,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.2045cm</Size>
+                        <Size>1.68195cm</Size>
                         <CellContents>
                           <Textbox Name="SequenceNo1">
                             <CanGrow>true</CanGrow>
@@ -851,7 +603,7 @@
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>1.97745cm</Size>
                             <CellContents>
                               <Textbox Name="SequenceNo2">
                                 <CanGrow>true</CanGrow>
@@ -902,7 +654,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>14.52561cm</Size>
+                                <Size>14.00306cm</Size>
                                 <CellContents>
                                   <Textbox Name="Remarks1">
                                     <CanGrow>true</CanGrow>
@@ -972,7 +724,7 @@
             <Top>3.56161cm</Top>
             <Left>0.35961cm</Left>
             <Height>1.2cm</Height>
-            <Width>21.77383cm</Width>
+            <Width>19.68362cm</Width>
             <Visibility>
               <Hidden>=CountRows() = 0</Hidden>
             </Visibility>
@@ -1022,7 +774,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.54372cm</Width>
+                  <Width>2.04746cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1120,7 +872,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>3.87138cm</Size>
+                    <Size>3.26929cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox127">
                         <CanGrow>true</CanGrow>
@@ -1161,7 +913,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>14.96897cm</Size>
+                        <Size>14.36688cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox131">
                             <CanGrow>true</CanGrow>
@@ -1219,7 +971,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>3.87138cm</Size>
+                        <Size>3.26929cm</Size>
                         <CellContents>
                           <Textbox Name="SequenceNo">
                             <CanGrow>true</CanGrow>
@@ -1228,7 +980,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!SequenceOrder.Value</Value>
+                                    <Value>=Fields!SequenceNo.Value</Value>
                                     <Style>
                                       <FontFamily>Times New Roman</FontFamily>
                                     </Style>
@@ -1259,7 +1011,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>14.96897cm</Size>
+                            <Size>14.36688cm</Size>
                             <CellContents>
                               <Textbox Name="Remarks">
                                 <CanGrow>true</CanGrow>
@@ -1320,7 +1072,7 @@
             <Top>0.96619cm</Top>
             <Left>0.35961cm</Left>
             <Height>1.30583cm</Height>
-            <Width>21.38407cm</Width>
+            <Width>19.68362cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1364,14 +1116,14 @@
               <PaddingBottom>4pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox32">
+          <Textbox Name="Textbox33">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(Len(First(Fields!Activities.Value, "AdditionalScope")) &lt;= 0, "NIL", "")</Value>
+                    <Value>=Microsoft.VisualBasic.Interaction.IIF(Microsoft.VisualBasic.Strings.Len(First(Fields!AWO_VONO.Value, "AdditionalScope")) &lt;= 0, "NIL", "")</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1382,12 +1134,12 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>4.938cm</Top>
-            <Left>0.4151cm</Left>
+            <Left>0.35961cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>4</ZIndex>
             <Visibility>
-              <Hidden>=Microsoft.VisualBasic.Interaction.IIF(First(Fields!Activities.Value Is Nothing, "AdditionalScope"), False, True)</Hidden>
+              <Hidden>=Microsoft.VisualBasic.Interaction.IIF(First(Fields!Activities.Value Is Nothing, "AdditionalScope"), True, False)</Hidden>
             </Visibility>
             <Style>
               <Border>
