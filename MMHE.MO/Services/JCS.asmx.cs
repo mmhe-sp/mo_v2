@@ -16,9 +16,6 @@ namespace MMHE.MO.Services
     [ScriptService]
     public class JCS : BaseWebService
     {
-        
-
-
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

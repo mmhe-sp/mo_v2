@@ -163,5 +163,25 @@ namespace MMHE.MO.Business.Repositories
                 }
             }
         }
+
+        public DataTable Export(string project, string loggedInUser)
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@pProNo", project);
+            parameters[1] = new SqlParameter("@pEmpID", loggedInUser);
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.MO))
+            {
+                using (SqlCommand command = new SqlCommand("MO.ExportDWC", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddRange(parameters);
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                    sqlDataAdapter.Fill(table);
+                }
+            }
+            return table;
+        }
+    
     }
 }

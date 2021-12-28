@@ -30,43 +30,34 @@ namespace MMHE.MO.Services
         [WebMethod]
         public void ExportJCS()
         {
-            // Prepare the response
-            HttpResponse httpResponse = Context.Response;
-            httpResponse.Clear();
-            httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + ("JCS_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx") + "\"");
-
             DataTable dataTable = new JCSRepository().GetAll(LoggedInUser.ProjectId, LoggedInUser.Id);
-            dataTable.TableName = "JCS";
-            using (XLWorkbook wb = new XLWorkbook())
-            {
-                wb.Worksheets.Add(dataTable);
-                wb.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.General;
-                wb.Style.Font.Bold = false;
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    wb.SaveAs(stream);
-                    stream.WriteTo(httpResponse.OutputStream);
-                    stream.Close();
-                }
-            }
-
-            httpResponse.End();
-
+            Export("JCS_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", "JCS", dataTable);
 
         }
 
         [WebMethod]
         public void ExportJSL()
         {
+            DataTable dataTable = new JSLRepository().ExportJSL(LoggedInUser.ProjectId);
+            Export("JSL_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx","JSL",dataTable);
+        }
+
+        [WebMethod]
+        public void ExportDWC()
+        {
+            DataTable dataTable = new DWCRepository().Export(LoggedInUser.ProjectId, LoggedInUser.Id);
+            Export("DWC_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", "DWC", dataTable);
+        }
+
+        private void Export(string fileName, string tableName, DataTable dataTable)
+        {
             // Prepare the response
             HttpResponse httpResponse = Context.Response;
             httpResponse.Clear();
             httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + ("JSL_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx") + "\"");
+            httpResponse.AddHeader("content-disposition", "attachment;filename=\"" + fileName + "\"");
 
-            DataTable dataTable = new JSLRepository().ExportJSL(LoggedInUser.ProjectId);
-            dataTable.TableName = "JSL";
+           dataTable.TableName = tableName;
             using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dataTable);
@@ -81,8 +72,6 @@ namespace MMHE.MO.Services
             }
 
             httpResponse.End();
-
-
         }
 
         [WebMethod]

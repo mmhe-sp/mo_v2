@@ -42,8 +42,9 @@
                         </div>
                     </div>
                     <div class="col text-end">
-                        <button type="button" class="btn btn-primary me-1" onclick="verify()"><i class="mdi mdi-check-circle-outline me-1"></i>Subcon Verify</button>
-                        <button type="button" class="btn btn-primary me-1" onclick="saveProgress()"><i class="mdi mdi-floppy me-1"></i>Save</button>
+                        <button type="button" class="btn btn-primary btn-sm me-1" onclick="verify()"><i class="mdi mdi-check-circle-outline me-1"></i>Subcon Verify</button>
+                        <button type="button" class="btn btn-primary btn-sm me-1" onclick="saveProgress()"><i class="mdi mdi-floppy me-1"></i>Save</button>
+                        <button type="button" class="btn btn-primary btn-sm me-1" onclick="exportDWC()"><i class="mdi mdi-download-circle me-1"></i>Export</button>
                     </div>
                 </div>
                 <div class="row">
@@ -77,7 +78,7 @@
                                         <%=details.Key %>
                                     </td>
                                     <td class="bg-light text-center">
-                                       <span class="percentage font-weight-bold" />
+                                        <span class="percentage font-weight-bold" />
                                     </td>
                                     <td class="bg-light"></td>
                                     <td class="bg-light s-contractator"></td>
@@ -143,7 +144,7 @@
                                           {%>
                                         <div class="float-end" title="Subcon Verified">
                                             <span class="badge rounded-pill bg-success text-uppercase">
-                                                <i class="mdi mdi-check-circle-outline"></i> Subcon Verified
+                                                <i class="mdi mdi-check-circle-outline"></i>Subcon Verified
                                             </span>
                                         </div>
                                         <%} %>
@@ -182,7 +183,7 @@
                                           else
                                           { %>
                                         <div class="input-group">
-                                            <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" onchange="calculateJCSCompletion('<%=item.JCSID %>')" <%=activity.Status == 1?"readonly":"" %>/>
+                                            <input type="number" class="form-control form-control-sm percentage" min="0" max="100" step="1" maxlength="3" data-current="<%=activity.Completion %>" value="<%=activity.Completion %>" onchange="calculateJCSCompletion('<%=item.JCSID %>')" <%=activity.Status == 1?"readonly":"" %> />
                                             <span class="input-group-text">%</span>
                                         </div>
                                         <%} %>

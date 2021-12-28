@@ -265,12 +265,12 @@
             if (!model.StartDate || !model.EndDate)
             {
                 isValid = false;
-                dateVal.text = "Start Date and End Date are required.";
+                dateVal.text("Start Date and End Date are required.");
             }
             else if (parseDate(model.StartDate) > parseDate(model.EndDate))
             {
                 isValid = false;
-                dateVal.text = "Start Date should be less than or equal to End Date.";
+                dateVal.text("Start Date should be less than or equal to End Date.");
             }
             if (isValid == false)
                 return;

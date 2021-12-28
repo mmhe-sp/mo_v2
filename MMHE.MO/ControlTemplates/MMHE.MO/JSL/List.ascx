@@ -37,7 +37,7 @@
                         <asp:Repeater ID="jcsRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
+                                    <td style="width:40px"><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
                                         <label hidden id="backgroundcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "BackgroundColor") %></label>
                                         <label hidden id="fontcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "FontColor") %></label>

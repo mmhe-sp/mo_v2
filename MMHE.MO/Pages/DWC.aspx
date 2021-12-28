@@ -326,5 +326,10 @@
             if (jscTr)
                 jscTr.addClass('d-none');
         }
+
+        function exportDWC()
+        {
+            $('#export-excel').attr('action', "BulkUpload.asmx/ExportDWC").submit();
+        }
     </script>
 </asp:Content>
