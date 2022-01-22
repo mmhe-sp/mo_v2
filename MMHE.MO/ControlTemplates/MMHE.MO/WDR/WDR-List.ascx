@@ -7,6 +7,26 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WDR-List.ascx.cs" Inherits="MMHE.MO.ControlTemplates.MMHE.MO.WDR.WDR_List" %>
 <div class="row">
+    <div class="col text-start">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label class="col-form-label">Subcontractor:</label>
+            </div>
+            <div class="col-auto">
+                <%--<select class="form-select subcontractor" onchange="filterRowsByResource(this)" id="subContractor">
+                    <option value="0">All</option>
+                    <%foreach (var item in Resources)
+                      { %>
+                    <option value="<%=item.Value %>"><%=item.Text %></option>
+                    <%} %>
+                </select>
+                <span class="text-danger d-none subcontractor-req-msg">Please select Sub-Contractor.</span>--%>
+                <asp:DropDownList runat="server" ID="subContractor" OnSelectedIndexChanged="subContractor_SelectedIndexChanged" AutoPostBack="true">
+
+                </asp:DropDownList>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="row mt-3">
     <div class="col-12">

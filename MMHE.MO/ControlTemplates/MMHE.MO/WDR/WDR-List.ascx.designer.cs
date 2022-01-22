@@ -13,6 +13,15 @@ namespace MMHE.MO.ControlTemplates.MMHE.MO.WDR {
     public partial class WDR_List {
         
         /// <summary>
+        /// subContractor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList subContractor;
+        
+        /// <summary>
         /// rWDRSubmission control.
         /// </summary>
         /// <remarks>
