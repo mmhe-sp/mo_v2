@@ -30,6 +30,16 @@
                                 <div class="text-muted"><small>Remarks</small></div>
                             </th>
                             <th class="no-sort text-center" style="column-width: 120px;">Weightage</th>
+                            <th>AWO/VO No</th>
+                            <th>AWOVO Remarks</th>
+                            <th>Issued By</th>
+                            <th>Date Received PMT</th>
+                            <th>Date Submit To</th>
+                            <th>Date Received from Client</th>
+                            <th>Date DWC Completed</th>
+                            <th>Date WCR Plan</th>
+                            <th>Date WCR Act</th>
+                            <th>Date WCR Sign</th>
                             <th class="no-sort text-center" style="width: 20px"></th>
                         </tr>
                     </thead>
@@ -37,7 +47,7 @@
                         <asp:Repeater ID="jcsRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td style="width:40px"><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
+                                    <td style="width: 40px"><%# DataBinder.Eval(Container.DataItem, "SequenceNo") %></td>
                                     <td style="width: 130px; white-space: inherit; word-wrap: break-word !important;">
                                         <label hidden id="backgroundcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "BackgroundColor") %></label>
                                         <label hidden id="fontcolor+<%#DataBinder.Eval(Container.DataItem, "JSLID") %>"><%# DataBinder.Eval(Container.DataItem, "FontColor") %></label>
@@ -68,6 +78,17 @@
                                         </div>
 
                                     </td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "AWO_VONO") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "AWO_VORemarks") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "IssuedBy") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtRcvPMT",   "{0: dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtSubmitTo",  "{0: dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtRcvClient",  "{0: dd/MM/yyyy}") %></td>
+
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtDWC_Completed",  "{0: dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtWCRPlan",  "{0: dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtWCRAct",  "{0: dd/MM/yyyy}") %></td>
+                                    <td><%# DataBinder.Eval(Container.DataItem, "DtWCRSign",  "{0: dd/MM/yyyy}") %></td>
                                     <td style="width: 20px">
                                         <a href="javascript::void(0)"><i class="mdi mdi-circle-edit-outline"></i></a>
                                     </td>
@@ -148,7 +169,7 @@
                         <select class="form-select resource" data-value="" id="status">
                             <option disabled selected>Select Status</option>
                         </select>
-                        
+
                     </div>
                 </div>
                 <div class="row mb-3">
